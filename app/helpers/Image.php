@@ -9,7 +9,7 @@ class Image{
     }
 
     public static function store64($image, $name, $location = 'recipe_images'){
-        $path = public_path() . '\\' . $location . '\\' . $name;
+        $path = public_path() . '/' . $location . '/' . $name;
         file_put_contents($path, base64_decode($image));
     }
 }

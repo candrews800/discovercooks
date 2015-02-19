@@ -6,6 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div id="home-content" class="col-xs-12 col-lg-8 col-lg-offset-2">
+                @if(!$featured_recipes->isEmpty())
                 <div id="carousel-home" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
@@ -71,6 +72,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                @endif
             </div>
         </div>
     </div>

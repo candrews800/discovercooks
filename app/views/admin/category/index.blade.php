@@ -47,8 +47,9 @@
 <script>
     $('#create-category').click(function(){
         var name =  prompt('New Category Name');
-
-        $('#create-category-hidden').val(name);
-        $(this).parent().submit();
+        if(name != null){
+            $('#create-category-hidden').val(name);
+            $(this).parent().submit();
+        }
     });
 </script>

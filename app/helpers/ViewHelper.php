@@ -210,14 +210,16 @@ class ViewHelper
 
     public static function tileRecipes($recipes, $x = 288, $y = 162)
     {
+        if($recipes->isEmpty()){
+            return '';
+        }
+
         $response = 'style="background:';
 
         $offset = $x/2;
 
         $row = 0;
         $col = 0;
-
-        dd($recipes);
 
         while ($row < 50){
             foreach ($recipes as $key => $recipe) {

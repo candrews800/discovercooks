@@ -1,0 +1,82 @@
+@import '_variables';
+
+input[type=text], input[type=email], input[type=password], textarea{
+	margin: 0 0 15px 0;
+	padding: 8px 8px;
+	line-height: 1.3;
+
+	width: 100%;
+	
+	font-size: 16px !important;
+	
+	font-family: $paragraph-font !important;
+	
+	&::-webkit-input-placeholder {
+		font-style: italic;
+	}
+	
+	&:-moz-placeholder { /* Firefox 18- */
+		font-style: italic;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		font-style: italic;
+	}
+
+	&:-ms-input-placeholder {  
+		font-style: italic;
+	}
+}
+
+input{
+	outline-color: $primary-color;
+	color: $primary-color;
+}
+
+input[type=submit]:disabled {
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+  	cursor: not-allowed;
+}
+
+textarea:disabled{
+  	cursor: not-allowed;
+}
+
+form .input-error{
+  	font-family: $paragraph-font;
+  	color: $offset-color;
+  	font-size: 12px;
+
+  	& + input, & + select, & + textarea{
+	  	border: 2px solid $offset-color;
+	}
+}
+
+.input-label{
+  font-size: 16px;
+  font-weight: bold;
+  font-family: $non-heading-font;
+  color: $primary-color;
+}
+
+.radio-label{
+  display: block;
+  margin: 5px 0 5px 0;
+  font-size: 16px;
+  font-family: $paragraph-font;
+  color: $primary-color;
+}
+
+.invalid{
+  	border: 2px solid $offset-color !important;
+}
+
+select{
+  	margin-bottom: 15px !important;
+  	font-size: 16px !important;
+  	font-family: $paragraph-font !important;
+  	color: $primary-color;
+    background-color: white;
+
+}

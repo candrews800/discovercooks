@@ -1,0 +1,183 @@
+@import '_variables';
+
+.navbar-fixed-top{
+  border-bottom: 0;
+  .navbar-brand{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    img{
+      height: 20px;
+    }
+  }
+
+  input[type=text]{
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  li a{
+    color: white;
+    font-size: 18px;
+    font-family: $non-heading-font;
+    span{
+      font-style: italic;
+      color: $offset-color;
+    }
+  }
+
+  .dropdown-menu a{
+    color: $primary-color;
+    &:hover{
+      color: white;
+    }
+  }
+
+  li .menu-item:hover, .open>.menu-item, .open>.menu-item:active, .open>.menu-item:focus, li .menu-item:focus, li .menu-item:active{
+    outline: 0;
+    background-color: $offset-color;
+    span{
+      color: $primary-color;
+    }
+  }
+}
+
+#recipes-dropdown{
+  width: 700px;
+  position: relative;
+  .category{
+    float: left;
+    width: 25%;
+    z-index: 2;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    font-family: $non-heading-font;
+    &:hover{
+      background-color: $offset-color;
+    }
+  }
+  .recipes-dropdown-recipe{
+    background-color: white;
+    padding: 10px;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 100%;
+    padding-left: 25%;
+    img{
+      width: 100%;
+    }
+    h3 a{
+      font-family: $heading-font;
+      font-size: 24px;
+      font-weight: 100;
+      &:hover{
+        background-color: inherit;
+        color: $primary-color;
+      }
+    }
+    .recipes-author-dropdown{
+      color: $offset-color;
+      font-family: $paragraph-font;
+    }
+  }
+  &:hover{
+    li:first-child:not(:hover){
+      .category{
+         background-color: white;
+         color: $primary-color;
+      }
+    }
+  }
+
+  li:first-child, li:hover{
+    .category{
+      color: white;
+      background-color: $offset-color;
+    }
+
+    .recipes-dropdown-recipe{
+      display: block;
+    }
+  }
+}
+
+#user-avatar{
+  height: 18px;
+  width: auto;
+}
+
+.navbar-green{
+  background-color: $primary-color;
+  border-bottom: 1px solid #CC7852;
+
+  .navbar-toggle{
+    border-color: white;
+    .icon-bar{
+      background-color: white;
+    }
+    &:hover{
+      border-color: white;
+      background-color: white;
+      .icon-bar{
+        background-color: $primary-color;
+      }
+    }
+  }
+
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+
+@media (max-width: $screen-md-max) {
+
+}
+
+@media (max-width: $screen-sm-max) {
+  #navbar form{
+    margin-top: 10px;
+  }
+  #recipes-dropdown{
+    width: 100%;
+    &:hover{
+      li:first-child:not(:hover){
+        .category{
+          background-color: inherit;
+          color: white;
+        }
+      }
+    }
+
+    li:first-child, li:hover{
+      .category{
+        background-color: inherit;
+      }
+    }
+
+    a.category{
+      text-align: left !important;
+      width: 100%;
+      color: white;
+      font-size: 18px;
+      padding: 3px 20px 3px 20px;
+      text-transform: lowercase;
+      &:hover{
+        background-color: $offset-color;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .recipes-dropdown-recipe{
+      display: none !important;
+    }
+  }
+
+  .dropdown-menu a.menu-item{
+    color: white;
+  }
+}

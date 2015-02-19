@@ -1,0 +1,216 @@
+#header-wrap {
+  position: relative; }
+
+#header-wrap-bg {
+  overflow: hidden;
+  background-size: 288px 162px !important;
+  position: absolute;
+  opacity: 0.15;
+  width: 100%;
+  height: 100%; }
+
+#edit-recipe {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px; }
+  #edit-recipe .input-label, #edit-recipe .radio-label {
+    color: white;
+    font-weight: 100; }
+  #edit-recipe #description-char-left {
+    color: #999;
+    margin-bottom: 15px; }
+  #edit-recipe p {
+    color: white; }
+
+h1 {
+  width: 100%;
+  font-size: 20px;
+  text-shadow: none;
+  line-height: 30px;
+  margin: 15px 0;
+  font-family: "trajan-sans-pro", sans-serif;
+  color: white;
+  height: 30px; }
+  h1 span {
+    float: right;
+    font-size: 16px;
+    font-family: "georgia";
+    line-height: 30px; }
+
+input[type=text] {
+  border: 1px solid #ccc; }
+
+select {
+  width: 100%;
+  outline-color: #174c4f;
+  color: #174c4f;
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  padding: 8px 8px;
+  border: 1px solid #ccc; }
+  select option {
+    padding: 10px 0; }
+
+textarea {
+  width: 100%;
+  height: 130px;
+  outline-color: #174c4f;
+  color: #174c4f;
+  font-size: 16px;
+  margin: 0;
+  padding: 8px 8px;
+  border: 1px solid #ccc; }
+
+#recipe-image {
+  width: 320px;
+  height: 180px; }
+
+#image-crop {
+  width: 100%;
+  height: auto; }
+
+p {
+  color: white;
+  margin-bottom: 10px; }
+
+#edit-recipe-button {
+  margin: 20px 0;
+  font-size: 24px; }
+
+#add-ingredient, #add-directions {
+  width: 100%;
+  height: 38px;
+  color: white;
+  display: block;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0; }
+
+#recipe-directions {
+  height: 85px;
+  margin-bottom: 10px; }
+
+#ingredient-header {
+  margin-top: 25px; }
+
+#ingredient-list {
+  color: white;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: "georgia";
+  width: 100%;
+  text-align: center;
+  cursor: move;
+  margin-bottom: 20px; }
+  #ingredient-list span {
+    font-weight: 100;
+    width: 70%;
+    display: block;
+    margin-left: 15%;
+    word-wrap: break-word; }
+  #ingredient-list .helper span {
+    font-style: italic;
+    font-size: 16px; }
+  #ingredient-list a {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    color: white;
+    margin-left: 20px;
+    text-decoration: underline;
+    position: absolute;
+    top: 5px; }
+  #ingredient-list .ingredient-delete {
+    right: 10px; }
+  #ingredient-list .ingredient-edit {
+    right: 50px; }
+  #ingredient-list li {
+    width: 100%;
+    position: relative; }
+    #ingredient-list li:hover {
+      background-color: #333; }
+
+#directions-list {
+  list-style-type: decimal;
+  list-style-position: inside;
+  color: white;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: "georgia";
+  width: 100%;
+  text-align: center;
+  cursor: move;
+  font-weight: bold; }
+  #directions-list span {
+    font-weight: 100;
+    width: 70%;
+    display: block;
+    margin-left: 15%;
+    word-wrap: break-word; }
+  #directions-list .helper span {
+    font-style: italic;
+    font-size: 16px; }
+  #directions-list a {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    color: white;
+    margin-left: 20px;
+    text-decoration: underline;
+    position: absolute;
+    top: 5px; }
+  #directions-list .directions-delete {
+    right: 10px; }
+  #directions-list .directions-edit {
+    right: 50px; }
+  #directions-list li {
+    width: 100%;
+    position: relative;
+    padding: 5px; }
+    #directions-list li:hover {
+      background-color: #333; }
+
+.how-to-cook-header {
+  width: 100%;
+  text-align: center;
+  text-shadow: none;
+  color: white;
+  font-size: 30px;
+  font-family: "trajan-sans-pro", sans-serif; }
+
+@media (max-width: 767px) {
+  h1 {
+    text-align: center;
+    margin-bottom: 35px !important; }
+    h1 span {
+      float: none;
+      display: block; }
+
+  .how-to-cook-header {
+    text-align: left; }
+
+  #ingredient-list {
+    text-align: left;
+    font-size: 16px;
+    line-height: 40px; }
+    #ingredient-list span {
+      margin-left: 0; }
+    #ingredient-list .ingredient-delete {
+      right: 0px; }
+    #ingredient-list .ingredient-edit {
+      right: 40px; }
+
+  #directions-list {
+    text-align: left;
+    font-size: 16px; }
+    #directions-list span {
+      margin-left: 0; }
+    #directions-list .directions-delete {
+      right: 0px; }
+    #directions-list .directions-edit {
+      right: 40px; } }
+
+/*# sourceMappingURL=edit-recipe.css.map */

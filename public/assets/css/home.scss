@@ -1,0 +1,90 @@
+@import 'includes/_variables';
+//
+// Featured Recipes
+//
+
+
+.featured-author-img{
+  height: 75px;
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: -60px;
+}
+
+.featured-recipe-img{
+  	width: 100% !important;
+	height: auto;
+  	max-height: 540px;
+}
+
+.carousel-caption{
+  	background-color: rgba(0, 0, 0, .4);
+  	width: 100%;
+  	left: 0;
+  	bottom: 0;
+  	padding-bottom: 30px;
+
+
+  	h1 a{
+	  	color: white;
+	  	font-size: 30px;
+	}
+  	.author{
+	  	font-font: $paragraph-font;
+	  	color: #999;
+	  	a{
+		  color: $offset-color;
+		}
+	}
+}
+
+#home-content{
+  background-color: rgba(0,0,0,.7);
+  padding: 65px 30px;
+}
+
+#recipe-categories{
+    background-color: #fff;
+    padding-top: 65px;
+    padding-bottom: 50px;
+}
+
+.recipe-category{
+	img{
+		width: 100%;
+		height: auto;
+		margin-bottom: 8px;
+	}
+	
+	a{
+		color: $primary-color;
+		font-family: $paragraph-font;
+		width: 100%;
+		text-align: center;
+		font-style: italic;
+		font-size: 16px;
+		display: block;
+		margin-bottom: 12px;
+	}
+}
+
+@media (max-width: $screen-xs-max) {
+  .featured-author-img{
+    position: relative;
+  }
+
+  .carousel-caption{
+    position: relative;
+  }
+
+  #home-content{
+    padding: 65px 15px 20px 15px;
+  }
+  .featured-author-img{
+    display: none;
+  }
+}

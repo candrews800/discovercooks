@@ -1,0 +1,214 @@
+@import 'includes/_variables';
+
+#profile-wrap{
+    overflow:hidden;
+    background-size: 288px 162px !important;
+    position: absolute;
+    opacity: 0.25;
+    width: 100%;
+    height: 100%;
+}
+
+#profile{
+    padding: 0 0px 0 0px;
+    width: 100%;
+    opacity: 1;
+    position: relative;
+
+    #profile-header{
+        background-color: rgba(0,0,0,.7);
+        padding: 60px;
+        .avatar{
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        #recipe-stats{
+            margin-bottom: 15px;
+        }
+
+        h6{
+            color: white;
+            font-family: $non-heading-font;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        p{
+            color: white;
+            font-family: $paragraph-font;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 1.5;
+
+            img{
+                margin-top: -5px;
+                width: 15px;
+                height: 15px;
+            }
+
+            span{
+                color: $highlight-color;
+                font-size: 16px;
+                margin-left: 3px;
+                font-weight: bold;
+            }
+        }
+
+        h3{
+            font-family: $heading-font;
+            font-weight: 100;
+            font-size: 24px;
+            width: 100%;
+            margin-bottom: 15px;
+            a{
+                color: $offset-color;
+            }
+        }
+
+        ul{
+            list-style-type: none;
+            list-style-position: inside;
+            padding: 0;
+        }
+    }
+
+    #about-menu{
+        text-align: center;
+        color: white;
+        display: none;
+
+        .info{
+            padding: 8px 0;
+            font-family: $non-heading-font;
+            font-size: 16px;
+            background-color: $primary-color;
+            margin-bottom: 2px;
+        }
+        .glyphicon{
+            margin-top: 2px;
+            margin-right: 4px;
+        }
+    }
+
+    #about-menu-more{
+        text-align: center;
+        color: white;
+
+        font-family: $non-heading-font;
+
+        padding: 8px 0;
+        margin: 15px 0;
+        cursor: pointer;
+
+        .glyphicon{
+            margin-right: 4px;
+        }
+    }
+
+    .flat-button{
+        margin-bottom: 15px;
+    }
+}
+
+#profile-recipes{
+    padding-bottom: 45px;
+}
+
+#recent-reviews{
+    margin-top: 60px;
+    background-color: white;
+
+    h2{
+        padding: 2px 10px;
+        background-color: $primary-color;
+    }
+
+    .recipe-review{
+        padding: 10px;
+
+        img{
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 75px;
+            height: 75px;
+        }
+        p{
+            font-size: 14px;
+            a{
+                color: $secondary-color;
+                font-weight: bold;
+            }
+
+            &.recipe-review-date{
+                color: #999;
+                font-style: italic;
+                margin: 1px 0;
+            }
+        }
+    }
+
+    .review-divider{
+        width: 94%;
+        height: 1px;
+        margin: 0px 3%;
+        background-color: #ccc;
+    }
+}
+
+.more{
+    color: $secondary-color;
+}
+
+.view-all-recipes-reviews{
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: $secondary-color;
+    text-decoration: underline;
+    display: block;
+    font-family: $paragraph-font;
+}
+
+#my-reviews{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  #recent-reviews{
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  #search-results{
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #recent-reviews{
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  #search-results{
+    padding-bottom: 0;
+  }
+
+  .profile-stats-inline{
+    display: none;
+  }
+}
+
+@media (max-width: 991px){
+  #profile{
+    #profile-header{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}

@@ -1,0 +1,106 @@
+#about-menu {
+  padding: 0;
+  margin: 15px 0 0 0; }
+  #about-menu li {
+    width: 100%;
+    font-size: 18px;
+    font-family: "georgia";
+    position: relative;
+    padding: 0px 10px; }
+    #about-menu li a {
+      color: #174c4f;
+      display: block;
+      padding: 10px 0;
+      font-weight: bold; }
+    #about-menu li .left-fill {
+      display: none;
+      background-color: #174c4f;
+      width: 15px; }
+  #about-menu li:hover, #about-menu .active {
+    background-color: #174c4f; }
+    #about-menu li:hover a, #about-menu .active a {
+      color: white;
+      text-decoration: none; }
+    #about-menu li:hover .left-fill, #about-menu .active .left-fill {
+      display: block; }
+
+#about-content {
+  margin: 15px 0 0 0;
+  color: #174c4f;
+  width: 100%;
+  text-align: center;
+  padding: 0 50px; }
+  #about-content h1 {
+    font-size: 30px;
+    margin-bottom: 20px; }
+  #about-content p {
+    margin-bottom: 30px;
+    font-size: 18px; }
+
+#contact {
+  margin: 15px 0 0 0; }
+  #contact h1 {
+    font-size: 30px;
+    margin-bottom: 20px; }
+  #contact label {
+    font-size: 18px;
+    font-family: "georgia";
+    font-weight: bold;
+    color: #174c4f; }
+  #contact input[type=text], #contact input[type=email] {
+    width: 100%; }
+  #contact textarea {
+    height: 150px;
+    outline-color: #174c4f;
+    width: 100%; }
+  #contact .button {
+    float: right; }
+
+#not-found {
+  text-align: center; }
+  #not-found h1 {
+    width: 100%;
+    font-size: 30px;
+    margin: 30px 0 20px 0;
+    color: #174c4f; }
+  #not-found p {
+    width: 100%;
+    font-size: 18px;
+    color: #174c4f; }
+  #not-found a {
+    color: #174c4f;
+    text-decoration: underline; }
+
+#terms-and-conditions h1 {
+  width: 100%;
+  font-size: 30px;
+  margin: 0px 0 20px 0;
+  color: #174c4f; }
+#terms-and-conditions h5 {
+  color: #174c4f;
+  font-size: 16px;
+  font-family: "georgia";
+  font-weight: bold;
+  padding: 0;
+  margin: 15px 0; }
+#terms-and-conditions p {
+  width: 100%;
+  font-size: 16px;
+  color: #174c4f; }
+
+@media (max-width: 991px) {
+  #about-menu {
+    margin: 0; }
+
+  #about-content {
+    margin: 0;
+    padding: 0; }
+    #about-content h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      width: 100%; }
+    #about-content p {
+      margin-bottom: 30px;
+      font-size: 16px; } }
+
+/*# sourceMappingURL=about.css.map */

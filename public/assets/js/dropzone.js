@@ -1,0 +1,3 @@
+$('.dropzone').html5imageupload({
+
+});

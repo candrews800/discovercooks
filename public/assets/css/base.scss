@@ -1,0 +1,21 @@
+@import 'includes/_essentials';
+
+body{
+	//background: url('../img/polaroid.png');
+    background-color: #222;
+}
+
+.content{
+  border: 1px solid #174c4f;
+  border-bottom: 0;
+  background-color: white;
+  padding-top: 20px;
+}
+
+.content-home{
+  border: 1px solid #174c4f;
+  border-bottom: 0;
+  background-color: white;
+
+  margin-top: 35px;
+}

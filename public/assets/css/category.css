@@ -1,0 +1,48 @@
+.featured-author-img {
+  height: 75px;
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: -60px; }
+
+.featured-recipe-img {
+  width: 100% !important;
+  height: auto;
+  max-height: 540px; }
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 30px; }
+  .carousel-caption h1 a {
+    color: white;
+    font-size: 30px; }
+  .carousel-caption .author {
+    font-font: "georgia";
+    color: #999; }
+    .carousel-caption .author a {
+      color: #ff9666; }
+
+#home-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 65px 30px; }
+
+@media (max-width: 767px) {
+  .featured-author-img {
+    position: relative; }
+
+  .carousel-caption {
+    position: relative; }
+
+  #home-content {
+    padding: 65px 15px 20px 15px; }
+
+  .featured-author-img {
+    display: none; } }
+
+/*# sourceMappingURL=category.css.map */

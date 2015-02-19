@@ -217,6 +217,8 @@ class ViewHelper
         $row = 0;
         $col = 0;
 
+        dd($recipes);
+
         while ($row < 50){
             foreach ($recipes as $key => $recipe) {
                 $response .= 'url(\'' . url(self::getRecipeImage($recipe->image)) . '\') no-repeat ' . ($col * $x - $offset) . 'px ' . $row * $y . 'px,';

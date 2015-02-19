@@ -96,30 +96,6 @@
                             </a>
                         </div>
                     @endforeach
-                        @foreach($categories as $category)
-                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                                <a href="{{ url('category/'.$category->name) }}">
-                                    <img src="{{ url('category_images/'.$category->image) }}" />
-                                    {{ $category->name }}
-                                </a>
-                            </div>
-                        @endforeach
-                        @foreach($categories as $category)
-                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                                <a href="{{ url('category/'.$category->name) }}">
-                                    <img src="{{ url('category_images/'.$category->image) }}" />
-                                    {{ $category->name }}
-                                </a>
-                            </div>
-                        @endforeach
-                        @foreach($categories as $category)
-                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                                <a href="{{ url('category/'.$category->name) }}">
-                                    <img src="{{ url('category_images/'.$category->image) }}" />
-                                    {{ $category->name }}
-                                </a>
-                            </div>
-                        @endforeach
                 </div>
             </div>
         </div>

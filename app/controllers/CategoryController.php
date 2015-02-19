@@ -68,8 +68,12 @@ class CategoryController extends BaseController {
             App::abort(404);
         }
 
-        $featured_recipe = Recipe::find($category->related_recipe_id);
-        $featured_recipe->author = User::find($featured_recipe->author_id);
+
+        $featured_recipe = '';
+        if($category->related_recipe_id != 0){
+            $featured_recipe = Recipe::find($category->related_recipe_id);
+            $featured_recipe->author = User::find($featured_recipe->author_id);
+        }
 
         $orderBy = 'overall_rating';
         if(Input::get('sort') == 'new'){

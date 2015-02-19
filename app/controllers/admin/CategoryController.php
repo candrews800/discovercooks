@@ -37,7 +37,9 @@ class CategoryController extends \BaseController {
         $category = \Category::where('name', '=', $category)->first();
 
         $category->name = $input['name'];
-        $category->related_recipe_id = $input['related_recipe_id'];
+        if($input['related_recipe_id']){
+            $category->related_recipe_id = $input['related_recipe_id'];
+        }
 
         if (isset($input['category_image_values'])){
             $image_data = \Image::getFrom64($input['category_image_values']);

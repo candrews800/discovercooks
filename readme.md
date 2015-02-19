@@ -256,57 +256,27 @@ TO DO:
     		*DONE* Edit Review Stars Highlight Not Working
     		*DONE* Recipe/New goes to 404
 
+    Add Site To discovercooks.com
+        *DONE* Install Apache/PHP/MySQL
+        *DONE* Install FTP
+        *DONE* Install Git
+        *DONE* Install Composer
 
-    Test and Fix New User Links
-    	Profile
-    	Recipes
-    	Reviews
-    	Single Recipe
-    	Cookbook
+        *DONE* Set up apache virtual host
+        *DONE* Set up mysql
 
-    Create List of Things to Test:
-        Make New User on Desktop
-        Make New Recipe on Desktop
-        Add/Change Images
-        Add/Change Review
-        Add/Change Helpful Review
-        Save/Unsave Recipe
-        Search for Recipe/User
-        Login Existing User
-        Logout
+        *DONE* Init Git on Local site
+        *DONE* Add ignore list
+        *DONE* Commit Git on Local
+        *DONE* Install From Git
 
-        Repeat for iPad wide
-        Repeat for iPad portrait
-        Repeat for iPhone wide
-        Repeat for iPhone portait
+        *DONE* composer autoload
+        *DONE* php artisan
+
+    Create Category List
+    Create Recipes for each Category
 
     Stricter Validation
-
-    Add Site To discovercooks.com
-        Install Apache/PHP/MySQL
-        Install FTP
-        Install Git
-        Install Composer
-
-        Set up apache virtual host
-        Set up mysql
-
-
-        Init Git on Local site
-        Add ignore list
-        Commit Git on Local
-        Install From Git
-
-
-
-        composer autoload
-        php artisan
-
-
-    Develop Procedures to deploy site.
-    Make a Staging Site
-
-    Create List of Smaller Design Ideas
 
     SECURITY:
         Private Should not show up except for user

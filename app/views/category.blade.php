@@ -7,6 +7,7 @@
         <div class="row">
             <div id="home-content" class="col-xs-12 col-lg-8 col-lg-offset-2">
                 {{ ViewHelper::getBreadcrumbs(null, ucfirst($category->name).' Recipes') }}
+                @if($category->related_recipe_id != 0)
                 <div class="row">
                     <div class="col-xs-12">
                         <div id="carousel-home" class="carousel slide" data-ride="carousel">
@@ -26,6 +27,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

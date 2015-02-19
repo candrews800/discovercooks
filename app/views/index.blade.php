@@ -89,12 +89,14 @@
             <div id="recipe-categories" class="col-xs-12">
                 <div class="row recipe-category">
                     @foreach($categories as $category)
+                        @if($category->related_recipe_id != 0)
                         <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
                             <a href="{{ url('category/'.$category->name) }}">
                                 <img src="{{ url('category_images/'.$category->image) }}" />
                                 {{ $category->name }}
                             </a>
                         </div>
+                        @endif
                     @endforeach
                 </div>
             </div>

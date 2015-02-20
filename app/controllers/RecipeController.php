@@ -97,6 +97,11 @@ class RecipeController extends BaseController {
     }
 
     public function show(Recipe $recipe){
+        // Recipe Privacy Check
+        if($recipe->private && $recipe->author_id != Auth::id()){
+            return App::abort(404);
+        }
+
         if(!Auth::guest()){
             $recipe->isSaved = Auth::user()->hasRecipe($recipe->id);
         }

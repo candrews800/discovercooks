@@ -14,7 +14,11 @@ class CategoryController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::orderBy($orderBy, 'desc')->take(8)->get();
+        $recipes = Recipe::where(function($query){
+            $query->where('private', '=', 0)
+                ->orWhere('author_id', '=', Auth::id());
+            })
+            ->orderBy($orderBy, 'desc')->take(8)->get();
         $total_recipes = Recipe::orderBy($orderBy, 'desc')->count();
 
         foreach($recipes as $recipe){
@@ -46,7 +50,11 @@ class CategoryController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+        $recipes = Recipe::where(function($query){
+            $query->where('private', '=', 0)
+                ->orWhere('author_id', '=', Auth::id());
+            })
+            ->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
 
         $response = '';
 
@@ -83,7 +91,13 @@ class CategoryController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::where('category', '=', $category->id)->orderBy($orderBy, 'desc')->take(8)->get();
+        $recipes = Recipe::where('category', '=', $category->id)
+            ->where(function($query){
+                $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->orderBy($orderBy, 'desc')
+            ->take(8)->get();
         $total_recipes = Recipe::where('category', '=', $category->id)->count();
 
         foreach($recipes as $recipe){
@@ -113,7 +127,13 @@ class CategoryController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::where('category', '=', $category->id)->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+        $recipes = Recipe::where('category', '=', $category->id)
+            ->where(function($query){
+                $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->orderBy($orderBy, 'desc')
+            ->skip($skip_amount)->take(8)->get();
 
         $response = '';
 

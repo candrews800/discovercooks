@@ -25,7 +25,12 @@ class HomeController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::orderBy($orderBy, 'desc')->take(8)->get();
+        $recipes = Recipe::orderBy($orderBy, 'desc')
+            ->where(function($query){
+                $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->take(8)->get();
         $total_recipes = Recipe::count();
 
         foreach($recipes as $recipe){
@@ -54,7 +59,12 @@ class HomeController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+        $recipes = Recipe::orderBy($orderBy, 'desc')
+            ->where(function($query){
+                $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->skip($skip_amount)->take(8)->get();
 
         $response = '';
 

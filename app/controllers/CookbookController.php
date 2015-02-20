@@ -18,11 +18,23 @@ class CookbookController extends BaseController {
         if($user->subscribed_recipes){
             $recipe_list = explode(' ', trim($user->subscribed_recipes));
             if(isset($category->id)){
-                $recipes = Recipe::whereIn('id', $recipe_list)->where('category', '=', $category->id)->orderBy($orderBy, 'desc')->take(8)->get();
+                $recipes = Recipe::whereIn('id', $recipe_list)
+                    ->where('category', '=', $category->id)
+                    ->where(function($query){
+                        $query->where('private', '=', 0)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
+                    ->orderBy($orderBy, 'desc')
+                    ->take(8)->get();
                 $total_subscribed = Recipe::whereIn('id', $recipe_list)->where('category', '=', $category->id)->count();
             }
             else{
-                $recipes = Recipe::whereIn('id', $recipe_list)->orderBy($orderBy, 'desc')->take(8)->get();
+                $recipes = Recipe::whereIn('id', $recipe_list)
+                    ->where(function($query){
+                        $query->where('private', '=', 0)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
+                    ->orderBy($orderBy, 'desc')->take(8)->get();
                 $total_subscribed = Recipe::whereIn('id', $recipe_list)->count();
             }
 
@@ -70,10 +82,23 @@ class CookbookController extends BaseController {
         if($user->subscribed_recipes){
             $recipe_list = explode(' ', trim($user->subscribed_recipes));
             if(isset($category->id)) {
-                $recipes = Recipe::whereIn('id', $recipe_list)->where('category', '=', $category->id)->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+                $recipes = Recipe::whereIn('id', $recipe_list)
+                    ->where('category', '=', $category->id)
+                    ->where(function($query){
+                        $query->where('private', '=', 0)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
+                    ->orderBy($orderBy, 'desc')
+                    ->skip($skip_amount)->take(8)->get();
             }
             else{
-                $recipes = Recipe::whereIn('id', $recipe_list)->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+                $recipes = Recipe::whereIn('id', $recipe_list)
+                    ->where(function($query){
+                        $query->where('private', '=', 0)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
+                    ->orderBy($orderBy, 'desc')
+                    ->skip($skip_amount)->take(8)->get();
             }
             foreach($recipes as $recipe){
                 $recipe->category = Category::find($recipe->category);

@@ -1,7 +1,7 @@
 <?php $css="single-recipe"; ?>
 
 @include('layout.header')
-
+{{ dd('t') }}
 <div id="header-wrap">
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($related_recipes) }}></div>
     <div class="container-fluid">

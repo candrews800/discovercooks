@@ -2,8 +2,24 @@
 
 class ProfileController extends BaseController {
 
-    public function doEdit(User $user){
+    public function changePicture(User $user){
+        $input = Input::all();
+        if (isset($input['data'])){
+            $image_data = Image::getFrom64($input['data']);
+            $user->image = $user->username . '.' . $image_data['extension'];
+            Image::store64($image_data['data'], $user->image, 'user_images');
+        }
 
+        $user->save();
+
+        return Response::json(array(
+           'status' => 'success',
+            'url' => url('/user_images/'.$user->image),
+            'filename' => $user->image
+        ));
+    }
+
+    public function doEdit(User $user){
         $input = Input::all();
         $rules = array(
             'username' =>   'required|min:3|unique:users,username,'.$user->id,
@@ -45,10 +61,23 @@ class ProfileController extends BaseController {
         }
 
         if(isset($category)){
-            $recipes = Recipe::where('author_id', '=', $user->id)->where('category', '=', $category->id)->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+            $recipes = Recipe::where('author_id', '=', $user->id)
+                ->where('category', '=', $category->id)
+                ->where(function($query){
+                    $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->orderBy($orderBy, 'desc')
+                ->skip($skip_amount)->take(8)->get();
         }
         else{
-            $recipes = Recipe::where('author_id', '=', $user->id)->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+            $recipes = Recipe::where('author_id', '=', $user->id)
+                ->where(function($query){
+                    $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->orderBy($orderBy, 'desc')
+                ->skip($skip_amount)->take(8)->get();
         }
 
         $response = '';
@@ -81,7 +110,13 @@ class ProfileController extends BaseController {
     }
 
     public function show(User $user){
-        $recipes = Recipe::where('author_id', '=', $user->id)->orderBy('overall_rating', 'desc')->take(3)->get();
+        $recipes = Recipe::where('author_id', '=', $user->id)
+            ->where(function($query){
+                $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->orderBy('overall_rating', 'desc')
+            ->take(3)->get();
         foreach($recipes as $recipe){
             $recipe->user = User::find($recipe->author_id);
             $recipe->category = Category::find($recipe->category);
@@ -136,11 +171,24 @@ class ProfileController extends BaseController {
         }
 
         if(isset($category)){
-            $recipes = Recipe::where('author_id', '=', $user->id)->where('category', '=', $category->id)->orderBy($orderBy, 'desc')->take(8)->get();
+            $recipes = Recipe::where('author_id', '=', $user->id)
+                ->where('category', '=', $category->id)
+                ->where(function($query){
+                    $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->orderBy($orderBy, 'desc')
+                ->take(8)->get();
             $total_recipes = Recipe::where('author_id', '=', $user->id)->where('category', '=', $category->id)->count();
         }
         else{
-            $recipes = Recipe::where('author_id', '=', $user->id)->orderBy($orderBy, 'desc')->take(8)->get();
+            $recipes = Recipe::where('author_id', '=', $user->id)
+                ->where(function($query){
+                    $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->orderBy($orderBy, 'desc')
+                ->take(8)->get();
             $total_recipes = Recipe::where('author_id', '=', $user->id)->count();
         }
 

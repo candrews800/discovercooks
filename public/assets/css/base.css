@@ -672,35 +672,110 @@ footer .main-menu ul {
     line-height: 14px; }
   #search-results .upper-menu {
     background-color: #174c4f;
-    padding: 8px 5px 18px 5px;
+    padding: 18px 5px 18px 5px;
     position: relative; }
     #search-results .upper-menu .subscriber_count {
       position: absolute;
-      top: -26px;
-      left: 10px; }
-      #search-results .upper-menu .subscriber_count:hover, #search-results .upper-menu .subscriber_count.saved {
-        cursor: pointer; }
-        #search-results .upper-menu .subscriber_count:hover .heart, #search-results .upper-menu .subscriber_count.saved .heart {
-          color: red; }
-      #search-results .upper-menu .subscriber_count .heart {
-        color: #999;
-        font-size: 34px;
-        float: left;
-        position: relative;
-        z-index: 1; }
+      top: -45px;
+      left: 10px;
+      width: 66px;
+      cursor: pointer;
+            /*
+
+            &.saved{
+              .heart{
+              color: red;
+              }
+            }
+
+            .heart{
+              color: $bg-color;
+              font-size: 54px;
+              float: left;
+              position: relative;
+              z-index: 1;
+            }
+            .num{
+              float: left;
+              background-color: transparent;
+              color: $primary-color;
+              margin-left: -35px;
+              margin-top: 10px;
+              font-size: 16px;
+              position: relative;
+              z-index: 100;
+              padding: 0px 4px;
+              border-radius: 4px;
+              font-family: $paragraph-font;
+              font-weight: bold;
+            }
+            .save-button{
+              float: left;
+              background-color: $offset-color;
+              border-bottom: 3px solid #A36042;
+
+              color: white;
+              margin-left: -10px;
+              margin-top: 24px;
+              font-size: 18px;
+              position: relative;
+              z-index: 100;
+              font-weight: bold;
+              padding: 0px 8px;
+              font-family: $non-heading-font;
+              cursor: pointer;
+
+              &:hover{
+                background-color: #A36042;
+              }
+            }
+            &.saved .save-button{
+              background-color: #A36042;
+            }
+            */ }
+      #search-results .upper-menu .subscriber_count .overall-bg {
+        position: absolute;
+        left: 50%;
+        margin-left: -33px;
+        width: 66px;
+        z-index: 2; }
+        #search-results .upper-menu .subscriber_count .overall-bg .heart {
+          color: transparent;
+          font-size: 66px; }
+      #search-results .upper-menu .subscriber_count .save-button {
+        position: absolute;
+        left: 50%;
+        top: 33px;
+        margin-left: -27px;
+        width: 60px;
+        text-align: center;
+        font-family: "proxima-nova", sans-serif;
+        background-color: #ff9666;
+        border-bottom: 3px solid #A36042;
+        color: white;
+        font-weight: bold;
+        z-index: 3;
+        padding: 0px 8px; }
       #search-results .upper-menu .subscriber_count .num {
-        float: left;
+        position: absolute;
         background-color: white;
+        left: 50%;
+        top: 14px;
+        margin-left: -27px;
+        width: 60px;
+        font-family: "proxima-nova", sans-serif;
+        text-align: center;
         color: #174c4f;
-        margin-left: -5px;
-        margin-top: 10px;
-        font-size: 16px;
-        position: relative;
-        z-index: 100;
-        padding: 0px 4px;
-        border-radius: 4px;
-        font-family: "georgia";
-        font-weight: bold; }
+        font-weight: bold;
+        z-index: 3; }
+      #search-results .upper-menu .subscriber_count.saved .overall-bg .heart, #search-results .upper-menu .subscriber_count:hover .overall-bg .heart {
+        color: #ff9666; }
+      #search-results .upper-menu .subscriber_count.saved .num, #search-results .upper-menu .subscriber_count:hover .num {
+        color: white;
+        background-color: transparent; }
+      #search-results .upper-menu .subscriber_count.saved .save-button, #search-results .upper-menu .subscriber_count:hover .save-button {
+        background-color: #207178;
+        border-color: transparent; }
   #search-results .lower-menu {
     background-color: white;
     padding: 5px; }

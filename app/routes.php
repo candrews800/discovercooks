@@ -72,6 +72,7 @@ Route::group(array('prefix' => 'profile'), function(){
     Route::post('/{user}/deleteImage', array('before' => 'auth|matches_logged_in', 'uses' => 'ProfileController@deleteImage'));
 
     Route::post('/{user}/edit', array('before' => 'auth|csrf|matches_logged_in', 'uses' => 'ProfileController@doEdit'));
+    Route::post('/{user}/editPicture', array('before' => 'auth|matches_logged_in', 'uses' => 'ProfileController@changePicture'));
 });
 
 // Cookbook routes

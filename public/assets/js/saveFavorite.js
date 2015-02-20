@@ -9,6 +9,7 @@ $('.subscriber_count').click(function(){
             var num = parseInt($(clicked).find('.num').text()) - 1;
             $(clicked).find('.num').text(num);
             $(clicked).removeClass('saved');
+            $(clicked).find('save-buttpm').text('Save');
         });
     }
     else{
@@ -19,6 +20,7 @@ $('.subscriber_count').click(function(){
             var num = parseInt($(clicked).find('.num').text()) + 1;
             $(clicked).find('.num').text(num);
             $(clicked).addClass('saved');
+            $(clicked).find('save-buttpm').text('Saved');
         });
     }
 });

@@ -388,33 +388,94 @@
 
     .upper-menu{
         background-color: $primary-color;
-        padding: 8px 5px 18px 5px;
+        padding: 18px 5px 18px 5px;
         position: relative;
 
         .subscriber_count{
             position: absolute;
-            top: -26px;
+            top: -45px;
             left: 10px;
+            width: 66px;
+            cursor: pointer;
 
-            &:hover, &.saved{
-              cursor: pointer;
+            .overall-bg{
+              position: absolute;
+              left:50%;
+              margin-left:-33px;
+              width: 66px;
+                z-index: 2;
+                .heart{
+                  color: transparent;
+                  font-size: 66px;
+                }
+            }
+
+            .save-button{
+              position: absolute;
+              left:50%;
+              top: 33px;
+              margin-left:-27px;
+              width: 60px;
+              text-align: center;
+
+              font-family: $non-heading-font;
+              background-color: $offset-color;
+              border-bottom: 3px solid #A36042;
+              color: white;
+              font-weight: bold;
+              z-index: 3;
+
+              padding: 0px 8px;
+            }
+
+            .num{
+              position: absolute;
+              background-color: white;
+              left:50%;
+              top: 14px;
+              margin-left:-27px;
+              width: 60px;
+              font-family: $non-heading-font;
+              text-align: center;
+              color: $primary-color;
+              font-weight: bold;
+              z-index: 3;
+            }
+
+          &.saved, &:hover{
+            .overall-bg .heart{
+              color: $offset-color;
+            }
+            .num{
+              color: white;
+              background-color: transparent;
+            }
+            .save-button{
+              background-color: $secondary-color;//#A36042;
+              border-color: transparent;
+            }
+
+          }
+            /*
+
+            &.saved{
               .heart{
               color: red;
               }
             }
 
             .heart{
-              color: #999;
-              font-size: 34px;
+              color: $bg-color;
+              font-size: 54px;
               float: left;
               position: relative;
               z-index: 1;
             }
             .num{
               float: left;
-              background-color: white;
+              background-color: transparent;
               color: $primary-color;
-              margin-left: -5px;
+              margin-left: -35px;
               margin-top: 10px;
               font-size: 16px;
               position: relative;
@@ -424,7 +485,30 @@
               font-family: $paragraph-font;
               font-weight: bold;
             }
+            .save-button{
+              float: left;
+              background-color: $offset-color;
+              border-bottom: 3px solid #A36042;
 
+              color: white;
+              margin-left: -10px;
+              margin-top: 24px;
+              font-size: 18px;
+              position: relative;
+              z-index: 100;
+              font-weight: bold;
+              padding: 0px 8px;
+              font-family: $non-heading-font;
+              cursor: pointer;
+
+              &:hover{
+                background-color: #A36042;
+              }
+            }
+            &.saved .save-button{
+              background-color: #A36042;
+            }
+            */
         }
     }
     .lower-menu{

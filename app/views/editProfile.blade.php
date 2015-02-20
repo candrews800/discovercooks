@@ -10,16 +10,15 @@
         <div id="edit-profile" class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 content-top">
             {{ ViewHelper::getBreadcrumbs(array(array('url' => URL::to('profile/'.$user->username), 'text' => $user->username.'\'s Profile')), 'Edit') }}
             <div class="row">
-
+                <div class="col-xs-12">
+                    <h1>Edit Profile</h1>
+                </div>
                 {{ Form::open(array('url' => 'profile/'.$user->username.'/edit', 'id' => 'edit-profile-form', 'class' => 'clearfix')) }}
-                    <div class="col-xs-12">
-                        <h1>Edit Profile</h1>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
                         @if($user->image)
-                        <div class="dropzone" data-width="300" data-removeurl="{{ url('profile/'.$user->username.'/deleteImage') }}" data-image="{{ url('user_images/'.$user->image) }}" data-ajax="false" data-height="300" data-resize="true" style="width: 100%; height: auto">
+                        <div class="dropzone" data-width="300" data-removeurl="{{ url('profile/'.$user->username.'/deleteImage') }}" data-image="{{ url('user_images/'.$user->image) }}" data-url="{{ url('profile/'.$user->username.'/editPicture') }}" data-height="300" data-resize="true" style="width: 100%; height: auto">
                         @else
-                        <div class="dropzone" data-width="300" data-ajax="false" data-height="300" data-resize="true" style="width: 100%; height: auto">
+                        <div class="dropzone" data-width="300" data-url="{{ url('profile/'.$user->username.'/editPicture') }}" data-height="300" data-resize="true" style="width: 100%; height: auto">
                         @endif
                             <input type="file" name="image" />
                         </div>

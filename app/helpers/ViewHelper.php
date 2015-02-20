@@ -94,10 +94,17 @@ class ViewHelper
         $output.=         '<a href="'.url('recipe/'.$recipe->slug).'"><div class="crop"><img class="search-item-image" src="'.url(ViewHelper::getRecipeImage($recipe->image)).'" /></div></a>';
         $output.=         '<div class="upper-menu">';
         $output.=               '<div data-slug="'. $recipe->slug .'" class="subscriber_count';
+        $save_text = 'Save';
         if($recipe->isSaved){
             $output.= ' saved';
+            $save_text = 'Saved';
         }
-        $output.=                                             '"><i class="heart glyphicon glyphicon-heart"></i><div class="num">'.$recipe->subscriber_count.'</div></div>';
+        $output.=                                             '">';
+
+        $output.=       '<div class="overall-bg"><i class="heart glyphicon glyphicon-heart"></i></div>';
+        $output.=       '<div class="num">'.$recipe->subscriber_count.'</div>';
+        $output.=       '<div class="save-button">'.$save_text.'</div>';
+        $output.= '</div>';
         $output.=               '<h1><a class="search-item-title" href="'.url('recipe/'.$recipe->slug).'">'.$recipe->name.'</a></h1>';
         $output.=         '</div>';
         $output.=         '<div class="lower-menu clearfix">';

@@ -88,10 +88,23 @@ class Recipe extends Eloquent{
         }
 
         if($category){
-            $recipes = Recipe::where('name', 'LIKE', '%'.$search_text.'%')->where('category', '=', $category)->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+            $recipes = Recipe::where('name', 'LIKE', '%'.$search_text.'%')
+                ->where('category', '=', $category)
+                ->where(function($query){
+                    $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->orderBy($orderBy, 'desc')
+                ->skip($skip_amount)->take(8)->get();
         }
         else{
-            $recipes = Recipe::where('name', 'LIKE', '%'.$search_text.'%')->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+            $recipes = Recipe::where('name', 'LIKE', '%'.$search_text.'%')
+                ->where(function($query){
+                    $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->orderBy($orderBy, 'desc')
+                ->skip($skip_amount)->take(8)->get();
         }
 
         foreach($recipes as $recipe){

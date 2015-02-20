@@ -247,16 +247,16 @@ TO DO:
     		*DONE* Contact
     		*DONE* Terms
 
-    	LOGO DESIGN
+    	*DONE* LOGO DESIGN
     		*DONE* DiscoverCooks / Alt Logo
     		*DONE* Size and Placement on All Pages/Header
     		*DONE* Change URL everywhere
 
-    	BUGS:
+    	*DONE* BUGS:
     		*DONE* Edit Review Stars Highlight Not Working
     		*DONE* Recipe/New goes to 404
 
-    Add Site To discovercooks.com
+    *DONE* Add Site To discovercooks.com
         *DONE* Install Apache/PHP/MySQL
         *DONE* Install FTP
         *DONE* Install Git
@@ -273,19 +273,23 @@ TO DO:
         *DONE* composer autoload
         *DONE* php artisan
 
-    Create Category List
-    Create Recipes for each Category
+    *DONE* Create Category List
 
-    Stricter Validation
+    *DONE* USER EXPERIENCE:
+        *DONE* Heart/Favorite Recipe Needs to be Redesigned to be more clear. Add Number of Subscribers to middle of heart. Made current number text that says, Save or Saved
+        *DONE* Make User Images AJAX
 
     SECURITY:
-        Private Should not show up except for user
+        *DONE* Private Should not show up except for user
 
-    USER EXPERIENCE:
-        Heart/Favorite Recipe Needs to be Redesigned to be more clear. Add Number of Subscribers to middle of heart. Made current number text that says, Save or Saved
-        Make Images AJAX
-        Make Viewing Site more Touch friendly - forms should unfocus when clicking outside form, modals should work well
-        Resizing Images should be no problem
+    Stricter Validation
+        Username
+        Email
+        Password
+        Recipe name
+        Hometown, Location, Hobbies
+        Ingredient,
+        Direction
 
 
     REFACTOR:
@@ -296,6 +300,9 @@ TO DO:
 
 
     FEATURES/TO DO:
+        Review Recipe System
+        Discover Cooks System
+
     	Add Header Seperators in new/edit recipe Ingredient list
     	Alternate Recipe Creation
 

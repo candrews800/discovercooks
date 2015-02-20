@@ -8,7 +8,7 @@
         <div class="row">
             <div id="single-recipe" class="col-xs-12 col-lg-8 col-lg-offset-2 content-top">
                 {{ ViewHelper::getBreadcrumbs(array(array('url' => URL::to('category/'.$category->name), 'text' => $category->name.' Recipes')), $recipe->name) }}
-                <div class="row">
+                <div class="row">{{ dd('t') }}
                     <div class="col-xs-12">
                         <div class="upper-menu">
                             <div class="row">

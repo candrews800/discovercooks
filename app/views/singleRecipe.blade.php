@@ -56,7 +56,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-xs-12">
-                                                    @if($user_review->rating)
+                                                    @if(isset($user_review->rating))
                                                         <p>
                                                             My Rating:
                                                             {{ ViewHelper::addRatingImages($user_review->rating) }}
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    {{ dd('t') }}
+
                     <div class="col-xs-12">
                         <div class="lower-menu">
                             <div class="row">

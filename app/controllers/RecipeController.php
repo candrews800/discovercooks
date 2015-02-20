@@ -41,6 +41,9 @@ class RecipeController extends BaseController {
         }
 
         $recipe->category = Category::find($recipe->category);
+        if(!isset($recipe->category->name)){
+            $recipe->category = new Category();
+        }
 
         return View::make('editRecipe')->with(array('recipe' => $recipe, 'categories' => $categories));
     }
@@ -115,6 +118,9 @@ class RecipeController extends BaseController {
         }
         $author = User::find($recipe->author_id);
         $category = Category::find($recipe->category);
+        if(!isset($category->name)){
+            $category = new Category();
+        }
         $reviews = Review::where('recipe_id', '=', $recipe->id)->take(Review::$defaultReviewCount)->get();
         $total_reviews = Review::where('recipe_id', '=', $recipe->id)->count();
         $user_review = new Review;

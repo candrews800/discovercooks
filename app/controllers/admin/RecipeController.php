@@ -128,7 +128,7 @@ class RecipeController extends \BaseController {
     }
 
     public function ingredientSizes(){
-        $ingredient_sizes = \IngredientSizes::getAll();
+        $ingredient_sizes = \IngredientSizes::all();
         $name = \Input::get('name');
         if($name && \IngredientSizes::where('name', '=', $name)->count() == 0){
             $ingredient = new \IngredientSizes();

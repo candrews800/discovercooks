@@ -366,6 +366,10 @@ TO DO:
             Forum Categories
             Forum Topics
 
+        Make DiscoverCooks user an admin
+
+        Home Page Uses more than one featured
+
         Direction/Ingredient design
 
         No recent recipes -> Add more recipes

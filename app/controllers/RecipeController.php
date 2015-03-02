@@ -45,7 +45,7 @@ class RecipeController extends BaseController {
             $recipe->category = new Category();
         }
 
-        return View::make('editRecipe')->with(array('recipe' => $recipe, 'categories' => $categories));
+        return View::make('recipe.edit')->with(array('recipe' => $recipe, 'categories' => $categories));
     }
 
     public function loadRecipes($search_term, $skip_amount = 0){
@@ -135,7 +135,7 @@ class RecipeController extends BaseController {
         }
 
         if($reviews->isEmpty()){
-            return View::make('singleRecipe')->with(array(
+            return View::make('recipe.index')->with(array(
                 'recipe' => $recipe,
                 'author' => $author,
                 'category' => $category,
@@ -194,7 +194,7 @@ class RecipeController extends BaseController {
         $review_distribution[5] = Review::where('recipe_id', '=', $recipe->id)->where('rating', '=', '5')->count() / $review_distribution['total'] * 100;
 
 
-        return View::make('singleRecipe')->with(array(
+        return View::make('recipe.index')->with(array(
             'recipe' => $recipe,
             'author' => $author,
             'category' => $category,

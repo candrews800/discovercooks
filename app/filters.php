@@ -55,6 +55,13 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('admin', function(){
+    if (! Entrust::hasRole('Admin') ) // Checks the current user
+    {
+        App::abort(404);
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
@@ -154,7 +161,7 @@ View::composer('*', function($view)
 	));
 });
 
-View::composer(array('profile', 'cookbook', 'userRecipes', 'userReviews'), function($view)
+View::composer(array('profile*'), function($view)
 {
 	$user = $view->getData()['user'];
 

@@ -684,97 +684,37 @@
 }
 
 #breadcrumbs{
-  margin-bottom: 30px;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   height: 30px;
 
-  .right-arrow{
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    position: absolute;
-    top: 0;
-    right: -15px;
-
-    border-left: 15px solid $primary-color;
-  }
-
-  .left-top{
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    position: absolute;
-    top: 0;
-    left: -15px;
-
-    border-top: 15px solid #bbb;
-  }
-
-  .left-bottom{
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    position: absolute;
-    bottom: 0;
-    left: -15px;
-
-    border-bottom: 15px solid #bbb;
-  }
-
-  .home, .parent, .self{
+  .home, .parent, .self, .breadcrumb-divider{
     float: left;
-    position: relative;
-    .text{
-      height: 30px;
-      line-height: 30px;
+    margin-right: 5px;
+    font-family: $non-heading-font;
+    font-size: 16px;
+    color: $primary-color;
+    a{
+      color: $secondary-color;
+      text-decoration: underline;
     }
   }
 
-  .home{
-    .text{
-      background-color: $primary-color;
-      padding: 0 10px;
-    }
+  .breadcrumb-divider{
+    font-size: 12px;
+    margin-top: 4px;
+    color: $offset-color;
   }
 
-  .parent, .self{
-    margin-left: 20px;
-    .text{
-      padding: 0px 10px;
-      font-size: 16px;
-      font-family: $paragraph-font;
-    }
-  }
-
-  .parent{
-    .text{
-      background-color: #bbb;
+  &.dark-bg{
+    .home, .parent, .self, .breadcrumb-divider{
+      color: white;
       a{
-        color: $primary-color;
+        color: $offset-color;
       }
     }
-    .right-arrow{
-      border-left: 15px solid #bbb;
-    }
-  }
-
-  .self{
-    .text{
-      background-color: $offset-color;
-      color: #fff;
-    }
-    .left-bottom{
-      border-bottom: 15px solid $offset-color;
-    }
-    .left-top{
-      border-top: 15px solid $offset-color;
-    }
-
-    .right-arrow{
-      border-left: 15px solid $offset-color;
+    .breadcrumb-divider{
+      color: $secondary-color;
     }
   }
 }
@@ -793,7 +733,7 @@
 }
 
 .content-top{
-  padding-top: 60px;
+  padding-top: 75px;
 
 }
 
@@ -807,6 +747,7 @@
 
 #header-wrap{
   position: relative;
+  background-color: #222;
 }
 
 #header-wrap-bg{
@@ -903,55 +844,10 @@
     margin-top: 15px;
   }
 
-  #breadcrumbs{
+  #breadcrumbs {
     margin-bottom: 30px;
     margin-top: 15px;
     height: auto;
     overflow: auto;
-
-    .right-arrow, .left-top, .left-bottom{
-      display: none;
-    }
-
-    .home, .parent, .self{
-      margin-left: 0px;
-      float: left;
-      height: auto;
-      .text{
-        background-color: transparent;
-        font-family: $paragraph-font;
-        padding: 0;
-        line-height: 20px;
-        font-size: 12px;
-        height: auto;
-      }
-    }
-
-    .home{
-      .text{
-        a{
-          display: none;
-        }
-      }
-    }
-    .home .text:before, .parent .text a, .self .text a{
-      color: white;
-      text-decoration: underline;
-      font-size: 12px;
-      font-family: $paragraph-font;
-      content: 'Home';
-      line-height: 20px;
-    }
-    .self .text{
-      color: #aaa;
-    }
-    .home .text:after, .parent .text:after{
-      content: " > ";
-      color: #aaa;
-      font-size: 12px;
-      font-family: $paragraph-font;
-      line-height: 20px;
-      word-wrap: break-word;
-    }
   }
 }

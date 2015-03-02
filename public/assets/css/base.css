@@ -70,6 +70,30 @@
   font-size: 18px;
   padding: 6px; }
 
+.small-button {
+  font-family: "proxima-nova", sans-serif;
+  font-size: 12px;
+  color: #174c4f;
+  padding: 5px 8px;
+  border-radius: 3px; }
+  .small-button:hover {
+    background-color: #207178;
+    color: white;
+    text-decoration: none; }
+  .small-button.small-button-green {
+    background-color: #174c4f;
+    color: white; }
+  .small-button.orange {
+    color: #ff9666; }
+    .small-button.orange:hover {
+      background-color: #ff9666;
+      color: white; }
+  .small-button.red {
+    color: red; }
+    .small-button.red:hover {
+      background-color: red;
+      color: white; }
+
 .social-menu ul {
   margin: 0 15px 0 0;
   padding: 0;
@@ -277,9 +301,7 @@ ol {
   .dropdown-menu a.menu-item {
     color: white; } }
 footer {
-  font-family: "georgia";
-  background-color: #000;
-  z-index: 100; }
+  font-family: "georgia"; }
 
 #footer-nav {
   width: 100%;
@@ -291,7 +313,7 @@ footer .main-menu ul {
 .outer-menu {
   height: 130px;
   position: relative;
-  padding: 15px 20px; }
+  padding: 15px 0px; }
   .outer-menu nav ul {
     text-align: center; }
 
@@ -884,66 +906,28 @@ footer .main-menu ul {
       clear: both; }
 
 #breadcrumbs {
-  margin-bottom: 30px;
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
   height: 30px; }
-  #breadcrumbs .right-arrow {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    position: absolute;
-    top: 0;
-    right: -15px;
-    border-left: 15px solid #174c4f; }
-  #breadcrumbs .left-top {
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    position: absolute;
-    top: 0;
-    left: -15px;
-    border-top: 15px solid #bbb; }
-  #breadcrumbs .left-bottom {
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    position: absolute;
-    bottom: 0;
-    left: -15px;
-    border-bottom: 15px solid #bbb; }
-  #breadcrumbs .home, #breadcrumbs .parent, #breadcrumbs .self {
+  #breadcrumbs .home, #breadcrumbs .parent, #breadcrumbs .self, #breadcrumbs .breadcrumb-divider {
     float: left;
-    position: relative; }
-    #breadcrumbs .home .text, #breadcrumbs .parent .text, #breadcrumbs .self .text {
-      height: 30px;
-      line-height: 30px; }
-  #breadcrumbs .home .text {
-    background-color: #174c4f;
-    padding: 0 10px; }
-  #breadcrumbs .parent, #breadcrumbs .self {
-    margin-left: 20px; }
-    #breadcrumbs .parent .text, #breadcrumbs .self .text {
-      padding: 0px 10px;
-      font-size: 16px;
-      font-family: "georgia"; }
-  #breadcrumbs .parent .text {
-    background-color: #bbb; }
-    #breadcrumbs .parent .text a {
-      color: #174c4f; }
-  #breadcrumbs .parent .right-arrow {
-    border-left: 15px solid #bbb; }
-  #breadcrumbs .self .text {
-    background-color: #ff9666;
-    color: #fff; }
-  #breadcrumbs .self .left-bottom {
-    border-bottom: 15px solid #ff9666; }
-  #breadcrumbs .self .left-top {
-    border-top: 15px solid #ff9666; }
-  #breadcrumbs .self .right-arrow {
-    border-left: 15px solid #ff9666; }
+    margin-right: 5px;
+    font-family: "proxima-nova", sans-serif;
+    font-size: 16px;
+    color: #174c4f; }
+    #breadcrumbs .home a, #breadcrumbs .parent a, #breadcrumbs .self a, #breadcrumbs .breadcrumb-divider a {
+      color: #207178;
+      text-decoration: underline; }
+  #breadcrumbs .breadcrumb-divider {
+    font-size: 12px;
+    margin-top: 4px;
+    color: #ff9666; }
+  #breadcrumbs.dark-bg .home, #breadcrumbs.dark-bg .parent, #breadcrumbs.dark-bg .self, #breadcrumbs.dark-bg .breadcrumb-divider {
+    color: white; }
+    #breadcrumbs.dark-bg .home a, #breadcrumbs.dark-bg .parent a, #breadcrumbs.dark-bg .self a, #breadcrumbs.dark-bg .breadcrumb-divider a {
+      color: #ff9666; }
+  #breadcrumbs.dark-bg .breadcrumb-divider {
+    color: #207178; }
 
 .none-found {
   width: 100%;
@@ -957,7 +941,7 @@ footer .main-menu ul {
   background-color: white; }
 
 .content-top {
-  padding-top: 60px; }
+  padding-top: 75px; }
 
 .beige-bg {
   background-color: #e8e5da; }
@@ -966,7 +950,8 @@ footer .main-menu ul {
   max-width: 1500px; }
 
 #header-wrap {
-  position: relative; }
+  position: relative;
+  background-color: #222; }
 
 #header-wrap-bg {
   overflow: hidden;
@@ -1030,38 +1015,7 @@ footer .main-menu ul {
     margin-bottom: 30px;
     margin-top: 15px;
     height: auto;
-    overflow: auto; }
-    #breadcrumbs .right-arrow, #breadcrumbs .left-top, #breadcrumbs .left-bottom {
-      display: none; }
-    #breadcrumbs .home, #breadcrumbs .parent, #breadcrumbs .self {
-      margin-left: 0px;
-      float: left;
-      height: auto; }
-      #breadcrumbs .home .text, #breadcrumbs .parent .text, #breadcrumbs .self .text {
-        background-color: transparent;
-        font-family: "georgia";
-        padding: 0;
-        line-height: 20px;
-        font-size: 12px;
-        height: auto; }
-    #breadcrumbs .home .text a {
-      display: none; }
-    #breadcrumbs .home .text:before, #breadcrumbs .parent .text a, #breadcrumbs .self .text a {
-      color: white;
-      text-decoration: underline;
-      font-size: 12px;
-      font-family: "georgia";
-      content: 'Home';
-      line-height: 20px; }
-    #breadcrumbs .self .text {
-      color: #aaa; }
-    #breadcrumbs .home .text:after, #breadcrumbs .parent .text:after {
-      content: " > ";
-      color: #aaa;
-      font-size: 12px;
-      font-family: "georgia";
-      line-height: 20px;
-      word-wrap: break-word; } }
+    overflow: auto; } }
 input[type=text], input[type=email], input[type=password], textarea {
   margin: 0 0 15px 0;
   padding: 8px 8px;
@@ -1122,8 +1076,9 @@ select {
   color: #174c4f;
   background-color: white; }
 
-body {
-  background-color: #222; }
+html, body {
+  background-color: #e8e5da;
+  height: 100%; }
 
 .content {
   border: 1px solid #174c4f;
@@ -1136,5 +1091,19 @@ body {
   border-bottom: 0;
   background-color: white;
   margin-top: 35px; }
+
+#page-wrap {
+  min-height: 100%;
+  position: relative; }
+
+section#content {
+  padding-bottom: 150px; }
+
+footer {
+  width: 100%;
+  min-height: 150px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
 
 /*# sourceMappingURL=base.css.map */

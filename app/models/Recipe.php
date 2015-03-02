@@ -3,23 +3,17 @@
 class Recipe extends Eloquent{
     protected $table = 'recipes';
     public static $rules = array(
-        'name' => 'required',
+        'name' => 'required|max:75',
         'description' => 'required',
         'url' => 'url',
         'category' => 'required|not_in:0',
-        'prep_time' => 'required|numeric',
-        'cook_time' => 'required|numeric',
-        'total_time' => 'required|numeric',
+        'prep_time' => 'required|numeric|max:999',
+        'cook_time' => 'required|numeric|max:999',
+        'total_time' => 'required|numeric|max:999',
         'servings' => 'required|not_in:0',
         'ingredients' => 'required',
         'directions' => 'required'
         );
-
-    public static $ingredientSizes = array(
-        'oz' => 'oz',
-        'cup' => 'cup',
-        'whole' => 'whole'
-    );
 
     public static function make($input){
         $recipe = new self;

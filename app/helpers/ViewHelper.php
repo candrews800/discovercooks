@@ -175,38 +175,31 @@ class ViewHelper
         }
     }
 
-    public static function getBreadcrumbs($parents, $child){
+    public static function getBreadcrumbs($parents, $child, $dark_bg = null){
         $response = '';
         $response .= '<div class="row">';
         $response .= '<div class="col-xs-12">';
-        $response .= '<div id="breadcrumbs">';
+        $response .= '<div id="breadcrumbs"';
+        if($dark_bg){
+            $response .= ' class="dark-bg"';
+        }
+        $response .=                        '>';
         $response .= '<div class="home">';
-        $response .= '<div class="text">';
-        $response .= '<a href="'.url('/').'"><img src="'.url('assets/img/house.png').'" /></a>';
+        $response .= '<a href="'.url('/').'">Home</a>';
         $response .= '</div>';
-        $response .= '<div class="right-arrow"></div>';
-        $response .= '</div>';
+        $response .= '<div class="breadcrumb-divider"><i class="glyphicon glyphicon-menu-right"></i></div>';
 
         if($parents != null){
             foreach($parents as $parent){
                 $response .= '<div class="parent">';
-                $response .= '<div class="left-top"></div>';
-                $response .= '<div class="left-bottom"></div>';
-                $response .= '<div class="text">';
                 $response .= '<a href="'.$parent['url'].'">'.$parent['text'].'</a>';
                 $response .= '</div>';
-                $response .= '<div class="right-arrow"></div>';
-                $response .= '</div>';
+                $response .= '<div class="breadcrumb-divider"><i class="glyphicon glyphicon-menu-right"></i></div>';
             }
         }
 
         $response .= '<div class="self">';
-        $response .= '<div class="left-top"></div>';
-        $response .= '<div class="left-bottom"></div>';
-        $response .= '<div class="text">';
         $response .= $child;
-        $response .= '</div>';
-        $response .= '<div class="right-arrow"></div>';
         $response .= '</div>';
         $response .= '</div>';
         $response .= '</div>';

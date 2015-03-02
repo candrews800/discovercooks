@@ -83,7 +83,7 @@ class HomeController extends BaseController {
     public function about(){
         $about = DB::table('about')->first();
 
-        return View::make('about')->with(array(
+        return View::make('content.about')->with(array(
             'about' => $about
         ));
     }
@@ -91,13 +91,13 @@ class HomeController extends BaseController {
     public function terms(){
         $terms = DB::table('terms')->first();
 
-        return View::make('terms')->with(array(
+        return View::make('content.terms')->with(array(
             'terms' => $terms
         ));
     }
 
     public function contact(){
-        return View::make('contact');
+        return View::make('content.contact');
     }
 
     public function sendContact(){

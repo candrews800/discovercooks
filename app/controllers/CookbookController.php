@@ -56,7 +56,7 @@ class CookbookController extends BaseController {
         $review_stats['total'] = Review::where('reviewer_id', '=', $user->id)->count();
         $categorys = Category::all();
 
-        return View::make('cookbook')->with(array(
+        return View::make('profile.cookbook')->with(array(
             'user' => $user,
             'recipes' => $recipes,
             'recipe_stats' => $recipe_stats,

@@ -16,8 +16,8 @@ ClassLoader::addDirectories(array(
 	app_path().'/commands',
 	app_path().'/controllers',
 	app_path().'/models',
+    app_path().'/helpers',
 	app_path().'/database/seeds',
-
 ));
 
 /*
@@ -53,7 +53,7 @@ App::error(function(Exception $exception, $code)
 
 App::missing(function($exception)
 {
-	return Response::view('404', array(), 404);
+	return Response::view('content.404', array(), 404);
 });
 
 /*
@@ -84,3 +84,5 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+App::bind('confide.user_validator', 'CustomUserValidator');

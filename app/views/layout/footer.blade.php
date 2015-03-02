@@ -1,9 +1,5 @@
+</section>
 <!-- Start Footer -->
-    <div id="back-to-top" class="row" onclick="location.href='#';">
-        <div class="arrow-up"></div>
-        <a href="#">back to top</a>
-    </div>
-</div>
 <footer>
     <div class="black-bg">
         <div class="container-fluid">

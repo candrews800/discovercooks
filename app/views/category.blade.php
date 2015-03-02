@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div id="home-content" class="col-xs-12 col-lg-8 col-lg-offset-2">
-                {{ ViewHelper::getBreadcrumbs(null, ucfirst($category->name).' Recipes') }}
+                {{ ViewHelper::getBreadcrumbs(null, ucfirst($category->name).' Recipes', true) }}
                 @if($category->related_recipe_id != 0)
                 <div class="row">
                     <div class="col-xs-12">
@@ -32,40 +32,38 @@
         </div>
     </div>
 </div>
+<div class="ribbon green-ribbon ribbon-content ribbon-sort col-xs-12">
+    <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
+    <h2>{{ ucfirst($category->name) }}</h2>
 
+    <ul class="ribbon-left-menu">
+        <li>
+            <?php if(!$sort){$sort='Highest Rated';} ?>
+            <div class="dropdown" style="display: inline-block;">
+                <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By: <span>{{ ucwords($sort) }} <i class="glyphicon glyphicon-triangle-bottom"></i></span></p>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li><a href="?sort=">Highest Rated</a></li>
+                    <li><a href="?sort=popularity">Popularity</a></li>
+                    <li><a href="?sort=new">New</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <ul class="ribbon-right-menu">
+        <li>
+            <div class="dropdown" style="display: inline-block;">
+                <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category: <span>{{ ucfirst($category->name) }} <i class="glyphicon glyphicon-triangle-bottom"></i></span></p>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li><a href="{{ url('category/all') }}">All</a></li>
+                    @foreach($top_categories as $top_category)
+                        <li><a href="{{ url('category/'.$top_category->name) }}">{{ $top_category->name }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
 <div class="beige-bg">
-    <div class="ribbon green-ribbon ribbon-content ribbon-sort col-xs-12">
-        <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
-        <h2>{{ ucfirst($category->name) }}</h2>
-
-        <ul class="ribbon-left-menu">
-            <li>
-                <?php if(!$sort){$sort='Highest Rated';} ?>
-                <div class="dropdown" style="display: inline-block;">
-                    <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By: <span>{{ ucwords($sort) }} <i class="glyphicon glyphicon-triangle-bottom"></i></span></p>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <li><a href="?sort=">Highest Rated</a></li>
-                        <li><a href="?sort=popularity">Popularity</a></li>
-                        <li><a href="?sort=new">New</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <ul class="ribbon-right-menu">
-            <li>
-                <div class="dropdown" style="display: inline-block;">
-                    <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category: <span>{{ ucfirst($category->name) }} <i class="glyphicon glyphicon-triangle-bottom"></i></span></p>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <li><a href="{{ url('category/all') }}">All</a></li>
-                        @foreach($top_categories as $top_category)
-                            <li><a href="{{ url('category/'.$top_category->name) }}">{{ $top_category->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
-
     <div class="container-fluid">
         <div class="row">
             <div id="search-results" class="col-xs-12" >
@@ -84,6 +82,9 @@
                 </div>
             </div>
         </div>
+        @include('layout.back_to_top')
+    </div>
+</div>
 
 @include('layout.footer')
 <script>

@@ -279,17 +279,17 @@ TO DO:
         *DONE* Heart/Favorite Recipe Needs to be Redesigned to be more clear. Add Number of Subscribers to middle of heart. Made current number text that says, Save or Saved
         *DONE* Make User Images AJAX
 
-    SECURITY:
+    *DONE* SECURITY:
         *DONE* Private Should not show up except for user
 
-    Stricter Validation
-        Username
-        Email
-        Password
-        Recipe name
-        Hometown, Location, Hobbies
-        Ingredient,
-        Direction
+    *DONE* Stricter Validation
+        *DONE* Username
+        *DONE* Email
+        *DONE* Password
+        *DONE* Recipe name
+        *DONE* Hometown, Location, Hobbies
+        *DONE* Ingredient,
+        *DONE* Direction
 
 
     REFACTOR:
@@ -297,6 +297,7 @@ TO DO:
         Standardize Header BG
             Opacity
             Get Stylesheet from PHP
+        Recipe Queries
 
 
     FEATURES/TO DO:
@@ -312,3 +313,83 @@ TO DO:
     	Gamification (Achievements)
     	Revenue Sharing
     	Forum
+
+
+
+
+    	FORUM TO DO:
+    	    *DONE* Create tables all forum_ prefix
+    	    *DONE* Add Category table
+    	    *DONE* Update topic to include category & Order ID
+    	    *DONE* Admin
+    	        *DONE* Create / *DONE* Edit Category / *DONE* Order Categories / *DONE* Delete
+    	        *DONE* Create / *DONE* Edit Topic / *DONE* Order / *DONE* Delete / *DONE* Edit Description / *DONE* Edit Related Category
+            *DONE* Update Look On Category / Home Page
+            *DONE* Add Bookmarks
+
+            *DONE* Style Replys
+            *DONE* Edit Replys
+            *DONE* Create Post
+            *DONE* Edit Post
+            *DONE* Show Last Edited
+            *DONE* Reply Pagination
+            *DONE* Reply Post Number
+            *DONE* Post Count for Users
+            *DONE* shortDate
+
+            *DONE* Reply/Post text processing -- Use [b][i][u]
+            *DONE* Reply/Post Quote
+
+            *DONE* Preview Reply
+            *DONE* Preview Post
+
+            *DONE* OrderBy Post
+            *DONE* OrderBy Replys
+
+            *DONE* Go to page with post after posting
+
+            *DONE* Admin Bar for Each Post to delete / edit
+            *DONE* Admin Bar for Each Reply to delete / edit
+
+        *DONE* Breadcrumbs Redesign
+
+        *DONE* Preview -> New lines not getting <br/>'
+
+        Fix Bugs/Complaints With Inputting Recipes:
+            *DONE* Error on submit -> recipe doesn't come over
+            *DONE* More char for description, (450)
+            *DONE* Ingredient Sizes
+
+        Upload to Site:
+            Ingredient Sizes
+            Make Recipe Changes
+            Forum Categories
+            Forum Topics
+
+        Direction/Ingredient design
+
+        No recent recipes -> Add more recipes
+        Subscribers not accurate
+
+        Reply/Post text processing -- Use [quote]
+
+        Facebook/Twitter/Pinterest/Website in Profile
+
+        Write Terms and Conditions
+        Login / Register /
+        Forget Password Email Style
+        Reset Password Test
+
+        Add to Google
+        Fix Suggestions
+        Apply for Adwords
+
+        Welcome Email
+
+        Typography Overhaul
+
+        SPEED:
+            Minimize CSS / JS, etc.
+            Reduce Queries per page
+            Cache Pages
+

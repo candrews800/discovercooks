@@ -1,8 +1,9 @@
 @import 'includes/_essentials';
 
-body{
-	//background: url('../img/polaroid.png');
-    background-color: #222;
+html,body{
+    background-color: $bg-color;
+
+    height: 100%;
 }
 
 .content{
@@ -18,4 +19,21 @@ body{
   background-color: white;
 
   margin-top: 35px;
+}
+
+#page-wrap{
+  min-height: 100%;
+  position: relative;
+}
+
+section#content{
+  padding-bottom:150px;
+}
+
+footer {
+  width:100%;
+  min-height:150px;
+  position:absolute;
+  bottom:0;
+  left:0;
 }

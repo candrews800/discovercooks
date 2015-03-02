@@ -126,4 +126,36 @@ class RecipeController extends \BaseController {
             'recipes' => $recipes
         ));
     }
+
+    public function ingredientSizes(){
+        $ingredient_sizes = \IngredientSizes::getAll();
+        $name = \Input::get('name');
+        if($name && \IngredientSizes::where('name', '=', $name)->count() == 0){
+            $ingredient = new \IngredientSizes();
+            $ingredient->name = $name;
+            $ingredient->save();
+        }
+        if($name){
+            return \Redirect::to(\Request::path());
+        }
+
+        return \View::make('admin.recipe.ingredientSizes')->with(array(
+            'ingredient_sizes' => $ingredient_sizes
+        ));
+    }
+
+    public function editIngredientSize($id){
+        $ingredient_size = \IngredientSizes::find($id);
+        $ingredient_size->name = \Input::get('name');
+        $ingredient_size->save();
+
+        return \Redirect::back();
+    }
+
+    public function deleteIngredientSize($id){
+        $ingredient_size = \IngredientSizes::find($id);
+        $ingredient_size->delete();
+
+        return \Redirect::back();
+    }
 }

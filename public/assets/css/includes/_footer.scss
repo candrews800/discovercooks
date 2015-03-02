@@ -1,7 +1,5 @@
 footer{
-	font-family: $paragraph-font;
-  	background-color: #000;
-  	z-index: 100;
+  font-family: $paragraph-font;
 }
 
 #footer-nav{
@@ -17,7 +15,7 @@ footer .main-menu ul{
   height: 130px;
   position: relative;
 
-  padding: 15px 20px;
+  padding: 15px 0px;
 
   nav ul{
     text-align: center;

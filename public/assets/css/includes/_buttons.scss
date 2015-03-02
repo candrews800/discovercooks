@@ -96,6 +96,41 @@
   	padding: 6px;
 }
 
+.small-button{
+  font-family: $non-heading-font;
+  font-size: 12px;
+  &:hover{
+    background-color: $secondary-color;
+    color: white;
+    text-decoration: none;
+  }
+
+  &.small-button-green{
+    background-color: $primary-color;
+    color: white;
+  }
+
+  &.orange{
+    color: $offset-color;
+    &:hover{
+      background-color: $offset-color;
+      color: white;
+    }
+  }
+
+  &.red{
+  color: red;
+  &:hover{
+    background-color: red;
+    color: white;
+  }
+}
+
+  color: $primary-color;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+
 .social-menu{
 	ul{
 		margin: 0 15px 0 0;

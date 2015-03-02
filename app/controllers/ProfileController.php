@@ -22,12 +22,15 @@ class ProfileController extends BaseController {
     public function doEdit(User $user){
         $input = Input::all();
         $rules = array(
-            'username' =>   'required|min:3|unique:users,username,'.$user->id,
-            'email'    =>   'required|email|unique:users,email,'.$user->id,
-            'facebook' => 'url|regex:/^(http(s)?:\/\/)?(www.)?facebook.com\/(.)+$/',
-            'twitter' => 'url|regex:/^(http(s)?:\/\/)?(www.)?twitter.com\/(.)+$/',
-            'pinterest' => 'url|regex:/^(http(s)?:\/\/)?(www.)?pinterest.com\/(.)+$/',
-            'website' => 'url'
+            'username' =>   'required|min:3|max:24|unique:users,username,'.$user->id,
+            'email'    =>   'required|max:100|email|unique:users,email,'.$user->id,
+            'facebook' => 'url|max:100|regex:/^(http(s)?:\/\/)?(www.)?facebook.com\/(.)+$/',
+            'twitter' => 'url|max:100|regex:/^(http(s)?:\/\/)?(www.)?twitter.com\/(.)+$/',
+            'pinterest' => 'url|max:100|regex:/^(http(s)?:\/\/)?(www.)?pinterest.com\/(.)+$/',
+            'website' => 'url|max:100',
+            'hometown' => 'max:30',
+            'location' => 'max:30',
+            'hobbies' => 'max:45'
         );
 
         $validator = Validator::make($input, $rules);
@@ -144,7 +147,7 @@ class ProfileController extends BaseController {
             $total_cookbook = 0;
         }
 
-        return View::make('profile')->with(array(
+        return View::make('profile.index')->with(array(
             'user' => $user,
             'recipes' => $recipes,
             'recent_reviews' => $recent_reviews,
@@ -154,7 +157,7 @@ class ProfileController extends BaseController {
     }
 
     public function showEdit(User $user){
-        return View::make('editProfile')->with(array('user' => $user));
+        return View::make('profile.edit')->with(array('user' => $user));
     }
 
     public function showRecipes(User $user){
@@ -203,7 +206,7 @@ class ProfileController extends BaseController {
 
         $categorys = Category::all();
 
-        return View::make('userRecipes')->with(array(
+        return View::make('profile.recipes')->with(array(
             'user' => $user,
             'recipes' => $recipes,
             'categorys' => $categorys,
@@ -223,7 +226,7 @@ class ProfileController extends BaseController {
             $review->user = $user;
         }
 
-        return View::make('userReviews')->with(array(
+        return View::make('profile.reviews')->with(array(
             'user' => $user,
             'reviews' => $reviews,
         ));

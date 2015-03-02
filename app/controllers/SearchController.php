@@ -24,7 +24,7 @@ class SearchController extends BaseController {
 
         $categorys = Category::all();
 
-        return View::make('search')->with(array(
+        return View::make('search.recipe')->with(array(
             'search_text' => $search_text,
             'recipes' => $recipes,
             'total_recipes' => $total_recipes,
@@ -41,7 +41,7 @@ class SearchController extends BaseController {
             $user->recipe_count = Recipe::where('author_id', '=', $user->id)->count();
             $user->review_count = Review::where('reviewer_id', '=', $user->id)->count();
         }
-        return View::make('searchUser')->with(array(
+        return View::make('search.user')->with(array(
             'search_text' => $search_text,
             'users' => $users,
             'total_users' => $total_users

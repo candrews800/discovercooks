@@ -201,7 +201,7 @@ class UsersController extends Controller
 
         $input = Input::all();
         $rules = array(
-            'username' =>   'min:3|unique:users,username,'.$user->id,
+            'username' =>   'min:3|max:24|unique:users,username,'.$user->id,
             'email'    =>   'email|unique:users,email,'.$user->id
         );
 

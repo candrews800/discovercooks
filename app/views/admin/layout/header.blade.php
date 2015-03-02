@@ -56,7 +56,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('admin') }}">MyDigitalCookbook.com</a>
+            <a class="navbar-brand" href="{{ url('admin') }}">discoverCooks.com</a>
         </div>
 
 
@@ -105,7 +105,21 @@
                                 <a href="{{ url('admin/recipes/favorites') }}">Favorites</a>
                             </li>
                             <li>
-                                <a href="{{ url('admin/category') }}">Manage Categories</a>
+                                <a href="{{ url('admin/category') }}">Categories</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/recipes/ingredientSizes') }}">Ingredient Sizes</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-cutlery fa-fw"></i> Forums<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ url('admin/forum/categories') }}">Manage Categories</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/forum/topics') }}">Manage Topics</a>
                             </li>
                         </ul>
                     </li>

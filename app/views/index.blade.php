@@ -78,12 +78,12 @@
     </div>
 </div>
 
-<div class="white-bg">
-    <div class="ribbon green-ribbon col-xs-12">
-        <img id="ribbon-img" src="assets/img/green-ribbon.png" />
-        <h2>explore</h2>
-    </div>
+<div class="ribbon green-ribbon col-xs-12">
+    <img id="ribbon-img" src="assets/img/green-ribbon.png" />
+    <h2>explore</h2>
+</div>
 
+<div class="white-bg">
     <div class="container-fluid">
         <div class="row">
             <div id="recipe-categories" class="col-xs-12">
@@ -104,11 +104,12 @@
     </div>
 </div>
 
+<div class="ribbon orange-ribbon col-xs-12">
+    <img id="ribbon-img" src="assets/img/orange-ribbon.png" />
+    <h2>top recipes</h2>
+</div>
+
 <div class="beige-bg">
-    <div class="ribbon orange-ribbon col-xs-12">
-        <img id="ribbon-img" src="assets/img/orange-ribbon.png" />
-        <h2>top recipes</h2>
-    </div>
     <div class="container-fluid">
         <div class="row">
             <div id="search-results" class="col-xs-12">
@@ -124,6 +125,9 @@
             </div>
 
         </div>
+        @include('layout.back_to_top')
+    </div>
+</div>
 @include('layout.footer')
 <script type="text/javascript" src="{{ url('assets/touchSwipe/jquery.touchSwipe.min.js') }}"></script>
 

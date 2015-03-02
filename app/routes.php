@@ -19,6 +19,19 @@ Route::bind('recipe', function($value)
     App::abort(404);
 });
 
+Route::bind('topic', function($value)
+{
+    if($topic = ForumTopic::where('name', str_replace('-', ' ', $value))->first()) {
+        return $topic;
+    }
+
+    App::abort(404);
+});
+
+Route::model('post', 'ForumPost');
+Route::model('reply', 'ForumReply');
+
+
 Route::get('/', array('uses' => 'HomeController@displayIndex'));
 Route::get('/loadRecipes/{skip_amount}', array('uses' => 'HomeController@loadRecipes'));
 Route::get('about', array('uses' => 'HomeController@about'));
@@ -54,6 +67,7 @@ Route::get('recipe/{recipe}', array('uses' => 'RecipeController@show'));
 
 // Category routes
 Route::group(array('prefix' => 'category'), function(){
+    Route::get('/', array('uses' => 'CategoryController@showAll'));
     Route::get('/all', array('uses' => 'CategoryController@showAll'));
     Route::get('/all/loadRecipes/{skip_amount}', array('uses' => 'CategoryController@loadAllRecipes'));
 
@@ -103,6 +117,28 @@ Route::group(array('prefix' => 'users'), function(){
     Route::get('logout', 'UsersController@logout');
 });
 
+// Forum routes
+Route::group(array('prefix' => 'forum'), function() {
+    Route::get('/', array('uses' => 'forum\ForumController@index'));
+
+    Route::get('/reply/{reply}/delete', array('before' => 'auth|admin', 'uses' => 'forum\ReplyController@delete'));
+    Route::get('/reply/{reply}', array('before' => 'auth', 'uses' => 'forum\ReplyController@show'));
+    Route::post('/reply/{reply}', array('before' => 'auth', 'uses' => 'forum\ReplyController@edit'));
+
+    Route::get('/{topic}', array('uses' => 'forum\TopicController@show'));
+
+    Route::get('/{topic}/create', array('before' => 'auth', 'uses' => 'forum\PostController@showCreate'));
+    Route::get('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@showEdit'));
+    Route::get('/{topic}/{post}/delete', array('before' => 'auth|admin', 'uses' => 'forum\PostController@delete'));
+    Route::post('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@edit'));
+
+    Route::get('/{topic}/{post}', array('uses' => 'forum\PostController@show'));
+
+    Route::post('/{topic}/create', array('before' => 'auth|csrf', 'uses' => 'forum\PostController@create'));
+    Route::post('/{topic}/{post}/addReply', array('uses' => 'forum\ReplyController@create'));
+});
+
+
 // Admin routes
 Route::group(array('prefix' => 'admin'), function(){
     Route::get('/', array('uses' => 'admin\AdminController@index'));
@@ -126,6 +162,9 @@ Route::group(array('prefix' => 'admin'), function(){
         Route::post('search/{search_text?}', array('uses' => 'admin\RecipeController@redirectSearch'));
 
         Route::get('favorites', array('uses' => 'admin\RecipeController@favorites'));
+        Route::get('ingredientSizes', array('uses' => 'admin\RecipeController@ingredientSizes'));
+        Route::get('ingredientSizes/edit/{id}', array('uses' => 'admin\RecipeController@editIngredientSize'));
+        Route::get('ingredientSizes/delete/{id}', array('uses' => 'admin\RecipeController@deleteIngredientSize'));
 
         Route::get('{recipe}/favorite/{favorite?}', array('uses' => 'admin\RecipeController@editFavorite'));
         Route::get('{recipe}', array('uses' => 'admin\RecipeController@show'));
@@ -159,5 +198,27 @@ Route::group(array('prefix' => 'admin'), function(){
         Route::get('/recipe/{recipe}', array('uses' => 'admin\ReviewController@forRecipe'));
 
         Route::get('{review_id}/delete', array('uses' => 'admin\ReviewController@delete'));
+    });
+
+    Route::group(array('prefix' => 'forum'), function(){
+        Route::group(array('prefix' => 'categories'), function(){
+            Route::get('/', array('uses' => 'admin\forum\CategoryController@all'));
+            Route::get('updatePosition', array('uses' => 'admin\forum\CategoryController@updatePositions'));
+            Route::get('delete/{category_id}', array('uses' => 'admin\forum\CategoryController@delete'));
+
+            Route::post('/', array('uses' => 'admin\forum\CategoryController@create'));
+            Route::post('edit/{category_id}', array('uses' => 'admin\forum\CategoryController@edit'));
+        });
+
+        Route::group(array('prefix' => 'topics'), function(){
+            Route::get('/', array('uses' => 'admin\forum\TopicController@all'));
+            Route::get('updatePosition', array('uses' => 'admin\forum\TopicController@updatePositions'));
+            Route::get('editDescription/{topic_id}', array('uses' => 'admin\forum\TopicController@editDescription'));
+            Route::get('updateCategory/{topic_id}', array('uses' => 'admin\forum\TopicController@updateCategory'));
+            Route::get('delete/{topic_id}', array('uses' => 'admin\forum\TopicController@delete'));
+
+            Route::post('/', array('uses' => 'admin\forum\TopicController@create'));
+            Route::post('edit/{topic_id}', array('uses' => 'admin\forum\TopicController@edit'));
+        });
     });
 });

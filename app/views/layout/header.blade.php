@@ -29,6 +29,7 @@
     <![endif]-->
 </head>
 <body>
+<div id="page-wrap">
     <header id="sticky-nav">
         <nav class="navbar navbar-green navbar-fixed-top">
             <div class="container-fluid">
@@ -71,11 +72,7 @@
                                 </div>
                             </ul>
                         </li>
-                        @if(Auth::guest())
-                            <li><a href="#" class="menu-item" data-toggle="modal" data-target="#guest-login-modal"><span>my</span>COOKBOOK</a></li>
-                        @else
-                            <li><a class="menu-item" href="{{ url('cookbook/'.Auth::user()->username); }}"><span>my</span>COOKBOOK</a></li>
-                        @endif
+                        <li><a href="{{ url('forum') }}" class="menu-item">FORUMS</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -102,163 +99,165 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
+
+
+
+        <!-- Login Modal -->
+        <div class="modal" id="guest-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header clearfix">
+                        <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                    </div>
+                    <div class="modal-body">
+                        <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
+                        <p>Sign in to access your cookbook from anywhere.</p>
+
+                        {{ Form::open(array('url' => URL::to('/users/login'), 'id' => 'login-form', 'class' => 'row')) }}
+                        <div class="col-xs-12 col-sm-6">
+                            <p>Login <span>exisiting users</span></p>
+                            @if($login_error_msg = Session::pull('login_error_msg', false))
+                                <span class="input-error">{{ $login_error_msg }}</span>
+                            @endif
+                            {{ Form::text('email', null, array('placeholder' => 'Email', 'required' => 'required', 'autofocus' => 'autofocus')) }}
+                            {{ Form::password('password', array('placeholder' => 'Password', 'required' => 'required')) }}
+                            <div class="clearfix">
+                                <label class="myCheckbox">
+                                    <input type="checkbox" id="remember" name="remember"/>
+                                    <span></span>
+                                </label>
+                                <label for="remember">Remember me</label>
+
+                                <a id="forgot_password_link" href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot Password?</a>
+                            </div>
+                            {{ Form::submit('login', array('class' => 'flat-button flat-button-green')) }}
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div id="new-user">
+                                <p>New User? <span>sign up now</span></p>
+                                <ul>
+                                    <li>• Register in seconds</li>
+                                    <li>• Access your cookbook from anywhere.</li>
+                                    <li>• Create and share your recipes.</li>
+                                </ul>
+                            </div>
+                            <a id="join_now_link" href="#" class="flat-button">Join now for free!</a>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div class="modal" id="guest-register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header clearfix">
+                        <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                    </div>
+                    <div class="modal-body">
+                        <a id="member_already_link" class="alt-link" href="#">Member? Log in here.</a>
+                        <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
+                        <p>Join for free now to access your cookbook from anywhere.</p>
+
+                        <form id="register-form" class="row" method="POST" action="{{{ URL::to('users') }}}" accept-charset="UTF-8">
+                            <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
+                            <div class="col-xs-12 col-sm-6">
+                                {{ $errors->register->first('username', '<span class="input-error">:message</span>') }}
+                                <input type="text" name="username" placeholder="Username (what others see)" value="{{{ Input::old('username') }}}" autofocus />
+                                {{ $errors->register->first('email', '<span class="input-error">:message</span>') }}
+                                <input type="email" name="email" placeholder="Email" value="{{{ Input::old('email') }}}" />
+                                {{ $errors->register->first('password', '<span class="input-error">:message</span>') }}
+                                @if(!$errors->register->first('password'))
+                                    {{ $errors->register->first('password_confirmation', '<span class="input-error">:message</span>') }}
+                                @endif
+                                <input type="password" name="password" placeholder="Password" />
+                                <input type="password" name="password_confirmation" placeholder="Password Confirm" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 hidden-xs">
+                                <div id="why-register">
+                                    <ul>
+                                        <li id="register-header">Register In Seconds</li>
+                                        <li>• Save your favorite recipes</li>
+                                        <li>• Always free</li>
+                                        <li>• We never share your email or personal information.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <label class="myCheckbox">
+                                    <input type="checkbox" id="terms-agree" name="terms-agree" />
+                                    <span></span>
+                                    I am 13 years of age or older and agree to the <a href="{{ url('terms') }}">Terms and Conditions</a></label>
+                                </label>
+                            </div>
+                            <div class="col-xs-12">
+                                <input id="register-submit-button" name="register-submit-button" type="submit" class="flat-button" value="register" disabled="disabled" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Modal -->
+        <div class="modal" id="forgot-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header clearfix">
+                        <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                    </div>
+                    <div class="modal-body">
+                        <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
+
+                        {{ Form::open(array('url' => URL::to('/users/forgot_password'), 'id' => 'forgot-password-form', 'class' => 'row')) }}
+                        <div class="col-xs-12">
+                            <p>Forgot Password? <span>let's get it back</span></p>
+                            @if($forgot_password_error_msg = Session::pull('forgot_password_error_msg', false))
+                                <span class="input-error">{{ $forgot_password_error_msg }}</span>
+                            @endif
+                            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}" autofocus>
+
+                            {{ Form::submit(Lang::get('confide::confide.forgot.submit'), array('class' => 'flat-button flat-button-green')) }}
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reset Password Modal -->
+        <div class="modal" id="reset-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header clearfix">
+                        <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                    </div>
+                    <div class="modal-body">
+                        <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
+
+                        {{ Form::open(array('url' => URL::to('/users/reset_password'), 'id' => 'reset-password-form', 'class' => 'row')) }}
+                        @if(isset($token))
+                            <input type="hidden" name="token" value="{{{ $token }}}">
+                        @endif
+                        <div class="col-xs-12">
+                            <p>Reset Password <span>try to remember this one</span></p>
+                            @if($reset_password_error_msg = Session::pull('reset_password_error_msg', false))
+                                <span class="input-error">{{ $reset_password_error_msg }}</span>
+                            @endif
+                            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}" type="password" name="password" id="password" autofocus>
+                            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
+
+                            {{ Form::submit(Lang::get('confide::confide.forgot.submit'), array('class' => 'flat-button flat-button-green')) }}
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-
-
-<!-- Login Modal -->
-<div class="modal" id="guest-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header clearfix">
-                <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
-            </div>
-            <div class="modal-body">
-                <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
-                <p>Sign in to access your cookbook from anywhere.</p>
-
-                {{ Form::open(array('url' => URL::to('/users/login'), 'id' => 'login-form', 'class' => 'row')) }}
-                <div class="col-xs-12 col-sm-6">
-                    <p>Login <span>exisiting users</span></p>
-                    @if($login_error_msg = Session::pull('login_error_msg', false))
-                        <span class="input-error">{{ $login_error_msg }}</span>
-                    @endif
-                    {{ Form::text('email', null, array('placeholder' => 'Email', 'required' => 'required', 'autofocus' => 'autofocus')) }}
-                    {{ Form::password('password', array('placeholder' => 'Password', 'required' => 'required')) }}
-                    <div class="clearfix">
-                        <label class="myCheckbox">
-                            <input type="checkbox" id="remember" name="remember"/>
-                            <span></span>
-                        </label>
-                        <label for="remember">Remember me</label>
-
-                        <a id="forgot_password_link" href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot Password?</a>
-                    </div>
-                    {{ Form::submit('login', array('class' => 'flat-button flat-button-green')) }}
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <div id="new-user">
-                        <p>New User? <span>sign up now</span></p>
-                        <ul>
-                            <li>• Register in seconds</li>
-                            <li>• Access your cookbook from anywhere.</li>
-                            <li>• Create and share your recipes.</li>
-                        </ul>
-                    </div>
-                    <a id="join_now_link" href="#" class="flat-button">Join now for free!</a>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Register Modal -->
-<div class="modal" id="guest-register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header clearfix">
-                <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
-            </div>
-            <div class="modal-body">
-                <a id="member_already_link" class="alt-link" href="#">Member? Log in here.</a>
-                <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
-                <p>Join for free now to access your cookbook from anywhere.</p>
-
-                <form id="register-form" class="row" method="POST" action="{{{ URL::to('users') }}}" accept-charset="UTF-8">
-                    <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
-                    <div class="col-xs-12 col-sm-6">
-                        {{ $errors->register->first('username', '<span class="input-error">:message</span>') }}
-                        <input type="text" name="username" placeholder="Username (what others see)" value="{{{ Input::old('username') }}}" autofocus />
-                        {{ $errors->register->first('email', '<span class="input-error">:message</span>') }}
-                        <input type="email" name="email" placeholder="Email" value="{{{ Input::old('email') }}}" />
-                        {{ $errors->register->first('password', '<span class="input-error">:message</span>') }}
-                        @if(!$errors->register->first('password'))
-                            {{ $errors->register->first('password_confirmation', '<span class="input-error">:message</span>') }}
-                        @endif
-                        <input type="password" name="password" placeholder="Password" />
-                        <input type="password" name="password_confirmation" placeholder="Password Confirm" />
-                    </div>
-                    <div class="col-xs-12 col-sm-6 hidden-xs">
-                        <div id="why-register">
-                            <ul>
-                                <li id="register-header">Register In Seconds</li>
-                                <li>• Save your favorite recipes</li>
-                                <li>• Always free</li>
-                                <li>• We never share your email or personal information.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <label class="myCheckbox">
-                            <input type="checkbox" id="terms-agree" name="terms-agree" />
-                            <span></span>
-                            I am 13 years of age or older and agree to the <a href="{{ url('terms') }}">Terms and Conditions</a></label>
-                        </label>
-                    </div>
-                    <div class="col-xs-12">
-                        <input id="register-submit-button" name="register-submit-button" type="submit" class="flat-button" value="register" disabled="disabled" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Forgot Password Modal -->
-<div class="modal" id="forgot-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header clearfix">
-                <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
-            </div>
-            <div class="modal-body">
-                <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
-
-                {{ Form::open(array('url' => URL::to('/users/forgot_password'), 'id' => 'forgot-password-form', 'class' => 'row')) }}
-                <div class="col-xs-12">
-                    <p>Forgot Password? <span>let's get it back</span></p>
-                    @if($forgot_password_error_msg = Session::pull('forgot_password_error_msg', false))
-                        <span class="input-error">{{ $forgot_password_error_msg }}</span>
-                    @endif
-                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}" autofocus>
-
-                    {{ Form::submit(Lang::get('confide::confide.forgot.submit'), array('class' => 'flat-button flat-button-green')) }}
-                </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Reset Password Modal -->
-<div class="modal" id="reset-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header clearfix">
-                <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
-            </div>
-            <div class="modal-body">
-                <img id="alt-logo" src="{{ url('assets/img/logo-white.png') }}" />
-
-                {{ Form::open(array('url' => URL::to('/users/reset_password'), 'id' => 'reset-password-form', 'class' => 'row')) }}
-                @if(isset($token))
-                    <input type="hidden" name="token" value="{{{ $token }}}">
-                @endif
-                <div class="col-xs-12">
-                    <p>Reset Password <span>try to remember this one</span></p>
-                    @if($reset_password_error_msg = Session::pull('reset_password_error_msg', false))
-                        <span class="input-error">{{ $reset_password_error_msg }}</span>
-                    @endif
-                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}" type="password" name="password" id="password" autofocus>
-                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
-
-                    {{ Form::submit(Lang::get('confide::confide.forgot.submit'), array('class' => 'flat-button flat-button-green')) }}
-                </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content">

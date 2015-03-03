@@ -98,19 +98,19 @@
   #single-recipe .lower-menu #ingredients {
     font-weight: bold; }
     #single-recipe .lower-menu #ingredients li {
-      font-family: "proxima-nova", sans-serif;
-      font-size: 20px;
+      font-family: "georgia";
+      font-size: 16px;
       margin-bottom: 10px;
       color: white; }
   #single-recipe .lower-menu #directions li {
-    font-family: "proxima-nova", sans-serif;
+    font-family: "georgia";
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 20px;
     color: #ff9666;
     font-weight: bold; }
     #single-recipe .lower-menu #directions li span {
       margin-left: 5px;
-      font-size: 20px;
+      font-size: 16px;
       color: white;
       font-weight: 100; }
 

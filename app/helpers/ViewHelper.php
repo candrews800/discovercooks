@@ -208,7 +208,7 @@ class ViewHelper
         return $response;
     }
 
-    public static function tileRecipes($recipes, $x = 288, $y = 162)
+    public static function tileRecipes($recipes, $x = 144, $y = 81)
     {
         if($recipes->isEmpty()){
             return '';
@@ -225,7 +225,7 @@ class ViewHelper
             foreach ($recipes as $key => $recipe) {
                 $response .= 'url(\'' . url(self::getRecipeImage($recipe->image)) . '\') no-repeat ' . ($col * $x - $offset) . 'px ' . $row * $y . 'px,';
                 $col++;
-                if ($col > 10) {
+                if ($col > 15) {
                     $col = 0;
                     $row++;
                 }

@@ -98,12 +98,12 @@
   #single-recipe .lower-menu #ingredients {
     font-weight: bold; }
     #single-recipe .lower-menu #ingredients li {
-      font-family: "georgia";
+      font-family: "proxima-nova", sans-serif;
       font-size: 20px;
       margin-bottom: 10px;
       color: white; }
   #single-recipe .lower-menu #directions li {
-    font-family: "georgia";
+    font-family: "proxima-nova", sans-serif;
     margin-bottom: 10px;
     font-size: 24px;
     color: #ff9666;

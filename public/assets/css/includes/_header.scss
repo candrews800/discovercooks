@@ -126,7 +126,20 @@
       }
     }
   }
+}
 
+#new-recipe-header{
+  position: relative;
+  &:hover, &:focus, &:active{
+    .glyphicon-plus{
+      color: $primary-color;
+    }
+  }
+  .glyphicon-plus{
+    margin-right: -1px;
+    color: $offset-color;
+    font-size: 13px;
+  }
 }
 
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {

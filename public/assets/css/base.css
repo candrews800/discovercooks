@@ -273,6 +273,15 @@ ol {
       .navbar-green .navbar-toggle:hover .icon-bar {
         background-color: #174c4f; }
 
+#new-recipe-header {
+  position: relative; }
+  #new-recipe-header:hover .glyphicon-plus, #new-recipe-header:focus .glyphicon-plus, #new-recipe-header:active .glyphicon-plus {
+    color: #174c4f; }
+  #new-recipe-header .glyphicon-plus {
+    margin-right: -1px;
+    color: #ff9666;
+    font-size: 13px; }
+
 @media (max-width: 991px) {
   #navbar form {
     margin-top: 10px; }

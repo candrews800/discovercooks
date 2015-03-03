@@ -373,12 +373,12 @@ TO DO:
 
         *DONE* Home Page Uses more than one featured
 
-        Direction/Ingredient design
+        *DONE* Direction/Ingredient design
 
         No recent recipes -> Add more recipes
         Subscribers not accurate.
 
-        Cutlery on main bar with plus sign for new recipes
+        *DONE* Cutlery on main bar with plus sign for new recipes
 
         Discover Cooks Profile picture
 

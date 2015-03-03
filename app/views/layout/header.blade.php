@@ -76,8 +76,9 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li id="new-recipe-header"><a class="menu-item" href="{{ url('recipe/new') }}" title="Add New Recipe"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-cutlery"></i></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-expanded="false"><img id="user-avatar" src="{{ url('assets/img/user-logo.png') }}" /></a>
+                            <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-user"></i></a>
                             <ul class="dropdown-menu" role="menu">
                                 @if(Auth::guest())
                                     <li><a class="menu-item" href="#" data-toggle="modal" data-target="#guest-login-modal">login<span></a></li>
@@ -85,7 +86,6 @@
                                 @else
                                     <li><a class="menu-item" href="{{ url('profile/'.Auth::user()->username) }}">profile</a></li>
                                     <li><a class="menu-item" href="{{ url('cookbook/'.Auth::user()->username) }}"><span>my</span>Cookbook</a></li>
-                                    <li><a class="menu-item" href="{{ url('recipe/new') }}">new recipe</a></li>
                                     <li><a class="menu-item" href="{{ url('users/logout') }}">logout<span></a></li>
                                 @endif
                             </ul>

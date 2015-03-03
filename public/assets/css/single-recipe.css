@@ -93,6 +93,8 @@
       font-weight: 100;
       margin-bottom: 5px;
       display: none; }
+    #single-recipe .lower-menu #ingredients li, #single-recipe .lower-menu #directions li {
+      line-height: 1.2; }
   #single-recipe .lower-menu #ingredients {
     font-weight: bold; }
     #single-recipe .lower-menu #ingredients li {

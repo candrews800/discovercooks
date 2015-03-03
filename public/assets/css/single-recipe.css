@@ -88,8 +88,8 @@
     text-align: left; }
     #single-recipe .lower-menu #ingredients h3, #single-recipe .lower-menu #directions h3 {
       font-family: "trajan-sans-pro", sans-serif;
-      color: white;
-      font-size: 16px;
+      color: #207178;
+      font-size: 20px;
       font-weight: 100;
       margin-bottom: 5px; }
     #single-recipe .lower-menu #ingredients li, #single-recipe .lower-menu #directions li {

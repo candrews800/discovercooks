@@ -360,22 +360,40 @@ TO DO:
             *DONE* More char for description, (450)
             *DONE* Ingredient Sizes
 
+        ___ TODAY ___
+
         Upload to Site:
-            Ingredient Sizes
-            Make Recipe Changes
-            Forum Categories
-            Forum Topics
+            *DONE* Ingredient Sizes
+            *DONE* Make Recipe Changes
+            *DONE* Change recipe owner to discover cooks
 
-        Make DiscoverCooks user an admin
+        *DONE* Recipe Admin -> Ingredient Sizes fix
 
-        Home Page Uses more than one featured
+        *DONE* Make DiscoverCooks user an admin
+
+        *DONE* Home Page Uses more than one featured
 
         Direction/Ingredient design
 
         No recent recipes -> Add more recipes
-        Subscribers not accurate
+        Subscribers not accurate.
+
+        Cutlery on main bar with plus sign for new recipes
+
+        Discover Cooks Profile picture
+
+        Recipe Categories
+
+        Forum Categories
+        Forum Topics
+
+        Edit Recipe -> Hover is black
+
+        ___ /END TODAY ___
 
         Reply/Post text processing -- Use [quote]
+
+        Forum Stickies
 
         Facebook/Twitter/Pinterest/Website in Profile
 
@@ -388,6 +406,8 @@ TO DO:
         Fix Suggestions
         Apply for Adwords
 
+        Add Tags
+
         Welcome Email
 
         Typography Overhaul
@@ -396,4 +416,3 @@ TO DO:
             Minimize CSS / JS, etc.
             Reduce Queries per page
             Cache Pages
-

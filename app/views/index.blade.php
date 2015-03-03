@@ -10,56 +10,18 @@
                 <div id="carousel-home" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipes[0]->image)) }}" alt="Picture of {{ $featured_recipes[0]->name }}"></a>
+                        @foreach($featured_recipes as $key => $featured_recipe)
+                            <div class="item {{ ViewHelper::addClass('active', !$key) }}">
+                                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
-                            <div class="carousel-caption">
-                                <h1><a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}">{{ $featured_recipes[0]->name }}</a></h1>
-                                <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipes[0]->author->image)) }}" /></a>
+                                <div class="carousel-caption">
+                                    <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
+                                    <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
 
-                                <p class="author">by <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}">{{ $featured_recipes[0]->author->username }}</a></p>
+                                    <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipes[0]->image)) }}" alt="Picture of {{ $featured_recipes[0]->name }}"></a>
-
-                            <div class="carousel-caption">
-                                <h1><a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}">{{ $featured_recipes[0]->name }}</a></h1>
-                                <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipes[0]->author->image)) }}" /></a>
-
-                                <p class="author">by <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}">{{ $featured_recipes[0]->author->username }}</a></p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipes[0]->image)) }}" alt="Picture of {{ $featured_recipes[0]->name }}"></a>
-
-                            <div class="carousel-caption">
-                                <h1><a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}">{{ $featured_recipes[0]->name }}</a></h1>
-                                <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipes[0]->author->image)) }}" /></a>
-
-                                <p class="author">by <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}">{{ $featured_recipes[0]->author->username }}</a></p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipes[0]->image)) }}" alt="Picture of {{ $featured_recipes[0]->name }}"></a>
-
-                            <div class="carousel-caption">
-                                <h1><a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}">{{ $featured_recipes[0]->name }}</a></h1>
-                                <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipes[0]->author->image)) }}" /></a>
-
-                                <p class="author">by <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}">{{ $featured_recipes[0]->author->username }}</a></p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipes[0]->image)) }}" alt="Picture of {{ $featured_recipes[0]->name }}"></a>
-
-                            <div class="carousel-caption">
-                                <h1><a href="{{ url('recipe/'.$featured_recipes[0]->slug) }}">{{ $featured_recipes[0]->name }}</a></h1>
-                                <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipes[0]->author->image)) }}" /></a>
-
-                                <p class="author">by <a href="{{ url('profile/'.$featured_recipes[0]->author->username) }}">{{ $featured_recipes[0]->author->username }}</a></p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <!-- Controls -->

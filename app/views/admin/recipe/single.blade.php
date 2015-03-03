@@ -157,7 +157,7 @@
                         <input id="recipe-quantity" class="form-control" type="text" name="recipe-quantity" data-toggle="tooltip" data-placement="bottom" title="Invalid Format" placeholder="3" />
                     </div>
                     <div class="col-xs-6">
-                        {{ Form::select('recipe-quantity-type', Recipe::$ingredientSizes, null, array('id' => 'recipe-quantity-type', 'class' => 'form-control')) }}
+                        {{ Form::select('recipe-quantity-type', IngredientSizes::getAll(), null, array('id' => 'recipe-quantity-type', 'class' => 'form-control')) }}
                     </div>
                 </div>
             </div>

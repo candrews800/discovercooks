@@ -101,7 +101,7 @@
                                 </div>
 
 
-                                <div id="ingredients" class="col-xs-12 col-sm-6">
+                                <div id="ingredients" class="col-xs-12 col-sm-5">
                                     <h3>ingredients</h3>
                                     <div class="menu-wrapper">
                                         <ul>
@@ -115,13 +115,13 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="directions" class="col-xs-12 col-sm-6">
+                                <div id="directions" class="col-xs-12 col-sm-7">
                                     <h3>directions</h3>
                                     <div class="menu-wrapper">
                                         <ol>
                                             @if(strpos($recipe->directions, '<>'))
-                                                @foreach(explode("<>", $recipe->directions) as $direction)
-                                                    <li><span>{{{ $direction }}}</span></li>
+                                                @foreach(explode("<>", $recipe->directions) as $key => $direction)
+                                                    <li>{{ $key + 1 }}. <span>{{{ $direction }}}</span></li>
                                                 @endforeach
                                             @else
                                                 <li><span>{{{ $recipe->directions }}}</span></li>

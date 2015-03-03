@@ -122,8 +122,6 @@
             margin-bottom: 3px;
             color: white;
             font-style: italic;
-            width: 70%;
-            margin-left: 15%;
             text-align: center;
         }
 
@@ -136,22 +134,38 @@
                 font-size: 34px;
                 font-weight: 100;
                 margin-bottom: 5px;
-            }
-            li{
-                font-family: $paragraph-font;
-                font-size: 18px;
-                margin-bottom: 5px;
-                color: white;
-            }
-
-            ol li{
-                list-style-type: decimal;
-                list-style-position: inside;
+              display: none;
             }
         }
 
         #ingredients{
           font-weight: bold;
+
+          li{
+            font-family: $paragraph-font;
+            font-size: 16px;
+
+            margin-bottom: 5px;
+            color: white;
+          }
+        }
+        #directions{
+
+          li{
+            font-family: $paragraph-font;
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: $offset-color;
+            font-weight: bold;
+
+            span{
+              margin-left: 5px;
+              font-size: 16px;
+              color: white;
+              font-weight: 100;
+            }
+          }
+
         }
     }
 }

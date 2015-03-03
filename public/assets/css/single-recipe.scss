@@ -150,6 +150,11 @@
 
             margin-bottom: 10px;
             color: white;
+            padding-left: 15px;
+            &::first-line{
+              margin-left: 15px;
+              color: blue;
+            }
           }
         }
         #directions{
@@ -158,7 +163,7 @@
             font-family: $paragraph-font;
             margin-bottom: 10px;
             font-size: 20px;
-            
+
 
             color: $offset-color;
             font-weight: bold;

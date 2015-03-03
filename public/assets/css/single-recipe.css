@@ -101,7 +101,11 @@
       font-family: "georgia";
       font-size: 16px;
       margin-bottom: 10px;
-      color: white; }
+      color: white;
+      padding-left: 15px; }
+      #single-recipe .lower-menu #ingredients li::first-line {
+        margin-left: 15px;
+        color: blue; }
   #single-recipe .lower-menu #directions li {
     font-family: "georgia";
     margin-bottom: 10px;

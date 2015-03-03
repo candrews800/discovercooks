@@ -96,7 +96,7 @@
       line-height: 1.2; }
   #single-recipe .lower-menu #ingredients li {
     font-family: "georgia";
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 10px;
     color: white;
     padding-left: 50px;
@@ -104,12 +104,12 @@
   #single-recipe .lower-menu #directions li {
     font-family: "georgia";
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: #ff9666;
     font-weight: 200; }
     #single-recipe .lower-menu #directions li span {
       margin-left: 3px;
-      font-size: 18px;
+      font-size: 16px;
       color: white;
       font-weight: 100; }
 

@@ -225,7 +225,7 @@ class ViewHelper
             foreach ($recipes as $key => $recipe) {
                 $response .= 'url(\'' . url(self::getRecipeImage($recipe->image)) . '\') no-repeat ' . ($col * $x - $offset) . 'px ' . $row * $y . 'px,';
                 $col++;
-                if ($col > 15) {
+                if ($col > 17) {
                     $col = 0;
                     $row++;
                 }

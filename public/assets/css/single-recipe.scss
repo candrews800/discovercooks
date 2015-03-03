@@ -1,7 +1,7 @@
 @import 'includes/_variables';
 
 #single-recipe{
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,1);
     padding: 60px;
     #main-image{
         width: 100%;
@@ -131,10 +131,9 @@
             h3{
                 font-family: $heading-font;
                 color: white;
-                font-size: 34px;
+                font-size: 16px;
                 font-weight: 100;
                 margin-bottom: 5px;
-              display: none;
             }
           li{
             line-height: 1.2;
@@ -142,8 +141,6 @@
         }
 
         #ingredients{
-          font-weight: bold;
-
           li{
             font-family: $paragraph-font;
             font-size: 18px;

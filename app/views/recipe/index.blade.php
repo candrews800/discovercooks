@@ -96,7 +96,7 @@
                     <div class="col-xs-12">
                         <div class="lower-menu">
                             <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 col-md-10 col-md-offset-1">
                                     <p class="recipe-description">{{{ $recipe->description }}}</p>
                                 </div>
 

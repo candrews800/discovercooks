@@ -151,10 +151,7 @@
             margin-bottom: 10px;
             color: white;
             padding-left: 15px;
-            &::first-line{
-              margin-left: 15px;
-              color: blue;
-            }
+            text-indent: -15px;
           }
         }
         #directions{
@@ -162,14 +159,14 @@
           li{
             font-family: $paragraph-font;
             margin-bottom: 10px;
-            font-size: 20px;
+            font-size: 18px;
 
 
             color: $offset-color;
             font-weight: bold;
 
             span{
-              margin-left: 5px;
+              margin-left: 3px;
               font-size: 16px;
               color: white;
               font-weight: 100;

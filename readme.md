@@ -375,9 +375,6 @@ TO DO:
 
         *DONE* Direction/Ingredient design
 
-        No recent recipes -> Add more recipes
-        Subscribers not accurate.
-
         *DONE* Cutlery on main bar with plus sign for new recipes
 
         Discover Cooks Profile picture
@@ -386,7 +383,8 @@ TO DO:
 
         Edit Recipe -> Hover is black
 
-        Black BG for pages
+        No recent recipes -> Add more recipes
+        Subscribers not accurate.
 
         Forum Categories
         Forum Topics
@@ -418,3 +416,6 @@ TO DO:
             Minimize CSS / JS, etc.
             Reduce Queries per page
             Cache Pages
+
+
+        Add Cook/User to favorites

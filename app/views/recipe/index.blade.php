@@ -101,7 +101,7 @@
                                 </div>
 
 
-                                <div id="ingredients" class="col-xs-12 col-sm-6">
+                                <div id="ingredients" class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
                                     <h3>ingredients</h3>
                                     <div class="menu-wrapper">
                                         <ul>
@@ -115,7 +115,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="directions" class="col-xs-12 col-sm-6">
+                                <div id="directions" class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
                                     <h3>directions</h3>
                                     <div class="menu-wrapper">
                                         <ol>

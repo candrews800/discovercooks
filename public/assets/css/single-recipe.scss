@@ -121,11 +121,15 @@
             font-size: 18px;
             margin-bottom: 3px;
             color: white;
+            font-style: italic;
+            width: 70%;
+            margin-left: 15%;
+            text-align: center;
         }
 
         #ingredients, #directions{
             margin: 15px 0;
-            text-align: center;
+            text-align: left;
             h3{
                 font-family: $heading-font;
                 color: white;
@@ -144,6 +148,10 @@
                 list-style-type: decimal;
                 list-style-position: inside;
             }
+        }
+
+        #ingredients{
+          font-weight: bold;
         }
     }
 }

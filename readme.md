@@ -385,36 +385,48 @@ TO DO:
 
         *DONE* No recent recipes -> Add more recipes
 
-        Forum Categories
-        Forum Topics
+        *DONE* Forum Categories
+        *DONE* Forum Topics
 
         ___ /END TODAY ___
 
-        Reply/Post text processing -- Use [quote]
+        Login / Register /
+        Forget Password Email Style
+        Reset Password Test
+
+        Welcome Email
+
+        Write Terms and Conditions
+
+        Write About Page
+
+        Add to Google
 
         Forum Stickies
 
         Facebook/Twitter/Pinterest/Website in Profile
 
-        Write Terms and Conditions
-        Login / Register /
-        Forget Password Email Style
-        Reset Password Test
+        Reply/Post text processing -- Use [quote]
 
-        Add to Google
         Fix Suggestions
+
         Apply for Adwords
 
-        Add Tags
+        Facebook Creation
 
-        Welcome Email
+        Twitter Creation
+
+        Pinterest Creation
 
         Typography Overhaul
+
+        Add Cook/User to favorites
+
+        Add Tags
 
         SPEED:
             Minimize CSS / JS, etc.
             Reduce Queries per page
             Cache Pages
 
-
-        Add Cook/User to favorites
+        LAUNCH - MARCH 31st

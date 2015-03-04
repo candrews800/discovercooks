@@ -20,7 +20,7 @@
                             </div>
                             <?php $count++ ?>
                         @endif
-                        @if($count % 3 == 0 && $count > 0)
+                        @if($count % 3 == 0 && $count > 0 || $key == sizeof($topics)-1)
                             </div>
                         @endif
                     @endforeach

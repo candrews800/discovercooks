@@ -390,15 +390,12 @@ TO DO:
 
         ___ /END TODAY ___
 
-        Login / Register
-        Forget Password Email Style
-        Reset Password Test
+        *DONE* Login / Register
+        *DONE* Reset Password Test
 
-        Welcome Email
+        *DONE* Write About Page
 
-        Write Terms and Conditions
-
-        Write About Page
+        *DONE* Update contact page
 
         Add to Google
 
@@ -410,8 +407,6 @@ TO DO:
 
         Fix Suggestions
 
-        Apply for Adwords
-
         Facebook Creation
 
         Twitter Creation
@@ -420,13 +415,22 @@ TO DO:
 
         Typography Overhaul
 
+        Write Terms and Conditions
+
+        Apply for Adwords
+
         Add Cook/User to favorites
 
         Add Tags
+
+        Add Discover Cooks Section
 
         SPEED:
             Minimize CSS / JS, etc.
             Reduce Queries per page
             Cache Pages
+
+        Welcome Email
+        Forget / Reset Password Email Style
 
         LAUNCH - MARCH 31st

@@ -6,8 +6,9 @@
             <div class="category">
                 <h2>{{ $category->name }}</h2>
                 <div class="row">
+                    <?php $count = 0; ?>
                     @foreach($topics as $key => $topic)
-                        @if($key % 3 == 0)
+                        @if($count % 3 == 0)
                             <div class="clearfix">
                         @endif
                         @if($topic->category_id == $category->id)
@@ -17,8 +18,9 @@
                                     <p>{{ $topic->description }}</p>
                                 </div>
                             </div>
+                            <?php $count++ ?>
                         @endif
-                        @if($key % 3 == 0 && $key > 0)
+                        @if($count % 3 == 0 && $count > 0)
                             </div>
                         @endif
                     @endforeach

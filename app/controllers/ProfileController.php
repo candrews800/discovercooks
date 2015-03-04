@@ -119,18 +119,13 @@ class ProfileController extends BaseController {
             $review->reviewer = User::find($review->reviewer_id);
         }
 
-        $count = 3;
-        if($recent_reviews->isEmpty()){
-            $count = 6;
-        }
-
         $recipes = Recipe::where('author_id', '=', $user->id)
             ->where(function($query){
                 $query->where('private', '=', 0)
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy('overall_rating', 'desc')
-            ->take($count)->get();
+            ->take(3)->get();
         foreach($recipes as $recipe){
             $recipe->user = User::find($recipe->author_id);
             $recipe->category = Category::find($recipe->category);

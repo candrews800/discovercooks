@@ -24,24 +24,19 @@
             <div id="profile-recipes" class="col-xs-12">
                 <div class="row">
                     @if(!$recipes->isEmpty())
-                        @if(!$recent_reviews->isEmpty())
                         <div id="search-results" class="col-xs-12 col-lg-7">
-                        @else
-                        <div id="search-results" class="col-xs-12">
-                        @endif
                             <div class="row">
                                 @foreach($recipes as $recipe)
                                     {{ ViewHelper::addRecipe($recipe,12,4,4,4) }}
                                 @endforeach
                             </div>
                         </div>
-                        @if(!$recipes->isEmpty())
+
+
                         <div class="col-xs-12 col-lg-5 hidden-xs">
-                        @else
-                        <div class="col-xs-12 col-lg-5 hidden-xs hidden-sm hidden-md hidden-lg">
-                        @endif
                             <div id="recent-reviews" class="clearfix">
                                 <h2>recent reviews</h2>
+                                @if(!$recent_reviews->isEmpty())
                                 @foreach($recent_reviews as $key=>$review)
                                     <div class="recipe-review clearfix">
                                         <div class="row">
@@ -61,6 +56,8 @@
                                         <div class="review-divider"></div>
                                     @endif
                                 @endforeach
+                                    @else
+                                <p>Be the first to review {{ $user->username }}'s recipes!</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-2 col-lg-offset-5">

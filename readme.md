@@ -383,9 +383,7 @@ TO DO:
 
         *DONE* Edit Recipe -> Hover is black
 
-        No recent recipes -> Add more recipes
-
-        Subscribers not accurate.
+        *DONE* No recent recipes -> Add more recipes
 
         Forum Categories
         Forum Topics

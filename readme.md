@@ -377,13 +377,14 @@ TO DO:
 
         *DONE* Cutlery on main bar with plus sign for new recipes
 
-        Discover Cooks Profile picture
+        *DONE* Discover Cooks Profile picture
 
-        Recipe Categories
+        *DONE* Recipe Categories
 
-        Edit Recipe -> Hover is black
+        *DONE* Edit Recipe -> Hover is black
 
         No recent recipes -> Add more recipes
+
         Subscribers not accurate.
 
         Forum Categories

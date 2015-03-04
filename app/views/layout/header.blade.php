@@ -76,7 +76,15 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="new-recipe-header"><a class="menu-item" href="{{ url('recipe/new') }}" title="Add New Recipe"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-cutlery"></i></a></li>
+
+                        <li id="new-recipe-header">
+                            @if(Auth::guest())
+                            <a class="menu-item" href="#" data-toggle="modal" data-target="#guest-login-modal"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-cutlery"></i></a>
+                            @else
+                            <a class="menu-item" href="{{ url('recipe/new') }}" title="Add New Recipe"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-cutlery"></i></a>
+                            @endif
+
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-user"></i></a>
                             <ul class="dropdown-menu" role="menu">

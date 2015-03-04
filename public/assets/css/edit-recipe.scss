@@ -144,7 +144,7 @@ p{
         font-size: 18px;
         font-weight: bold;
         line-height: 30px;
-        color: white;
+        color: $primary-color;
         margin-left: 20px;
         text-decoration: underline;
         position: absolute;
@@ -163,7 +163,7 @@ p{
         position: relative;
 
         &:hover{
-            background-color: #333;
+            background-color: #eee;
         }
     }
 }
@@ -199,7 +199,7 @@ p{
         font-size: 18px;
         font-weight: bold;
         line-height: 30px;
-        color: white;
+        color: $primary-color;
         margin-left: 20px;
         text-decoration: underline;
         position: absolute;
@@ -218,7 +218,7 @@ p{
         position: relative;
 
         &:hover{
-            background-color: #333;
+            background-color: #eee;
         }
         padding: 5px;
     }

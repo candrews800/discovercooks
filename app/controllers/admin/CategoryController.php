@@ -45,6 +45,7 @@ class CategoryController extends \BaseController {
             $image_data = \Image::getFrom64($input['category_image_values']);
             $category->image = $category->name . '.' . $image_data['extension'];
             \Image::store64($image_data['data'], $category->image, 'category_images');
+            dd('t');
         }
         if($category->image && !isset($input['category_image_values']) && !empty($input['category_image'])){
             $category->image = '';

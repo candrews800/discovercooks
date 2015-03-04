@@ -113,13 +113,24 @@ class ProfileController extends BaseController {
     }
 
     public function show(User $user){
+
+        $recent_reviews = Recipe::join('reviews', 'recipes.id', '=', 'reviews.recipe_id')->where('recipes.author_id', '=', $user->id)->take(4)->get();
+        foreach($recent_reviews as $review){
+            $review->reviewer = User::find($review->reviewer_id);
+        }
+
+        $count = 3;
+        if($recent_reviews->isEmpty()){
+            $count = 6;
+        }
+
         $recipes = Recipe::where('author_id', '=', $user->id)
             ->where(function($query){
                 $query->where('private', '=', 0)
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy('overall_rating', 'desc')
-            ->take(3)->get();
+            ->take($count)->get();
         foreach($recipes as $recipe){
             $recipe->user = User::find($recipe->author_id);
             $recipe->category = Category::find($recipe->category);
@@ -129,10 +140,7 @@ class ProfileController extends BaseController {
             }
         }
 
-        $recent_reviews = Recipe::join('reviews', 'recipes.id', '=', 'reviews.recipe_id')->where('recipes.author_id', '=', $user->id)->take(4)->get();
-        foreach($recent_reviews as $review){
-            $review->reviewer = User::find($review->reviewer_id);
-        }
+
 
         $reviews = Review::where('reviewer_id', '=', $user->id)->take(6)->get();
         foreach($reviews as $review){

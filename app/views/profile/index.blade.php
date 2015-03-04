@@ -56,8 +56,9 @@
                                         <div class="review-divider"></div>
                                     @endif
                                 @endforeach
-                                    @else
+                                @else
                                 <p>Be the first to review {{ $user->username }}'s recipes!</p>
+                                @endif
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-2 col-lg-offset-5">

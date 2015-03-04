@@ -100,7 +100,8 @@ class UserRepository
     public function resetPassword($input)
     {
         $result = false;
-        $user   = Confide::userByResetPasswordToken($input['token']);
+
+        $user   = Confide::userByResetPasswordToken(Session::pull('token'));
 
         if ($user) {
             $user->password              = $input['password'];

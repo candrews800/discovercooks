@@ -57,7 +57,9 @@
                                     @endif
                                 @endforeach
                                 @else
-                                <p>Be the first to review {{ $user->username }}'s recipes!</p>
+                                    <div class="recipe-review clearfix">
+                                        <p id="no-recent-reviews">Be the first to review {{ $user->username }}'s recipes!</p>
+                                    </div>
                                 @endif
                             </div>
                         </div>

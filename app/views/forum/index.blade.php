@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                         @endif
-                        @if($key % 3 == 0)
+                        @if($key % 3 == 0 && $key > 0)
                             </div>
                         @endif
                     @endforeach

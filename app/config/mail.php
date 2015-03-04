@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'log',
+	'driver' => 'mail',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'noreply@mydigitalcookbook.com', 'name' => 'noreply'),
+	'from' => array('address' => 'noreply@discovercooks.com', 'name' => 'Discover Cooks'),
 
 	/*
 	|--------------------------------------------------------------------------

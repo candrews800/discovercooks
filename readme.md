@@ -390,7 +390,7 @@ TO DO:
 
         ___ /END TODAY ___
 
-        Login / Register /
+        Login / Register
         Forget Password Email Style
         Reset Password Test
 

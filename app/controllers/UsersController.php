@@ -160,8 +160,8 @@ class UsersController extends Controller
     public function resetPassword($token)
     {
         Session::put('reset_password_error', true);
-        return View::make('index')
-            ->with('token', $token);
+        Session::put('token', $token);
+        return Redirect::to('/');
     }
 
     /**

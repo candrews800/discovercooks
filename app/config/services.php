@@ -15,8 +15,8 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => '',
-		'secret' => '',
+		'domain' => 'discovercooks.com',
+		'secret' => 'key-7aebc0347c335b1bc1f225b31eddb07d',
 	),
 
 	'mandrill' => array(

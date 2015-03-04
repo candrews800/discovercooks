@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'mail',
+	'driver' => 'mailgun',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'noreply@discovercooks.com', 'name' => 'Discover Cooks'),
+	'from' => array('address' => 'noreply@mail.discovercooks.com', 'name' => 'Discover Cooks'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'postmaster@mg.discovercooks.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => '3dffbefb4f5b6d60dfb8db02f873fbd8',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -101,7 +101,7 @@ class UserRepository
     {
         $result = false;
 
-        $user   = Confide::userByResetPasswordToken(Session::pull('token'));
+        $user   = Confide::userByResetPasswordToken(Session::get('token'));
 
         if ($user) {
             $user->password              = $input['password'];

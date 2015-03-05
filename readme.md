@@ -397,15 +397,23 @@ TO DO:
 
         *DONE* Update contact page
 
-        Add to Google
+        *DONE* Add to Google
 
-        Forum Stickies
+        --------
 
-        Facebook/Twitter/Pinterest/Website in Profile
+        *DONE* Forum Stickies
+
+        *DONE* Facebook/Twitter/Pinterest/Website in Profile
+
+        *DONE* Recipe Notes
 
         Reply/Post text processing -- Use [quote]
 
-        Fix Suggestions
+        Typography Overhaul
+
+        Write Terms and Conditions
+
+        --------
 
         Facebook Creation
 
@@ -413,15 +421,13 @@ TO DO:
 
         Pinterest Creation
 
-        Typography Overhaul
-
-        Write Terms and Conditions
-
         Apply for Adwords
 
         Add Cook/User to favorites
 
         Add Tags
+
+        Forum Mobile
 
         Add Discover Cooks Section
 
@@ -430,7 +436,7 @@ TO DO:
             Reduce Queries per page
             Cache Pages
 
-        Welcome Email
+        Welcome Email Style
         Forget / Reset Password Email Style
 
         LAUNCH - MARCH 31st

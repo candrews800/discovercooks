@@ -78,4 +78,18 @@ class PostController extends \BaseController {
 
         return \Redirect::to('forum/'.str_replace(' ', '-', $topic->name));
     }
+
+    public function addSticky(\ForumTopic $topic, \ForumPost $post){
+        $post->sticky = 1;
+        $post->save();
+
+        return \Redirect::back();
+    }
+
+    public function removeSticky(\ForumTopic $topic, \ForumPost $post){
+        $post->sticky = 0;
+        $post->save();
+
+        return \Redirect::back();
+    }
 }

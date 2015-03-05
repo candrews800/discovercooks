@@ -45,14 +45,17 @@
                             </div>
                         </div>
                     </div>
-
-                    <div id="about-menu" class="col-xs-12">
+                    @if($user->website)
+                    <div class="col-xs-12 profile-about">
+                        <div class="info">
+                            <a href="{{ $user->website }}"><i class="glyphicon glyphicon-info-sign"></i> {{ $user->website }}</a>
+                        </div>
+                    </div>
+                    @endif
+                    @if($user->hometown || $user->location || $user->hobbies)
+                    <div id="about-menu" class="profile-about col-xs-12">
                         <div class="row">
-                            <div class="col-xs-12">
-                                <div class="info">
-                                    <i class="glyphicon glyphicon-info-sign"></i> {{ $user->website }}
-                                </div>
-                            </div>
+                            @if($user->hometown && $user->location)
                             <div class="col-xs-12 col-sm-6">
                                 <div class="info">
                                     <i class="glyphicon glyphicon-home"></i> {{ $user->hometown }}
@@ -63,17 +66,55 @@
                                     <i class="glyphicon glyphicon-map-marker"></i> {{ $user->location }}
                                 </div>
                             </div>
+                            @elseif($user->hometown)
+                                <div class="col-xs-12">
+                                    <div class="info">
+                                        <i class="glyphicon glyphicon-map-marker"></i> {{ $user->location }}
+                                    </div>
+                                </div>
+                            @elseif($user->location)
+                                <div class="col-xs-12">
+                                    <div class="info">
+                                        <i class="glyphicon glyphicon-map-marker"></i> {{ $user->location }}
+                                    </div>
+                                </div>
+                            @endif
+                            @if($user->hobbies)
                             <div class="col-xs-12">
                                 <div class="info">
                                     <i class="glyphicon glyphicon-heart"></i> {{ $user->hobbies }}
                                 </div>
                             </div>
+                            @endif
+                            @if($user->facebook)
+                                <div class="col-xs-12 profile-about">
+                                    <div class="info">
+                                        <a href="{{ $user->facebook }}"><i class="glyphicon glyphicon-share"></i> Facebook</a>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($user->twitter)
+                                <div class="col-xs-12 profile-about">
+                                    <div class="info">
+                                        <a href="{{ $user->twitter }}"><i class="glyphicon glyphicon-share"></i> Twitter</a>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($user->pinterest)
+                                <div class="col-xs-12 profile-about">
+                                    <div class="info">
+                                        <a href="{{ $user->pinterest }}"><i class="glyphicon glyphicon-share"></i> Pinterest</a>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
 
                     <div id="about-menu-more" class="clearfix col-xs-12">
                         <i class="glyphicon glyphicon-chevron-down"></i> See More
                     </div>
+
+                    @endif
 
                     @if($user->id == Auth::id())
                         <div class="col-xs-12">
@@ -102,5 +143,19 @@
 
 
 @include('layout.footer')
+
+<script>
+    $('#about-menu-more').click(function(){
+        var aboutMenu = $('#about-menu');
+        if(aboutMenu.is(':visible')){
+            $(this).html('<i class="glyphicon glyphicon-chevron-down"></i> See More');
+            aboutMenu.slideUp(250);
+        }
+        else{
+            $(this).html('<i class="glyphicon glyphicon-chevron-up"></i> See Less');
+            aboutMenu.slideDown(250);
+        }
+    });
+</script>
 
 @yield('javascript')

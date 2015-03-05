@@ -128,6 +128,9 @@
                                             @endif
                                         </ol>
                                     </div>
+
+                                    <h3>notes</h3>
+                                    <p>{{{ $recipe->note }}}</p>
                                 </div>
                                 @if(Auth::id() == $recipe->author_id)
                                     <div class="col-xs-12">

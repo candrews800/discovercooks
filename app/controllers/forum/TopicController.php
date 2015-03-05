@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\View;
 class TopicController extends \BaseController {
 
     public function show(\ForumTopic $topic){
-        $posts = \ForumPost::where('topic_id', '=', $topic->id)->orderBy('last_activity', 'desc')->paginate(25);
+        $posts = \ForumPost::where('topic_id', '=', $topic->id)->orderBy('sticky', 'desc')->orderBy('last_activity', 'desc')->paginate(25);
 
         foreach($posts as $post){
             $post->author = \User::find($post->author_id);

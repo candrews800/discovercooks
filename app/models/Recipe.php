@@ -36,6 +36,7 @@ class Recipe extends Eloquent{
         $this->ingredients = $input['ingredients'];
         $this->directions = $input['directions'];
         $this->url = $input['url'];
+        $this->note = $input['note'];
 
 
         if (isset($input['recipe_image_values'])){

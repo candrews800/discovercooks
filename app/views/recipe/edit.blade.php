@@ -215,6 +215,14 @@
                             </ul>
                         </div>
 
+                        <div class="col-xs-12">
+                            <label class="input-label" for="recipe-description">Notes</label>
+                            @if($errors->first('note'))
+                                <span class="input-error">{{ $errors->first('note') }}</span>
+                            @endif
+                            {{ Form::textarea('note', $recipe->note, array('id' => 'recipe-note', 'class' => ViewHelper::addClass('invalid', $errors->first('note')))) }}
+                        </div>
+
                         <div class="h2header col-xs-12">
                             <h1>rules</h1>
                         </div>

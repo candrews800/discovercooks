@@ -150,9 +150,9 @@
             text-indent: -50px;
           }
         }
-        #directions{
+        #directions {
 
-          li{
+          li {
             font-family: $paragraph-font;
             margin-bottom: 10px;
             font-size: 20px;
@@ -160,14 +160,19 @@
             color: $offset-color;
             font-weight: 200;
 
-            span{
+            span {
               margin-left: 3px;
               font-size: 18px;
               color: white;
               font-weight: 100;
             }
           }
-
+          p{
+            font-family: $paragraph-font;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: white;
+          }
         }
     }
 }

@@ -111,18 +111,4 @@
 @section('javascript')
 <script src="{{ url('assets/readmore/readmore.min.js') }}"></script>
 <script src="{{ url('assets/js/initReadMore.js') }}"></script>
-
-<script>
-    $('#about-menu-more').click(function(){
-        var aboutMenu = $('#about-menu');
-        if(aboutMenu.is(':visible')){
-            $(this).html('<i class="glyphicon glyphicon-chevron-down"></i> See More');
-            aboutMenu.slideUp(250);
-        }
-        else{
-            $(this).html('<i class="glyphicon glyphicon-chevron-up"></i> See Less');
-            aboutMenu.slideDown(250);
-        }
-    });
-</script>
 @stop

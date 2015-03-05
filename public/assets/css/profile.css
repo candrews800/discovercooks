@@ -53,16 +53,20 @@
       list-style-position: inside;
       padding: 0; }
   #profile #about-menu {
-    text-align: center;
-    color: white;
     display: none; }
-    #profile #about-menu .info {
+  #profile .profile-about {
+    text-align: center;
+    color: white; }
+    #profile .profile-about a {
+      color: white;
+      display: block; }
+    #profile .profile-about .info {
       padding: 8px 0;
       font-family: "proxima-nova", sans-serif;
       font-size: 16px;
       background-color: #174c4f;
       margin-bottom: 2px; }
-    #profile #about-menu .glyphicon {
+    #profile .profile-about .glyphicon {
       margin-top: 2px;
       margin-right: 4px; }
   #profile #about-menu-more {

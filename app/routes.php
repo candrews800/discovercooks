@@ -130,6 +130,8 @@ Route::group(array('prefix' => 'forum'), function() {
     Route::get('/{topic}/create', array('before' => 'auth', 'uses' => 'forum\PostController@showCreate'));
     Route::get('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@showEdit'));
     Route::get('/{topic}/{post}/delete', array('before' => 'auth|admin', 'uses' => 'forum\PostController@delete'));
+    Route::get('/{topic}/{post}/addSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@addSticky'));
+    Route::get('/{topic}/{post}/removeSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@removeSticky'));
     Route::post('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@edit'));
 
     Route::get('/{topic}/{post}', array('uses' => 'forum\PostController@show'));

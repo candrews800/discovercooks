@@ -57,6 +57,13 @@
             @if($post->author_id == Auth::id() || Auth::user()->hasRole('Admin'))
             <a href="{{ Request::url() }}/edit" class="small-button orange">Edit</a>
             @endif
+            @if(Auth::user()->hasRole('Admin'))
+                @if($post->sticky)
+                    <a href="{{ Request::url() }}/removeSticky" class="small-button">Remove Sticky</a>
+                @else
+                    <a href="{{ Request::url() }}/addSticky" class="small-button">Make Sticky</a>
+                @endif
+            @endif
             <a href="#add-reply" class="small-button">Reply</a>
             <a href="#add-reply" class="add-quote small-button"><i class="glyphicon glyphicon-comment"></i></a>
         </div>

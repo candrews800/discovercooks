@@ -158,4 +158,29 @@ class RecipeController extends \BaseController {
 
         return \Redirect::back();
     }
+
+    public function needReview(){
+
+        $recipes = \Recipe::where('reviewed', '=', 0)->orderBy('updated_at', 'asc')->get();
+
+        return View::make('admin.recipe.needReview')->with(array(
+            'recipes' => $recipes
+        ));
+    }
+
+    public function approve($recipe_id){
+        $recipe = \Recipe::find($recipe_id);
+        $recipe->reviewed = 1;
+        $recipe->approved = 1;
+        $recipe->save();
+        return \Redirect::back();
+    }
+
+    public function deny($recipe_id){
+        $recipe = \Recipe::find($recipe_id);
+        $recipe->reviewed = 1;
+        $recipe->approved = 0;
+        $recipe->save();
+        return \Redirect::back();
+    }
 }

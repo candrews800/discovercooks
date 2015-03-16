@@ -1,0 +1,54 @@
+@import 'includes/_variables';
+
+#account-wrap{
+  background-color: white;
+}
+
+#account-header{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+#payoff{
+  margin-top: 15px;
+  p{
+    font-size: 14px;
+    margin-top: 5px;
+    color: #999;
+  }
+}
+
+.current-stats, .overall-stats{
+  margin-bottom: 15px;
+  h3{
+    font-size: 14px;
+    font-family: $non-heading-font;
+    color: $primary-color;
+
+    a{
+      color: $offset-color;
+      text-decoration: underline;
+      text-transform: lowercase;
+    }
+  }
+  p{
+    padding-left: 15px;
+    color: $secondary-color;
+    font-family: $non-heading-font;
+    font-size: 18px;
+
+    a{
+      color: $secondary-color;
+      text-decoration: underline;
+      font-size: 15px;
+      text-transform: lowercase;
+    }
+  }
+  ul {
+    padding-left: 15px;
+    font-family: $paragraph-font;
+    margin-bottom: 10px;
+  }
+
+}

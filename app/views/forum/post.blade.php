@@ -282,4 +282,12 @@
         return selection;
     }
 </script>
+<script>
+    $('.add-quote').click(function(event){
+        event.preventDefault();
+        var text = $(this).parent().parent().find('.reply-content').text();
+
+        $('#reply-textarea').append('[bq]' + text + '[/bq]');
+    });
+</script>
 @stop

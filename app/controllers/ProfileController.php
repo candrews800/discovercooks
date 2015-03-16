@@ -70,6 +70,10 @@ class ProfileController extends BaseController {
                     $query->where('private', '=', 0)
                         ->orWhere('author_id', '=', Auth::id());
                 })
+                ->where(function($query){
+                    $query->where('approved', '=', 1)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
                 ->orderBy($orderBy, 'desc')
                 ->skip($skip_amount)->take(8)->get();
         }
@@ -77,6 +81,10 @@ class ProfileController extends BaseController {
             $recipes = Recipe::where('author_id', '=', $user->id)
                 ->where(function($query){
                     $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->where(function($query){
+                    $query->where('approved', '=', 1)
                         ->orWhere('author_id', '=', Auth::id());
                 })
                 ->orderBy($orderBy, 'desc')
@@ -114,6 +122,8 @@ class ProfileController extends BaseController {
 
     public function show(User $user){
 
+        Event::fire('user_view', array('user_id' => $user->id));
+
         $recent_reviews = Recipe::join('reviews', 'recipes.id', '=', 'reviews.recipe_id')->where('recipes.author_id', '=', $user->id)->take(4)->get();
         foreach($recent_reviews as $review){
             $review->reviewer = User::find($review->reviewer_id);
@@ -122,6 +132,10 @@ class ProfileController extends BaseController {
         $recipes = Recipe::where('author_id', '=', $user->id)
             ->where(function($query){
                 $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->where(function($query){
+                $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy('overall_rating', 'desc')
@@ -164,6 +178,7 @@ class ProfileController extends BaseController {
     }
 
     public function showRecipes(User $user){
+        Event::fire('user_view', array('user_id' => $user->id));
         $orderBy = 'overall_rating';
         if(Input::get('sort') == 'new'){
             $orderBy = 'created_at';
@@ -183,6 +198,10 @@ class ProfileController extends BaseController {
                     $query->where('private', '=', 0)
                         ->orWhere('author_id', '=', Auth::id());
                 })
+                ->where(function($query){
+                    $query->where('approved', '=', 1)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
                 ->orderBy($orderBy, 'desc')
                 ->take(8)->get();
             $total_recipes = Recipe::where('author_id', '=', $user->id)->where('category', '=', $category->id)->count();
@@ -191,6 +210,10 @@ class ProfileController extends BaseController {
             $recipes = Recipe::where('author_id', '=', $user->id)
                 ->where(function($query){
                     $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->where(function($query){
+                    $query->where('approved', '=', 1)
                         ->orWhere('author_id', '=', Auth::id());
                 })
                 ->orderBy($orderBy, 'desc')
@@ -218,6 +241,7 @@ class ProfileController extends BaseController {
     }
 
     public function showReviews(User $user){
+        Event::fire('user_view', array('user_id' => $user->id));
         $recipe_stats['total'] = Recipe::where('author_id', '=', $user->id)->count();
         $review_stats['total'] = Review::where('reviewer_id', '=', $user->id)->count();
         $review_stats['helpful'] = Review::where('reviewer_id', '=', $user->id)->sum('helpful') - Review::where('reviewer_id', '=', $user->id)->sum('non_helpful');

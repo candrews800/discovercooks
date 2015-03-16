@@ -30,7 +30,11 @@ class HomeController extends BaseController {
                 $query->where('private', '=', 0)
                     ->orWhere('author_id', '=', Auth::id());
             })
-            ->take(8)->get();
+            ->where(function($query){
+                $query->where('approved', '=', 1)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->take(12)->get();
         $total_recipes = Recipe::count();
 
         foreach($recipes as $recipe){
@@ -62,6 +66,10 @@ class HomeController extends BaseController {
         $recipes = Recipe::orderBy($orderBy, 'desc')
             ->where(function($query){
                 $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->where(function($query){
+                $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->skip($skip_amount)->take(8)->get();

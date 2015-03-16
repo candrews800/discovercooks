@@ -10,6 +10,17 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="upper-menu">
+                            @if($recipe->reviewed == 0)
+                                <div class="alert">
+                                    <strong>This recipe can only be seen by you as it is currently under review.</strong><br />
+                                    Note: Any edits will move it to the back of the queue.
+                                </div>
+                            @elseif($recipe->approved == 0)
+                                <div class="alert">
+                                    <strong>We're sorry. This recipe did not pass the review and can only be seen by you.</strong><br />
+                                    Please make ensure you are following our guidelines if you wish for others to see your recipe.
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col-xs-12 col-sm-2 hidden-xs">
                                     <a href="{{ url('profile/'.$author->username) }}"><img id="author-img" src="{{ url(ViewHelper::getUserImage($author->image)) }}" /></a>
@@ -128,9 +139,10 @@
                                             @endif
                                         </ol>
                                     </div>
-
-                                    <h3>notes</h3>
-                                    <p>{{{ $recipe->note }}}</p>
+                                    @if($recipe->note)
+                                        <h3>notes</h3>
+                                        <p>{{{ $recipe->note }}}</p>
+                                    @endif
                                 </div>
                                 @if(Auth::id() == $recipe->author_id)
                                     <div class="col-xs-12">

@@ -227,9 +227,23 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="row" id="search-results">
-                    @foreach ($related_recipes as $related_recipe)
+            <div id="search-results" class="col-xs-12">
+                <div class="row">
+                    @foreach ($related_recipes as $key=>$related_recipe)
+                        @if($key == 2 || $key== 6 || $key==8)
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- Responsive -->
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-4150481864914949"
+                                     data-ad-slot="4304871710"
+                                     data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        @endif
                         {{ ViewHelper::addRecipe($related_recipe) }}
                     @endforeach
                 </div>
@@ -240,5 +254,22 @@
 </div>
 
 @include('layout.footer')
+
+<script>
+    var msnry = $('#search-results .row').masonry({
+        itemSelector: '.masonry-item'
+    });
+
+    function addItems(ajaxResponse){
+        var loadedHtml = $.parseHTML(ajaxResponse);
+        console.log(loadedHtml);
+
+        $('#search-results .row').append(loadedHtml).masonry('appended', loadedHtml);
+
+        recipeCount = $('#search-results .row .search-item').length;
+        $('#recipe-count').text(recipeCount);
+        dynamicLoad++;
+    }
+</script>
 
 @yield('javascript')

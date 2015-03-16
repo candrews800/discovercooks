@@ -13,6 +13,7 @@ class Review extends Eloquent{
             $review = new Review;
             $review->reviewer_id = Auth::id();
             $review->recipe_id = $input['recipe_id'];
+            Event::fire('review_created', array('reviewer_id' => $review->reviewer_id));
         }
         else{
             $review = $review_db;

@@ -3,6 +3,7 @@
 class CookbookController extends BaseController {
 
     public function displayCookbook(User $user){
+        Event::fire('user_view', array('user_id' => $user->id));
         if(Input::has('filter')){
             $category = Category::where('name', '=', Input::get('filter'))->first();
         }
@@ -24,6 +25,10 @@ class CookbookController extends BaseController {
                         $query->where('private', '=', 0)
                             ->orWhere('author_id', '=', Auth::id());
                     })
+                    ->where(function($query){
+                        $query->where('approved', '=', 1)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
                     ->orderBy($orderBy, 'desc')
                     ->take(8)->get();
                 $total_subscribed = Recipe::whereIn('id', $recipe_list)->where('category', '=', $category->id)->count();
@@ -32,6 +37,10 @@ class CookbookController extends BaseController {
                 $recipes = Recipe::whereIn('id', $recipe_list)
                     ->where(function($query){
                         $query->where('private', '=', 0)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
+                    ->where(function($query){
+                        $query->where('approved', '=', 1)
                             ->orWhere('author_id', '=', Auth::id());
                     })
                     ->orderBy($orderBy, 'desc')->take(8)->get();
@@ -88,6 +97,10 @@ class CookbookController extends BaseController {
                         $query->where('private', '=', 0)
                             ->orWhere('author_id', '=', Auth::id());
                     })
+                    ->where(function($query){
+                        $query->where('approved', '=', 1)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
                     ->orderBy($orderBy, 'desc')
                     ->skip($skip_amount)->take(8)->get();
             }
@@ -95,6 +108,10 @@ class CookbookController extends BaseController {
                 $recipes = Recipe::whereIn('id', $recipe_list)
                     ->where(function($query){
                         $query->where('private', '=', 0)
+                            ->orWhere('author_id', '=', Auth::id());
+                    })
+                    ->where(function($query){
+                        $query->where('approved', '=', 1)
                             ->orWhere('author_id', '=', Auth::id());
                     })
                     ->orderBy($orderBy, 'desc')

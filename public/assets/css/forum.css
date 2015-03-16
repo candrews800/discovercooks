@@ -193,4 +193,11 @@ h1 {
   #preview-reply b {
     font-weight: bold; }
 
+blockquote {
+  margin-left: 20px;
+  border-left: 5px solid #174c4f;
+  padding-left: 20px;
+  font-family: "georgia";
+  color: #174c4f; }
+
 /*# sourceMappingURL=forum.css.map */

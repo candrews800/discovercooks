@@ -134,6 +134,23 @@ Route::filter('matches_logged_in', function()
 	}
 });
 
+/*
+|--------------------------------------------------------------------------
+| Page View Counter
+|--------------------------------------------------------------------------
+|
+| Increment Page View Counter for Site Stats
+|
+*/
+
+Route::filter('site_view', function()
+{
+    $pages = Session::get('pages_viewed');
+    if($pages == null || !in_array(Request::url(), $pages)){
+        SiteStats::page_view();
+    }
+});
+
 
 Entrust::routeNeedsRole( 'admin*', 'Admin', Redirect::to('/') );
 

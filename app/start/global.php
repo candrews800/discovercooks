@@ -86,3 +86,39 @@ App::down(function()
 require app_path().'/filters.php';
 
 App::bind('confide.user_validator', 'CustomUserValidator');
+
+
+Event::listen('user_view', function($user_id){
+    $pages = Session::get('pages_viewed');
+    if($pages == null || !in_array(Request::url(), $pages)){
+        UserStats::page_view($user_id);
+        WeeklyStats::page_view($user_id);
+        SiteStats::page_view();
+        Session::push('pages_viewed', Request::url());
+    }
+});
+
+Event::listen('recipe_view', function($recipe, $user_id){
+    $pages = Session::get('pages_viewed');
+    if($pages == null || !in_array(Request::url(), $pages)){
+        $recipe->page_view();
+        UserStats::page_view($user_id);
+        WeeklyStats::page_view($user_id);
+        SiteStats::page_view();
+        Session::push('pages_viewed', Request::url());
+    }
+});
+
+Event::listen('user_created', function($user_id){
+    UserBalance::make($user_id);
+});
+
+Event::listen('recipe_created', function($user_id){
+    SiteStats::addRecipe();
+    UserStats::addRecipe($user_id);
+});
+
+Event::listen('review_created', function($reviewer_id){
+    SiteStats::addReview();
+    UserStats::addReview($reviewer_id);
+});

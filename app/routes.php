@@ -32,18 +32,18 @@ Route::model('post', 'ForumPost');
 Route::model('reply', 'ForumReply');
 
 
-Route::get('/', array('uses' => 'HomeController@displayIndex'));
+Route::get('/', array('uses' => 'HomeController@displayIndex', 'after' => 'site_view'));
 Route::get('/loadRecipes/{skip_amount}', array('uses' => 'HomeController@loadRecipes'));
-Route::get('about', array('uses' => 'HomeController@about'));
-Route::get('terms', array('uses' => 'HomeController@terms'));
+Route::get('about', array('uses' => 'HomeController@about', 'after' => 'site_view'));
+Route::get('terms', array('uses' => 'HomeController@terms', 'after' => 'site_view'));
 
-Route::get('contact', array('uses' => 'HomeController@contact'));
+Route::get('contact', array('uses' => 'HomeController@contact', 'after' => 'site_view'));
 Route::post('contact', array('before' => 'csrf', 'uses' => 'HomeController@sendContact'));
 
 // Search routes
 Route::group(array('prefix' => 'search'), function(){
-    Route::get('{i?}/user', array('uses' => 'SearchController@displayUserSearchResults'));
-    Route::get('{i?}', array('uses' => 'SearchController@displaySearchResults'));
+    Route::get('{i?}/user', array('uses' => 'SearchController@displayUserSearchResults', 'after' => 'site_view'));
+    Route::get('{i?}', array('uses' => 'SearchController@displaySearchResults', 'after' => 'site_view'));
 
     Route::post('{i?}', array('uses' => 'SearchController@redirectSearchResults'));
     Route::post('{i}/user', array('uses' => 'SearchController@redirectUserSearchResults'));
@@ -67,11 +67,11 @@ Route::get('recipe/{recipe}', array('uses' => 'RecipeController@show'));
 
 // Category routes
 Route::group(array('prefix' => 'category'), function(){
-    Route::get('/', array('uses' => 'CategoryController@showAll'));
-    Route::get('/all', array('uses' => 'CategoryController@showAll'));
+    Route::get('/', array('uses' => 'CategoryController@showAll', 'after' => 'site_view'));
+    Route::get('/all', array('uses' => 'CategoryController@showAll', 'after' => 'site_view'));
     Route::get('/all/loadRecipes/{skip_amount}', array('uses' => 'CategoryController@loadAllRecipes'));
 
-    Route::get('/{category}', array('uses' => 'CategoryController@show'));
+    Route::get('/{category}', array('uses' => 'CategoryController@show', 'after' => 'site_view'));
     Route::get('/{category}/loadRecipes/{skip_amount}', array('uses' => 'CategoryController@loadRecipes'));
 });
 
@@ -97,6 +97,13 @@ Route::group(array('prefix' => 'cookbook'), function(){
     Route::get('/{user}/loadRecipes/{skip_amount}', array('uses' => 'CookbookController@loadRecipes'));
 });
 
+// Account routes
+Route::group(array('prefix' => 'account', 'before' => 'auth'), function(){
+    Route::get('/', array('uses' => 'AccountController@index'));
+    Route::get('payout', array('uses' => 'AccountController@payout'));
+    Route::post('payout', array('uses' => 'AccountController@createPayout'));
+});
+
 // User routes
 Route::group(array('prefix' => 'users'), function(){
     Route::get('settings', array('before' => 'auth', 'uses' => 'UsersController@settings'));
@@ -119,13 +126,13 @@ Route::group(array('prefix' => 'users'), function(){
 
 // Forum routes
 Route::group(array('prefix' => 'forum'), function() {
-    Route::get('/', array('uses' => 'forum\ForumController@index'));
+    Route::get('/', array('uses' => 'forum\ForumController@index', 'after' => 'site_view'));
 
     Route::get('/reply/{reply}/delete', array('before' => 'auth|admin', 'uses' => 'forum\ReplyController@delete'));
     Route::get('/reply/{reply}', array('before' => 'auth', 'uses' => 'forum\ReplyController@show'));
     Route::post('/reply/{reply}', array('before' => 'auth', 'uses' => 'forum\ReplyController@edit'));
 
-    Route::get('/{topic}', array('uses' => 'forum\TopicController@show'));
+    Route::get('/{topic}', array('uses' => 'forum\TopicController@show', 'after' => 'site_view'));
 
     Route::get('/{topic}/create', array('before' => 'auth', 'uses' => 'forum\PostController@showCreate'));
     Route::get('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@showEdit'));
@@ -134,7 +141,7 @@ Route::group(array('prefix' => 'forum'), function() {
     Route::get('/{topic}/{post}/removeSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@removeSticky'));
     Route::post('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@edit'));
 
-    Route::get('/{topic}/{post}', array('uses' => 'forum\PostController@show'));
+    Route::get('/{topic}/{post}', array('uses' => 'forum\PostController@show', 'after' => 'site_view'));
 
     Route::post('/{topic}/create', array('before' => 'auth|csrf', 'uses' => 'forum\PostController@create'));
     Route::post('/{topic}/{post}/addReply', array('uses' => 'forum\ReplyController@create'));
@@ -162,6 +169,11 @@ Route::group(array('prefix' => 'admin'), function(){
 
         Route::get('search/{search_text?}', array('uses' => 'admin\RecipeController@search'));
         Route::post('search/{search_text?}', array('uses' => 'admin\RecipeController@redirectSearch'));
+
+        Route::get('needReview', array('uses' => 'admin\RecipeController@needReview'));
+
+        Route::get('approve/{recipe_id}', array('uses' => 'admin\RecipeController@approve'));
+        Route::get('deny/{recipe_id}', array('uses' => 'admin\RecipeController@deny'));
 
         Route::get('favorites', array('uses' => 'admin\RecipeController@favorites'));
         Route::get('ingredientSizes', array('uses' => 'admin\RecipeController@ingredientSizes'));
@@ -222,5 +234,22 @@ Route::group(array('prefix' => 'admin'), function(){
             Route::post('/', array('uses' => 'admin\forum\TopicController@create'));
             Route::post('edit/{topic_id}', array('uses' => 'admin\forum\TopicController@edit'));
         });
+    });
+
+    Route::group(array('prefix' => 'stats'), function(){
+        Route::get('overall', array('uses' => 'admin\StatsController@overall'));
+        Route::get('users', array('uses' => 'admin\StatsController@users'));
+        Route::get('recipes', array('uses' => 'admin\StatsController@recipes'));
+        Route::get('reviews', array('uses' => 'admin\StatsController@reviews'));
+    });
+
+    Route::group(array('prefix' => 'payments'), function(){
+        Route::get('balances', array('uses' => 'admin\PaymentController@siteBalances'));
+
+        Route::get('make', array('uses' => 'admin\PaymentController@creditAccounts'));
+        Route::post('make', array('uses' => 'admin\PaymentController@doCreditAccounts'));
+
+        Route::get('paymentQueue', array('uses' => 'admin\PaymentController@paymentQueue'));
+        Route::get('paymentQueue/{queue_id}', array('uses' => 'admin\PaymentController@processQueueItem'));
     });
 });

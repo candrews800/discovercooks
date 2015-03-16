@@ -18,6 +18,10 @@ class CategoryController extends BaseController {
             $query->where('private', '=', 0)
                 ->orWhere('author_id', '=', Auth::id());
             })
+            ->where(function($query){
+                $query->where('approved', '=', 1)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
             ->orderBy($orderBy, 'desc')->take(8)->get();
         $total_recipes = Recipe::orderBy($orderBy, 'desc')->count();
 
@@ -53,6 +57,10 @@ class CategoryController extends BaseController {
         $recipes = Recipe::where(function($query){
             $query->where('private', '=', 0)
                 ->orWhere('author_id', '=', Auth::id());
+            })
+            ->where(function($query){
+                $query->where('approved', '=', 1)
+                    ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
 
@@ -96,6 +104,10 @@ class CategoryController extends BaseController {
                 $query->where('private', '=', 0)
                     ->orWhere('author_id', '=', Auth::id());
             })
+            ->where(function($query){
+                $query->where('approved', '=', 1)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
             ->orderBy($orderBy, 'desc')
             ->take(8)->get();
         $total_recipes = Recipe::where('category', '=', $category->id)->count();
@@ -130,6 +142,10 @@ class CategoryController extends BaseController {
         $recipes = Recipe::where('category', '=', $category->id)
             ->where(function($query){
                 $query->where('private', '=', 0)
+                    ->orWhere('author_id', '=', Auth::id());
+            })
+            ->where(function($query){
+                $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy($orderBy, 'desc')

@@ -34,7 +34,7 @@
 	  	font-size: 30px;
 	}
   	.author{
-	  	font-font: $paragraph-font;
+	  	font-family: $paragraph-font;
 	  	color: #999;
 	  	a{
 		  color: $offset-color;
@@ -44,7 +44,7 @@
 
 #home-content{
   background-color: rgba(0,0,0,.7);
-  padding: 65px 30px;
+  padding: 75px 30px;
 }
 
 #recipe-categories{
@@ -70,6 +70,16 @@
 		display: block;
 		margin-bottom: 12px;
 	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #home-content{
+    padding-bottom: 15px;
+  }
+  .content-top{
+    padding-top: 15px;
+    padding-bottom: 65px;
+  }
 }
 
 @media (max-width: $screen-xs-max) {

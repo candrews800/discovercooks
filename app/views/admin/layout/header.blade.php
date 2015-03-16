@@ -102,6 +102,9 @@
                                 <a href="{{ url('admin/recipes') }}">View</a>
                             </li>
                             <li>
+                                <a href="{{ url('admin/recipes/needReview') }}">Need Review</a>
+                            </li>
+                            <li>
                                 <a href="{{ url('admin/recipes/favorites') }}">Favorites</a>
                             </li>
                             <li>
@@ -113,7 +116,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-cutlery fa-fw"></i> Forums<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-list fa-fw"></i> Forums<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ url('admin/forum/categories') }}">Manage Categories</a>
@@ -124,7 +127,35 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-bar-chart-o fa-fw"></i> Statistics</a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Statistics<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ url('admin/stats/overall') }}">Overall</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/stats/users') }}">User</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/stats/recipes') }}">Recipe</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/stats/reviews') }}">Review</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dollar fa-fw"></i> Payment Center<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ url('admin/payments/balances') }}">Site Balances</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/payments/make') }}">Credit Accounts</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/payments/paymentQueue') }}">Payout Requests</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-gears fa-fw"></i> Admin<span class="fa arrow"></span></a>

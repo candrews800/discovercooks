@@ -104,6 +104,7 @@
                                     <li><a class="menu-item" href="#" data-toggle="modal" data-target="#guest-register-modal">register<span></a></li>
                                 @else
                                     <li><a class="menu-item" href="{{ url('profile/'.Auth::user()->username) }}">profile</a></li>
+                                    <li><a class="menu-item" href="{{ url('account') }}">account overview</a></li>
                                     <li><a class="menu-item" href="{{ url('cookbook/'.Auth::user()->username) }}"><span>my</span>Cookbook</a></li>
                                     <li><a class="menu-item" href="{{ url('users/logout') }}">logout<span></a></li>
                                 @endif

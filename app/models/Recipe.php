@@ -89,6 +89,10 @@ class Recipe extends Eloquent{
                     $query->where('private', '=', 0)
                         ->orWhere('author_id', '=', Auth::id());
                 })
+                ->where(function($query){
+                    $query->where('approved', '=', 1)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
                 ->orderBy($orderBy, 'desc')
                 ->skip($skip_amount)->take(8)->get();
         }
@@ -96,6 +100,10 @@ class Recipe extends Eloquent{
             $recipes = Recipe::where('name', 'LIKE', '%'.$search_text.'%')
                 ->where(function($query){
                     $query->where('private', '=', 0)
+                        ->orWhere('author_id', '=', Auth::id());
+                })
+                ->where(function($query){
+                    $query->where('approved', '=', 1)
                         ->orWhere('author_id', '=', Auth::id());
                 })
                 ->orderBy($orderBy, 'desc')
@@ -109,5 +117,9 @@ class Recipe extends Eloquent{
         }
 
         return $recipes;
+    }
+
+    public function page_view(){
+        return $this->increment('page_views');
     }
 }

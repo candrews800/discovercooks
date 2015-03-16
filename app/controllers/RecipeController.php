@@ -95,13 +95,15 @@ class RecipeController extends BaseController {
                 $recipe->addSubscriber();
             }
 
+            Event::fire('recipe_created', array('user_id' => $recipe->author_id));
+
             return Redirect::to('recipe/' . $recipe->slug)->with(array('recipe' => $recipe));
         }
     }
 
     public function show(Recipe $recipe){
-        // Recipe Privacy Check
-        if($recipe->private && $recipe->author_id != Auth::id()){
+        // Recipe Privacy & Approval Check
+        if((!$recipe->approved || $recipe->private) && ($recipe->author_id != Auth::id() || !Auth::user()->hasRole('Admin'))){
             return App::abort(404);
         }
 
@@ -117,6 +119,7 @@ class RecipeController extends BaseController {
             }
         }
         $author = User::find($recipe->author_id);
+        Event::fire('recipe_view', array($recipe, 'user_id' => $author->id));
         $category = Category::find($recipe->category);
         if(!isset($category->name)){
             $category = new Category();
@@ -162,7 +165,7 @@ class RecipeController extends BaseController {
             }
         }
 
-        $positive_review = Review::orderBy('rating', 'desc')->orderBy('helpful', 'desc')->first();
+        $positive_review = Review::where('recipe_id', '=', $recipe->id)->orderBy('rating', 'desc')->orderBy('helpful', 'desc')->first();
         $positive_review->author = User::find($positive_review->reviewer_id);
         $helpful = HelpfulReview::where('recipe_id', '=', $recipe->id)
             ->where('review_id', '=', $positive_review->id)
@@ -174,7 +177,7 @@ class RecipeController extends BaseController {
             $positive_review->helpful = '';
         }
 
-        $critical_review = Review::orderBy('rating', 'asc')->orderBy('helpful', 'desc')->first();
+        $critical_review = Review::where('recipe_id', '=', $recipe->id)->orderBy('rating', 'asc')->orderBy('helpful', 'desc')->first();
         $critical_review->author = User::find($critical_review->reviewer_id);
         $helpful = HelpfulReview::where('recipe_id', '=', $recipe->id)
             ->where('review_id', '=', $critical_review->id)

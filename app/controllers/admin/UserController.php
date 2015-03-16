@@ -13,6 +13,7 @@ class UserController extends \BaseController {
         foreach($users as $user){
             $user->recipe_count = \Recipe::where('author_id', '=', $user->id)->count();
             $user->review_count = \Review::where('reviewer_id', '=', $user->id)->count();
+            $user->balance = \UserBalance::where('user_id', '=', $user->id)->pluck('amount');
         }
 
         return View::make('admin.user.index')->with(array(

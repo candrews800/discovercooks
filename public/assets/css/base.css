@@ -438,6 +438,18 @@ footer .main-menu ul {
     text-align: center; }
     #copyright li {
       float: none; } }
+.alert {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 15px;
+  background-color: #207178;
+  color: white;
+  font-family: "proxima-nova", sans-serif;
+  text-align: center;
+  font-size: 16px; }
+  .alert strong {
+    font-size: 18px; }
+
 .ribbon {
   z-index: 100;
   position: relative;
@@ -1094,6 +1106,9 @@ html, body {
   border-bottom: 0;
   background-color: white;
   padding-top: 20px; }
+
+.ad-sidebar {
+  margin-top: 65px; }
 
 .content-home {
   border: 1px solid #174c4f;

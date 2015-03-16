@@ -131,15 +131,37 @@
                     <div class="col-xs-12 col-sm-4">
                         <a class="flat-button flat-button-small flat-button-green" href="{{ url('profile/'.$user->username.'/reviews') }}">Reviews ({{ $review_stats['total'] }})</a>
                     </div>
+                    <div class="visible-md col-md-12">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Responsive -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-4150481864914949"
+                             data-ad-slot="4304871710"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
                 </div>
+            </div>
+            <div class="clearfix col-xs-12 hidden-xs hidden-sm hidden-md col-md-1 col-lg-3 content-top">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Responsive -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4150481864914949"
+                     data-ad-slot="4304871710"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
     </div>
 </div>
 
 @yield('content')
-
-<?php $css="profile"; ?>
 
 
 @include('layout.footer')

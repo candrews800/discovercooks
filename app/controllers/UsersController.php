@@ -31,6 +31,7 @@ class UsersController extends Controller
         $user = $repo->signup(Input::all());
 
         if ($user->id) {
+            Event::fire('user_created', array('user_id' => $user->id));
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(
                     Config::get('confide::email_queue'),

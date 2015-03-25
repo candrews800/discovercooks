@@ -6,11 +6,13 @@
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($default_bg_recipes) }}></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-8 col-md-offset-2 content-top">
-                {{ ViewHelper::getBreadcrumbs(null, 'Search', true) }}
-                <span>Search for: </span>
-                <a href="{{ url('search/'.$search_text) }}">Recipes</a>
-                <a href="{{ url('search/'.$search_text.'/user') }}" class="active">Users</a>
+            <div id="search-bar-contents" class="col-xs-12 col-md-8 col-md-offset-2 content-top">
+                {{ ViewHelper::getNewBreadcrumbs(null, 'Search', true) }}
+                <h3>
+                    Search for:
+                    <a href="{{ url('search/'.$search_text) }}" class="btn btn-link">Recipes</a>
+                    <a href="{{ url('search/'.$search_text.'/user') }}" class="btn btn-success">Users</a>
+                </h3>
                 {{ Form::open(array('url' => 'search/'.$search_text.'/user/')) }}
                 <input type="text" name="search_text" class="form-control" value="{{ $search_text }}" placeholder="search for recipes, users" />
                 {{ Form::close() }}

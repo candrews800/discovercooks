@@ -1,32 +1,15 @@
 @import 'includes/_variables';
 
 #search-bar{
-    padding-bottom: 60px;
-    background-color: rgba(0,0,0,.85);
+    #search-bar-contents{
+      background-color: white;
+      padding-bottom: 60px;
+    }
 
     position: relative;
-
-    span{
-        color: white;
-        font-size: 26px;
-        margin-right: 10px;
-    }
-
-    a{
-        font-size: 18px;
-        color: white;
-        margin-right: 10px;
-        font-variant: small-caps;
-    }
-    a.active{
-        color: $offset-color;
-    }
+    background-color: #000;
 
     input[type=text]{
-        margin-top: 8px;
-        border: none;
-        outline: none;
-
         background-image: url("../img/search.gif");
         background-repeat: no-repeat;
         background-position: 99% 50%;

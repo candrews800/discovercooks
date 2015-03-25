@@ -409,6 +409,41 @@
   }
 }
 
+#breadcrumbs{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 30px;
+
+  .home, .parent, .self, .breadcrumb-divider{
+    float: left;
+    margin-right: 5px;
+    font-size: 16px;
+    color: $primary-color;
+    a{
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb-divider{
+    font-size: 12px;
+    margin-top: 4px;
+    color: $offset-color;
+  }
+
+  &.dark-bg{
+    .home, .parent, .self, .breadcrumb-divider{
+      color: white;
+      a{
+        color: $offset-color;
+      }
+    }
+    .breadcrumb-divider{
+      color: $secondary-color;
+    }
+  }
+}
+
 .none-found{
   width: 100%;
   text-align: center;

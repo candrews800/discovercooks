@@ -6,6 +6,7 @@
     2. New Recipe should be in header
     3. After Editing Denied Recipe it doesn't show that it is back in the queue
     4. Single Recipe related recipes has same recipe as
+    5. Check Profiles When No Recipe/Review are posted
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

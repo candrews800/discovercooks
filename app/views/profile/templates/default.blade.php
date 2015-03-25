@@ -7,7 +7,7 @@
     <div class="container-fluid ">
         <div class="row">
             <div id="profile-header" class="clearfix col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3 content-top">
-                @yield('breadcrumbs', ViewHelper::getBreadcrumbs(null, $user->username.'\'s Profile', true))
+                @yield('breadcrumbs', ViewHelper::getNewBreadcrumbs(null, $user->username.'\'s Profile', true))
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="row">

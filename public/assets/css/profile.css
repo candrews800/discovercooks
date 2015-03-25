@@ -11,9 +11,9 @@
   width: 100%;
   opacity: 1;
   position: relative;
-  background-color: #222; }
+  background-color: #000; }
   #profile #profile-header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: white;
     padding: 25px 60px 60px 60px; }
     #profile #profile-header .avatar {
       width: 100%;
@@ -21,11 +21,11 @@
     #profile #profile-header #recipe-stats {
       margin-bottom: 15px; }
     #profile #profile-header #recipe-stats h6, #profile #profile-header #review-stats h6 {
-      color: white;
+      color: #174c4f;
       font-weight: bold;
       margin: 0; }
     #profile #profile-header #recipe-stats p, #profile #profile-header #review-stats p {
-      color: white;
+      color: #174c4f;
       font-size: 14px;
       font-style: italic;
       line-height: 1.5;
@@ -69,14 +69,12 @@
       margin-right: 4px; }
   #profile #about-menu-more {
     text-align: center;
-    color: white;
-    padding: 8px 0;
-    margin: 15px 0;
+    color: #174c4f;
+    padding: 5px 0;
+    margin: 10px 0;
     cursor: pointer; }
     #profile #about-menu-more .glyphicon {
       margin-right: 4px; }
-  #profile .flat-button {
-    margin-bottom: 15px; }
 
 #profile-recipes {
   padding-bottom: 45px; }

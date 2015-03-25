@@ -1,22 +1,10 @@
 #search-bar {
-  padding-bottom: 60px;
-  background-color: rgba(0, 0, 0, 0.85);
-  position: relative; }
-  #search-bar span {
-    color: white;
-    font-size: 26px;
-    margin-right: 10px; }
-  #search-bar a {
-    font-size: 18px;
-    color: white;
-    margin-right: 10px;
-    font-variant: small-caps; }
-  #search-bar a.active {
-    color: #ff9666; }
+  position: relative;
+  background-color: #000; }
+  #search-bar #search-bar-contents {
+    background-color: white;
+    padding-bottom: 60px; }
   #search-bar input[type=text] {
-    margin-top: 8px;
-    border: none;
-    outline: none;
     background-image: url("../img/search.gif");
     background-repeat: no-repeat;
     background-position: 99% 50%;

@@ -14,10 +14,10 @@
     width: 100%;
     opacity: 1;
     position: relative;
-    background-color: #222;
+    background-color: #000;
 
     #profile-header{
-        background-color: rgba(0,0,0,.7);
+        background-color: white;
         padding: 25px 60px 60px 60px;
         .avatar{
             width: 100%;
@@ -30,13 +30,13 @@
 
         #recipe-stats, #review-stats{
           h6{
-            color: white;
+            color: $primary-color;
             font-weight: bold;
             margin: 0;
           }
 
           p{
-            color: white;
+            color: $primary-color;
             font-size: 14px;
             font-style: italic;
             line-height: 1.5;
@@ -100,19 +100,15 @@
 
     #about-menu-more{
         text-align: center;
-        color: white;
+        color: $primary-color;
 
-        padding: 8px 0;
-        margin: 15px 0;
+        padding: 5px 0;
+        margin: 10px 0;
         cursor: pointer;
 
         .glyphicon{
             margin-right: 4px;
         }
-    }
-
-    .flat-button{
-        margin-bottom: 15px;
     }
 }
 

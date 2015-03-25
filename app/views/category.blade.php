@@ -1,6 +1,6 @@
 <?php $css="category"; ?>
 
-@include('layout.header')
+@include('style.layout.header')
 <div id="header-wrap">
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($recipes) }}></div>
     <div class="container-fluid">
@@ -34,7 +34,7 @@
 </div>
 <div class="ribbon green-ribbon ribbon-content ribbon-sort col-xs-12">
     <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
-    <h2>{{ ucfirst($category->name) }}</h2>
+    <h3>{{ ucfirst($category->name) }}</h3>
 
     <ul class="ribbon-left-menu">
         <li>
@@ -90,17 +90,16 @@
 
             <div class="col-xs-12">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                        <button id="load-more-recipes" class="flat-button flat-button-green flat-button-small">Load More Recipes</button>
+                    <div class="col-xs-12 text-center">
+                        <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
                     </div>
                 </div>
             </div>
         </div>
-        @include('layout.back_to_top')
     </div>
 </div>
 
-@include('layout.footer')
+@include('style.layout.footer')
 <script>
     var msnry = $('#search-results .row').masonry({
         itemSelector: '.masonry-item'

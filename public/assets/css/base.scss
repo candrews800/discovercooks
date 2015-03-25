@@ -1,18 +1,5 @@
 @import 'includes/_essentials';
 
-html,body{
-    background-color: $bg-color;
-
-    height: 100%;
-}
-
-.content{
-  border: 1px solid #174c4f;
-  border-bottom: 0;
-  background-color: white;
-  padding-top: 20px;
-}
-
 .ad-sidebar{
   margin-top: 65px;
 }
@@ -25,19 +12,6 @@ html,body{
   margin-top: 35px;
 }
 
-#page-wrap{
-  min-height: 100%;
-  position: relative;
-}
-
 section#content{
   padding-bottom:150px;
-}
-
-footer {
-  width:100%;
-  min-height:150px;
-  position:absolute;
-  bottom:0;
-  left:0;
 }

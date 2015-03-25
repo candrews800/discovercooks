@@ -2,41 +2,30 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1.
+    1. Ad size not being computed before masonry effect goes in
+    2. New Recipe should be in header
+    3. After Editing Denied Recipe it doesn't show that it is back in the queue
+    4. Single Recipe related recipes has same recipe as
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
-    1. Minimize CSS
-    2. Minimize JS
+    1. Forum Post Locks
 
 ****************************************************************************************
 **  STYLE TO DO LIST
 ****************************************************************************************
 
-    1. Redesign with Bootstrap
-        a. Get SASS working in Fullblown Theme
-        b. Incorporate Bootstrap into site
-    2. Redesign Header
-    3. Redesign Footer
-    4. Incorporate Existing Pages
-        a. Homepage
-        b. Category Page
-        c. Search Pages
-        d. Profile Pages
-            i. main
-            ii. recipes
-            iii. reviews
-            iv. cookbook
-        e. Recipe Page
-        f. Edit Recipe Page
-        g. Account Page
-            i. main
-            ii. weekly archive
-            iii. payment archive
-            iv. edit account
-        h. Content Pages
+    1. Incorporate Existing Pages
+        a. Account Page
+            i. payment archive
+                a. new user sign up
+                    i. payment_details table -> id, user_id, paypal_email, security question 1, security answer, security question 2, security answer 2
+                    ii. user can not see payment until signing up
+                    iii. request payment -> check security question / answer
+                b. transaction history
+        b. Content Pages
             i. About
             ii. Contact
             iii. Earn Pages
@@ -45,21 +34,21 @@
                 C. FAQ
             iv. Terms and Conditions
             v. Privacy Policy
-        i. Forum Pages
-            i. Category
-            ii. Topics
-            iii. Posts
-            iv. Reply / New Post
-    5. Add Discover Cooks Section
+    2. Add Discover Cooks Section
         a. Setup Menu Bar
         b. New index page
             i. featured
             ii. top rated
             iii. quantity
-    6. Forum Responsiveness
-    7. Welcome Email Style
-    8. Forget / Reset Password Email Style
-    9. Default Email Template Style
+    3. Redesign
+        a. Home Page
+            i. Banner -> Img is Full Screen Size. Tucked Under Ribbon and to top of header. Left and Right show prev/next recipes with fade. Like Rogue Fitness
+            ii. Explore Recipes -> Small Bar that scrolls like netflix/rogue fitness bottom bar
+            iii. Style of Banner Typography different for each banner
+    3. Forum Responsiveness
+    4. Welcome Email Style
+    5. Forget / Reset Password Email Style
+    6. Default Email Template Style
 
 ****************************************************************************************
 **  CONTENT TO DO LIST
@@ -73,6 +62,12 @@
         c. FAQ
     4. Forum Guidelines
     5. Recipe Guidelines
+    6. SEO
+        a. Title for pages
+        b. meta-description
+        c. meta-tags
+    7. Favicon
+
 
 ****************************************************************************************
 **  MARKETING TO DO LIST
@@ -89,7 +84,6 @@
 ****************************************************************************************
 
     1. Recipe Tags
-
 
 ****************************************************************************************
 **  FUTURE TO DO LIST

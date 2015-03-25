@@ -1,130 +1,48 @@
 #single-recipe {
-  background-color: black;
-  padding: 60px; }
+  background-color: white;
+  padding-top: 25px;
+  padding-bottom: 60px; }
   #single-recipe #main-image {
-    width: 100%;
     margin-bottom: 10px; }
   #single-recipe .upper-menu {
-    padding: 15px 0;
-    position: relative; }
+    position: relative;
+    margin-bottom: 15px; }
     #single-recipe .upper-menu h1 {
-      font-size: 34px;
-      color: white; }
-    #single-recipe .upper-menu #author-img {
-      width: 100%; }
-    #single-recipe .upper-menu .recipe-details {
-      font-family: "georgia";
-      font-size: 16px;
-      color: white;
-      margin-bottom: 5px; }
-      #single-recipe .upper-menu .recipe-details .author {
-        color: #ff9666; }
-      #single-recipe .upper-menu .recipe-details .date {
-        font-style: italic;
-        font-size: 14px; }
-      #single-recipe .upper-menu .recipe-details .category {
-        color: #ff9666; }
+      color: #174c4f;
+      margin: 0; }
   #single-recipe .recipe-info .subscriber_count {
     margin-bottom: 10px; }
-    #single-recipe .recipe-info .subscriber_count:hover, #single-recipe .recipe-info .subscriber_count.saved {
-      cursor: pointer; }
-      #single-recipe .recipe-info .subscriber_count:hover .heart, #single-recipe .recipe-info .subscriber_count.saved .heart {
-        color: red; }
-    #single-recipe .recipe-info .subscriber_count .heart {
-      color: #999;
-      font-size: 40px;
-      z-index: 1;
-      display: inline-block; }
-    #single-recipe .recipe-info .subscriber_count .num {
-      display: inline-block;
-      background-color: white;
-      color: #174c4f;
-      margin-left: -10px;
-      font-size: 16px;
-      position: relative;
-      z-index: 100;
-      padding: 0px 4px;
-      border-radius: 4px;
-      font-family: "georgia";
-      font-weight: bold; }
   #single-recipe .recipe-info p {
-    color: white;
-    font-family: "georgia";
-    font-size: 14px;
-    font-style: italic;
-    margin-bottom: 10px; }
+    color: #174c4f; }
     #single-recipe .recipe-info p img {
-      margin-top: -10px;
+      margin-top: -8px;
+      margin-left: 3px;
       width: 20px;
       height: 20px; }
     #single-recipe .recipe-info p img:first-child {
       margin-left: 5px; }
-    #single-recipe .recipe-info p a {
-      color: #ff9666;
-      font-size: 16px; }
-      #single-recipe .recipe-info p a span {
-        text-decoration: underline; }
-  #single-recipe .recipe-info .info {
-    background-color: #174c4f;
-    color: white;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-family: "georgia";
-    margin-bottom: 2px;
-    font-size: 18px; }
-    #single-recipe .recipe-info .info .glyphicon {
-      margin-right: 3px; }
-    #single-recipe .recipe-info .info em {
-      font-style: italic;
-      margin-right: 5px; }
   #single-recipe .lower-menu .recipe-description {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: white;
-    font-style: italic;
-    text-align: center; }
+    color: #174c4f; }
+  #single-recipe .lower-menu h4 {
+    text-transform: uppercase;
+    color: #174c4f;
+    font-weight: bold;
+    margin-bottom: 5px; }
   #single-recipe .lower-menu #ingredients, #single-recipe .lower-menu #directions {
     margin: 15px 0;
-    text-align: left; }
-    #single-recipe .lower-menu #ingredients h3, #single-recipe .lower-menu #directions h3 {
-      font-family: "trajan-sans-pro", sans-serif;
-      color: #207178;
-      font-size: 14px;
-      margin-bottom: 5px; }
-    #single-recipe .lower-menu #ingredients li, #single-recipe .lower-menu #directions li {
-      line-height: 1.2; }
-  #single-recipe .lower-menu #ingredients li {
-    font-family: "georgia";
     font-size: 18px;
-    margin-bottom: 10px;
-    color: white;
-    padding-left: 50px;
-    text-indent: -50px; }
-  #single-recipe .lower-menu #directions li {
-    font-family: "georgia";
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #ff9666;
-    font-weight: 200; }
-    #single-recipe .lower-menu #directions li span {
-      margin-left: 3px;
-      font-size: 18px;
-      color: white;
-      font-weight: 100; }
-  #single-recipe .lower-menu #directions p {
-    font-family: "georgia";
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: white; }
+    color: #174c4f; }
+    #single-recipe .lower-menu #ingredients ul, #single-recipe .lower-menu #ingredients ol, #single-recipe .lower-menu #directions ul, #single-recipe .lower-menu #directions ol {
+      padding: 0;
+      list-style-type: none; }
+    #single-recipe .lower-menu #ingredients ol, #single-recipe .lower-menu #directions ol {
+      list-style: outside decimal; }
 
 #reviews {
   padding-top: 60px;
   padding-bottom: 60px; }
   #reviews h4 {
-    font-family: "georgia";
     color: #174c4f;
-    font-size: 16px;
-    font-weight: bold;
     padding: 0;
     margin: 0; }
   #reviews .review-stats {
@@ -150,16 +68,12 @@
       width: 15px;
       height: 15px; }
     #reviews .review .review-author {
-      color: #ff9666;
-      font-family: "georgia";
-      font-size: 14px;
       float: left; }
     #reviews .review p {
       clear: both;
-      font-size: 14px;
       line-height: 1.4;
       color: #174c4f;
-      max-height: 75px;
+      max-height: 70px;
       margin-bottom: 5px; }
     #reviews .review a.more {
       color: #207178;
@@ -183,12 +97,7 @@
     text-align: center;
     color: #207178;
     text-decoration: underline;
-    font-size: 16px;
-    font-family: "georgia"; }
-  #reviews #rate-this-recipe h4 {
-    margin-bottom: 5px; }
-  #reviews #rate-this-recipe #review-avatar {
-    width: 100%; }
+    font-size: 16px; }
   #reviews #rate-this-recipe #recipe-rating {
     float: left;
     margin-bottom: 5px; }
@@ -196,24 +105,8 @@
       margin-right: 3px;
       height: 20px;
       width: 20px; }
-  #reviews #rate-this-recipe form {
-    float: left;
-    clear: left; }
-    #reviews #rate-this-recipe form textarea {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      float: left;
-      width: 100%;
-      margin-bottom: 5px;
-      padding: 7px;
-      font-size: 16px;
-      font-family: "georgia";
-      color: #174c4f;
-      outline-color: #174c4f; }
-    #reviews #rate-this-recipe form #submit-review {
-      float: right;
-      margin-bottom: 5px; }
+  #reviews #rate-this-recipe #submit-review {
+    float: right; }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   #rate-this-recipe #recipe-rating img {

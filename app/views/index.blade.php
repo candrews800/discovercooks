@@ -1,6 +1,6 @@
 <?php $css="home"; ?>
 
-@include('layout.header')
+@include('style.layout.header')
 <div id="header-wrap">
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($recipes) }}></div>
     <div class="container-fluid">
@@ -16,7 +16,7 @@
 
                                 <div class="carousel-caption">
                                     <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
-                                    <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img image" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
+                                    <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
 
                                     <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
                                 </div>
@@ -42,7 +42,7 @@
 
 <div class="ribbon green-ribbon col-xs-12">
     <img id="ribbon-img" src="assets/img/green-ribbon.png" />
-    <h2>explore</h2>
+    <h3>explore</h3>
 </div>
 
 <div class="white-bg">
@@ -68,7 +68,7 @@
 
 <div class="ribbon orange-ribbon col-xs-12">
     <img id="ribbon-img" src="assets/img/orange-ribbon.png" />
-    <h2>top recipes</h2>
+    <h3>top recipes</h3>
 </div>
 
 <div class="beige-bg">
@@ -96,16 +96,15 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                <button id="load-more-recipes" class="flat-button flat-button-green flat-button-small">Load More Recipes</button>
+            <div class="col-xs-12 text-center">
+                <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
             </div>
 
         </div>
-        @include('layout.back_to_top')
     </div>
 
 </div>
-@include('layout.footer')
+@include('style.layout.footer')
 <script type="text/javascript" src="{{ url('assets/touchSwipe/jquery.touchSwipe.min.js') }}"></script>
 
 <script>
@@ -165,6 +164,13 @@
                 $('.carousel').carousel('prev');
             },
             excludedElements: []
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $('.carousel').bind('slide', function(event, fromIndex, toIndex){
+            console.log('t');
         });
     });
 </script>

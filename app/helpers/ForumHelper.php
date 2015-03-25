@@ -9,9 +9,19 @@ class ForumHelper
         $text = str_replace('[/em]', '</em>', $text);
         $text = str_replace('[u]', '<u>', $text);
         $text = str_replace('[/u]', '</u>', $text);
-        $text = str_replace('[bq]', '<blockquote>', $text);
-        $text = str_replace('[/bq]', '</blockquote>', $text);
-        $text .= '</b></em></u></blockquote>';
+
+        $well_count = 0;
+        do{
+            $text = preg_replace('/\\[bq\\]/', '<div class="well">', $text, 1, $well_count);
+            if($well_count){
+                $text = preg_replace('/\\[\\/bq\\]/', '</div>', $text, 1, $well_count);
+                if(!$well_count){
+                    $text .= "</div>";
+                }
+            }
+        } while($well_count);
+
+        $text .= '</b></em></u>';
 
         return $text;
     }

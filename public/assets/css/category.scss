@@ -1,45 +1,47 @@
 @import 'includes/_variables';
 
 .featured-author-img{
-    height: 75px;
-    width: 75px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    position: absolute;
-    top: -60px;
+  height: 100px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: -90px;
 }
 
 .featured-recipe-img{
-    width: 100% !important;
-    height: auto;
-    max-height: 540px;
+  width: 100% !important;
+  height: auto;
 }
 
 .carousel-caption{
-    background-color: rgba(0, 0, 0, .4);
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    padding-bottom: 30px;
+  background-color: rgba(0, 0, 0, .6);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 30px;
 
-    h1 a{
-        color: white;
-        font-size: 30px;
+  h1{
+    margin: 0;
+  }
+
+  h1 a{
+    color: white;
+  }
+
+  .author{
+    color: #999;
+    a{
+      color: $offset-color;
     }
-    .author{
-        font-font: $paragraph-font;
-        color: #999;
-        a{
-            color: $offset-color;
-        }
-    }
+  }
 }
 
 #home-content{
-  background-color: rgba(0,0,0,.7);
-  padding: 65px 30px;
+  background-color: rgba(0,0,0,.95);
+  padding: 25px 30px 40px 30px;
 }
 
 @media (max-width: $screen-xs-max) {

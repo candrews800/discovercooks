@@ -1,255 +1,286 @@
 <?php $css="edit-recipe"; ?>
 
-@include('layout.header')
-<div class="container-fluid">
-    <div class="row">
-        <div id="edit-recipe" class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 content-top">
-            @if($recipe->id)
-                {{ ViewHelper::getBreadcrumbs(array(array('url' => URL::to('category/'.$recipe->category->name), 'text' => $recipe->category->name.' Recipes'),
-                    array('url' => URL::to('recipe/'.$recipe->slug), 'text' => $recipe->name.'')), 'Edit') }}
-            @else
-                {{ ViewHelper::getBreadcrumbs(null, 'New Recipe') }}
-            @endif
-
-            <div class="row">
+@include('style.layout.header')
+<div class="beige-bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="edit-recipe" class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                @if($recipe->id)
+                    {{ ViewHelper::getNewBreadcrumbs(array(array('url' => URL::to('profile/'.$author->username), 'text' => $author->username.'\'s Recipes'),
+                        array('url' => URL::to('recipe/'.$recipe->slug), 'text' => $recipe->name.'')), 'Edit') }}
+                @else
+                    {{ ViewHelper::getNewBreadcrumbs(null, 'New Recipe') }}
+                @endif
                 @if($recipe->id)
                     {{ Form::open(array('url' => 'recipe/'.$recipe->slug.'/edit', 'files' => true)) }}
                 @else
                     {{ Form::open(array('url' => 'recipe/new', 'files' => true)) }}
                 @endif
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            @if($recipe->image)
-                            <div class="dropzone" data-width="1280" data-image="{{ url('recipe_images/'.$recipe->image) }}" data-ajax="false" data-height="720" data-resize="true" style="width: 100%; height: auto">
-                            @else
-                            <div class="dropzone" data-width="1280" data-ajax="false" data-height="720" data-resize="true" style="width: 100%; height: auto">
-                            @endif
-                                <input type="file" name="recipe_image" value="{{ $recipe->image }}" />
-                            </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        @if($recipe->image)
+                        <div class="dropzone" data-width="1280" data-image="{{ url('recipe_images/'.$recipe->image) }}" data-ajax="false" data-height="720" data-resize="true" style="width: 100%; height: auto">
+                        @else
+                        <div class="dropzone" data-width="1280" data-ajax="false" data-height="720" data-resize="true" style="width: 100%; height: auto">
+                        @endif
+                            <input type="file" name="recipe_image" value="{{ $recipe->image }}" />
                         </div>
+                    </div>
 
-                        <div class="col-xs-12 clearfix">
-                            <h1>Submit Recipe <span>* indicates required field</span></h1>
+                    <div class="col-xs-12 clearfix">
+                        @if($recipe->id)
+                        <h3>Edit Recipe <small class="pull-right">* indicates required field</small></h3>
+                        @else
+                        <h3>Submit Recipe <small class="pull-right">* indicates required field</small></h3>
+                        @endif
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('name')) }}">
+                            <label for="recipe-title">
+                                Recipe Title*
+                                @if($errors->first('name'))
+                                    <small class="text-danger">{{ $errors->first('name') }}</small>
+                                @endif
+                            </label>
+                            {{ Form::text('name', $recipe->name, array('class' => 'form-control')) }}
                         </div>
+                    </div>
 
-                        <div class="col-xs-12">
-                            <label class="input-label" for="recipe-title">Recipe Title*</label>
-                            @if($errors->first('name'))
-                                <span class="input-error">{{ $errors->first('name') }}</span>
-                            @endif
-                            {{ Form::text('name', $recipe->name, array('class' => ViewHelper::addClass('invalid', $errors->first('name')))) }}
+                    <div class="col-xs-12">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('description')) }}">
+                            <label for="recipe-description">
+                                Description*
+                                @if($errors->first('description'))
+                                    <small class="text-danger">{{ $errors->first('description') }}</small>
+                                @endif
+                            </label>
+                            <small id="description-char-left" class="pull-right text-muted"><span id="counter">450</span> characters left.</small>
+                            {{ Form::textarea('description', $recipe->description, array('id' => 'recipe-description', 'rows' => '5', 'class' => 'form-control', 'onkeyup' => 'textCounter(this, "counter", 450);')) }}
                         </div>
+                    </div>
 
-                        <div class="col-xs-12">
-                            <label class="input-label" for="recipe-description">Description*</label>
-                            @if($errors->first('description'))
-                                <span class="input-error">{{ $errors->first('description') }}</span>
-                            @endif
-                            {{ Form::textarea('description', $recipe->description, array('id' => 'recipe-description', 'class' => ViewHelper::addClass('invalid', $errors->first('description')), 'onkeyup' => 'textCounter(this, "counter", 450);')) }}
-                            <p id="description-char-left"><span id="counter">450</span> characters left.</p>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('url')) }}">
+                            <label for="recipe-url">
+                                Related Link
+                                @if($errors->first('url'))
+                                    <small class="text-danger">{{ $errors->first('url') }}</small>
+                                @endif
+                            </label>
+                            {{ Form::text('url', $recipe->url, array('class' => 'form-control')) }}
                         </div>
+                    </div>
 
-                        <div class="col-xs-12 col-sm-6">
-                            <label class="input-label" for="recipe-link">Related Link</label>
-                            @if($errors->first('url'))
-                                <span class="input-error">{{ $errors->first('url') }}</span>
-                            @endif
-                            {{ Form::text('url', $recipe->url, array('class' => ViewHelper::addClass('invalid', $errors->first('url')))) }}
-                        </div>
-
-                        <div class="col-xs-12 col-sm-6">
-                            <label class="input-label" for="recipe-category">Related Category*</label>
-                            @if($errors->first('category'))
-                                <span class="input-error">{{ $errors->first('category') }}</span>
-                            @endif
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('category')) }}">
+                            <label for="recipe-url">
+                                Related Category*
+                                @if($errors->first('category'))
+                                    <small class="text-danger">{{ $errors->first('category') }}</small>
+                                @endif
+                            </label>
                             @if($recipe->category)
-                                {{ Form::select('category', $categories, $recipe->category->id, array('id' => 'recipe-category', 'class' => ViewHelper::addClass('invalid', $errors->first('prep_time')))) }}
+                                {{ Form::select('category', $categories, $recipe->category->id, array('id' => 'recipe-category', 'class' => 'form-control')) }}
                             @else
-                                {{ Form::select('category', $categories, null, array('id' => 'recipe-category', 'class' => ViewHelper::addClass('invalid', $errors->first('prep_time')))) }}
+                                {{ Form::select('category', $categories, null, array('id' => 'recipe-category', 'class' => 'form-control')) }}
                             @endif
-
                         </div>
-                            <div class="col-xs-12"></div>
+                    </div>
 
-                        <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('prep_time')) }}">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <label class="input-label" for="recipe-prep">Prep Time*</label>
-                                    @if($errors->first('prep_time'))
-                                        <span class="input-error">{{ $errors->first('prep_time') }}</span>
-                                    @endif
+                                    <label for="recipe-prep_time">
+                                        Prep Time*
+                                        @if($errors->first('prep_time'))
+                                            <small class="text-danger">{{ $errors->first('prep_time') }}</small>
+                                        @endif
+                                    </label>
                                 </div>
                                 <div class="col-xs-6">
-                                    {{ Form::text('prep_time', $recipe->prep_time, array('class' => ViewHelper::addClass('invalid', $errors->first('prep_time')))) }}
+                                    {{ Form::text('prep_time', $recipe->prep_time, array('class' => 'form-control')) }}
                                 </div>
                                 <div class="col-xs-6">
-                                    {{ Form::select('prep_time_type', array('min' => 'Minutes', 'hr' => 'Hours'), $recipe->prep_time_type, array('class' => ViewHelper::addClass('invalid', $errors->first('total_time')))) }}
+                                    {{ Form::select('prep_time_type', array('min' => 'Minutes', 'hr' => 'Hours'), $recipe->prep_time_type, array('class' => 'form-control')) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="input-label" for="recipe-cook">Cook Time*</label>
-                                    @if($errors->first('cook_time'))
-                                        <span class="input-error">{{ $errors->first('cook_time') }}</span>
-                                    @endif
-                                </div>
-                                <div class="col-xs-6">
-                                    {{ Form::text('cook_time', $recipe->cook_time, array('class' => ViewHelper::addClass('invalid', $errors->first('cook_time')))) }}
-                                </div>
-                                <div class="col-xs-6">
-                                    {{ Form::select('cook_time_type', array('min' => 'Minutes', 'hr' => 'Hours'), $recipe->cook_time_type, array('class' => ViewHelper::addClass('invalid', $errors->first('total_time')))) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label class="input-label" for="recipe-cook">Total Time*</label>
-                                    @if($errors->first('total_time'))
-                                        <span class="input-error">{{ $errors->first('total_time') }}</span>
-                                    @endif
-                                </div>
-                                <div class="col-xs-6">
-                                    {{ Form::text('total_time', $recipe->total_time, array('class' => ViewHelper::addClass('invalid', $errors->first('total_time')))) }}
-                                </div>
-                                <div class="col-xs-6">
-                                    {{ Form::select('total_time_type', array('min' => 'Minutes', 'hr' => 'Hours'), $recipe->total_time_type, array('class' => ViewHelper::addClass('invalid', $errors->first('total_time')))) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <label class="input-label" for="recipe-cook">Servings*</label>
-                            @if($errors->first('servings'))
-                                <span class="input-error">{{ $errors->first('servings') }}</span>
-                            @endif
-                            {{ Form::selectRange('servings', 0, 60, $recipe->servings, array('class' => ViewHelper::addClass('invalid', $errors->first('servings')))) }}
-                        </div>
+                    </div>
 
-                        <div class="col-xs-12">
-                            <label class="input-label" for="recipe-privacy">Privacy*</label>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('cook_time')) }}">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="recipe-prep_time">
+                                        Cook Time*
+                                        @if($errors->first('cook_time'))
+                                            <small class="text-danger">{{ $errors->first('cook_time') }}</small>
+                                        @endif
+                                    </label>
+                                </div>
+                                <div class="col-xs-6">
+                                    {{ Form::text('cook_time', $recipe->cook_time, array('class' => 'form-control')) }}
+                                </div>
+                                <div class="col-xs-6">
+                                    {{ Form::select('cook_time_type', array('min' => 'Minutes', 'hr' => 'Hours'), $recipe->cook_time_type, array('class' => 'form-control')) }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-xs-12">
-                            <label class="radio-label" for="recipe-public">
-                                {{ Form::radio('private', '0', true); }}
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('total_time')) }}">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="recipe-prep_time">
+                                        Total Time*
+                                        @if($errors->first('cook_time'))
+                                            <small class="text-danger">{{ $errors->first('total_time') }}</small>
+                                        @endif
+                                    </label>
+                                </div>
+                                <div class="col-xs-6">
+                                    {{ Form::text('total_time', $recipe->total_time, array('class' => 'form-control')) }}
+                                </div>
+                                <div class="col-xs-6">
+                                    {{ Form::select('total_time_type', array('min' => 'Minutes', 'hr' => 'Hours'), $recipe->total_time_type, array('class' => 'form-control')) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('servings')) }}">
+                            <label for="recipe-servings">
+                                Servings*
+                                @if($errors->first('servings'))
+                                    <small class="text-danger">{{ $errors->first('servings') }}</small>
+                                @endif
+                            </label>
+                            {{ Form::selectRange('servings', 0, 60, $recipe->servings, array('class' => 'form-control')) }}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <label class="input-label" for="recipe-privacy">Privacy*</label>
+                        <div class="radio">
+                            <label>
+                                {{ Form::radio('private', '0', true) }}
                                 Allow this recipe to be visible to others <strong>(Public)</strong>
                             </label>
                         </div>
-                        <div class="col-xs-12">
-                            <label class="radio-label" for="recipe-private">
-                                {{ Form::radio('private', '1', $recipe->private); }}
+                        <div class="radio">
+                            <label>
+                                {{ Form::radio('private', '1', $recipe->private) }}
                                 Only I can see this recipe <strong>(Private)</strong>
                             </label>
                         </div>
-
-                        <div id="ingredient-header" class="col-xs-12">
+                    </div>
+                    <div id="ingredient-header" class="col-xs-12">
+                        <h3>Ingredients <small class="text-muted">Note: Drag items to reorder.</small></h3>
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('ingredients')) }}">
                             <input id="ingredients" type="hidden" name="ingredients" value="{{ $recipe->ingredients }}" />
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <label class="input-label">Add Ingredient</label>
-                                    @if($errors->first('ingredients'))
-                                        <span class="input-error">{{ $errors->first('ingredients') }}</span>
-                                    @endif
+                                    <label for="recipe-ingredients">
+                                        Add Ingredient
+                                        @if($errors->first('ingredients'))
+                                            <small class="text-danger">{{ $errors->first('ingredients') }}</small>
+                                        @endif
+                                    </label>
                                 </div>
                                 <div class="col-xs-12 col-sm-5">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <input id="recipe-quantity" class="{{ ViewHelper::addClass('invalid', $errors->first('ingredients'))  }}" type="text" name="recipe-quantity" data-toggle="tooltip" data-placement="bottom" title="Invalid Format" placeholder="3" />
+                                            <input id="recipe-quantity" class="form-control" type="text" name="recipe-quantity" data-toggle="tooltip" data-placement="bottom" title="Invalid Format" placeholder="3" />
                                         </div>
                                         <div class="col-xs-6">
-                                            {{ Form::select('recipe-quantity-type', IngredientSizes::getAll(), null, array('id' => 'recipe-quantity-type', 'class' => ViewHelper::addClass('invalid', $errors->first('ingredients')))) }}
+                                            {{ Form::select('recipe-quantity-type', IngredientSizes::getAll(), null, array('id' => 'recipe-quantity-type', 'class' => 'form-control')) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-9 col-sm-5">
-                                    {{ Form::text('recipe-ingredient', null, array('id' => 'recipe-ingredient', 'placeholder' => 'water', 'class' => ViewHelper::addClass('invalid', $errors->first('ingredients')))) }}
+                                    {{ Form::text('recipe-ingredient', null, array('id' => 'recipe-ingredient', 'placeholder' => 'water', 'class' => 'form-control')) }}
                                 </div>
                                 <div class="col-xs-3 col-sm-2">
-                                    <a id="add-ingredient" class="flat-button flat-button-green" href="#"><b class="glyphicon glyphicon-plus"></b></a>
+                                    <a id="add-ingredient" class="btn btn-info btn-block" href="#"><i class="glyphicon glyphicon-plus"></i></a>
                                 </div>
                             </div>
                         </div>
+                        <ul id="ingredient-list">
+                            @if(($ingredients_list = Input::old('ingredients')) || ($ingredients_list = $recipe->ingredients))
+                                @foreach(explode("<>", $ingredients_list) as $ingredient)
+                                    <li class="clearfix"><span>{{{ $ingredient }}}</span> <a class="ingredient-delete pull-right btn btn-danger btn-xs" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="ingredient-edit pull-right btn btn-xs btn-warning" href="#"><i class="glyphicon glyphicon-pencil"></i></a></li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
 
-                        <div class="col-xs-12">
-                            <h2 class="how-to-cook-header">ingredients</h2>
-                            <div class="how-to-cook-divider"></div>
-
-                            <ul id="ingredient-list">
-                                @if(($ingredients_list = Input::old('ingredients')) || ($ingredients_list = $recipe->ingredients))
-                                    @foreach(explode("<>", $ingredients_list) as $ingredient)
-                                        <li><span>{{{ $ingredient }}}</span> <a class="ingredient-delete" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="ingredient-edit" href="#"><i class="glyphicon glyphicon-pencil"></i></a></li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <input id="directions" type="hidden" name="directions" value="{{ $recipe->directions }}" />
+                    <div class="col-xs-12">
+                        <h3>Directions <small class="text-muted">Note: Drag items to reorder.</small></h3>
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('directions')) }}">
+                        <input id="directions" type="hidden" name="directions" value="{{ $recipe->directions }}" />
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <label class="input-label">Add Direction</label>
-                                    @if($errors->first('directions'))
-                                        <span class="input-error">{{ $errors->first('directions') }}</span>
-                                    @endif
+                                    <label for="recipe-directions">
+                                        Add Direction
+                                        @if($errors->first('directions'))
+                                            <small class="text-danger">{{ $errors->first('directions') }}</small>
+                                        @endif
+                                    </label>
                                 </div>
                                 <div class="col-xs-12 col-sm-10">
-                                    <textarea id="recipe-directions" class="{{ ViewHelper::addClass('invalid', $errors->first('directions')) }}" name="recipe-directions"></textarea>
+                                    <textarea id="recipe-directions" class="form-control" name="recipe-directions"></textarea>
                                 </div>
                                 <div class="col-xs-12 col-sm-2">
-                                    <a id="add-directions" class="flat-button flat-button-green" href="#"><b class="glyphicon glyphicon-plus"></b></a>
+                                    <a id="add-directions" class="btn btn-info btn-block" href="#"><b class="glyphicon glyphicon-plus"></b></a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xs-12">
-                            <h2 class="how-to-cook-header">directions</h2>
-                            <div class="how-to-cook-divider"></div>
-                            <ul id="directions-list">
-                                @if(($directions_list = Input::old('directions')) || ($directions_list = $recipe->directions))
-                                    @foreach(explode("<>", $directions_list) as $directions)
-                                        <li><span>{{{ $directions }}}</span> <a class="directions-delete" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="directions-edit" href="#"><i class="glyphicon glyphicon-pencil"></i></a></li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <label class="input-label" for="recipe-description">Notes</label>
-                            @if($errors->first('note'))
-                                <span class="input-error">{{ $errors->first('note') }}</span>
+                        <ul id="directions-list">
+                            @if(($directions_list = Input::old('directions')) || ($directions_list = $recipe->directions))
+                                @foreach(explode("<>", $directions_list) as $directions)
+                                    <li><span>{{{ $directions }}}</span> <a class="directions-delete pull-right btn btn-danger btn-xs" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="directions-edit pull-right btn btn-xs btn-warning" href="#"><i class="glyphicon glyphicon-pencil"></i></a></li>
+                                @endforeach
                             @endif
-                            {{ Form::textarea('note', $recipe->note, array('id' => 'recipe-note', 'class' => ViewHelper::addClass('invalid', $errors->first('note')))) }}
-                        </div>
-
-                        <div class="h2header col-xs-12">
-                            <h1>rules</h1>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <p><strong>Duplicate Recipes:</strong> Please check to ensure this recipe has not been created already. We try to keep all recipes on discoverCooks unique.</p>
-                            <p><strong>Copyright Recipes:</strong> If you’re getting this recipe from another source, please ensure that only the ingredients and directions are copied. Copying images,
-                                descriptions and/or non-essential information to the recipe is illegal.</p>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <input id="edit-recipe-button" type="submit" class="flat-button" value="Submit Recipe" />
-                        </div>
-                        {{ Form::close() }}
+                        </ul>
                     </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('note')) }}">
+                            <label for="recipe-directions">
+                                Additional Notes
+                                @if($errors->first('directions'))
+                                    <small class="text-danger">{{ $errors->first('note') }}</small>
+                                @endif
+                            </label>
+                            {{ Form::textarea('note', $recipe->note, array('id' => 'recipe-note', 'class' => 'form-control', 'rows' => '3')) }}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <h3>Rules</h3>
+                        <p><strong>Duplicate Recipes:</strong> Please check to ensure this recipe has not been created already. We try to keep all recipes on discoverCooks unique.</p>
+                        <p><strong>Copyright Recipes:</strong> If you’re getting this recipe from another source, please ensure that only the ingredients and directions are copied. Copying images,
+                            descriptions and/or non-essential information to the recipe is illegal.</p>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <input id="edit-recipe-button" type="submit" class="btn btn-block btn-lg btn-info" value="Submit Recipe" />
                     </div>
                 </div>
-                @include('layout.back_to_top')
+                {{ Form::close() }}
             </div>
         </div>
+    </div>
+</div>
 
-
-@include('layout.footer')
+@include('style.layout.footer')
 <script src="{{ url('assets/touchpunch/touchpunch.min.js') }}"></script>
 
 <script src="{{ url('assets/html5imageupload/js/html5imageupload.min.js') }}"></script>
-<link rel="stylesheet" href="{{ url('assets/bootstrap/css/bootstrapfull.min.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ url('assets/html5imageupload/css/html5imageupload.css') }}" type="text/css" />
 <style>
     .dropzone:after{

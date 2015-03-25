@@ -2,78 +2,8 @@
 
 #edit-recipe{
     background-color: white;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 15px;
-
-    .input-label, .radio-label{
-        color: $primary-color;
-        font-weight: 100;
-    }
-
-    #description-char-left{
-        color: #999;
-        margin-bottom: 15px;
-    }
-
-    p{
-        color: $primary-color;
-    }
+    padding-top: 25px;
 }
-
-h1{
-    width: 100%;
-    font-size: 20px;
-    text-shadow: none;
-    line-height: 30px;
-    margin: 15px 0;
-
-    font-family: $heading-font;
-    color: $primary-color;
-
-    height: 30px;
-
-    span{
-        float: right;
-        font-size: 16px;
-        font-family: $paragraph-font;
-        line-height: 30px;
-    }
-}
-
-input[type=text]{
-    border: 1px solid #ccc;
-}
-
-select{
-    width: 100%;
-    outline-color: $primary-color;
-    color: $primary-color;
-    font-size: 16px;
-
-    margin: 0 0 15px 0;
-    padding: 8px 8px;
-
-    border: 1px solid #ccc;
-
-    option{
-        padding: 10px 0;
-    }
-}
-
-textarea{
-    width: 100%;
-    height: 130px;
-    outline-color: $primary-color;
-    color: $primary-color;
-    font-size: 16px;
-
-    margin: 0;
-    padding: 8px 8px;
-
-    border: 1px solid #ccc;
-}
-
 #recipe-image{
     width: 320px;
     height: 180px;
@@ -84,27 +14,10 @@ textarea{
     height: auto;
 }
 
-p{
-    color: white;
-    margin-bottom: 10px;
-}
-
 
 #edit-recipe-button{
     margin: 20px 0;
     font-size: 24px;
-}
-
-#add-ingredient, #add-directions{
-    width: 100%;
-    height: 38px;
-    color: $primary-color;
-    display: block;
-
-    font-size: 20px;
-    line-height: 40px;
-    text-align: center;
-    padding: 0;
 }
 
 #recipe-directions{
@@ -112,125 +25,28 @@ p{
     margin-bottom: 10px;
 }
 
-#ingredient-header{
-    margin-top: 25px;
-}
-
 #ingredient-list{
-    color: $primary-color;
-    font-size: 20px;
-    line-height: 30px;
-    font-family: $paragraph-font;
-    width: 100%;
-    text-align: center;
+    list-style-type: none;
     cursor: move;
-
-    margin-bottom: 20px;
-
-    span{
-        font-weight: 100;
-        width: 70%;
-        display: block;
-        margin-left: 15%;
-        word-wrap: break-word;
-    }
-
-    .helper span{
-        font-style: italic;
-        font-size: 16px;
-    }
-
-    a{
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 30px;
-        color: $primary-color;
-        margin-left: 20px;
-        text-decoration: underline;
-        position: absolute;
-        top: 5px;
-
-    }
-    .ingredient-delete{
-        right: 10px;
-    }
-    .ingredient-edit{
-        right: 50px;
-
+    padding: 0;
+    .btn{
+      margin-left: 5px;
     }
     li{
-        width: 100%;
-        position: relative;
-
-        &:hover{
-            background-color: #eee;
-        }
+      padding: 5px 0;
     }
 }
 
 #directions-list{
-    list-style-type: decimal;
-    list-style-position: inside;
-
-    color: $primary-color;
-    font-size: 20px;
-    line-height: 30px;
-    font-family: $paragraph-font;
-    width: 100%;
-    text-align: center;
-    cursor: move;
-
-    font-weight: bold;
-
-    span{
-        font-weight: 100;
-        width: 70%;
-        display: block;
-        margin-left: 15%;
-        word-wrap: break-word;
-    }
-
-    .helper span{
-        font-style: italic;
-        font-size: 16px;
-    }
-
-    a{
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 30px;
-        color: $primary-color;
-        margin-left: 20px;
-        text-decoration: underline;
-        position: absolute;
-        top: 5px;
-
-    }
-    .directions-delete{
-        right: 10px;
-    }
-    .directions-edit{
-        right: 50px;
-
-    }
-    li{
-        width: 100%;
-        position: relative;
-
-        &:hover{
-            background-color: #eee;
-        }
-        padding: 5px;
-    }
-}
-
-.how-to-cook-header{
-    width: 100%;
-    text-align: center;
-    text-shadow: none;
-    color: $primary-color;
-    font-size: 30px;
-    font-family: $heading-font;
+  list-style: decimal inside;
+  cursor: move;
+  padding: 0;
+  .btn{
+    margin-left: 5px;
+  }
+  li{
+    padding: 5px 0;
+  }
 }
 
 @media (max-width: $screen-xs-max) {

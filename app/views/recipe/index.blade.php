@@ -5,25 +5,27 @@
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($related_recipes) }}></div>
     <div class="container-fluid">
         <div class="row">
-            <div id="single-recipe" class="col-xs-12 col-lg-8 col-lg-offset-2 content-top">
-                {{ ViewHelper::getBreadcrumbs(array(array('url' => URL::to('category/'.$category->name), 'text' => $category->name.' Recipes')), $recipe->name, true) }}
+            <div id="single-recipe" class="col-xs-12 col-lg-8 col-lg-offset-2">
+                {{ ViewHelper::getNewBreadcrumbs(array(array('url' => URL::to('profile/'.$author->username), 'text' => $author->username.'\'s Recipes')), $recipe->name) }}
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="upper-menu">
                             @if($recipe->reviewed == 0)
-                                <div class="alert">
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>This recipe can only be seen by you as it is currently under review.</strong><br />
                                     Note: Any edits will move it to the back of the queue.
                                 </div>
                             @elseif($recipe->approved == 0)
-                                <div class="alert">
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>We're sorry. This recipe did not pass the review and can only be seen by you.</strong><br />
-                                    Please make ensure you are following our guidelines if you wish for others to see your recipe.
+                                    Please make ensure you are following our recipe guidelines before trying to resubmit.
                                 </div>
                             @endif
                             <div class="row">
                                 <div class="col-xs-12 col-sm-2 hidden-xs">
-                                    <a href="{{ url('profile/'.$author->username) }}"><img id="author-img" src="{{ url(ViewHelper::getUserImage($author->image)) }}" /></a>
+                                    <a href="{{ url('profile/'.$author->username) }}"><img id="author-img" class="img-responsive" src="{{ url(ViewHelper::getUserImage($author->image)) }}" /></a>
                                 </div>
 
                                 <div class="col-xs-12 col-sm-10">
@@ -33,13 +35,13 @@
                                 <div class="col-xs-12 col-sm-10">
                                     <p class="recipe-details">
                                     by <a class="author" href="{{ url('profile/'.$author->username) }}">{{{ $author->username }}}</a>
-                                    on <span class="date">{{ $recipe->created_at->format('M d, Y') }}</span>
+                                    on <span class="text-muted"><em><small>{{ $recipe->created_at->format('M d, Y') }}</small></em></span>
                                     in <a class="category" href="{{ url('category/'.$category->name) }}">{{{ $category->name }}}</a>
                                     </p>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 hidden-xs">
                                     @if($recipe->url)
-                                    <a class="flat-button flat-button-small flat-button-green" href="{{{ $recipe->url }}}">View post on {{ $author->username }}'s site <i class="glyphicon glyphicon-share"></i></a>
+                                    <a class="btn btn-info btn-lg" href="{{{ $recipe->url }}}" target="_blank">View post on {{ $author->username }}'s site <i class="glyphicon glyphicon-share"></i></a>
                                     @endif
                                 </div>
                             </div>
@@ -49,54 +51,57 @@
                         <div class="row">
                             <div class="recipe-info">
                                 <div class="col-xs-12 col-md-7 col-lg-8">
-                                    <img id="main-image" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
+                                    <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
                                 </div>
                                 <div class="col-xs-12 col-md-5 col-lg-4">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-6 col-md-12">
                                             <div class="row">
                                                 <div class="col-xs-12">
-                                                    <div class="subscriber_count clearfix {{ ViewHelper::addClass('saved', $recipe->isSaved) }}" data-slug="{{ $recipe->slug }}"><i class="heart glyphicon glyphicon-heart"></i><div class="num">{{ $recipe->subscriber_count }}</div></div>
-                                                </div>
-                                                <div class="col-xs-12">
+                                                    <div class="subscriber_count clearfix {{ ViewHelper::addClass('saved', $recipe->isSaved) }}" data-slug="{{ $recipe->slug }}">
+                                                        @if($recipe->isSaved)
+                                                            <button class="btn btn-block btn-danger btn-lg">
+                                                                Saved
+                                                            </button>
+                                                        @else
+                                                            <button class="btn btn-block btn-success btn-lg">
+                                                                Save Recipe
+                                                            </button>
+                                                        @endif
+                                                    </div>
                                                     <p>
-                                                        Overall Rating:
-                                                        {{ ViewHelper::addRatingImages($recipe->overall_rating) }}
-                                                        <a href="#reviews">(<span>{{ $total_reviews }}</span>)</a>
+                                                        Subscribers: <strong>{{ $recipe->subscriber_count }}</strong>
                                                     </p>
-                                                </div>
-                                                <div class="col-xs-12">
+                                                    <p class="clearfix">
+                                                        <span class="pull-left">Overall Rating:
+                                                        {{ ViewHelper::addRatingImages($recipe->overall_rating) }}</span>
+                                                        <a href="#reviews" class="pull-right">(<span>{{ $total_reviews }}</span>)</a>
+                                                    </p>
                                                     @if(isset($user_review->rating))
-                                                        <p>
+                                                        <p class="clearfix">
+                                                        <span class="pull-left">
                                                             My Rating:
-                                                            {{ ViewHelper::addRatingImages($user_review->rating) }}
-                                                            <a href="#reviews">Edit Rating</a>
+                                                            {{ ViewHelper::addRatingImages($user_review->rating) }}</span>
+                                                            <a href="#reviews" class="pull-right">Edit Rating</a>
                                                         </p>
                                                     @else
-                                                        <p>
+                                                        <p class="clearfix">
+                                                        <span class="pull-left">
                                                             My Rating:
-                                                            {{ ViewHelper::addRatingImages(0) }}
-                                                            <a href="#reviews">Add Rating</a>
+                                                            {{ ViewHelper::addRatingImages(0) }}</span>
+                                                            <a href="#reviews" class="pull-right">Add Rating</a>
                                                         </p>
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 col-md-12">
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-6 col-lg-12 info">
-                                                    <em><i class="glyphicon glyphicon-time"></i> Prep: </em>{{ $recipe->prep_time }}
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6 col-lg-12 info">
-                                                    <em><i class="glyphicon glyphicon-time"></i> Cook: </em>{{ $recipe->cook_time }}
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6 col-lg-12 info">
-                                                    <em><i class="glyphicon glyphicon-time"></i> Total: </em>{{ $recipe->total_time }}
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6 col-lg-12 info">
-                                                    <em><i class="glyphicon glyphicon-cutlery"></i> Servings: </em>{{ $recipe->servings }}
-                                                </div>
-                                            </div>
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><i class="glyphicon glyphicon-time pull-right"></i><strong><small>Prep: </small></strong>{{ $recipe->prep_time }}</li>
+                                                <li class="list-group-item"><i class="glyphicon glyphicon-time pull-right"></i><strong><small>Cook: </small></strong>{{ $recipe->cook_time }}</li>
+                                                <li class="list-group-item"><i class="glyphicon glyphicon-time pull-right"></i><strong><small>Total: </small></strong>{{ $recipe->total_time }}</li>
+                                                <li class="list-group-item"><i class="glyphicon glyphicon-cutlery pull-right"></i><strong><small>Servings: </small></strong>{{ $recipe->servings }}</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -108,31 +113,32 @@
                         <div class="lower-menu">
                             <div class="row">
                                 <div class="col-xs-12 col-md-10 col-md-offset-1">
-                                    <p class="recipe-description">{{{ $recipe->description }}}</p>
+                                    <p class="recipe-description text-center"><em>{{{ $recipe->description }}}</em></p>
                                 </div>
 
 
-                                <div id="ingredients" class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-                                    <h3>ingredients</h3>
+                                <div id="ingredients" class="col-xs-12 col-sm-6 text-center">
+                                    <h4>Ingredients</h4>
                                     <div class="menu-wrapper">
                                         <ul>
                                             @if(strpos($recipe->ingredients, '<>'))
                                                 @foreach(explode("<>", $recipe->ingredients) as $ingredient)
-                                                    <li><span>{{{ $ingredient }}}</span></li>
+                                                    <li>{{{ $ingredient }}}</li>
                                                 @endforeach
                                             @else
-                                                <li><span>{{{ $recipe->ingredients }}}</span></li>
+                                                <li>{{{ $recipe->ingredients }}}</li>
                                             @endif
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="directions" class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
-                                    <h3>directions</h3>
+
+                                <div id="directions" class="col-xs-12 col-sm-6">
+                                    <h4>Directions</h4>
                                     <div class="menu-wrapper">
                                         <ol>
                                             @if(strpos($recipe->directions, '<>'))
                                                 @foreach(explode("<>", $recipe->directions) as $key => $direction)
-                                                    <li>{{ $key + 1 }}. <span>{{{ $direction }}}</span></li>
+                                                    <li><span>{{{ $direction }}}</span></li>
                                                 @endforeach
                                             @else
                                                 <li><span>{{{ $recipe->directions }}}</span></li>
@@ -140,13 +146,13 @@
                                         </ol>
                                     </div>
                                     @if($recipe->note)
-                                        <h3>notes</h3>
+                                        <h4>notes</h4>
                                         <p>{{{ $recipe->note }}}</p>
                                     @endif
                                 </div>
                                 @if(Auth::id() == $recipe->author_id)
                                     <div class="col-xs-12">
-                                        <a class="flat-button flat-button-small flat-button-green" href="{{ url('recipe/'.$recipe->slug.'/edit') }}">Edit Recipe</a>
+                                        <a class="btn btn-info btn-block" href="{{ url('recipe/'.$recipe->slug.'/edit') }}">Edit Recipe</a>
                                     </div>
                                 @endif
                             </div>

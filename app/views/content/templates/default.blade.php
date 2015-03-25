@@ -1,6 +1,6 @@
 <?php $css="about"; ?>
 
-@include ('layout.header')
+@include ('style.layout.header')
 <div class="container-fluid">
     <div class="row">
         <div class="white-bg content-top col-xs-12 col-md-8 col-md-offset-2">
@@ -9,4 +9,4 @@
     </div>
 </div>
 
-@include ('layout.footer')
+@include ('style.layout.footer')

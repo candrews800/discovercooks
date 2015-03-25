@@ -4,7 +4,7 @@
     <div class="beige-bg">
         <div class="ribbon green-ribbon ribbon-content ribbon-sort col-xs-12">
             <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
-            <h2>my recipes</h2>
+            <h3>my recipes</h3>
 
             <ul class="ribbon-left-menu">
                 <li>
@@ -44,19 +44,13 @@
                             @endforeach
                         </div>
                     </div>
-
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                                <button id="load-more-recipes" class="flat-button flat-button-green flat-button-small">Load More Recipes</button>
-                            </div>
-                        </div>
+                    <div class="col-xs-12 text-center">
+                        <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
                     </div>
                 @else
                     <p class="none-found">No Recipes In This User's Cookbook.</p>
                 @endif
             </div>
-            @include('layout.back_to_top')
         </div>
     </div>
 

@@ -17,7 +17,7 @@ class ForumPost extends Eloquent{
         $post->topic_id = $topic_id;
         $post->author_id = $author_id;
         $post->view_count = 1;
-        $post->touchLastActivity();
+        $post->last_activity = time();
         return $post->edit($input);
     }
 

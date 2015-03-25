@@ -39,10 +39,6 @@
 <script src="{{ url('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 
 <script src="{{ url('assets/Masonry/masonry.js') }}"></script>
-
-<!-- Mobile Menu -->
-<script src="{{ url('assets/mmenu/js/jquery.mmenu.min.all.js') }}" type="text/javascript"></script>
-<link href="{{ url('assets/mmenu/css/jquery.mmenu.all.css') }}" type="text/css" rel="stylesheet" />
 <script src="{{ url('assets/js/smoothScroll.js') }}" type="text/javascript"></script>
 <script src="{{ url('assets/js/saveFavorite.js') }}" type="text/javascript"></script>
 </div>
@@ -72,20 +68,6 @@
         $('#reset-password-modal').modal('show');
     </script>
 @endif
-
-<script>
-    $('#forgot_password_link').click(function(){
-        $('#guest-login-modal').modal('hide');
-    });
-    $('#join_now_link').click(function(){
-        $('#guest-login-modal').modal('hide');
-        $('#guest-register-modal').modal('show');
-    });
-    $('#member_already_link').click(function(){
-        $('#guest-register-modal').modal('hide');
-        $('#guest-login-modal').modal('show');
-    });
-</script>
 
 <script>
     $('.myCheckbox input').change(function(){

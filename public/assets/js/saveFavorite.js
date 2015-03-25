@@ -1,6 +1,7 @@
 $('.subscriber_count').click(function(){
     var clicked = this;
     var slug = $(clicked).data('slug');
+    var button = $(clicked).find('button');
     if($(clicked).hasClass('saved')){
         var url = "http://discovercooks.com/cookbook/removeRecipe/" + slug;
         $.ajax({
@@ -10,6 +11,8 @@ $('.subscriber_count').click(function(){
             $(clicked).find('.num').text(num);
             $(clicked).removeClass('saved');
             $(clicked).find('save-button').text('Save');
+            button.addClass('btn-success').removeClass('btn-danger');
+            button.text('Save Recipe');
         });
     }
     else{
@@ -21,6 +24,8 @@ $('.subscriber_count').click(function(){
             $(clicked).find('.num').text(num);
             $(clicked).addClass('saved');
             $(clicked).find('save-button').text('Saved');
+            button.addClass('btn-danger').removeClass('btn-success');
+            button.text('Saved');
         });
     }
 });

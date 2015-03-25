@@ -1,6 +1,6 @@
 <?php $css="search"; ?>
 
-@include('layout.header')
+@include('style.layout.header')
 
 <div id="search-bar" class="header-wrap">
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($default_bg_recipes) }}></div>
@@ -12,7 +12,7 @@
                 <a href="{{ url('search/'.$search_text) }}" class="active">Recipes</a>
                 <a href="{{ url('search/'.$search_text.'/user') }}">Users</a>
                 {{ Form::open(array('url' => 'search/')) }}
-                <input type="text" name="search_text" value="{{ $search_text }}" placeholder="search for recipes, users" />
+                <input type="text" name="search_text" class="form-control" value="{{ $search_text }}" placeholder="search for recipes, users" />
                 {{ Form::close() }}
             </div>
         </div>
@@ -22,7 +22,7 @@
 <div class="beige-bg">
     <div class="ribbon green-ribbon ribbon-content ribbon-sort col-xs-12">
         <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
-        <h2>search results</h2>
+        <h3>search results</h3>
 
         <ul class="ribbon-left-menu">
             <li>
@@ -64,21 +64,16 @@
                 </div>
             </div>
 
-            <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-                        <button id="load-more-recipes" class="flat-button flat-button-green flat-button-small">Load More Recipes</button>
-                    </div>
-                </div>
+            <div class="col-xs-12 text-center">
+                <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
             </div>
         </div>
-        @include('layout.back_to_top')
     </div>
 </div>
 
 
 
-@include('layout.footer')
+@include('style.layout.footer')
 <script>
     var msnry = $('#search-results .row').masonry({
         itemSelector: '.masonry-item'

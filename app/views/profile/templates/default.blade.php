@@ -1,6 +1,6 @@
 <?php $css="profile"; ?>
 
-@include('layout.header')
+@include('style.layout.header')
 
 <div id="profile">
     <div id="profile-wrap" class="clearfix" {{ ViewHelper::tileRecipes($bg_recipes) }}></div>
@@ -118,44 +118,22 @@
 
                     @if($user->id == Auth::id())
                         <div class="col-xs-12">
-                            <a id="edit-profile" class="flat-button flat-button-small" href="{{ url('profile/'.$user->username.'/edit') }}">Edit Profile</a>
+                            <p>
+                                <a id="edit-profile" class="btn btn-block btn-success" href="{{ url('profile/'.$user->username.'/edit') }}">Edit Profile</a>
+                            </p>
                         </div>
                     @endif
 
                     <div class="col-xs-12 col-sm-4">
-                        <a class="flat-button flat-button-small flat-button-green" href="{{ url('cookbook/'.$user->username) }}"><span>my</span>Cookbook ({{ $total_cookbook }})</a>
+                        <a class="btn btn-block btn-info" href="{{ url('cookbook/'.$user->username) }}"><span>my</span>Cookbook ({{ $total_cookbook }})</a>
                     </div>
                     <div class="col-xs-12 col-sm-4">
-                        <a class="flat-button flat-button-small flat-button-green" href="{{ url('profile/'.$user->username.'/recipes') }}">Recipes ({{ $recipe_stats['total'] }})</a>
+                        <a class="btn btn-block btn-info" href="{{ url('profile/'.$user->username.'/recipes') }}">Recipes ({{ $recipe_stats['total'] }})</a>
                     </div>
                     <div class="col-xs-12 col-sm-4">
-                        <a class="flat-button flat-button-small flat-button-green" href="{{ url('profile/'.$user->username.'/reviews') }}">Reviews ({{ $review_stats['total'] }})</a>
-                    </div>
-                    <div class="visible-md col-md-12">
-                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- Responsive -->
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-4150481864914949"
-                             data-ad-slot="4304871710"
-                             data-ad-format="auto"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+                        <a class="btn btn-block btn-info" href="{{ url('profile/'.$user->username.'/reviews') }}">Reviews ({{ $review_stats['total'] }})</a>
                     </div>
                 </div>
-            </div>
-            <div class="clearfix col-xs-12 hidden-xs hidden-sm hidden-md col-md-1 col-lg-3 content-top">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Responsive -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4150481864914949"
-                     data-ad-slot="4304871710"
-                     data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
         </div>
     </div>
@@ -164,7 +142,7 @@
 @yield('content')
 
 
-@include('layout.footer')
+@include('style.layout.footer')
 
 <script>
     $('#about-menu-more').click(function(){

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\View;
 
 class ReplyController extends \BaseController {
 
-    public function create(\ForumTopic $topic, \ForumPost $post){
+    public function create(\ForumPost $post){
         $input = \Input::all();
 
         \ForumReply::make($input, $post->id, \Auth::id());
@@ -35,9 +35,8 @@ class ReplyController extends \BaseController {
         $reply->save();
 
         $post = \ForumPost::find($reply->post_id);
-        $topic = \ForumTopic::find($post->topic_id);
 
-        return \Redirect::to('forum/'.str_replace(' ', '-', $topic->name).'/'.$post->id);
+        return \Redirect::to('forum/post/'.$post->id);
     }
 
     public function delete(\ForumReply $reply){

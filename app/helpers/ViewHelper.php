@@ -14,7 +14,7 @@ class ViewHelper
         $output = '';
         $output.= '<div class="col-xs-12 col-sm-6 col-md-4">';
         $output.=   '<div class="recipe-review clearfix">';
-        $output.=       '<a href="'.url('recipe/'.$review->recipe->slug).'"><img class="recipe-img" src="'.url(ViewHelper::getRecipeImage($review->recipe->image)).'" /></a>';
+        $output.=       '<a href="'.url('recipe/'.$review->recipe->slug).'"><img class="img-responsive" src="'.url(ViewHelper::getRecipeImage($review->recipe->image)).'" /></a>';
 
         $output.=       '<div class="upper-menu clearfix">';
 
@@ -204,6 +204,23 @@ class ViewHelper
         $response .= '</div>';
         $response .= '</div>';
         $response .= '</div>';
+
+        return $response;
+    }
+
+    public static function getNewBreadcrumbs($parents, $child){
+        $response = '';
+        $response .= '<ol class="breadcrumb">';
+        $response .= '<li><a href="'.url().'">Home</a></li>';
+
+        if($parents != null){
+            foreach($parents as $parent){
+                $response .= '<li><a href="'.$parent['url'].'">'.$parent['text'].'</a></li>';
+            }
+        }
+
+        $response .= '<li class="active">'.$child.'</li>';
+        $response .= '</ol>';
 
         return $response;
     }

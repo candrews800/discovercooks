@@ -116,9 +116,11 @@ Event::listen('user_created', function($user_id){
 Event::listen('recipe_created', function($user_id){
     SiteStats::addRecipe();
     UserStats::addRecipe($user_id);
+    WeeklyStats::addRecipe($user_id);
 });
 
 Event::listen('review_created', function($reviewer_id){
     SiteStats::addReview();
     UserStats::addReview($reviewer_id);
+    WeeklyStats::addRecipe($reviewer_id);
 });

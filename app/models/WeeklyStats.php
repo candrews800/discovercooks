@@ -40,6 +40,16 @@ class WeeklyStats extends Eloquent{
         return $stats->decrement('review_nonhelpful');
     }
 
+    public static function addRecipe($user_id){
+        $stats = self::getStats($user_id);
+        return $stats->increment('total_recipes');
+    }
+
+    public static function addReview($reviewer_id){
+        $stats = self::getStats($reviewer_id);
+        return $stats->increment('total_reviews');
+    }
+
     public function archive(){
         $start_date = WeeklyStatsArchive::where('user_id', '=', $this->user_id)->max('end');
         if(!$start_date){
@@ -51,12 +61,16 @@ class WeeklyStats extends Eloquent{
         $archive->page_views = $this->page_views;
         $archive->review_helpful = $this->review_helpful;
         $archive->review_nonhelpful = $this->review_nonhelpful;
+        $archive->total_recipes = $this->total_recipes;
+        $archive->total_reviews = $this->total_reviews;
         $archive->start = $start_date;
         $archive->end = date('Y-m-d');
         if($archive->save()){
             $this->page_views = 0;
             $this->review_helpful = 0;
             $this->review_nonhelpful = 0;
+            $this->total_recipes = 0;
+            $this->total_reviews = 0;
             $this->save();
         }
         return false;

@@ -21,6 +21,7 @@ class RecipeController extends BaseController {
             $recipe = new Recipe();
         }
         $categories = Category::getSelectList();
+        $author = User::find($recipe->author_id);
 
         if($recipe->prep_time){
             $prep_time = explode(' ', $recipe->prep_time);
@@ -45,7 +46,11 @@ class RecipeController extends BaseController {
             $recipe->category = new Category();
         }
 
-        return View::make('recipe.edit')->with(array('recipe' => $recipe, 'categories' => $categories));
+        return View::make('recipe.edit')->with(array(
+            'recipe' => $recipe,
+            'categories' => $categories,
+            'author' => $author
+        ));
     }
 
     public function loadRecipes($search_term, $skip_amount = 0){

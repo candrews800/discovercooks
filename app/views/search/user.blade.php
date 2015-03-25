@@ -1,6 +1,6 @@
 <?php $css="search"; ?>
 
-@include('layout.header')
+@include('style.layout.header')
 
 <div id="search-bar" class="header-wrap">
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($default_bg_recipes) }}></div>
@@ -12,7 +12,7 @@
                 <a href="{{ url('search/'.$search_text) }}">Recipes</a>
                 <a href="{{ url('search/'.$search_text.'/user') }}" class="active">Users</a>
                 {{ Form::open(array('url' => 'search/'.$search_text.'/user/')) }}
-                <input type="text" name="search_text" value="{{ $search_text }}" placeholder="search for recipes, users" />
+                <input type="text" name="search_text" class="form-control" value="{{ $search_text }}" placeholder="search for recipes, users" />
                 {{ Form::close() }}
             </div>
         </div>
@@ -22,7 +22,7 @@
 <div class="beige-bg">
     <div class="ribbon green-ribbon ribbon-content col-xs-12">
         <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
-        <h2>search results</h2>
+        <h3>search results</h3>
 
         <ul class="ribbon-left-menu">
         </ul>
@@ -31,7 +31,7 @@
 
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid clearfix">
         <div class="row">
             <div id="search-results" class="col-xs-12" >
                 <div class="row">
@@ -42,11 +42,10 @@
             </div>
         </div>
     </div>
-    @include('layout.back_to_top')
 </div>
 
 
-@include('layout.footer')
+@include('style.layout.footer')
 <script>
     var msnry = $('#search-results .row').masonry({
         itemSelector: '.masonry-item'

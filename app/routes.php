@@ -19,15 +19,7 @@ Route::bind('recipe', function($value)
     App::abort(404);
 });
 
-Route::bind('topic', function($value)
-{
-    if($topic = ForumTopic::where('name', str_replace('-', ' ', $value))->first()) {
-        return $topic;
-    }
-
-    App::abort(404);
-});
-
+Route::model('topic', 'ForumTopic');
 Route::model('post', 'ForumPost');
 Route::model('reply', 'ForumReply');
 
@@ -36,6 +28,7 @@ Route::get('/', array('uses' => 'HomeController@displayIndex', 'after' => 'site_
 Route::get('/loadRecipes/{skip_amount}', array('uses' => 'HomeController@loadRecipes'));
 Route::get('about', array('uses' => 'HomeController@about', 'after' => 'site_view'));
 Route::get('terms', array('uses' => 'HomeController@terms', 'after' => 'site_view'));
+Route::get('style', array('uses' => 'HomeController@style'));
 
 Route::get('contact', array('uses' => 'HomeController@contact', 'after' => 'site_view'));
 Route::post('contact', array('before' => 'csrf', 'uses' => 'HomeController@sendContact'));
@@ -100,6 +93,15 @@ Route::group(array('prefix' => 'cookbook'), function(){
 // Account routes
 Route::group(array('prefix' => 'account', 'before' => 'auth'), function(){
     Route::get('/', array('uses' => 'AccountController@index'));
+    Route::get('edit', array('uses' => 'AccountController@edit'));
+    Route::post('edit', array('uses' => 'AccountController@doEdit'));
+
+    Route::get('stats', array('uses' => 'AccountController@stats'));
+    Route::get('stats/recipes', array('uses' => 'AccountController@recipeStats'));
+    Route::get('stats/reviews', array('uses' => 'AccountController@reviewStats'));
+
+    Route::get('stats/archive', array('uses' => 'AccountController@archive'));
+
     Route::get('payout', array('uses' => 'AccountController@payout'));
     Route::post('payout', array('uses' => 'AccountController@createPayout'));
 });
@@ -132,19 +134,19 @@ Route::group(array('prefix' => 'forum'), function() {
     Route::get('/reply/{reply}', array('before' => 'auth', 'uses' => 'forum\ReplyController@show'));
     Route::post('/reply/{reply}', array('before' => 'auth', 'uses' => 'forum\ReplyController@edit'));
 
-    Route::get('/{topic}', array('uses' => 'forum\TopicController@show', 'after' => 'site_view'));
+    Route::get('/topic/{topic}', array('uses' => 'forum\TopicController@show', 'after' => 'site_view'));
 
-    Route::get('/{topic}/create', array('before' => 'auth', 'uses' => 'forum\PostController@showCreate'));
-    Route::get('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@showEdit'));
-    Route::get('/{topic}/{post}/delete', array('before' => 'auth|admin', 'uses' => 'forum\PostController@delete'));
-    Route::get('/{topic}/{post}/addSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@addSticky'));
-    Route::get('/{topic}/{post}/removeSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@removeSticky'));
-    Route::post('/{topic}/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@edit'));
+    Route::get('/topic/{topic}/create', array('before' => 'auth', 'uses' => 'forum\PostController@showCreate'));
+    Route::get('/post/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@showEdit'));
+    Route::get('/post/{post}/delete', array('before' => 'auth|admin', 'uses' => 'forum\PostController@delete'));
+    Route::get('/post/{post}/addSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@addSticky'));
+    Route::get('/post/{post}/removeSticky', array('before' => 'auth|admin', 'uses' => 'forum\PostController@removeSticky'));
+    Route::post('/post/{post}/edit', array('before' => 'auth', 'uses' => 'forum\PostController@edit'));
 
-    Route::get('/{topic}/{post}', array('uses' => 'forum\PostController@show', 'after' => 'site_view'));
+    Route::get('/post/{post}', array('uses' => 'forum\PostController@show', 'after' => 'site_view'));
 
-    Route::post('/{topic}/create', array('before' => 'auth|csrf', 'uses' => 'forum\PostController@create'));
-    Route::post('/{topic}/{post}/addReply', array('uses' => 'forum\ReplyController@create'));
+    Route::post('/topic/{topic}/create', array('before' => 'auth|csrf', 'uses' => 'forum\PostController@create'));
+    Route::post('/post/{post}/addReply', array('uses' => 'forum\ReplyController@create'));
 });
 
 

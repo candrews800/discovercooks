@@ -4,7 +4,7 @@
 <div class="beige-bg">
     <div class="ribbon green-ribbon ribbon-content col-xs-12">
         <img id="ribbon-img" src="{{ url('assets/img/green-ribbon.png') }}" />
-        <h2>my recipes</h2>
+        <h3>my recipes</h3>
 
         <div class="profile-stats-inline hidden-xs">
         <ul class="ribbon-left-menu">
@@ -35,36 +35,41 @@
 
                         <div class="col-xs-12 col-lg-5 hidden-xs">
                             <div id="recent-reviews" class="clearfix">
-                                <h2>recent reviews</h2>
-                                @if(!$recent_reviews->isEmpty())
-                                @foreach($recent_reviews as $key=>$review)
-                                    <div class="recipe-review clearfix">
-                                        <div class="row">
-                                            <div class="col-xs-2">
-                                                <a href="{{ url('profile/'.$review->reviewer->username) }}"><img src="{{ url(ViewHelper::getUserImage($review->reviewer->image)) }}" class="image" /></a>
+                                <ul class="list-group">
+                                    <li class="list-group-item active">
+                                        <h4 class="list-group-item-heading">Recent Reviews</h4>
+                                    </li>
+                                    @if(!$recent_reviews->isEmpty())
+                                        @foreach($recent_reviews as $key=>$review)
+                                            <li class="list-group-item">
+                                            <div class="recipe-review clearfix">
+                                                <div class="row">
+                                                    <div class="col-xs-2">
+                                                        <a href="{{ url('profile/'.$review->reviewer->username) }}"><img src="{{ url(ViewHelper::getUserImage($review->reviewer->image)) }}" class="image" /></a>
+                                                    </div>
+                                                    <div class="col-xs-10">
+                                                        <p><a href="{{ url('profile/'.$review->reviewer->username) }}">{{ $review->reviewer->username }}</a> reviewed <a href="{{ url('recipe/'.$review->slug) }}">{{ $review->name }}</a></p>
+                                                        <p class="recipe-review-date"><small class="text-muted">{{ $review->updated_at->format('M d, Y') }}</small></p>
+                                                        <p class="review-text">
+                                                            "{{ nl2br(e($review->text)) }}"
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-xs-10">
-                                                <p><a href="{{ url('profile/'.$review->reviewer->username) }}">{{ $review->reviewer->username }}</a> reviewed <a href="{{ url('recipe/'.$review->slug) }}">{{ $review->name }}</a></p>
-                                                <p class="recipe-review-date">{{ $review->updated_at->format('M d, Y') }}</p>
-                                                <p class="review-text">
-                                                    "{{ nl2br(e($review->text)) }}"
-                                                </p>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <li class="list-group-item">
+                                            <div class="recipe-review clearfix">
+                                                <p id="no-recent-reviews">Be the first to review {{ $user->username }}'s recipes!</p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    @if($key < sizeof($recent_reviews) - 1)
-                                        <div class="review-divider"></div>
+                                        </li>
                                     @endif
-                                @endforeach
-                                @else
-                                    <div class="recipe-review clearfix">
-                                        <p id="no-recent-reviews">Be the first to review {{ $user->username }}'s recipes!</p>
-                                    </div>
-                                @endif
+                                </ul>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-2 col-lg-offset-5">
-                            <a class="flat-button flat-button-green flat-button-small" href="{{ url('profile/'.$user->username.'/recipes') }}">View All My Recipes</a>
+                        <div class="col-xs-12 text-center">
+                            <a class="btn btn-info btn-lg" href="{{ url('profile/'.$user->username.'/recipes') }}">View All My Recipes ({{$recipe_stats['total']}})</a>
                         </div>
                     @else
                         <p class="none-found">No Recipes Have Been Created By This User Yet.</p>
@@ -78,7 +83,7 @@
 <div class="white-bg">
     <div class="ribbon orange-ribbon ribbon-content col-xs-12">
         <img id="ribbon-img" src="{{ url('assets/img/orange-ribbon.png') }}" />
-        <h2>my reviews</h2>
+        <h3>my reviews</h3>
 
         <div class="profile-stats-inline hidden-xs">
         <ul class="ribbon-left-menu">
@@ -98,11 +103,10 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-2 col-lg-offset-5">
-                <a class="flat-button flat-button-green flat-button-small" href="{{ url('profile/'.$user->username.'/reviews') }}">View All My Reviews</a>
+            <div class="col-xs-12 text-center">
+                <a class="btn btn-lg btn-info" href="{{ url('profile/'.$user->username.'/reviews') }}">View All My Reviews ({{$review_stats['total']}})</a>
             </div>
         </div>
-        @include('layout.back_to_top')
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 @extends('forum.templates.default')
 
 @section('breadcrumbs')
-    {{ ViewHelper::getBreadcrumbs(array(array('text' => 'Forums Home', 'url' => url('forum'))), $topic->name) }}
+    {{ ViewHelper::getNewBreadcrumbs(array(array('text' => 'Forums Home', 'url' => url('forum'))), $topic->name) }}
 @overwrite
 
 @section('header')
@@ -10,62 +10,76 @@
 
 @section('content')
     <div class="col-xs-2">
-        <a class="flat-button flat-button-green flat-button-small" href="{{ url(Request::url().'/create') }}">Create Post</a>
+        <p>
+            <a class="btn btn-info" href="{{ url(Request::url().'/create') }}">Create Post</a>
+        </p>
     </div>
     <div class="col-xs-10">
-        <div id="forum-pagination" class="clearfix">
+        <div class="clearfix text-right">
             {{ $posts->links() }}
         </div>
     </div>
+
     <div class="col-xs-12">
-        <table id="post-listing">
-            <colgroup>
-                <col span="1" style="width: 4%;">
-                <col span="1" style="width: 41%;">
-                <col span="1" style="width: 18%;">
-                <col span="1" style="width: 6%;">
-                <col span="1" style="width: 6%;">
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 5%;">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th class="header-status"></th>
-                    <th class="header-name">Subject</th>
-                    <th class="header-author">Author</th>
-                    <th class="header-replies">Replies</th>
-                    <th class="header-views">Views</th>
-                    <th class="header-activity-date" colspan="2">Last Post</th>
-                </tr>
-            </thead>
-            <tbody>
-            <!-- Display Posts-->
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <h6 class="list-group-item-heading"><strong>Subject</strong></h6>
+                    </div>
+                    <div class="col-xs-2">
+                        <h6 class="list-group-item-heading"><strong>Author</strong></h6>
+                    </div>
+                    <div class="col-xs-1">
+                        <h6 class="list-group-item-heading text-center"><strong>Replys</strong></h6>
+                    </div>
+                    <div class="col-xs-1">
+                        <h6 class="list-group-item-heading text-center"><strong>Views</strong></h6>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                        <h6 class="list-group-item-heading"><strong>Last Activity</strong></h6>
+                    </div>
+                </div>
+            </div>
             @if(!$posts->isEmpty())
                 @foreach($posts as $post)
-                    <tr class="post">
-                        <td class="post-status"><i class="glyphicon glyphicon-folder-open"></i></td>
-                        <td class="post-name"><a href="{{ url('forum/'.str_replace(' ', '-', $topic->name).'/'.$post->id) }}">{{ $post->title }}</a></td>
-                        <td class="post-author"><a href="{{ url('profile/'.$post->author->username) }}">{{ $post->author->username }}</a></td>
-                        <td class="post-replies">{{ $post->reply_count }}</td>
-                        <td class="post-views">{{ $post->view_count }}</td>
-                        @if($post->activity)
-                            <td class="post-activity-author">{{ $post->activity->author->username }}</td>
-                            <td class="post-activity-date">{{ $post->lastActivity() }}</td>
-                        @else
-                            <td class="post-activity-author">{{ $post->author->username }}</td>
-                            <td class="post-activity-date">{{ $post->lastActivity() }}</td>
-                        @endif
-                    </tr>
+                    <a href="{{ url('forum/post/'.$post->id) }}" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <h4 class="list-group-item-heading"><strong class="text-success">{{ $post->title }}</strong></h4>
+                                <p class="list-group-item-text text-muted"><small>{{ substr(strip_tags($post->text), 0, 150) }}..</small></p>
+                            </div>
+                            <div class="col-xs-2">
+                                <h5 class="list-group-item-heading">{{ $post->author->username }}</h5>
+                            </div>
+                            <div class="col-xs-1">
+                                <h5 class="list-group-item-heading text-center">{{ $post->reply_count }}</h5>
+                            </div>
+                            <div class="col-xs-1">
+                                <h5 class="list-group-item-heading text-center">{{ $post->view_count }}</h5>
+                            </div>
+                            <div class="col-xs-2">
+                                @if($post->activity)
+                                    <h5 class="list-group-item-heading text-right"><span class="text-info">{{ $post->activity->author->username }}</h5>
+                                @else
+                                    <h5 class="list-group-item-heading text-right">{{ $post->author->username }}</h5>
+                                @endif
+                            </div>
+                            <div class="col-xs-1">
+                                <h5 class="list-group-item-heading text-left"><span class="text-info">{{ $post->lastActivity() }}</h5>
+                            </div>
+                        </div>
+                    </a>
                 @endforeach
             @endif
-            </tbody>
-        </table>
+        </div>
     </div>
+
     <div class="col-xs-2">
-        <a class="flat-button flat-button-green flat-button-small" href="{{ url(Request::url().'/create') }}">Create Post</a>
+        <a class="btn btn-info" href="{{ url(Request::url().'/create') }}">Create Post</a>
     </div>
     <div class="col-xs-10">
-        <div id="forum-pagination" class="clearfix">
+        <div class="clearfix text-right nomargin">
             {{ $posts->links() }}
         </div>
     </div>

@@ -1,12 +1,12 @@
 <?php $css="forum"; ?>
 
-@include('layout.header')
+@include('style.layout.header')
 
 <div class="container-fluid">
     <div class="row">
-        <div id="forum-wrap" class="col-xs-12 col-md-8 col-md-offset-2 content-top">
+        <div id="forum-wrap" class="col-xs-12">
             @section('breadcrumbs')
-                {{ ViewHelper::getBreadcrumbs(null, 'Forums') }}
+                {{ ViewHelper::getNewBreadcrumbs(null, 'Forums') }}
             @show
             <div class="row">
                 <div class="col-xs-12">
@@ -16,11 +16,10 @@
                 </div>
                 @yield('content')
             </div>
-            @include('layout.back_to_top')
         </div>
     </div>
 </div>
 
-@include('layout.footer')
+@include('style.layout.footer')
 
 @yield('javascript')

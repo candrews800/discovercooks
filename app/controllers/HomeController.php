@@ -108,6 +108,10 @@ class HomeController extends BaseController {
         return View::make('content.contact');
     }
 
+    public function style(){
+        return View::make('style.index');
+    }
+
     public function sendContact(){
         $input = Input::all();
         $contact = DB::table('contact')->first();

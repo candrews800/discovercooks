@@ -1,41 +1,10 @@
 #account-wrap {
   background-color: white; }
 
-#account-header {
-  padding-bottom: 15px;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 15px; }
+.stats-header {
+  margin-bottom: 25px; }
 
-#payoff {
-  margin-top: 15px; }
-  #payoff p {
-    font-size: 14px;
-    margin-top: 0px;
-    color: #999; }
-
-.current-stats, .overall-stats {
-  margin-bottom: 15px; }
-  .current-stats h3, .overall-stats h3 {
-    font-size: 14px;
-    font-family: "proxima-nova", sans-serif;
-    color: #174c4f; }
-    .current-stats h3 a, .overall-stats h3 a {
-      color: #ff9666;
-      text-decoration: underline;
-      text-transform: lowercase; }
-  .current-stats p, .overall-stats p {
-    padding-left: 15px;
-    color: #207178;
-    font-family: "proxima-nova", sans-serif;
-    font-size: 18px; }
-    .current-stats p a, .overall-stats p a {
-      color: #207178;
-      text-decoration: underline;
-      font-size: 15px;
-      text-transform: lowercase; }
-  .current-stats ul, .overall-stats ul {
-    padding-left: 15px;
-    font-family: "georgia";
-    margin-bottom: 10px; }
+.text-dotted {
+  border-bottom: 1px dotted #207178; }
 
 /*# sourceMappingURL=account.css.map */

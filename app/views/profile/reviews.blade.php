@@ -4,7 +4,7 @@
     <div class="white-bg">
         <div class="ribbon orange-ribbon ribbon-content col-xs-12 clearfix">
             <img id="ribbon-img" src="{{ url('assets/img/orange-ribbon.png') }}" />
-            <h2>my reviews</h2>
+            <h3>my reviews</h3>
 
             <div class="profile-stats-inline">
                 <ul class="ribbon-left-menu hidden-xs">
@@ -25,18 +25,13 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                                <button id="load-more-recipes" class="flat-button flat-button-green flat-button-small">Load More Reviews</button>
-                            </div>
-                        </div>
+                    <div class="col-xs-12 text-center">
+                        <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Reviews</button>
                     </div>
                 @else
                     <p class="none-found">This User Has Not Given Any Reviews.</p>
                 @endif
             </div>
-            @include('layout.back_to_top')
         </div>
     </div>
 

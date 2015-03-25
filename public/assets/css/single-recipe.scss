@@ -1,177 +1,66 @@
 @import 'includes/_variables';
 
 #single-recipe{
-    background-color: rgba(0,0,0,1);
-    padding: 60px;
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 60px;
+
     #main-image{
-        width: 100%;
         margin-bottom: 10px;
     }
 
     .upper-menu{
-        padding: 15px 0;
         position: relative;
+        margin-bottom: 15px;
 
         h1{
-            font-size: 34px;
-            color: white;
-        }
-
-        #author-img{
-            width: 100%;
-        }
-
-        .recipe-details {
-            font-family: $paragraph-font;
-            font-size: 16px;
-            color: white;
-            margin-bottom: 5px;
-            .author{
-                color: $offset-color;
-            }
-
-            .date{
-                font-style: italic;
-                font-size: 14px;
-            }
-
-            .category{
-                color: $offset-color;
-            }
+            color: $primary-color;
+            margin: 0;
         }
     }
 
     .recipe-info{
         .subscriber_count{
             margin-bottom: 10px;
-            &:hover, &.saved{
-                cursor: pointer;
-                .heart{
-                    color: red;
-                }
-            }
-
-            .heart{
-                color: #999;
-                font-size: 40px;
-                z-index: 1;
-                display: inline-block;
-            }
-            .num{
-                display: inline-block;
-                background-color: white;
-                color: $primary-color;
-                margin-left: -10px;
-                font-size: 16px;
-                position: relative;
-                z-index: 100;
-                padding: 0px 4px;
-                border-radius: 4px;
-                font-family: $paragraph-font;
-                font-weight: bold;
-            }
-
         }
 
         p{
-            color: white;
-            font-family: $paragraph-font;
-            font-size: 14px;
-            font-style: italic;
-            margin-bottom: 10px;
+            color: $primary-color;
             img{
-                margin-top: -10px;
+                margin-top: -8px;
+                margin-left: 3px;
                 width: 20px;
                 height: 20px;
             }
             img:first-child{
                 margin-left: 5px;
             }
-            a{
-                color: $offset-color;
-                font-size: 16px;
-                span{
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        .info{
-            background-color: $primary-color;
-            color: white;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            font-family: $paragraph-font;
-            margin-bottom: 2px;
-            font-size: 18px;
-
-            .glyphicon{
-                margin-right: 3px;
-            }
-
-            em{
-                font-style: italic;
-                margin-right: 5px;
-            }
         }
     }
 
     .lower-menu{
         .recipe-description{
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: white;
-            font-style: italic;
-            text-align: center;
+            color: $primary-color;
         }
+
+      h4{
+        text-transform: uppercase;
+        color: $primary-color;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
 
         #ingredients, #directions{
             margin: 15px 0;
-            text-align: left;
-            h3{
-                font-family: $heading-font;
-                color: $secondary-color;
-                font-size: 14px;
-                margin-bottom: 5px;
-            }
-          li{
-            line-height: 1.2;
-          }
-        }
-
-        #ingredients{
-          li{
-            font-family: $paragraph-font;
             font-size: 18px;
+            color: $primary-color;
 
-            margin-bottom: 10px;
-            color: white;
-            padding-left: 50px;
-            text-indent: -50px;
+          ul, ol{
+            padding: 0;
+            list-style-type: none;
           }
-        }
-        #directions {
-
-          li {
-            font-family: $paragraph-font;
-            margin-bottom: 10px;
-            font-size: 20px;
-
-            color: $offset-color;
-            font-weight: 200;
-
-            span {
-              margin-left: 3px;
-              font-size: 18px;
-              color: white;
-              font-weight: 100;
-            }
-          }
-          p{
-            font-family: $paragraph-font;
-            margin-bottom: 10px;
-            font-size: 18px;
-            color: white;
+          ol{
+            list-style: outside decimal;
           }
         }
     }
@@ -183,10 +72,7 @@
 
 
     h4{
-        font-family: $paragraph-font;
         color: $primary-color;
-        font-size: 16px;
-        font-weight: bold;
         padding: 0;
         margin: 0;
     }
@@ -226,17 +112,13 @@
         }
 
         .review-author{
-            color: $offset-color;
-            font-family: $paragraph-font;
-            font-size: 14px;
             float: left;
         }
         p{
             clear: both;
-            font-size: 14px;
             line-height: 1.4;
             color: $primary-color;
-            max-height: 75px;
+            max-height: 70px;
             margin-bottom: 5px;
         }
         a.more{
@@ -271,18 +153,9 @@
         color: $secondary-color;
         text-decoration: underline;
         font-size: 16px;
-        font-family: $paragraph-font;
     }
 
     #rate-this-recipe{
-
-        h4{
-            margin-bottom: 5px;
-        }
-
-        #review-avatar{
-            width: 100%;
-        }
 
         #recipe-rating{
             float: left;
@@ -294,34 +167,9 @@
                 width: 20px;
             }
         }
-        form{
-            float: left;
-            clear: left;
-
-            textarea{
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-
-                float: left;
-                width: 100%;
-
-                margin-bottom: 5px;
-
-                padding: 7px;
-
-                font-size: 16px;
-
-                font-family: $paragraph-font;
-                color: $primary-color;
-
-                outline-color: $primary-color;
-            }
-            #submit-review{
-                float: right;
-                margin-bottom: 5px;
-            }
-        }
+      #submit-review{
+        float: right;
+      }
     }
 }
 

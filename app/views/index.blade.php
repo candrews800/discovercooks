@@ -40,30 +40,47 @@
     </div>
 </div>
 
-<div class="ribbon green-ribbon col-xs-12">
-    <img id="ribbon-img" src="assets/img/green-ribbon.png" />
-    <h3>explore</h3>
-</div>
-
-<div class="white-bg">
-    <div class="container-fluid">
-        <div class="row">
-            <div id="recipe-categories" class="col-xs-12">
-                <div class="row recipe-category">
-                    @foreach($categories as $category)
-                        @if($category->related_recipe_id != 0)
-                        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                            <a href="{{ url('category/'.$category->name) }}">
-                                <img src="{{ url('category_images/'.$category->image) }}" />
-                                {{ $category->name }}
-                            </a>
-                        </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="explore-recipes">
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ $key*155-75 }}px">
+                <img src="{{ url('category_images/'.$category->image) }}" />
+                <span>{{ $category->name }}</span>
+            </a>
+        @endif
+    @endforeach
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+3)*155-75 }}px">
+                <img src="{{ url('category_images/'.$category->image) }}" />
+                <span>{{ $category->name }}</span>
+            </a>
+        @endif
+    @endforeach
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+6)*155-75 }}px">
+                <img src="{{ url('category_images/'.$category->image) }}" />
+                <span>{{ $category->name }}</span>
+            </a>
+        @endif
+    @endforeach
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+9)*155-75 }}px">
+                <img src="{{ url('category_images/'.$category->image) }}" />
+                <span>{{ $category->name }}</span>
+            </a>
+        @endif
+    @endforeach
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+12)*155-75 }}px">
+                <img src="{{ url('category_images/'.$category->image) }}" />
+                <span>{{ $category->name }}</span>
+            </a>
+        @endif
+    @endforeach
 </div>
 
 <div class="ribbon orange-ribbon col-xs-12">

@@ -7,6 +7,11 @@
     3. After Editing Denied Recipe it doesn't show that it is back in the queue
     4. Single Recipe related recipes has same recipe as
     5. Check Profiles When No Recipe/Review are posted
+    6. Top Add Reply in Forum Not Working if not logged in -> should trigger modal
+    7. Check date for forum posts -> shows as 11/30/-1
+    8. Page starting at bottom on page
+    9. Profile Page only show recipes for user, not all.
+    10. Compress Images (Imagick?)
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
@@ -43,9 +48,8 @@
             iii. quantity
     3. Redesign
         a. Home Page
-            i. Banner -> Img is Full Screen Size. Tucked Under Ribbon and to top of header. Left and Right show prev/next recipes with fade. Like Rogue Fitness
-            ii. Explore Recipes -> Small Bar that scrolls like netflix/rogue fitness bottom bar
-            iii. Style of Banner Typography different for each banner
+            i. Explore Recipes -> Small Bar that scrolls like netflix/rogue fitness bottom bar
+            ii. Style of Banner Typography different for each banner
     3. Forum Responsiveness
     4. Welcome Email Style
     5. Forget / Reset Password Email Style

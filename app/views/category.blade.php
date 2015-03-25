@@ -6,7 +6,6 @@
     <div class="container-fluid">
         <div class="row">
             <div id="home-content" class="col-xs-12 col-lg-8 col-lg-offset-2">
-                {{ ViewHelper::getBreadcrumbs(null, ucfirst($category->name).' Recipes', true) }}
                 @if($category->related_recipe_id != 0)
                 <div class="row">
                     <div class="col-xs-12">

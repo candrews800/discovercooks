@@ -59,6 +59,26 @@
             </div>
         @endif
     @endforeach
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <div class="secondary-slider clearfix">
+                <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
+                    <img src="{{ url('category_images/'.$category->image) }}" />
+                    <span>{{ $category->name }}</span>
+                </a>
+            </div>
+        @endif
+    @endforeach
+    @foreach($categories as $key=>$category)
+        @if($category->related_recipe_id != 0)
+            <div class="secondary-slider clearfix">
+                <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
+                    <img src="{{ url('category_images/'.$category->image) }}" />
+                    <span>{{ $category->name }}</span>
+                </a>
+            </div>
+        @endif
+    @endforeach
 </div>
 
 <div class="ribbon green-ribbon col-xs-12">

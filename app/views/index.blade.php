@@ -81,7 +81,7 @@
     @endforeach
 </div>
 
-<div class="ribbon green-ribbon col-xs-12">
+<div class="ribbon green-ribbon ribbon-content col-xs-12">
     <img id="ribbon-img" src="assets/img/green-ribbon.png" />
     <h3>top recipes</h3>
 </div>

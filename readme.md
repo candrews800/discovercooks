@@ -42,8 +42,7 @@
             iii. quantity
     3. Redesign
         a. Home Page
-            i. Explore Recipes -> Small Bar that scrolls like netflix/rogue fitness bottom bar
-            ii. Style of Banner Typography different for each banner
+            i. Style of Banner Typography different for each banner
     4. Site Responsiveness
         a. Header
         b. Footer

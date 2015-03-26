@@ -78,7 +78,8 @@
 .recipe-category {
   position: relative;
   display: block;
-  height: 125px;
+  height: 130px;
+  padding-top: 5px;
   width: 150px;
   overflow: hidden; }
   .recipe-category img {

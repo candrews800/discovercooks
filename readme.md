@@ -12,6 +12,7 @@
     8. Page starting at bottom on page
     9. Profile Page only show recipes for user, not all.
     10. Compress Images (Imagick?)
+    11. Center recipe images in clipping for search items
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
@@ -24,14 +25,7 @@
 ****************************************************************************************
 
     1. Incorporate Existing Pages
-        a. Account Page
-            i. payment archive
-                a. new user sign up
-                    i. payment_details table -> id, user_id, paypal_email, security question 1, security answer, security question 2, security answer 2
-                    ii. user can not see payment until signing up
-                    iii. request payment -> check security question / answer
-                b. transaction history
-        b. Content Pages
+        a. Content Pages
             i. About
             ii. Contact
             iii. Earn Pages
@@ -50,10 +44,42 @@
         a. Home Page
             i. Explore Recipes -> Small Bar that scrolls like netflix/rogue fitness bottom bar
             ii. Style of Banner Typography different for each banner
-    3. Forum Responsiveness
-    4. Welcome Email Style
-    5. Forget / Reset Password Email Style
-    6. Default Email Template Style
+    4. Site Responsiveness
+        a. Header
+        b. Footer
+        c. Home
+        d. Category
+        e. Profile
+            i. main
+            ii. recipes
+            iii. reviews
+            iv. cookbook
+        f. Recipe
+            i. Edit
+            ii. Create
+        g. Forums
+            i. Topics
+            ii. Posts
+            iii. Replys
+            iv. Create Post
+            v. Edit Reply
+        h. My Account
+            i. overview
+            ii. edit profile
+            iii. stats
+            iv. payment center
+        i. Content Pages
+           i. About
+           ii. Contact
+           iii. Earn Pages
+               A. Overview
+               B. Ways To Earn
+               C. FAQ
+           iv. Terms and Conditions
+           v. Privacy Policy
+    5. Welcome Email Style
+    6. Forget / Reset Password Email Style
+    7. Default Email Template Style
 
 ****************************************************************************************
 **  CONTENT TO DO LIST

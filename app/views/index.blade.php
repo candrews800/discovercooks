@@ -1,49 +1,27 @@
 <?php $css="home"; ?>
 
 @include('style.layout.header')
-<div id="header-wrap">
-    <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($recipes) }}></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div id="home-content" class="col-xs-12 col-lg-8 col-lg-offset-2">
-                @if(!$featured_recipes->isEmpty())
-                <div id="carousel-home" class="carousel slide" data-ride="carousel">
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        @foreach($featured_recipes as $key => $featured_recipe)
-                            <div class="item {{ ViewHelper::addClass('active', !$key) }}">
-                                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+@if(!$featured_recipes->isEmpty())
+    <div id="main-slider">
+        @foreach($featured_recipes as $key => $featured_recipe)
+            <div class="slider-item">
+                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
-                                <div class="carousel-caption">
-                                    <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
-                                    <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
+                <div class="carousel-caption">
+                    <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
+                    <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
 
-                                    <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-home" role="button" data-slide="prev" onclick="$('.carousel').carousel('prev')">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-home" role="button" data-slide="next" onclick="$('.carousel').carousel('next')">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
                 </div>
-                @endif
             </div>
-        </div>
+        @endforeach
     </div>
-</div>
+@endif
 
 <div id="explore-recipes">
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ $key*155-75 }}px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ $key*155-75 }}px; top: 60px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -51,7 +29,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+3)*155-75 }}px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+3)*155-75 }}px; top: 60px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -59,7 +37,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+6)*155-75 }}px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+6)*155-75 }}px; top: 60px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -67,7 +45,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+9)*155-75 }}px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+9)*155-75 }}px; top: 60px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -75,7 +53,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+12)*155-75 }}px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+12)*155-75 }}px; top: 60px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -83,8 +61,8 @@
     @endforeach
 </div>
 
-<div class="ribbon orange-ribbon col-xs-12">
-    <img id="ribbon-img" src="assets/img/orange-ribbon.png" />
+<div class="ribbon green-ribbon col-xs-12">
+    <img id="ribbon-img" src="assets/img/green-ribbon.png" />
     <h3>top recipes</h3>
 </div>
 
@@ -185,9 +163,33 @@
     });
 </script>
 <script>
-    $(function() {
-        $('.carousel').bind('slide', function(event, fromIndex, toIndex){
-            console.log('t');
+    $(document).ready(function(){
+        $('#main-slider').slick({
+            centerMode: true,
+            centerPadding: '500px',
+            slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
         });
     });
 </script>

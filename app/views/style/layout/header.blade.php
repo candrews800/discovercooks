@@ -22,6 +22,9 @@
     <link href="{{ url('assets/css/'.$css.'.css') }}" rel="stylesheet" />
     @endif
 
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/slick/slick.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/slick/slick-theme.css') }}"/>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -185,7 +188,7 @@
                         <div class="clearfix">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="remember" name="remember"/> Remember me
+                                    <input type="checkbox" id="remember" name="remember" checked="checked" /> Remember me
                                 </label>
                                 <a id="forgot_password_link" class="related-link" href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot Password?</a>
                             </div>

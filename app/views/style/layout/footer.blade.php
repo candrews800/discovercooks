@@ -75,6 +75,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="{{ url('style_assets/javascripts/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url('assets/slick/slick.min.js') }}"></script>
 
 
 <script src="{{ url('assets/Masonry/masonry.js') }}"></script>

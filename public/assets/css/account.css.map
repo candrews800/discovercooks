@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAEA,aAAa;EACX,gBAAgB,EAAE,KAAK;;AAGzB,aAAa;EACX,aAAa,EAAE,IAAI;;AAGrB,YAAY;EACV,aAAa,EAAE,kBAA4B",
+"mappings": "AAEA,aAAa;EACX,gBAAgB,EAAE,KAAK;;AAGzB,aAAa;EACX,aAAa,EAAE,IAAI;;AAGrB,YAAY;EACV,aAAa,EAAE,kBAA4B;;AAG7C,YAAY;EACV,UAAU,EAAE,IAAI",
 "sources": ["account.scss"],
 "names": [],
 "file": "account.css"

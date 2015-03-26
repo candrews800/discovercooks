@@ -65,29 +65,6 @@ class AccountController extends BaseController {
         return Redirect::back();
     }
 
-    public function payout(){
-        $user = Auth::user();
-        $balance = UserBalance::where('user_id', '=', $user->id)->pluck('amount');
-
-        return View::make('account.payout')->with(array(
-            'user' => $user,
-            'balance' => $balance
-        ));
-    }
-
-    public function createPayout(){
-        $user_id = Auth::id();
-        if(PaymentQueue::where('user_id', '=', $user_id)->first()){
-            return Redirect::to('account');
-        }
-        $balance = UserBalance::where('user_id', '=', $user_id)->pluck('amount');
-        $paypal_email = Input::get('paypal_email');
-
-        PaymentQueue::add($user_id, $balance, $paypal_email);
-
-        return Redirect::to('account');
-    }
-
     public function stats(){
         $user = Auth::user();
 
@@ -145,5 +122,67 @@ class AccountController extends BaseController {
             'current' => $current,
             'archives' => $archives
         ));
+    }
+
+    public function payments(){
+        $user = Auth::user();
+
+        $balance = UserBalance::where('user_id', '=', $user->id)->pluck('amount');
+        $transactions = Transaction::where('user_id', '=', $user->id)->take(5)->get();
+        foreach($transactions as $transaction){
+            if($transaction->type == 'c'){
+                $transaction->type = 'Credit';
+            }
+            else{
+                $transaction->type = 'Debit';
+            }
+        }
+
+        $secured = PaymentSecurity::where('user_id', '=', $user->id)->first();
+        if(!$secured){
+            return View::make('account.payment_security')->with(array(
+                'user' => $user
+            ));
+        }
+        $in_queue = PaymentQueue::where('user_id', '=', $user->id)->first();
+
+        return View::make('account.payments')->with(array(
+            'user' => $user,
+            'balance' => $balance,
+            'transactions' => $transactions,
+            'secured' => $secured,
+            'in_queue' => $in_queue
+        ));
+    }
+
+    public function paymentsSetup(){
+        $user = Auth::user();
+        $input = Input::all();
+
+        if(!($input['question'] && $input['question'])){
+            return Redirect::back();
+        }
+        PaymentSecurity::make($input, $user);
+
+        return Redirect::to('account/payments');
+    }
+
+    public function createPayout(){
+        $user_id = Auth::id();
+        $secured = PaymentSecurity::where('user_id', '=', $user_id)->first();
+        if(PaymentQueue::where('user_id', '=', $user_id)->first() || !$secured){
+            return Redirect::back();
+        }
+        if(!Hash::check(strtolower(Input::get('answer')), $secured->security_answer)){
+            Session::put('wrong_answer', true);
+            return Redirect::back();
+        }
+
+        $balance = UserBalance::where('user_id', '=', $user_id)->pluck('amount');
+        $paypal_email = Input::get('paypal_email');
+
+        PaymentQueue::add($user_id, $balance, $paypal_email);
+
+        return Redirect::back();
     }
 }

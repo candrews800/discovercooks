@@ -13,26 +13,7 @@
 </div>
 <div id="masonry-wrap" class="col-xs-12">
     <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-3 masonry-item">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Change Profile Picture</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-xs-12 text-center">
-                        @if($user->image)
-                        <div class="dropzone" data-width="300" data-removeurl="{{ url('profile/'.$user->username.'/deleteImage') }}" data-image="{{ url('user_images/'.$user->image) }}" data-url="{{ url('profile/'.$user->username.'/editPicture') }}" data-height="300" data-resize="true" style="max-width: 300px; width: 100%; height: auto">
-                        @else
-                        <div class="dropzone" data-width="300" data-url="{{ url('profile/'.$user->username.'/editPicture') }}" data-height="300" data-resize="true" style="max-width: 300px; width: 100%; height: auto">
-                        @endif
-                            <input type="file" name="image" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-md-6 col-lg-6 masonry-item">
+        <div class="col-xs-12 col-md-6 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Edit Profile</h3>
@@ -137,7 +118,26 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-6 col-lg-3 masonry-item">
+        <div class="col-xs-12 col-md-6 masonry-item">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Change Profile Picture</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12 text-center">
+                        @if($user->image)
+                        <div class="dropzone" data-width="300" data-removeurl="{{ url('profile/'.$user->username.'/deleteImage') }}" data-image="{{ url('user_images/'.$user->image) }}" data-url="{{ url('profile/'.$user->username.'/editPicture') }}" data-height="300" data-resize="true" style="max-width: 300px; width: 100%; height: auto">
+                        @else
+                        <div class="dropzone" data-width="300" data-url="{{ url('profile/'.$user->username.'/editPicture') }}" data-height="300" data-resize="true" style="max-width: 300px; width: 100%; height: auto">
+                        @endif
+                            <input type="file" name="image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-6 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Change Password</h3>

@@ -18,7 +18,7 @@ class Transaction extends Eloquent{
 
     public static function withdraw($user_id, $amount, $description){
         $transaction = new self;
-        $transaction->user_id = 'Withdraw';
+        $transaction->user_id = $user_id;
         $transaction->amount = $amount;
         $transaction->type = 'd';
         $transaction->initiator = $user_id;

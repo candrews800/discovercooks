@@ -8,6 +8,14 @@
         <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
     </div>
 
+    <div class="your-class">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
 
     <div class="page-header">
         <h1>Buttons</h1>
@@ -608,3 +616,35 @@
 </div> <!-- /container -->
 
 @include('style.layout.footer');
+
+<script>
+    $(document).ready(function(){
+        $('.your-class').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 2,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>

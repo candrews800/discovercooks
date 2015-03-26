@@ -102,8 +102,9 @@ Route::group(array('prefix' => 'account', 'before' => 'auth'), function(){
 
     Route::get('stats/archive', array('uses' => 'AccountController@archive'));
 
-    Route::get('payout', array('uses' => 'AccountController@payout'));
-    Route::post('payout', array('uses' => 'AccountController@createPayout'));
+    Route::get('payments', array('uses' => 'AccountController@payments'));
+    Route::post('payments/setUp', array('uses' => 'AccountController@paymentsSetup'));
+    Route::post('payments/createPayout', array('uses' => 'AccountController@createPayout'));
 });
 
 // User routes

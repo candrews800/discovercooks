@@ -21,7 +21,7 @@
 <div id="explore-recipes">
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ $key*155-75 }}px; top: 60px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ $key*155-75 }}px; top: 0px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -29,7 +29,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+3)*155-75 }}px; top: 60px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+3)*155-75 }}px; top: 0px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -37,7 +37,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+6)*155-75 }}px; top: 60px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+6)*155-75 }}px; top: 0px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -45,7 +45,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+9)*155-75 }}px; top: 60px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+9)*155-75 }}px; top: 0px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>
@@ -53,7 +53,7 @@
     @endforeach
     @foreach($categories as $key=>$category)
         @if($category->related_recipe_id != 0)
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+12)*155-75 }}px; top: 60px">
+            <a class="recipe-category" href="{{ url('category/'.$category->name) }}" style="left: {{ ($key+12)*155-75 }}px; top: 0px">
                 <img src="{{ url('category_images/'.$category->image) }}" />
                 <span>{{ $category->name }}</span>
             </a>

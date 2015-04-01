@@ -14,11 +14,6 @@
   top: -90px;
 }
 
-.featured-recipe-img{
-  	width: 100% !important;
-	height: auto;
-}
-
 #carousel-home{
   position: relative;
 }
@@ -38,8 +33,8 @@
     opacity: 1.0;
   }
   .featured-recipe-img{
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -151,6 +146,10 @@
 @media (max-width: 1200px) {
   #explore-recipes{
     padding: 0 0;
+  }
+
+  .slick-track{
+    max-height: 500px;
   }
 }
 

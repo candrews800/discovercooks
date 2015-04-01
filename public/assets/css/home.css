@@ -8,10 +8,6 @@
   position: absolute;
   top: -90px; }
 
-.featured-recipe-img {
-  width: 100% !important;
-  height: auto; }
-
 #carousel-home {
   position: relative; }
 
@@ -27,8 +23,8 @@
     pointer-events: auto;
     opacity: 1.0; }
   .slider-item .featured-recipe-img {
-    height: 100%;
-    width: auto; }
+    height: auto;
+    width: 100%; }
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.6);
@@ -108,7 +104,10 @@
 
 @media (max-width: 1200px) {
   #explore-recipes {
-    padding: 0 0; } }
+    padding: 0 0; }
+
+  .slick-track {
+    max-height: 500px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   #home-content {
     padding-bottom: 15px; }

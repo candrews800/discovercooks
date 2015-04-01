@@ -169,20 +169,6 @@
     });
 </script>
 <script>
-    $(function() {
-        $(".item").swipe( {
-            //Generic swipe handler for all directions
-            swipeLeft:function() {
-                $('.carousel').carousel('next');
-            },
-            swipeRight: function(){
-                $('.carousel').carousel('prev');
-            },
-            excludedElements: []
-        });
-    });
-</script>
-<script>
     $(document).ready(function(){
         $('#main-slider').slick({
             centerMode: true,
@@ -190,13 +176,15 @@
             slidesToShow: 1,
             autoplay: true,
             autoplaySpeed: 5000,
+            arrows: true,
             responsive: [
                 {
                     breakpoint: 1200,
                     settings: {
                         centerMode: true,
-                        centerPadding: '200px',
+                        centerPadding: '15px',
                         slidesToShow: 1,
+                        infinite: true,
                         arrows: false,
                         autoplay: true,
                         autoplaySpeed: 5000,

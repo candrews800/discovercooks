@@ -33,6 +33,16 @@
   .navbar-nav > li:last-child > a{
     padding-right: 20px;
   }
+  @media (max-width: $grid-float-breakpoint) {
+    .navbar-nav > li > a{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .navbar-nav > li:last-child > a{
+      padding-right: inherit;
+    }
+  }
 }
 
 .navbar-secondary {
@@ -234,7 +244,7 @@
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   .navbar-collapse {
-    max-height: $navbar-collapse-max-height;
+    max-height: $navbar-collapse-max-height + 100;
 
     @media (max-device-width: $screen-xs-min) and (orientation: landscape) {
       max-height: 200px;
@@ -428,9 +438,7 @@
 // our navbars.
 
 .navbar-form {
-  margin-left: -$navbar-padding-horizontal;
-  margin-right: -$navbar-padding-horizontal;
-  padding: 10px $navbar-padding-horizontal;
+  padding: 0px $navbar-padding-horizontal;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
@@ -451,6 +459,8 @@
 
   // Vertically center in expanded, horizontal navbar
   @include navbar-vertical-align($input-height-base);
+  margin-top: 0;
+  margin-bottom: 0;
 
   // Undo 100% width for pull classes
   @media (min-width: $grid-float-breakpoint) {
@@ -596,7 +606,7 @@
 
   .navbar-collapse,
   .navbar-form {
-    border-color: $navbar-default-border;
+    border-color: transparent;
   }
 
   // Dropdown menu items

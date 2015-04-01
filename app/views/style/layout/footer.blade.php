@@ -17,6 +17,14 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
+                    <h5>CONNECT</h5>
+                    <ul>
+                        <li><a href="#"><small>FACEBOOK</small></a></li>
+                        <li><a href="#"><small>TWITTER</small></a></li>
+                        <li><a href="#"><small>PINTEREST</small></a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
                     <h5>SUPPORT</h5>
                     <ul>
                         <li><a href="{{ url('contact') }}"><small>CONTACT</small></a></li>
@@ -25,15 +33,7 @@
                         <li><a href="{{ url('terms') }}#privacy"><small>PRIVACY POLICY</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
-                    <h5>CONNECT</h5>
-                    <ul>
-                        <li><a href="#"><small>FACEBOOK</small></a></li>
-                        <li><a href="#"><small>TWITTER</small></a></li>
-                        <li><a href="#"><small>PINTEREST</small></a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 text-left text-center-xs text-center-sm text-center-md">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-0 text-left text-center-xs text-center-sm text-center-md">
                     <h5>SIGN UP FOR OUR NEWSLETTER</h5>
                     <form >
                         <div class="input-group">

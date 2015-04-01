@@ -47,8 +47,8 @@
                     <img id="logo" src="{{ url('assets/img/logo-white.png') }}" />
                 </a>
             </div>
-            <div id="navbar" class="navbar-primary navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
+            <div id="navbar" class="navbar-primary navbar-collapse collapse ">
+                <ul class="nav navbar-nav navbar-right hidden-xs">
                     <li class="navbar-dropdown" data-target="recipes"><a href="#">RECIPES</a></li>
                     <li class="navbar-dropdown" data-target="discover"><a href="#">DISCOVER</a></li>
                     <li><a href="{{ url('forum') }}">FORUMS</a></li>
@@ -57,6 +57,41 @@
                     {{ Form::open(array('url' => 'search', 'id' => 'navbar-search-form', 'class' => 'navbar-form', 'role' => 'search')) }}
                     {{ Form::text('search_text', null, array('class' => 'form-control', 'placeholder' => 'Search for recipes, users')) }}
                     {{ Form::close() }}
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right visible-xs">
+                    {{ Form::open(array('url' => 'search', 'class' => 'navbar-form navbar-left', 'role' => 'search')) }}
+                        <div class="form-group">
+                            {{ Form::text('search_text', null, array('class' => 'form-control', 'placeholder' => 'Search for recipes, users')) }}
+                        </div>
+                    {{ Form::close() }}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">RECIPES <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Browse All</a></li>
+                            <li><a href="#">Breakfast</a></li>
+                            <li><a href="#">Lunch</a></li>
+                            <li><a href="#">Dinner</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">DISCOVER</a></li>
+                    <li><a href="{{ url('forum') }}">FORUMS</a></li>
+                    @if(Auth::guest())
+                        <li><a href="#" data-toggle="modal" data-target="#guest-register-modal">REGISTER</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#guest-login-modal">LOGIN</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->username }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('profile/'.Auth::user()->username) }}">PROFILE</a></li>
+                                <li><a href="{{ url('account') }}">MY ACCOUNT</a></li>
+                                <li><a href="{{ url('cookbook/'.Auth::user()->username) }}">MY COOKBOOK</a></li>
+                                <li><a href="{{ url('recipe/new') }}">NEW RECIPE</a></li>
+                                <li><a href="{{ url('users/logout') }}">LOGOUT<span></a></li>
+                            </ul>
+                        </li>
+
+                    @endif
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

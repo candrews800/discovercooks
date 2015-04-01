@@ -182,7 +182,7 @@
                     breakpoint: 1200,
                     settings: {
                         centerMode: true,
-                        centerPadding: '15px',
+                        centerPadding: '15%',
                         slidesToShow: 1,
                         infinite: true,
                         arrows: false,

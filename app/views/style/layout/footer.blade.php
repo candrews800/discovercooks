@@ -2,13 +2,13 @@
     <nav class="nav-footer">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
                     <h5>DISCOVERCOOKS</h5>
                     <ul>
                         <li><a href="{{ url('about') }}"><small>ABOUT</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
                     <h5>EARN</h5>
                     <ul>
                         <li><a href="{{ url('earn') }}"><small>OVERVIEW</small></a></li>
@@ -16,7 +16,7 @@
                         <li><a href="{{ url('earn') }}#faq"><small>FAQ</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
                     <h5>SUPPORT</h5>
                     <ul>
                         <li><a href="{{ url('contact') }}"><small>CONTACT</small></a></li>
@@ -25,7 +25,7 @@
                         <li><a href="{{ url('terms') }}#privacy"><small>PRIVACY POLICY</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
                     <h5>CONNECT</h5>
                     <ul>
                         <li><a href="#"><small>FACEBOOK</small></a></li>
@@ -33,7 +33,7 @@
                         <li><a href="#"><small>PINTEREST</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 text-left text-center-xs text-center-sm text-center-md">
                     <h5>SIGN UP FOR OUR NEWSLETTER</h5>
                     <form >
                         <div class="input-group">
@@ -50,17 +50,17 @@
     <nav class="nav-footer-secondary">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12 col-md-6">
+                <div class="col-xs-12 col-md-6 text-center-xs text-center-sm">
                     <p>Copyright © 2015 DiscoverCooks.com</p>
                 </div>
-                <div class="col-xs-12 col-md-6">
-                    <p class="text-right">By accessing this site, you agree to our <a href="{{ url('terms') }}">Terms of Service</a>.</p>
+                <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm">
+                    <p>By accessing this site, you agree to our <a href="{{ url('terms') }}">Terms of Service</a>.</p>
                 </div>
-                <div class="col-xs-12 col-md-6">
+                <div class="col-xs-12 col-md-6 text-center-xs text-center-sm">
                     <p><em class="text-muted">v.1.0</em></p>
                 </div>
-                <div class="col-xs-12 col-md-6">
-                    <p class="text-right">All rights reserved.</p>
+                <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm">
+                    <p>All rights reserved.</p>
                 </div>
             </div>
         </div>

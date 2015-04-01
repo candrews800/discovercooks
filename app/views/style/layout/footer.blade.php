@@ -59,7 +59,7 @@
                 <div class="col-xs-12 col-md-6 text-center-xs text-center-sm hidden-xs">
                     <p><em class="text-muted">v.1.0</em></p>
                 </div>
-                <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm col-xs-pull-12">
+                <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm">
                     <p>All rights reserved.</p>
                 </div>
                 <div class="col-xs-12 col-md-6 text-center-xs text-center-sm visible-xs">

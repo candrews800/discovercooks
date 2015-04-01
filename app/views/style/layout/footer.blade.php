@@ -2,13 +2,13 @@
     <nav class="nav-footer">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-12 col-sm-2">
+                <div class="col-xs-12 col-sm-6 col-md-2">
                     <h5>DISCOVERCOOKS</h5>
                     <ul>
                         <li><a href="{{ url('about') }}"><small>ABOUT</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-2">
+                <div class="col-xs-12 col-sm-6 col-md-2">
                     <h5>EARN</h5>
                     <ul>
                         <li><a href="{{ url('earn') }}"><small>OVERVIEW</small></a></li>
@@ -16,7 +16,7 @@
                         <li><a href="{{ url('earn') }}#faq"><small>FAQ</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-2">
+                <div class="col-xs-12 col-sm-6 col-md-2">
                     <h5>SUPPORT</h5>
                     <ul>
                         <li><a href="{{ url('contact') }}"><small>CONTACT</small></a></li>
@@ -25,7 +25,7 @@
                         <li><a href="{{ url('terms') }}#privacy"><small>PRIVACY POLICY</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-2">
+                <div class="col-xs-12 col-sm-6 col-md-2">
                     <h5>CONNECT</h5>
                     <ul>
                         <li><a href="#"><small>FACEBOOK</small></a></li>
@@ -33,7 +33,7 @@
                         <li><a href="#"><small>PINTEREST</small></a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-4">
+                <div class="col-xs-12 col-md-4">
                     <h5>SIGN UP FOR OUR NEWSLETTER</h5>
                     <form >
                         <div class="input-group">

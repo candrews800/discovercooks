@@ -12,6 +12,7 @@
     8. Profile Page only show recipes for user, not all.
     9. Compress Images (Imagick?)
     10. Center recipe images in clipping for search items
+    11. Filter By Categories that have no recipes -> on category page, shouldn't be seen
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

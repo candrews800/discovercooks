@@ -56,10 +56,10 @@
                 <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm">
                     <p>By accessing this site, you agree to our <a href="{{ url('terms') }}">Terms of Service</a>.</p>
                 </div>
-                <div class="col-xs-12 col-md-6 text-center-xs text-center-sm">
+                <div class="col-xs-12 col-md-6 text-center-xs text-center-sm col-xs-push-12">
                     <p><em class="text-muted">v.1.0</em></p>
                 </div>
-                <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm">
+                <div class="col-xs-12 col-md-6 text-right text-center-xs text-center-sm col-xs-pull-12">
                     <p>All rights reserved.</p>
                 </div>
             </div>

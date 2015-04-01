@@ -1,57 +1,32 @@
 @extends('content.templates.default')
 
 @section('content')
-    {{ ViewHelper::getBreadcrumbs(null, 'Contact') }}
-    <div class="row">
+    {{ ViewHelper::getNewBreadcrumbs(null, 'Contact') }}
+    <h1>Contact</h1>
+    @if(Session::pull('message_sent', 0))
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Message sent successfully. We will try to get back to you shortly. Thank you for your patience.
+        </div>
+    @endif
+    {{ Form::open(array('url' => 'contact')) }}
+        <div class="form-group">
+            <label>Your Name</label>
+            {{ Form::text('name', null, array('class' => 'form-control')) }}
+        </div>
+        <div class="form-group">
+            <label>Your Email</label>
+            {{ Form::email('email', null, array('class' => 'form-control')) }}
+        </div>
+        <div class="form-group">
+            <label>Subject</label>
+            {{ Form::text('subject', null, array('class' => 'form-control')) }}
+        </div>
+        <div class="form-group">
+            <label>Message</label>
+            {{ Form::textarea('message', null, array('class' => 'form-control')) }}
+        </div>
 
-        <div class="col-xs-12 col-sm-3">
-            <ul id="about-menu">
-                <li>
-                    <a href="{{ url('about') }}">About</a>
-                    <div class="left-fill"></div>
-                </li>
-                <li class="active"><a href="{{ url('contact') }}">Contact</a><div class="left-fill"></div></li>
-            </ul>
-        </div>
-        <div class="col-xs-12 col-sm-9">
-            <div id="contact">
-                <h1>Contact</h1>
-                @if(Session::pull('message_sent', 0))
-                    <p>Message sent successfully</p>
-                @endif
-                {{ Form::open(array('url' => 'contact')) }}
-                <div class="row">
-                    <div class="col-xs-12 col-sm-2">
-                        <label>name:</label>
-                    </div>
-                    <div class="col-xs-12 col-sm-10">
-                        <input type="text" name="name" />
-                    </div>
-                    <div class="col-xs-12 col-sm-2">
-                        <label>email:</label>
-                    </div>
-                    <div class="col-xs-12 col-sm-10">
-                        <input type="email" name="email" />
-                    </div>
-                    <div class="col-xs-12 col-sm-2">
-                        <label>subject:</label>
-                    </div>
-                    <div class="col-xs-12 col-sm-10">
-                        <input type="text" name="subject" />
-                    </div>
-                    <div class="col-xs-12 col-sm-2">
-                        <label>message:</label>
-                    </div>
-                    <div class="col-xs-12 col-sm-10">
-                        <textarea name="message"></textarea>
-                    </div>
-                    <div class="col-xs-12">
-                        <input type="submit" class="flat-button flat-button-green" value="Send Message" />
-                    </div>
-                </div>
-                {{ Form::close() }}
-            </div>
-        </div>
-    </div>
-    @include('layout.back_to_top')
+        {{ Form::submit('Send Message', array('class' => 'btn btn-info')) }}
+    {{ Form::close() }}
 @stop

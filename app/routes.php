@@ -27,6 +27,8 @@ Route::model('reply', 'ForumReply');
 Route::get('/', array('uses' => 'HomeController@displayIndex', 'after' => 'site_view'));
 Route::get('/loadRecipes/{skip_amount}', array('uses' => 'HomeController@loadRecipes'));
 Route::get('about', array('uses' => 'HomeController@about', 'after' => 'site_view'));
+Route::get('earn', array('uses' => 'HomeController@earn', 'after' => 'site_view'));
+Route::get('recipe-guidelines', array('uses' => 'HomeController@recipeGuidelines', 'after' => 'site_view'));
 Route::get('terms', array('uses' => 'HomeController@terms', 'after' => 'site_view'));
 Route::get('style', array('uses' => 'HomeController@style'));
 

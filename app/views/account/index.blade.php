@@ -52,7 +52,7 @@
         <div class="col-xs-12 col-md-6 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Payments <a href="{{ url('account/edit') }}" class="pull-right">Go</a></h3>
+                    <h3 class="panel-title">Payments <a href="{{ url('account/payments') }}" class="pull-right">Go</a></h3>
                 </div>
                 <div class="panel-body">
                     <h4>Account Balance: ${{ number_format((float)$balance, 2, '.', ''); }}</h4>
@@ -78,7 +78,7 @@
         <div class="col-xs-12 col-md-6 masonry-item">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Recent Transactions <a href="{{ url('account/edit') }}" class="pull-right">More</a></h3>
+                    <h3 class="panel-title">Recent Transactions <a href="{{ url('account/payments') }}" class="pull-right">More</a></h3>
                 </div>
                 <div class="panel-body">
                     <table class="table">
@@ -120,7 +120,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3>This Week <a href="{{ Request::url() . '/archive' }}" class="btn btn-info btn-sm pull-right">View Archive</a></h3>
+                            <h3>This Week</h3>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-3 text-center">
                                     <h5>Recipes</h5>

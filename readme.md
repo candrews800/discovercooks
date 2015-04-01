@@ -3,16 +3,15 @@
 ****************************************************************************************
 
     1. Ad size not being computed before masonry effect goes in
-    2. New Recipe should be in header
-    3. After Editing Denied Recipe it doesn't show that it is back in the queue
-    4. Single Recipe related recipes has same recipe as
-    5. Check Profiles When No Recipe/Review are posted
-    6. Top Add Reply in Forum Not Working if not logged in -> should trigger modal
-    7. Check date for forum posts -> shows as 11/30/-1
-    8. Page starting at bottom on page
-    9. Profile Page only show recipes for user, not all.
-    10. Compress Images (Imagick?)
-    11. Center recipe images in clipping for search items
+    2. After Editing Denied Recipe it doesn't show that it is back in the queue
+    3. Single Recipe related recipes has same recipe as
+    4. Check Profiles When No Recipe/Review are posted
+    5. Top Add Reply in Forum Not Working if not logged in -> should trigger modal
+    6. Check date for forum posts -> shows as 11/30/-1
+    7. Page starting at bottom on page
+    8. Profile Page only show recipes for user, not all.
+    9. Compress Images (Imagick?)
+    10. Center recipe images in clipping for search items
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
@@ -26,14 +25,9 @@
 
     1. Incorporate Existing Pages
         a. Content Pages
-            i. About
-            ii. Contact
-            iii. Earn Pages
-                A. Overview
-                B. Ways To Earn
-                C. FAQ
-            iv. Terms and Conditions
-            v. Privacy Policy
+            i. Forum Guidelines
+            ii. Terms and Conditions
+            iii. Privacy Policy
     2. Add Discover Cooks Section
         a. Setup Menu Bar
         b. New index page
@@ -86,17 +80,11 @@
 
     1. Terms and Conditions
     2. Privacy Policy
-    3. Earn Money
-        a. Overview
-        b. Ways To Earn
-        c. FAQ
-    4. Forum Guidelines
-    5. Recipe Guidelines
-    6. SEO
+    3. SEO
         a. Title for pages
         b. meta-description
         c. meta-tags
-    7. Favicon
+    4. Favicon
 
 
 ****************************************************************************************
@@ -114,6 +102,11 @@
 ****************************************************************************************
 
     1. Recipe Tags
+    2. Review Image
+    2. Review Earn Money Rework
+        a. Ticket for Posting Review
+        b. Ticket for Posting Review Image
+        c. Ticket for Helpful Review
 
 ****************************************************************************************
 **  FUTURE TO DO LIST

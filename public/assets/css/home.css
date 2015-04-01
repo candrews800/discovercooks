@@ -106,6 +106,9 @@
       display: block;
       color: white; }
 
+@media (max-width: 1200px) {
+  #explore-recipes {
+    padding: 0 0; } }
 @media (min-width: 768px) and (max-width: 991px) {
   #home-content {
     padding-bottom: 15px; }

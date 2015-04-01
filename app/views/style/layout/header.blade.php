@@ -244,7 +244,7 @@
                             <div class="clearfix">
                                 <div class="checkbox">
                                     <label id="terms-agree-popover" data-container="body" data-toggle="popover" data-placement="top" data-content="You must agree to the Terms to register.">
-                                        <input type="checkbox" id="terms-agree" name="terms-agree" /> I am 13 years of age or older and agree to the <a href="{{ url('terms') }}">Terms and Conditions</a>
+                                        <input type="checkbox" id="terms-agree" name="terms-agree" /> I am 13 years of age or older and agree to the <a href="{{ url('terms') }}">Terms of Service</a>
                                     </label>
                                 </div>
                             </div>

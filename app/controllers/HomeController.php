@@ -96,6 +96,18 @@ class HomeController extends BaseController {
         ));
     }
 
+    public function earn(){
+        return View::make('content.earn')->with(array(
+
+        ));
+    }
+
+    public function recipeGuidelines(){
+        return View::make('content.recipeGuidelines')->with(array(
+
+        ));
+    }
+
     public function terms(){
         $terms = DB::table('terms')->first();
 

@@ -5,25 +5,24 @@
                 <div class="col-xs-12 col-sm-2">
                     <h5>DISCOVERCOOKS</h5>
                     <ul>
-                        <li><a href="#"><small>ABOUT US</small></a></li>
-                        <li><a href="#"><small>THE TEAM</small></a></li>
+                        <li><a href="{{ url('about') }}"><small>ABOUT</small></a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <h5>EARN</h5>
                     <ul>
-                        <li><a href="#"><small>OVERVIEW</small></a></li>
-                        <li><a href="#"><small>WAYS TO EARN</small></a></li>
-                        <li><a href="#"><small>FAQ</small></a></li>
+                        <li><a href="{{ url('earn') }}"><small>OVERVIEW</small></a></li>
+                        <li><a href="{{ url('earn') }}#ways-to-earn"><small>WAYS TO EARN</small></a></li>
+                        <li><a href="{{ url('earn') }}#faq"><small>FAQ</small></a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <h5>SUPPORT</h5>
                     <ul>
-                        <li><a href="#"><small>CONTACT</small></a></li>
-                        <li><a href="#"><small>RECIPE GUIDELINES</small></a></li>
-                        <li><a href="#"><small>TERMS AND CONDITIONS</small></a></li>
-                        <li><a href="#"><small>PRIVACY POLICY</small></a></li>
+                        <li><a href="{{ url('contact') }}"><small>CONTACT</small></a></li>
+                        <li><a href="{{ url('recipe-guidelines') }}"><small>RECIPE GUIDELINES</small></a></li>
+                        <li><a href="{{ url('terms') }}"><small>TERMS OF SERVICE</small></a></li>
+                        <li><a href="{{ url('terms') }}#privacy"><small>PRIVACY POLICY</small></a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-2">
@@ -55,13 +54,13 @@
                     <p>Copyright © 2015 DiscoverCooks.com</p>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    <p class="text-right">By accessing this site, you agree to our <a href="#">Terms and Conditions</a>.</p>
+                    <p class="text-right">By accessing this site, you agree to our <a href="{{ url('terms') }}">Terms of Service</a>.</p>
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <p><em class="text-muted">v.1.0</em></p>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    <p class="text-right">ALL RIGHTS RESERVED</p>
+                    <p class="text-right">All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -73,7 +72,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script src="{{ url('style_assets/javascripts/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('assets/slick/slick.min.js') }}"></script>
 

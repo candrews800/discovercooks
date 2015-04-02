@@ -31,7 +31,8 @@
   width: 100%;
   left: 0;
   bottom: 0;
-  padding-bottom: 30px; }
+  padding-top: 15px;
+  padding-bottom: 15px; }
   .carousel-caption h1 {
     margin: 0; }
   .carousel-caption h1 a {
@@ -116,16 +117,14 @@
     padding-top: 15px;
     padding-bottom: 65px; } }
 @media (max-width: 767px) {
-  .featured-author-img {
-    position: relative; }
-
   .carousel-caption {
-    position: relative; }
+    position: relative;
+    top: 100%; }
 
   #home-content {
     padding: 65px 15px 20px 15px; }
 
   .featured-author-img {
-    display: none; } }
+    display: none !important; } }
 
 /*# sourceMappingURL=home.css.map */

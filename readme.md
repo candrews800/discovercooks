@@ -24,44 +24,38 @@
 **  STYLE TO DO LIST
 ****************************************************************************************
 
-    1. Incorporate Existing Pages
-        a. Content Pages
-            i. Forum Guidelines
-            ii. Terms and Conditions
-            iii. Privacy Policy
-    2. Add Discover Cooks Section
+    1. Add Discover Cooks Section
         a. Setup Menu Bar
         b. New index page
             i. featured
             ii. top rated
             iii. quantity
-    3. Redesign
+    2. Redesign
         a. Home Page
             i. Style of Banner Typography different for each banner
-    4. Site Responsiveness
-        a. Header
-        b. Home
-        c. Category
-        d. Profile
+    3. Site Responsiveness
+        a. Home
+        b. Category
+        c. Profile
             i. main
             ii. recipes
             iii. reviews
             iv. cookbook
-        e. Recipe
+        d. Recipe
             i. Edit
             ii. Create
-        f. Forums
+        e. Forums
             i. Topics
             ii. Posts
             iii. Replys
             iv. Create Post
             v. Edit Reply
-        g. My Account
+        f. My Account
             i. overview
             ii. edit profile
             iii. stats
             iv. payment center
-        h. Content Pages
+        g. Content Pages
            i. About
            ii. Contact
            iii. Earn Pages
@@ -70,9 +64,9 @@
                C. FAQ
            iv. Terms and Conditions
            v. Privacy Policy
-    5. Welcome Email Style
-    6. Forget / Reset Password Email Style
-    7. Default Email Template Style
+    4. Welcome Email Style
+    5. Forget / Reset Password Email Style
+    6. Default Email Template Style
 
 ****************************************************************************************
 **  CONTENT TO DO LIST

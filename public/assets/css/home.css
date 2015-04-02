@@ -128,6 +128,13 @@
     display: none !important; }
 
   #explore-recipes {
-    height: auto !important; } }
+    height: 100px; }
+
+  .recipe-category {
+    height: 100px; }
+    .recipe-category img {
+      height: 100px; }
+    .recipe-category span {
+      top: 30%; } }
 
 /*# sourceMappingURL=home.css.map */

@@ -229,11 +229,11 @@
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 500,
                     settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '15px',
+                        centerPadding: '0',
                         slidesToShow: 3
                     }
                 }

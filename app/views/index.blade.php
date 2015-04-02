@@ -213,7 +213,6 @@
                 {
                     breakpoint: 1200,
                     settings: {
-                        centerMode: true,
                         centerPadding: '15px',
                         arrows: false,
                         slidesToShow: 7
@@ -223,7 +222,6 @@
                     breakpoint: 992,
                     settings: {
                         arrows: false,
-                        centerMode: true,
                         centerPadding: '15px',
                         slidesToShow: 5
                     }
@@ -232,7 +230,6 @@
                     breakpoint: 500,
                     settings: {
                         arrows: false,
-                        centerMode: true,
                         centerPadding: '0',
                         slidesToShow: 3
                     }

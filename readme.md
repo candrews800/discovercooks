@@ -72,13 +72,11 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    1. Terms and Conditions
-    2. Privacy Policy
-    3. SEO
+    1. SEO
         a. Title for pages
         b. meta-description
         c. meta-tags
-    4. Favicon
+    2. Favicon
 
 
 ****************************************************************************************

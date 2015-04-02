@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img id="logo" src="{{ url('assets/img/logo-white.png') }}" />
+                    <img id="logo" class="img-responsive" src="{{ url('assets/img/logo-white.png') }}" />
                 </a>
             </div>
             <div id="navbar" class="navbar-primary navbar-collapse collapse ">

@@ -1,4 +1,4 @@
-<?php $title = 'Forums Home'; ?>
+<?php //$title = 'Forums Home'; ?>
 
 @extends('forum.templates.default')
 

@@ -515,6 +515,8 @@
     margin: 0; }
     .ribbon .ribbon-left-menu li {
       margin-left: 0px; }
+    .ribbon .ribbon-left-menu span {
+      font-size: inherit; }
   .ribbon .ribbon-right-menu {
     position: static;
     display: inline-block;
@@ -527,6 +529,8 @@
       text-align: right; }
     .ribbon .ribbon-right-menu li {
       margin-right: 0px; }
+    .ribbon .ribbon-right-menu span {
+      font-size: inherit; }
 
   .modal .modal-body {
     padding-left: 15px;

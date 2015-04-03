@@ -533,6 +533,7 @@
   }
 
   .ribbon {
+
     &.ribbon-sort{
       height: 95px;
       padding-top: 60px;
@@ -548,6 +549,9 @@
 
       li {
         margin-left: 0px;
+      }
+      span{
+        font-size: inherit;
       }
     }
 
@@ -565,6 +569,9 @@
       }
       li {
         margin-right: 0px;
+      }
+      span{
+        font-size: inherit;
       }
     }
   }

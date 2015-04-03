@@ -135,6 +135,10 @@
     }
 }
 
+.recipe-review {
+  margin-bottom: 15px;
+}
+
 .more{
     color: $secondary-color;
 }
@@ -153,7 +157,6 @@
     padding-top: 40px;
     padding-bottom: 30px;
 }
-
 
 @media (min-width: 992px) and (max-width: 1200px) {
   #recent-reviews{
@@ -186,6 +189,15 @@
     #profile-header{
       padding-left: 15px;
       padding-right: 15px;
+
+      .btn{
+        margin-bottom: 10px;
+      }
+
+      #review-stats{
+        margin-bottom: 10px;
+
+      }
     }
   }
 }

@@ -91,6 +91,9 @@
     #recent-reviews .recipe-review p a {
       font-weight: bold; }
 
+.recipe-review {
+  margin-bottom: 15px; }
+
 .more {
   color: #207178; }
 
@@ -127,6 +130,10 @@
 @media (max-width: 991px) {
   #profile #profile-header {
     padding-left: 15px;
-    padding-right: 15px; } }
+    padding-right: 15px; }
+    #profile #profile-header .btn {
+      margin-bottom: 10px; }
+    #profile #profile-header #review-stats {
+      margin-bottom: 10px; } }
 
 /*# sourceMappingURL=profile.css.map */

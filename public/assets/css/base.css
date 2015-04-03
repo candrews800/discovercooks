@@ -330,14 +330,13 @@
     #search-results .footer-menu p span {
       font-weight: 100; }
   #search-results h1 {
-    line-height: 1;
     margin: 0;
-    font-weight: bold;
-    font-size: 32px; }
+    font-weight: bold; }
   #search-results .search-item-title {
     font-size: 18px;
     margin: 5px 0 0px 0;
-    color: white; }
+    color: white;
+    line-height: 18px; }
   #search-results .search-item-author {
     color: #999;
     font-size: 14px;

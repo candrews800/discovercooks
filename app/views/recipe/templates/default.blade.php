@@ -193,9 +193,9 @@
                                                 <div class="row">
                                                     <div class="col-xs-12 col-sm-3 col-sm-offset-9">
                                                         @if($user_review)
-                                                            <input id="submit-review" type="submit" class="btn btn-info" value="Save Review" />
+                                                            <input id="submit-review" type="submit" class="btn btn-info btn-block" value="Save Review" />
                                                         @else
-                                                            <input id="submit-review" type="submit" class="btn btn-info" value="Save Review" />
+                                                            <input id="submit-review" type="submit" class="btn btn-info btn-block" value="Save Review" />
                                                         @endif
                                                     </div>
                                                 </div>

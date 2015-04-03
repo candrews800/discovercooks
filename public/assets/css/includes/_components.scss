@@ -534,7 +534,7 @@
 
   .ribbon {
     &.ribbon-sort{
-      height: 135px;
+      height: 95px;
       padding-top: 60px;
       text-align: center;
     }
@@ -542,7 +542,9 @@
     .ribbon-left-menu {
       position: static;
       display: inline-block;
-      width: 100%;
+      width: 50%;
+      float: left;
+      margin: 0;
 
       li {
         margin-left: 0px;
@@ -551,8 +553,16 @@
 
     .ribbon-right-menu {
       position: static;
+      display: inline-block;
       margin: 0 auto;
+      width: 50%;
+      float: right;
+      text-align: right;
 
+      & > li{
+        width: 100%;
+        text-align: right;
+      }
       li {
         margin-right: 0px;
       }

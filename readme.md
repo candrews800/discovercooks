@@ -34,28 +34,27 @@
         a. Home Page
             i. Style of Banner Typography different for each banner
     3. Site Responsiveness
-        a. Home
-        b. Category
-        c. Profile
+        a. Category
+        b. Profile
             i. main
             ii. recipes
             iii. reviews
             iv. cookbook
-        d. Recipe
+        c. Recipe
             i. Edit
             ii. Create
-        e. Forums
+        d. Forums
             i. Topics
             ii. Posts
             iii. Replys
             iv. Create Post
             v. Edit Reply
-        f. My Account
+        e. My Account
             i. overview
             ii. edit profile
             iii. stats
             iv. payment center
-        g. Content Pages
+        f. Content Pages
            i. About
            ii. Contact
            iii. Earn Pages

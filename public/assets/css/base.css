@@ -504,18 +504,27 @@
     height: auto; }
 
   .ribbon.ribbon-sort {
-    height: 135px;
+    height: 95px;
     padding-top: 60px;
     text-align: center; }
   .ribbon .ribbon-left-menu {
     position: static;
     display: inline-block;
-    width: 100%; }
+    width: 50%;
+    float: left;
+    margin: 0; }
     .ribbon .ribbon-left-menu li {
       margin-left: 0px; }
   .ribbon .ribbon-right-menu {
     position: static;
-    margin: 0 auto; }
+    display: inline-block;
+    margin: 0 auto;
+    width: 50%;
+    float: right;
+    text-align: right; }
+    .ribbon .ribbon-right-menu > li {
+      width: 100%;
+      text-align: right; }
     .ribbon .ribbon-right-menu li {
       margin-right: 0px; }
 

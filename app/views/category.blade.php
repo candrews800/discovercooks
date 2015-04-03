@@ -5,7 +5,7 @@
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($recipes) }}></div>
     <div class="container-fluid">
         <div class="row">
-            <div id="home-content" class="col-xs-12 col-lg-8 col-lg-offset-2">
+            <div class="col-xs-12 col-lg-8 col-lg-offset-2">
                 @if($category->related_recipe_id != 0)
                 <div class="row">
                     <div class="col-xs-12">
@@ -51,7 +51,7 @@
     <ul class="ribbon-right-menu">
         <li>
             <div class="dropdown" style="display: inline-block;">
-                <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category: <span>{{ ucfirst($category->name) }} <i class="glyphicon glyphicon-triangle-bottom"></i></span></p>
+                <p id="dLabel" class="text-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category: <span>{{ ucfirst($category->name) }} <i class="glyphicon glyphicon-triangle-bottom"></i></span></p>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                     <li><a href="{{ url('category/all') }}">All</a></li>
                     @foreach($top_categories as $top_category)

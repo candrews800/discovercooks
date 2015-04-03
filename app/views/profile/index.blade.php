@@ -1,3 +1,5 @@
+<?php $title = $user->username . '\'s Profile'; ?>
+
 @extends('profile.templates.default')
 
 @section('content')

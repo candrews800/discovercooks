@@ -1,3 +1,5 @@
+<?php $title = 'Page Not Found'; ?>
+
 @extends('content.templates.default')
 
 @section('content')

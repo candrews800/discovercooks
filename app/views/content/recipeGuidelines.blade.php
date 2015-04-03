@@ -1,3 +1,5 @@
+<?php $title = 'Recipe Guidelines'; ?>
+
 @extends('content.templates.default')
 
 @section('content')

@@ -1,4 +1,5 @@
 <?php $active = 'stats'; ?>
+<?php $title = 'My Review Statistics'; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

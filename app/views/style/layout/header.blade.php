@@ -5,11 +5,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="{{ url('favicon.ico') }}">
 
-    <title>Theme Template for Bootstrap</title>
+    @if(isset($description))
+        <meta name="description" content="{{ $description }}">
+    @else
+        <meta name="description" content="DiscoverCooks has the best recipes from every type of chef. We attract the best cooks who share their best recipes since we split a portion of our revenue with them!">
+    @endif
+
+    @if(isset($title))
+        <title>{{ $title }} - DiscoverCooks</title>
+    @else
+        <title>DiscoverCooks</title>
+    @endif
 
     <script src="//use.typekit.net/myp5wyo.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>

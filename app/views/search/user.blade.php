@@ -1,3 +1,5 @@
+<?php $title = 'User Search'; ?>
+
 <?php $css="search"; ?>
 
 @include('style.layout.header')

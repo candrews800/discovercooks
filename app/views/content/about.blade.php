@@ -1,3 +1,4 @@
+<?php $title = 'About'; ?>
 @extends('content.templates.default')
 
 @section('content')

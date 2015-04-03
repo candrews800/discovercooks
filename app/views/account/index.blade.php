@@ -1,4 +1,5 @@
 <?php $active = 'overview'; ?>
+<?php $title = 'My Account Overview'; ?>
 @extends('account.templates.default')
 
 @section('content')
@@ -14,7 +15,10 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-9">
+                        <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                            <img src="{{ ViewHelper::getUserImage($user->image) }}" class="img-responsive" />
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-sm-pull-3">
                             <h4>{{ $user->username }}</h4>
                             <h5>{{ $user->email }}</h5>
 
@@ -39,9 +43,6 @@
                             @if($user->website)
                                 <h5><small>Website:</small> {{ $user->website }}</h5>
                             @endif
-                        </div>
-                        <div class="col-xs-12 col-sm-3">
-                            <img src="{{ ViewHelper::getUserImage($user->image) }}" class="img-responsive" />
                         </div>
                     </div>
 

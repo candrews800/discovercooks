@@ -1,3 +1,5 @@
+<?php $title = 'Ways To Earn'; ?>
+
 @extends('content.templates.default')
 
 @section('content')

@@ -1,4 +1,5 @@
 <?php $active = 'stats'; ?>
+<?php $title = 'My Recipe Statistics'; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

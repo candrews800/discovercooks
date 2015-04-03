@@ -1,3 +1,5 @@
+<?php $title = 'Contact'; ?>
+
 @extends('content.templates.default')
 
 @section('content')

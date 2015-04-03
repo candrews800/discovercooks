@@ -13,6 +13,8 @@
     9. Compress Images (Imagick?)
     10. Center recipe images in clipping for search items
     11. Filter By Categories that have no recipes -> on category page, shouldn't be seen
+    12. Cant scroll on phone on edit recipe
+    13. Autofocus modal on modal opening
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
@@ -33,30 +35,6 @@
     2. Redesign
         a. Home Page
             i. Style of Banner Typography different for each banner
-    3. Site Responsiveness
-        a. Recipe
-            i. Edit
-            ii. Create
-        b. Forums
-            i. Topics
-            ii. Posts
-            iii. Replys
-            iv. Create Post
-            v. Edit Reply
-        c. My Account
-            i. overview
-            ii. edit profile
-            iii. stats
-            iv. payment center
-        d. Content Pages
-           i. About
-           ii. Contact
-           iii. Earn Pages
-               A. Overview
-               B. Ways To Earn
-               C. FAQ
-           iv. Terms and Conditions
-           v. Privacy Policy
     4. Welcome Email Style
     5. Forget / Reset Password Email Style
     6. Default Email Template Style
@@ -65,11 +43,7 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    1. SEO
-        a. Title for pages
-        b. meta-description
-        c. meta-tags
-    2. Favicon
+    1.
 
 
 ****************************************************************************************

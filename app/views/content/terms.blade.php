@@ -1,3 +1,5 @@
+<?php $title = 'Terms Of Service & Privacy Policy'; ?>
+
 @extends('content.templates.default')
 
 @section('content')

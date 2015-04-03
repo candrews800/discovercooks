@@ -1,4 +1,5 @@
 <?php $active = 'payments'; ?>
+<?php $title = 'Payments Center'; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

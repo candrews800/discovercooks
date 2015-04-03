@@ -1,3 +1,6 @@
+<?php $title = $recipe->name. ' Recipe'; ?>
+<?php $description = $recipe->description; ?>
+
 @extends('recipe.templates.default')
 
 @section('content')

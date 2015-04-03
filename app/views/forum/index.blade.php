@@ -1,3 +1,5 @@
+<?php $title = 'Forums Home'; ?>
+
 @extends('forum.templates.default')
 
 @section('header')

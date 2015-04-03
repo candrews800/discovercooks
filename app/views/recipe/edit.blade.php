@@ -1,3 +1,5 @@
+<?php $title = 'Edit Recipe'; ?>
+
 <?php $css="edit-recipe"; ?>
 
 @include('style.layout.header')

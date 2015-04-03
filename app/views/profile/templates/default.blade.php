@@ -119,7 +119,7 @@
                     @if($user->id == Auth::id())
                         <div class="col-xs-12">
                             <p>
-                                <a id="edit-profile" class="btn btn-block btn-success" href="{{ url('profile/'.$user->username.'/edit') }}">Edit Profile</a>
+                                <a id="edit-profile" class="btn btn-block btn-success" href="{{ url('account/edit') }}">Edit Profile</a>
                             </p>
                         </div>
                     @endif

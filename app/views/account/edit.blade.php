@@ -1,4 +1,5 @@
 <?php $active = 'edit'; ?>
+<?php $title = 'Edit Profile'; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

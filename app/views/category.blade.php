@@ -1,3 +1,5 @@
+<?php $title = $category->name.' Recipes'; ?>
+
 <?php $css="category"; ?>
 
 @include('style.layout.header')

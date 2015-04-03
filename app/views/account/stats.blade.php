@@ -1,4 +1,5 @@
 <?php $active = 'stats'; ?>
+<?php $title = 'Statistics Overview'; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

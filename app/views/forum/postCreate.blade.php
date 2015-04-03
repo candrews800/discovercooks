@@ -1,3 +1,5 @@
+<?php $title = 'Create Post'; ?>
+
 @extends('forum.templates.default')
 
 @section('breadcrumbs')
@@ -21,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-9 col-md-6">
                 <div class="reply-actionbar">
                     <div class="row">
                         <div class="col-xs-9">

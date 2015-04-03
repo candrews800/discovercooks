@@ -1,3 +1,5 @@
+<?php $title = 'Home'; ?>
+
 <?php $css="home"; ?>
 
 @include('style.layout.header')

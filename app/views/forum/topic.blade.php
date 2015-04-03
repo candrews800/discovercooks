@@ -1,3 +1,5 @@
+<?php $title = $topic->name; ?>
+
 @extends('forum.templates.default')
 
 @section('breadcrumbs')

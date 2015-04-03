@@ -1,4 +1,5 @@
 <?php $active = 'stats'; ?>
+<?php $title = "Weekly Stats Archive"; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

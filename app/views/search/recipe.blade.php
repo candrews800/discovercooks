@@ -1,3 +1,5 @@
+<?php $title = 'Recipe Search'; ?>
+
 <?php $css="search"; ?>
 
 @include('style.layout.header')

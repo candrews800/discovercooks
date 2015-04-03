@@ -1,4 +1,5 @@
 <?php $active = 'payments'; ?>
+<?php $title = 'Payment Security Setup'; ?>
 @extends('account.templates.default')
 
 @section('breadcrumbs')

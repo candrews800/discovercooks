@@ -48,9 +48,9 @@
                                             <h5 class="list-group-item-heading text-center">{{ $topic->total_replys }}</h5>
                                         </div>
                                         <div class="col-xs-3">
-                                            @if($topic->last_activity)
+                                            @if($topic->last_activity->author)
                                                 <h5 class="list-group-item-heading"><span class="text-info">{{ $topic->last_activity->title }}</span></h5>
-                                                <p class="list-group-item-text">by <span class="text-info"></span>, {{ $topic->last_activity->lastActivity() }} ago</p>
+                                                <p class="list-group-item-text">by <span class="text-info">{{ $topic->last_activity->author->username }}</span>, {{ $topic->last_activity->lastActivity() }} ago</p>
                                             @else
                                                 <h5 class="list-group-item-heading">None found.</h5>
                                             @endif
@@ -63,6 +63,5 @@
                 </div>
             </div>
         @endforeach
-            {{dd('t')}}
     </div>
 @stop

@@ -1,4 +1,5 @@
-<?php //$title = 'Forums Home'; ?>
+<?php $title = 'Forums Home'; ?>
+{{dd('t')}}
 
 @extends('forum.templates.default')
 

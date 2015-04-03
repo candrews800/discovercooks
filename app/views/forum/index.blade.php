@@ -1,5 +1,5 @@
 <?php $title = 'Forums Home'; ?>
-{{dd('t')}}
+
 
 @extends('forum.templates.default')
 
@@ -9,6 +9,7 @@
 
 @section('content')
     <div class="col-xs-12">
+        {{dd('t')}}
         @foreach($categorys as $category)
             <div class="panel panel-primary">
                 <div class="panel-heading">

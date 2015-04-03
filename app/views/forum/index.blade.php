@@ -33,7 +33,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{dd('t')}}
                         @foreach($topics as $topic)
                             @if($category->id == $topic->category_id)
                                 <a href="{{ url('forum/topic/'.$topic->id) }}" class="list-group-item">
@@ -49,6 +48,7 @@
                                             <h5 class="list-group-item-heading text-center">{{ $topic->total_replys }}</h5>
                                         </div>
                                         <div class="col-xs-3">
+                                            {{dd('t')}}
                                             @if($topic->last_activity)
                                                 <h5 class="list-group-item-heading"><span class="text-info">{{ $topic->last_activity->title }}</span></h5>
                                                 <p class="list-group-item-text">by <span class="text-info">{{ $topic->last_activity->author->username }}</span>, {{ $topic->last_activity->lastActivity() }} ago</p>

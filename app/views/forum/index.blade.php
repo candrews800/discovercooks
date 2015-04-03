@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="col-xs-12">
-        {{dd('t')}}
+
         @foreach($categorys as $category)
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -33,6 +33,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{dd('t')}}
                         @foreach($topics as $topic)
                             @if($category->id == $topic->category_id)
                                 <a href="{{ url('forum/topic/'.$topic->id) }}" class="list-group-item">

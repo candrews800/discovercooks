@@ -59,7 +59,7 @@
             <div id="navbar" class="navbar-primary navbar-collapse collapse ">
                 <ul class="nav navbar-nav navbar-right hidden-xs">
                     <li class="navbar-dropdown" data-target="recipes"><a href="#">RECIPES</a></li>
-                    <li class="navbar-dropdown" data-target="discover"><a href="#">DISCOVER</a></li>
+                    <!--<li class="navbar-dropdown" data-target="discover"><a href="#">DISCOVER</a></li>-->
                     <li><a href="{{ url('forum') }}">FORUMS</a></li>
                     <li id="navbar-search"><a href="#"><i class="glyphicon glyphicon-search"></i></a></li>
 
@@ -83,7 +83,7 @@
                             <li><a href="#">Dinner</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">DISCOVER</a></li>
+                    <!--<li><a href="#">DISCOVER</a></li>-->
                     <li><a href="{{ url('forum') }}">FORUMS</a></li>
                     @if(Auth::guest())
                         <li><a href="#" data-toggle="modal" data-target="#guest-register-modal">REGISTER</a></li>

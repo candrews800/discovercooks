@@ -8,19 +8,21 @@
     4. Check Profiles When No Recipe/Review are posted
     5. Top Add Reply in Forum Not Working if not logged in -> should trigger modal
     6. Check date for forum posts -> shows as 11/30/-1
-    7. Page starting at bottom on page
-    8. Profile Page only show recipes for user, not all.
-    9. Compress Images (Imagick?)
-    10. Center recipe images in clipping for search items
-    11. Filter By Categories that have no recipes -> on category page, shouldn't be seen
-    12. Cant scroll on phone on edit recipe
-    13. Autofocus modal on modal opening
+    7. Profile Page only show recipes for user, not all.
+    8. Center recipe images in clipping for search items
+    9. Filter By Categories that have no recipes -> on category page, shouldn't be seen
+    10. Cant scroll on phone on edit recipe
+    11. Autofocus modal on modal opening
+    12. Login when trying to make post -> takes back to home screen
+    13. Default Text on Empty Forum Threads
+    14. Take down Discover
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
     1. Forum Post Locks
+    2. Compress Images (Imagick?)
 
 ****************************************************************************************
 **  STYLE TO DO LIST

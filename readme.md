@@ -15,7 +15,6 @@
     11. Autofocus modal on modal opening
     12. Login when trying to make post -> takes back to home screen
     13. Default Text on Empty Forum Threads
-    14. Take down Discover
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
@@ -45,7 +44,8 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    1.
+    1. Category Images
+    2. Forum Guidelines
 
 
 ****************************************************************************************

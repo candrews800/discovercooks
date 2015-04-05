@@ -73,6 +73,8 @@
                         </div>
                     </a>
                 @endforeach
+            @else
+                <h3>There are no current posts in this topic. Be the first to make a post by pressing the Create Post button!</h3>
             @endif
         </div>
     </div>

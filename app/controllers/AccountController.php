@@ -6,7 +6,13 @@ class AccountController extends BaseController {
 
         $user = Auth::user();
         $weekly = WeeklyStats::where('user_id', '=', $user->id)->first();
+        if(!$weekly){
+            $weekly = new WeeklyStats();
+        }
         $overall = UserStats::where('user_id', '=', $user->id)->first();
+        if(!$overall){
+            $overall = new UserStats();
+        }
 
         $balance = UserBalance::where('user_id', '=', $user->id)->pluck('amount');
 
@@ -69,7 +75,13 @@ class AccountController extends BaseController {
         $user = Auth::user();
 
         $weekly = WeeklyStats::where('user_id', '=', $user->id)->first();
+        if(!$weekly){
+            $weekly = new WeeklyStats();
+        }
         $overall = UserStats::where('user_id', '=', $user->id)->first();
+        if(!$overall){
+            $overall = new UserStats();
+        }
 
         $top_recipes = Recipe::where('author_id', '=', $user->id)->orderBy('page_views', 'desc')->take(5)->get();
         $top_reviews = Review::where('reviewer_id', '=', $user->id)->orderBy(DB::raw('`helpful` - `non_helpful`'), 'DESC')->take(5)->get();
@@ -115,6 +127,9 @@ class AccountController extends BaseController {
         $user = Auth::user();
 
         $current = WeeklyStats::where('user_id', '=', $user->id)->first();
+        if(!$current){
+            $current = new WeeklyStats();
+        }
         $archives = WeeklyStatsArchive::where('user_id', '=', $user->id)->orderBy('start', 'desc')->paginate(25);
 
         return View::make('account.archive')->with(array(

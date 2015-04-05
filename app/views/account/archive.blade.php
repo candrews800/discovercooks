@@ -13,6 +13,7 @@
 @section('content')
     <div class="col-xs-12">
         <h1 class="page-header">Weekly Archive</h1>
+        @if(!$archives->isEmpty())
         <table class="table">
             <thead>
                 <tr>
@@ -25,15 +26,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="text-center">{{ $archives[0]->end }}</td>
-                    <td class="text-center text-muted"><em>Current</em></td>
-                    <td class="text-center">{{ $current->total_recipes }}</td>
-                    <td class="text-center">{{ $current->page_views }}</td>
-                    <td class="text-center">{{ $current->total_reviews }}</td>
-                    <td class="text-center">{{ $current->review_helpful - $current->review_nonhelpful }}</td>
-                </tr>
-                @if(!$archives->isEmpty())
+
+                    <tr>
+                        <td class="text-center">{{ $archives[0]->end }}</td>
+                        <td class="text-center text-muted"><em>Current</em></td>
+                        <td class="text-center">{{ $current->total_recipes }}</td>
+                        <td class="text-center">{{ $current->page_views }}</td>
+                        <td class="text-center">{{ $current->total_reviews }}</td>
+                        <td class="text-center">{{ $current->review_helpful - $current->review_nonhelpful }}</td>
+                    </tr>
                     @foreach($archives as $archive)
                         <tr>
                             <td class="text-center">{{ $archive->start }}</td>
@@ -44,13 +45,16 @@
                             <td class="text-center">{{ $archive->review_helpful - $archive->review_nonhelpful }}</td>
                         </tr>
                     @endforeach
-                @endif
             </tbody>
         </table>
         @if($archives->links())
             <p>
                 {{ $archives->links() }}
             </p>
+        @endif
+
+        @else
+            <p>No Archive is associated with this account at this time. Please wait up to two weeks for your archive to start working.</p>
         @endif
     </div>
 @stop

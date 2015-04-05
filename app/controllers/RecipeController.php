@@ -115,7 +115,7 @@ class RecipeController extends BaseController {
         if(!Auth::guest()){
             $recipe->isSaved = Auth::user()->hasRecipe($recipe->id);
         }
-        $related_recipes = Recipe::where('category', '=', $recipe->category)->take(4)->get();
+        $related_recipes = Recipe::where('category', '=', $recipe->category)->where('id', '<>', $recipe->id)->take(4)->get();
         foreach($related_recipes as $related_recipe){
             $related_recipe->user = User::find($related_recipe->author_id);
             $related_recipe->review_count = Review::where('recipe_id', '=', $related_recipe->id)->count();

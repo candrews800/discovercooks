@@ -2,6 +2,12 @@
 
 @extends('profile.templates.default')
 
+@section('breadcrumbs')
+    {{ ViewHelper::getNewBreadcrumbs(array(array(
+        'url' => url('profile/'.$user->username), 'text' => $user->username.'\'s Profile'
+    )), 'My Recipes') }}
+@stop
+
 @section('content')
     <div class="beige-bg">
         <div class="ribbon green-ribbon ribbon-content ribbon-sort col-xs-12">
@@ -38,7 +44,7 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                @if($recipes)
+                @if(!$recipes->isEmpty())
                     <div id="search-results" class="col-xs-12">
                         <div class="row">
                             @foreach($recipes as $recipe)
@@ -50,7 +56,7 @@
                         <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
                     </div>
                 @else
-                    <p class="none-found">No Recipes In This User's Cookbook.</p>
+                    <p class="none-found">{{ $user->username }} has not created any recipes yet.</p>
                 @endif
             </div>
         </div>

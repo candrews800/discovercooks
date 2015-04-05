@@ -2,23 +2,21 @@
 
 @extends('profile.templates.default')
 
+@section('breadcrumbs')
+    {{ ViewHelper::getNewBreadcrumbs(array(array(
+        'url' => url('profile/'.$user->username), 'text' => $user->username.'\'s Profile'
+    )), 'My Reviews') }}
+@stop
+
 @section('content')
     <div class="white-bg">
         <div class="ribbon orange-ribbon ribbon-content col-xs-12 clearfix">
             <img id="ribbon-img" src="{{ url('assets/img/orange-ribbon.png') }}" />
             <h3>my reviews</h3>
-
-            <div class="profile-stats-inline">
-                <ul class="ribbon-left-menu hidden-xs">
-                    <li>Reviews: <span>{{ $review_stats['total'] }}</span></li>
-                    <li class="divider">•</li>
-                    <li>Reviews Found Helpful: <span>{{ $review_stats['helpful'] }}</span></li>
-                </ul>
-            </div>
         </div>
         <div class="container-fluid">
             <div class="row">
-                @if($reviews)
+                @if(!$reviews->isEmpty())
                     <div id="search-reviews" class="col-xs-12">
                         <div class="row">
                             @foreach($reviews as $review)
@@ -31,7 +29,7 @@
                         <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Reviews</button>
                     </div>
                 @else
-                    <p class="none-found">This User Has Not Given Any Reviews.</p>
+                    <p class="none-found">{{ $user->username }} has not created any reviews yet.</p>
                 @endif
             </div>
         </div>

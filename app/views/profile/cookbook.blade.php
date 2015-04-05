@@ -2,6 +2,12 @@
 
 @extends('profile.templates.default')
 
+@section('breadcrumbs')
+    {{ ViewHelper::getNewBreadcrumbs(array(array(
+        'url' => url('profile/'.$user->username), 'text' => $user->username.'\'s Profile'
+    )), 'My Cookbook') }}
+@stop
+
 @section('content')
 
     <div class="beige-bg">
@@ -52,7 +58,7 @@
                         <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
                     </div>
                 @else
-                    <p class="none-found">No Recipes In This User's Cookbook.</p>
+                    <p class="none-found">There are no recipes in this {{ $user->username }}'s cookbook.</p>
                 @endif
             </div>
         </div>

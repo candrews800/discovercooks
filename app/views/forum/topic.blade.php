@@ -13,7 +13,11 @@
 @section('content')
     <div class="col-xs-2">
         <p>
-            <a class="btn btn-info" href="{{ url(Request::url().'/create') }}">Create Post</a>
+            @if(Auth::guest())
+                <a class="btn btn-info" data-toggle="modal" data-target="#guest-login-modal">Create Post</a>
+            @else
+                <a class="btn btn-info" href="{{ url(Request::url().'/create') }}">Create Post</a>
+            @endif
         </p>
     </div>
     <div class="col-xs-10">
@@ -80,7 +84,11 @@
     </div>
 
     <div class="col-xs-2">
-        <a class="btn btn-info" href="{{ url(Request::url().'/create') }}">Create Post</a>
+        @if(Auth::guest())
+        <a class="btn btn-info" data-toggle="modal" data-target="#guest-login-modal">Create Post</a>
+        @else
+            <a class="btn btn-info" href="{{ url(Request::url().'/create') }}">Create Post</a>
+        @endif
     </div>
     <div class="col-xs-10">
         <div class="clearfix text-right nomargin">

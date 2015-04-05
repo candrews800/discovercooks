@@ -5,14 +5,10 @@
     1. Ad size not being computed before masonry effect goes in
     2. After Editing Denied Recipe it doesn't show that it is back in the queue
     3. Single Recipe related recipes has same recipe as
-    4. Check Profiles When No Recipe/Review are posted
-    5. Top Add Reply in Forum Not Working if not logged in -> should trigger modal
-    6. Check date for forum posts -> shows as 11/30/-1
-    7. Profile Page only show recipes for user, not all.
-    8. Center recipe images in clipping for search items
-    9. Filter By Categories that have no recipes -> on category page, shouldn't be seen
-    10. Cant scroll on phone on edit recipe
-    12. Login when trying to make post -> takes back to home screen
+    4. Check date for forum posts -> shows as 11/30/-1
+    5. Profile Page only show recipes for user, not all.
+    6. Filter By Categories that have no recipes -> on category page, shouldn't be seen
+    7. Cant scroll on phone on edit recipe
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

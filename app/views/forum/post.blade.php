@@ -18,8 +18,14 @@
     <div id="reply-header" class="clearfix">
         <div class="col-xs-2">
             <p>
-                <a class="btn btn-info" href="#add-reply">Add Reply</a>
+                @if(Auth::guest())
+                    <a href="#" data-toggle="modal" data-target="#guest-login-modal" class="btn btn-info">Add Reply</a>
+                @else
+                    <a class="btn btn-info" href="#add-reply">Add Reply</a>
+                @endif
             </p>
+
+
 
         </div>
         <div class="col-xs-10 text-right">

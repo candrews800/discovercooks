@@ -334,7 +334,8 @@
       font-weight: 100; }
   #search-results h1 {
     margin: 0;
-    font-weight: bold; }
+    font-weight: bold;
+    font-size: 18px; }
   #search-results .search-item-title {
     font-size: 18px;
     margin: 5px 0 0px 0;

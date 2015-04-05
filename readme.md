@@ -4,11 +4,10 @@
 
     1. Ad size not being computed before masonry effect goes in
     2. After Editing Denied Recipe it doesn't show that it is back in the queue
-    3. Single Recipe related recipes has same recipe as
-    4. Check date for forum posts -> shows as 11/30/-1
-    5. Profile Page only show recipes for user, not all.
-    6. Filter By Categories that have no recipes -> on category page, shouldn't be seen
-    7. Cant scroll on phone on edit recipe
+    3. Check date for forum posts -> shows as 11/30/-1
+    4. Profile Page only show recipes for user, not all.
+    5. Filter By Categories that have no recipes -> on category page, shouldn't be seen
+    6. Cant scroll on phone on edit recipe
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

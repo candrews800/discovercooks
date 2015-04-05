@@ -112,3 +112,9 @@
         $('#reset-password-modal').modal('show');
     </script>
 @endif
+
+<script>
+    $('.modal').on('shown.bs.modal', function() {
+        $(this).find('[autofocus]').focus();
+    });
+</script>

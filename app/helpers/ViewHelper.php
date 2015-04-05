@@ -91,7 +91,7 @@ class ViewHelper
 
         $output.= '<div class="col-xs-'.$xs.' col-sm-'.$sm.' col-md-'.$md.' col-lg-'.$lg.' masonry-item">';
         $output.=     '<div class="search-item clearfix">';
-        $output.=         '<a href="'.url('recipe/'.$recipe->slug).'"><div class="crop"><img class="search-item-image" src="'.url(ViewHelper::getRecipeImage($recipe->image)).'" /></div></a>';
+        $output.=         '<a href="'.url('recipe/'.$recipe->slug).'"><div class="crop" style="background-image:url(\''.url(ViewHelper::getRecipeImage($recipe->image)).'\')"></div></a>';
         $output.=         '<div class="upper-menu">';
         $output.=               '<div data-slug="'. $recipe->slug .'" class="subscriber_count';
         $save_text = 'Save';

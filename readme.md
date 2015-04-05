@@ -12,9 +12,7 @@
     8. Center recipe images in clipping for search items
     9. Filter By Categories that have no recipes -> on category page, shouldn't be seen
     10. Cant scroll on phone on edit recipe
-    11. Autofocus modal on modal opening
     12. Login when trying to make post -> takes back to home screen
-    13. Default Text on Empty Forum Threads
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

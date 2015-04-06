@@ -26,9 +26,9 @@
             </div>
             <div class="form-group">
                 @if($category->image)
-                <div class="dropzone" data-width="960" data-image="{{ url('category_images/'.$category->image) }}" data-ajax="false" data-height="540" data-resize="true" style="width: 100%; height: auto">
+                <div class="dropzone" data-width="540" data-image="{{ url('category_images/'.$category->image) }}" data-ajax="false" data-height="540" data-resize="true" style="width: 100%; height: auto">
                 @else
-                <div class="dropzone" data-width="960" data-ajax="false" data-height="540" data-resize="true" style="width: 50%; height: auto">
+                <div class="dropzone" data-width="540" data-ajax="false" data-height="540" data-resize="true" style="width: 50%; height: auto">
                 @endif
                     <input type="file" name="category_image" value="{{ $category->image }}" />
                 </div>

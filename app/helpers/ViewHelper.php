@@ -246,9 +246,9 @@ class ViewHelper
                 if ($col - $key_offset > 17) {
                     $col = 0;
                     $row++;
+                    $key_offset++;
                 }
             }
-            $key_offset++;
         }
 
         $response = rtrim($response, ",");

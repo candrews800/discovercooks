@@ -84,8 +84,7 @@
   .recipe-category img {
     width: auto;
     max-height: 125px;
-    position: absolute;
-    left: -36px; }
+    position: absolute; }
   .recipe-category span {
     display: block;
     margin-top: 25%; }

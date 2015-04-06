@@ -91,7 +91,7 @@ class ViewHelper
 
         $output.= '<div class="col-xs-'.$xs.' col-sm-'.$sm.' col-md-'.$md.' col-lg-'.$lg.' masonry-item">';
         $output.=     '<div class="search-item clearfix">';
-        $output.=         '<a href="'.url('recipe/'.$recipe->slug).'"><div class="crop" style="background-image:url(\''.url(ViewHelper::getRecipeImage($recipe->image)).'\')"></div></a>';
+        $output.=         '<a href="'.url('recipe/'.$recipe->slug).'"><div class="crop" style="background-image:url(\''.url(ViewHelper::getRecipeImage($recipe->image)).'\')"><img src="http://placehold.it/160x90" class="img-responsive" style="opacity: 0; filter: alpha(opacity=0); -ms-filter: \'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\'" /></div></a>';
         $output.=         '<div class="upper-menu">';
         $output.=               '<div data-slug="'. $recipe->slug .'" class="subscriber_count';
         $save_text = 'Save';

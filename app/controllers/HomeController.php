@@ -34,7 +34,7 @@ class HomeController extends BaseController {
                 $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
-            ->take(12)->get();
+            ->take(24)->get();
         $total_recipes = Recipe::count();
 
         foreach($recipes as $recipe){
@@ -72,7 +72,7 @@ class HomeController extends BaseController {
                 $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
-            ->skip($skip_amount)->take(8)->get();
+            ->skip($skip_amount)->take(12)->get();
 
         $response = '';
 

@@ -22,7 +22,7 @@ class CategoryController extends BaseController {
                 $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
-            ->orderBy($orderBy, 'desc')->take(8)->get();
+            ->orderBy($orderBy, 'desc')->take(24)->get();
         $total_recipes = Recipe::orderBy($orderBy, 'desc')->count();
 
         foreach($recipes as $recipe){
@@ -62,7 +62,7 @@ class CategoryController extends BaseController {
                 $query->where('approved', '=', 1)
                     ->orWhere('author_id', '=', Auth::id());
             })
-            ->orderBy($orderBy, 'desc')->skip($skip_amount)->take(8)->get();
+            ->orderBy($orderBy, 'desc')->skip($skip_amount)->take(12)->get();
 
         $response = '';
 
@@ -109,7 +109,7 @@ class CategoryController extends BaseController {
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy($orderBy, 'desc')
-            ->take(8)->get();
+            ->take(24)->get();
         $total_recipes = Recipe::where('category', '=', $category->id)->count();
 
         foreach($recipes as $recipe){
@@ -149,7 +149,7 @@ class CategoryController extends BaseController {
                     ->orWhere('author_id', '=', Auth::id());
             })
             ->orderBy($orderBy, 'desc')
-            ->skip($skip_amount)->take(8)->get();
+            ->skip($skip_amount)->take(12)->get();
 
         $response = '';
 

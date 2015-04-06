@@ -183,7 +183,7 @@
                     settings: {
                         arrows: false,
                         centerPadding: '0',
-                        slidesToShow: 3
+                        slidesToShow: 2
                     }
                 }
             ]

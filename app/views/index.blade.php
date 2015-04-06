@@ -125,8 +125,10 @@
 <script type="text/javascript" src="{{ url('assets/touchSwipe/jquery.touchSwipe.min.js') }}"></script>
 
 <script>
-    var msnry = $('#search-results .row').masonry({
-        itemSelector: '.masonry-item'
+    $(function(){
+        var msnry = $('#search-results .row').masonry({
+            itemSelector: '.masonry-item'
+        });
     });
 
     function addItems(ajaxResponse){

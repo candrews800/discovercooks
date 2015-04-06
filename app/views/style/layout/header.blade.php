@@ -78,9 +78,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">RECIPES <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Browse All</a></li>
-                            <li><a href="#">Breakfast</a></li>
-                            <li><a href="#">Lunch</a></li>
-                            <li><a href="#">Dinner</a></li>
+                            <li><a href="#">Main Courses</a></li>
+                            <li><a href="#">Sides</a></li>
                         </ul>
                     </li>
                     <!--<li><a href="#">DISCOVER</a></li>-->
@@ -110,7 +109,7 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <img src="http://localhost/cookbook/public/category_images/Dinner.jpeg" class="img-circle" />
+                                <img src="{{ url('category_images/Breakfast.jpeg') }}" class="img-circle" />
                                 <div class="img-shadow"></div>
                                 <span>Browse All</span>
                             </a>
@@ -118,33 +117,17 @@
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="http://localhost/cookbook/public/category_images/Lunch.jpeg" class="img-circle" />
+                                <img src="{{ url('category_images/Main Course.jpeg') }}" class="img-circle" />
                                 <div class="img-shadow"></div>
-                                <span>Breakfast</span>
+                                <span>Main Courses</span>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="http://localhost/cookbook/public/category_images/Breakfast.jpeg" class="img-circle" />
+                                <img src="{{ url('category_images/Sides.jpeg') }}" class="img-circle" />
                                 <div class="img-shadow"></div>
-                                <span>Lunch</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <img src="http://localhost/cookbook/public/recipe_images/Hamburgers-4.jpeg" class="img-circle" />
-                                <div class="img-shadow"></div>
-                                <span>Dinner</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <img src="http://localhost/cookbook/public/recipe_images/Hamburgers%20and%20Hotdogs-4.png" class="img-circle" />
-                                <div class="img-shadow"></div>
-                                <span>Snacks</span>
+                                <span>Sides</span>
                             </a>
                         </li>
                     </ul>

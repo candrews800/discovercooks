@@ -159,9 +159,6 @@ View::composer('*', function($view)
 	$top_categories = Category::all();
 	foreach($top_categories as $category){
 		$category->recipe = Recipe::find($category->related_recipe_id);
-		if($category->recipe){
-			$category->user = User::find($category->recipe->author_id);
-		}
 	}
 
 	$sort = '';

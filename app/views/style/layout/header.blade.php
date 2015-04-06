@@ -109,7 +109,7 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <img src="{{ url('category_images/Breakfast.jpeg') }}" class="img-circle" />
+                                <img src="{{ url('category_images/Breakfast.jpeg') }}" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Browse All</span>
                             </a>
@@ -117,7 +117,7 @@
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="{{ url('category_images/Main Course.jpeg') }}" class="img-circle" />
+                                <img src="{{ url('category_images/Main Courses.jpeg') }}" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Main Courses</span>
                             </a>
@@ -125,7 +125,7 @@
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="{{ url('category_images/Sides.jpeg') }}" class="img-circle" />
+                                <img src="{{ url('category_images/Sides.jpeg') }}" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Sides</span>
                             </a>
@@ -141,7 +141,7 @@
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="http://localhost/cookbook/public/category_images/Dinner.jpeg" class="img-circle" />
+                                <img src="http://localhost/cookbook/public/category_images/Dinner.jpeg" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Browse All</span>
                             </a>
@@ -149,7 +149,7 @@
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="http://localhost/cookbook/public/recipe_images/Hamburgers-4.jpeg" class="img-circle" />
+                                <img src="http://localhost/cookbook/public/recipe_images/Hamburgers-4.jpeg" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Popular</span>
                             </a>
@@ -157,7 +157,7 @@
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <img src="http://localhost/cookbook/public/recipe_images/Hamburgers-4.jpeg" class="img-circle" />
+                                <img src="http://localhost/cookbook/public/recipe_images/Hamburgers-4.jpeg" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Rising</span>
                             </a>

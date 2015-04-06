@@ -237,16 +237,18 @@ class ViewHelper
 
         $row = 0;
         $col = 0;
+        $key_offset = 0;
 
         while ($row < 50){
             foreach ($recipes as $key => $recipe) {
-                $response .= 'url(\'' . url(self::getRecipeImage($recipe->image)) . '\') no-repeat ' . ($col * $x - $offset) . 'px ' . $row * $y . 'px,';
+                $response .= 'url(\'' . url(self::getRecipeImage($recipes[$key + $key_offset]->image)) . '\') no-repeat ' . ($col * $x - $offset) . 'px ' . $row * $y . 'px,';
                 $col++;
                 if ($col > 17) {
                     $col = 0;
                     $row++;
                 }
             }
+            $key_offset++;
         }
 
         $response = rtrim($response, ",");

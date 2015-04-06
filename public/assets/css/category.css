@@ -10,7 +10,8 @@
 
 .featured-recipe-img {
   width: 100% !important;
-  height: auto; }
+  height: auto;
+  max-height: 500px; }
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.6);

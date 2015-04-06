@@ -243,7 +243,7 @@ class ViewHelper
             foreach ($recipes as $key => $recipe) {
                 $response .= 'url(\'' . url(self::getRecipeImage($recipe->image)) . '\') no-repeat ' . (($col  - $key_offset) * $x - $offset) . 'px ' . $row * $y . 'px,';
                 $col++;
-                if ($col - $key_offset > 17) {
+                if ($col + $key_offset > 17) {
                     $col = 0;
                     $row++;
                     $key_offset++;

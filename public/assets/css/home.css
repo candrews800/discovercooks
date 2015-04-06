@@ -35,7 +35,8 @@
   padding-top: 15px;
   padding-bottom: 15px; }
   .carousel-caption h1 {
-    margin: 0; }
+    margin: 0;
+    font-variant: small-caps; }
   .carousel-caption h1 a {
     color: white; }
   .carousel-caption .author {

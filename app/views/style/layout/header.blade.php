@@ -77,9 +77,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">RECIPES <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Browse All</a></li>
-                            <li><a href="#">Main Courses</a></li>
-                            <li><a href="#">Sides</a></li>
+                            <li><a href="{{ url('category/all') }}">Browse All</a></li>
+                            <li><a href="{{ url('category/Main Courses') }}">Main Courses</a></li>
+                            <li><a href="{{ url('category/Sides') }}">Sides</a></li>
                         </ul>
                     </li>
                     <!--<li><a href="#">DISCOVER</a></li>-->
@@ -108,7 +108,7 @@
                 <div id="recipesDropdown" class="navbar-dropdown-contents">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('category/all') }}">
                                 <img src="{{ url('category_images/Breakfast.jpeg') }}" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Browse All</span>
@@ -116,7 +116,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('category/Main Courses') }}">
                                 <img src="{{ url('category_images/Main Courses.jpeg') }}" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Main Courses</span>
@@ -124,7 +124,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('category/Sides') }}">
                                 <img src="{{ url('category_images/Sides.jpeg') }}" class="img-circle img-responsive" />
                                 <div class="img-shadow"></div>
                                 <span>Sides</span>

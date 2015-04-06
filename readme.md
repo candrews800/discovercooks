@@ -3,8 +3,9 @@
 ****************************************************************************************
 
     1. No Recipes in Category -> Needs to Display No Recipe in Category Yet
-    2. Loading Spinner as image loads
-    3. Default image size on page load
+    2. 'All' Category -> design
+    3. Loading Spinner as image loads
+    4. Default image size on page load
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

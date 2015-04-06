@@ -2,7 +2,7 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1. Filter By Categories that have no recipes -> on category page, shouldn't be seen
+    1.
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

@@ -37,7 +37,7 @@ class CategoryController extends \BaseController {
         $category = \Category::where('name', '=', $category)->first();
 
         $category->name = $input['name'];
-        if($input['related_recipe_id']){
+        if(isset($input['related_recipe_id'])){
             $category->related_recipe_id = $input['related_recipe_id'];
         }
 

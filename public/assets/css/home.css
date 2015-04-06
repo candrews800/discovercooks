@@ -75,7 +75,7 @@
   position: relative;
   display: block;
   height: 130px;
-  padding: 5px;
+  padding: 8px;
   overflow: hidden;
   color: transparent;
   text-align: center;
@@ -83,7 +83,8 @@
   .recipe-category img {
     width: auto;
     max-height: 175px;
-    position: absolute; }
+    position: absolute;
+    margin-top: -15px; }
   .recipe-category span {
     display: block;
     margin-top: 25%; }

@@ -27,7 +27,6 @@
 
 #ingredient-list{
     list-style-type: none;
-    cursor: move;
     padding: 0;
     .btn{
       margin-left: 5px;
@@ -39,7 +38,6 @@
 
 #directions-list{
   list-style: decimal inside;
-  cursor: move;
   padding: 0;
   .btn{
     margin-left: 5px;
@@ -47,6 +45,10 @@
   li{
     padding: 5px 0;
   }
+}
+
+.directions-move, .ingredients-move{
+  cursor: move;
 }
 
 @media (max-width: $screen-xs-max) {

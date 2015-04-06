@@ -1,6 +1,8 @@
 $(function() {
     $( "#directions-list" ).sortable({
-        items: "li:not(.helper)"
+        items: "li:not(.helper)",
+        handle: '.directions-move',
+        cursor: 'move'
     });
     $( "#directions-list" ).on( "sortupdate", function( event, ui ) {
         deleteDirectionHelper();

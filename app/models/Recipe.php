@@ -48,6 +48,8 @@ class Recipe extends Eloquent{
             $this->image = '';
         }
 
+        $this->reviewed = 0;
+
         $this->save();
 
         return $this;

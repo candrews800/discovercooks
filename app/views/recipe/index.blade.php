@@ -13,7 +13,13 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="upper-menu">
-                            @if($recipe->reviewed == 0)
+                            @if($recipe->private == 1)
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>This recipe is private and can only be seen by you.</strong><br />
+                                    Note: You can change it's status to public by <a href="{{ url(Request::url().'/edit') }}">editing</a> the recipe.
+                                </div>
+                            @elseif($recipe->reviewed == 0)
                                 <div class="alert alert-warning alert-dismissible" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>This recipe can only be seen by you as it is currently under review.</strong><br />
@@ -23,7 +29,7 @@
                                 <div class="alert alert-danger alert-dismissible" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>We're sorry. This recipe did not pass the review and can only be seen by you.</strong><br />
-                                    Please make ensure you are following our recipe guidelines before trying to resubmit.
+                                    Please make ensure you are following our <a href="{{ url('recipe-guidelines') }}">recipe guidelines</a> before trying to resubmit.
                                 </div>
                             @endif
                             <div class="row">

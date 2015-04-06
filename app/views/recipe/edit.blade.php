@@ -180,7 +180,7 @@
                         </div>
                     </div>
                     <div id="ingredient-header" class="col-xs-12">
-                        <h3>Ingredients <small class="text-muted">Note: Drag items to reorder.</small></h3>
+                        <h3>Ingredients</h3>
                         <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('ingredients')) }}">
                             <input id="ingredients" type="hidden" name="ingredients" value="{{ $recipe->ingredients }}" />
                             <div class="row">
@@ -213,14 +213,14 @@
                         <ul id="ingredient-list">
                             @if(($ingredients_list = Input::old('ingredients')) || ($ingredients_list = $recipe->ingredients))
                                 @foreach(explode("<>", $ingredients_list) as $ingredient)
-                                    <li class="clearfix"><span>{{{ $ingredient }}}</span> <a class="ingredient-delete pull-right btn btn-danger btn-xs" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="ingredient-edit pull-right btn btn-xs btn-warning" href="#"><i class="glyphicon glyphicon-pencil"></i></a></li>
+                                    <li class="clearfix"><span>{{{ $ingredient }}}</span> <a class="ingredient-delete pull-right btn btn-danger btn-xs" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="ingredient-edit pull-right btn btn-xs btn-warning" href="#"><i class="glyphicon glyphicon-pencil"></i></a> <a class="ingredients-move pull-right btn btn-xs btn-info" href="#"><i class="glyphicon glyphicon-move"></i></a></li>
                                 @endforeach
                             @endif
                         </ul>
                     </div>
 
                     <div class="col-xs-12">
-                        <h3>Directions <small class="text-muted">Note: Drag items to reorder.</small></h3>
+                        <h3>Directions</h3>
                         <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('directions')) }}">
                         <input id="directions" type="hidden" name="directions" value="{{ $recipe->directions }}" />
                             <div class="row">
@@ -244,7 +244,7 @@
                         <ul id="directions-list">
                             @if(($directions_list = Input::old('directions')) || ($directions_list = $recipe->directions))
                                 @foreach(explode("<>", $directions_list) as $directions)
-                                    <li><span>{{{ $directions }}}</span> <a class="directions-delete pull-right btn btn-danger btn-xs" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="directions-edit pull-right btn btn-xs btn-warning" href="#"><i class="glyphicon glyphicon-pencil"></i></a></li>
+                                    <li><span>{{{ $directions }}}</span> <a class="directions-delete pull-right btn btn-danger btn-xs" href="#"><i class="glyphicon glyphicon-remove"></i></a> <a class="directions-edit pull-right btn btn-xs btn-warning" href="#"><i class="glyphicon glyphicon-pencil"></i></a> <a class="directions-move pull-right btn btn-xs btn-info" href="#"><i class="glyphicon glyphicon-move"></i></a></li>
                                 @endforeach
                             @endif
                         </ul>
@@ -263,10 +263,8 @@
                     </div>
 
                     <div class="col-xs-12">
-                        <h3>Rules</h3>
-                        <p><strong>Duplicate Recipes:</strong> Please check to ensure this recipe has not been created already. We try to keep all recipes on discoverCooks unique.</p>
-                        <p><strong>Copyright Recipes:</strong> If you’re getting this recipe from another source, please ensure that only the ingredients and directions are copied. Copying images,
-                            descriptions and/or non-essential information to the recipe is illegal.</p>
+                        <h3>Recipe Guidelines</h3>
+                        <p>Please read and follow our <a href="{{ url('recipe-guidelines') }}">Recipe Guidelines</a> in order for your recipes to be passed by our review process if you are wishing for others to view it. </p>
                     </div>
 
                     <div class="col-xs-12">

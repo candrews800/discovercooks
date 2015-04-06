@@ -2,9 +2,7 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1. After Editing Denied Recipe it doesn't show that it is back in the queue
-    2. Filter By Categories that have no recipes -> on category page, shouldn't be seen
-    3. Cant scroll on phone on edit recipe
+    1. Filter By Categories that have no recipes -> on category page, shouldn't be seen
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
@@ -33,7 +31,7 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    1. Category Images
+    1. Category Images - Stock Photos
     2. Forum Guidelines
     3. Recipe Header Links
 

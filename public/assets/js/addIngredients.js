@@ -35,7 +35,10 @@ function isValidQuantity(num){
 }
 
 $(function() {
-    $( "#ingredient-list" ).sortable();
+    $( "#ingredient-list" ).sortable({
+        handle: '.ingredients-move',
+        cursor: 'move'
+    });
     $( "#ingredient-list" ).on( "sortupdate", function( event, ui ) {
         deleteIngredientHelper();
         setIngredientInput()

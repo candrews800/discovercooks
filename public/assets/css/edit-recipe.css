@@ -20,7 +20,6 @@
 
 #ingredient-list {
   list-style-type: none;
-  cursor: move;
   padding: 0; }
   #ingredient-list .btn {
     margin-left: 5px; }
@@ -29,12 +28,14 @@
 
 #directions-list {
   list-style: decimal inside;
-  cursor: move;
   padding: 0; }
   #directions-list .btn {
     margin-left: 5px; }
   #directions-list li {
     padding: 5px 0; }
+
+.directions-move, .ingredients-move {
+  cursor: move; }
 
 @media (max-width: 767px) {
   h1 {

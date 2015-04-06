@@ -2,10 +2,9 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1. Ad size not being computed before masonry effect goes in
-    2. After Editing Denied Recipe it doesn't show that it is back in the queue
-    3. Filter By Categories that have no recipes -> on category page, shouldn't be seen
-    4. Cant scroll on phone on edit recipe
+    1. After Editing Denied Recipe it doesn't show that it is back in the queue
+    2. Filter By Categories that have no recipes -> on category page, shouldn't be seen
+    3. Cant scroll on phone on edit recipe
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

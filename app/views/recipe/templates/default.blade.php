@@ -223,7 +223,7 @@
             <div id="search-results" class="col-xs-12">
                 <div class="row">
                     @foreach ($related_recipes as $key=>$related_recipe)
-                        @if($key == 2 || $key== 6 || $key==8)
+                        @if($key == 6 || $key== 12 || $key == 18)
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <!-- Responsive -->
@@ -248,9 +248,12 @@
 @include('style.layout.footer')
 
 <script>
-    var msnry = $('#search-results .row').masonry({
-        itemSelector: '.masonry-item'
+    $(function(){
+        var msnry = $('#search-results .row').masonry({
+            itemSelector: '.masonry-item'
+        });
     });
+
 
     function addItems(ajaxResponse){
         var loadedHtml = $.parseHTML(ajaxResponse);

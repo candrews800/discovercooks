@@ -4,7 +4,11 @@
 
 @include('style.layout.header')
 <div id="header-wrap">
+    @if($category->related_recipe_id != 0)
     <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($recipes) }}></div>
+    @else
+    <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($default_bg_recipes) }}></div>
+    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-lg-8 col-lg-offset-2">
@@ -28,6 +32,8 @@
                         </div>
                     </div>
                 </div>
+                @else
+                    <div style="min-height: 150px; width: 100%;"></div>
                 @endif
             </div>
         </div>
@@ -68,34 +74,38 @@
     <div class="container-fluid">
         <div class="row">
             <div id="search-results" class="col-xs-12" >
-                <div class="row">
-                    @foreach($recipes as $key=>$recipe)
-                        @if($key == 6 || $key== 12 || $key== 18)
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
-                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <!-- Responsive -->
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-4150481864914949"
-                                     data-ad-slot="4304871710"
-                                     data-ad-format="auto"></ins>
-                                <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
-                        @endif
-                        {{ ViewHelper::addRecipe($recipe) }}
-                    @endforeach
+                    @if(!$recipes->isEmpty())
+                    <div class="row">
+                        @foreach($recipes as $key=>$recipe)
+                            @if($key == 6 || $key== 12 || $key== 18)
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                    <!-- Responsive -->
+                                    <ins class="adsbygoogle"
+                                         style="display:block"
+                                         data-ad-client="ca-pub-4150481864914949"
+                                         data-ad-slot="4304871710"
+                                         data-ad-format="auto"></ins>
+                                    <script>
+                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+                                </div>
+                            @endif
+                            {{ ViewHelper::addRecipe($recipe) }}
+                        @endforeach
+                    </div>
+                        <div class="col-xs-12 text-center">
+                            <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
+                        </div>
+
+                    @else
+                        <p class="none-found">
+                            There are no recipes currently in this category. Submit yours today to be the first!
+                        </p>
+                    @endif
                 </div>
             </div>
 
-            <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

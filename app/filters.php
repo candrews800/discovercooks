@@ -166,7 +166,7 @@ View::composer('*', function($view)
 		$sort = Input::get('sort');
 	}
 
-	$default_bg_recipes = Recipe::take(3)->get();
+	$default_bg_recipes = Recipe::take(6)->where('approved', '=', '1')->get();
 
 	$view->with(array(
 		'top_categories' => $top_categories,

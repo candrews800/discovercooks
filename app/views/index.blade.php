@@ -83,6 +83,7 @@
         msnry.masonry({
             itemSelector: '.masonry-item'
         });
+        console.log('images loaded')
     });
 
     function addItems(ajaxResponse){

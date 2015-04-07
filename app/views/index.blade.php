@@ -186,7 +186,7 @@
                     settings: {
                         arrows: false,
                         centerPadding: '0',
-                        slidesToShow: 2
+                        slidesToShow: 3
                     }
                 }
             ]

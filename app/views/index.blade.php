@@ -74,12 +74,8 @@
 
 <script>
     $(function(){
-        var msnry = $('#search-results .row').masonry({
-            itemSelector: '.masonry-item'
-        });
-
-        msnry.imagesLoaded(function(){
-            msnry.masonry({
+        $('#search-results .row').imagesLoaded(function(){
+            $('#search-results .row').masonry({
                 itemSelector: '.masonry-item'
             });
             console.log('images loaded')

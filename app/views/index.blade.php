@@ -77,13 +77,13 @@
         var msnry = $('#search-results .row').masonry({
             itemSelector: '.masonry-item'
         });
-    });
 
-    msnry.imagesLoaded(function(){
-        msnry.masonry({
-            itemSelector: '.masonry-item'
+        msnry.imagesLoaded(function(){
+            msnry.masonry({
+                itemSelector: '.masonry-item'
+            });
+            console.log('images loaded')
         });
-        console.log('images loaded')
     });
 
     function addItems(ajaxResponse){

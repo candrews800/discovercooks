@@ -33,6 +33,8 @@
     margin-left: 5px; }
   #directions-list li {
     padding: 5px 0; }
+  #directions-list span {
+    max-width: 75%; }
 
 .directions-move, .ingredients-move {
   cursor: move; }

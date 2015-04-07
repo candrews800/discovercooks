@@ -2,13 +2,17 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1.
+    1. When text is in forum box, quote wont work
+    2. Trigger Masonry after ads load
+    3. Direction Length going into Action bar in edit recipe
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
     1. Forum Post Locks
+    2. Newsletter Signup
+    3. Add Social Media Links
 
 ****************************************************************************************
 **  STYLE TO DO LIST
@@ -31,7 +35,7 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    2. Forum Guidelines
+    1. Forum Guidelines
 
 ****************************************************************************************
 **  MARKETING TO DO LIST
@@ -54,6 +58,13 @@
         b. Ticket for Posting Review Image
         c. Ticket for Helpful Review
     4. Compress Images (Imagick?)
+    5. Payment Rework
+        Tickets for All
+        80% of revenue into pot
+        Actions earn tickets based on how valuable they are
+        earn by tickets earned / total tickets
+
+        Overall Stats + Weekly Tickets
 
 ****************************************************************************************
 **  FUTURE TO DO LIST
@@ -63,3 +74,4 @@
     2. Forum Moderators
     3. Ban Users
     4. Achievements
+    5. Tiers for Users

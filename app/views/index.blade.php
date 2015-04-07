@@ -44,9 +44,12 @@
                     @foreach($recipes as $key=>$recipe)
                         @if($key == 6 || $key== 12 || $key==18)
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+                                <style type="text/css">
+                                    .adslot_1 { width: 345px; height: 280px; }
+                                </style>
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <!-- Responsive -->
-                                <ins class="adsbygoogle"
+                                <ins class="adsbygoogle adslot_1"
                                      style="display:block"
                                      data-ad-client="ca-pub-4150481864914949"
                                      data-ad-slot="4304871710"

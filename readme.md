@@ -2,8 +2,7 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1. When text is in forum box, quote wont work
-    2. Trigger Masonry after ads load
+    1. Trigger Masonry after ads load
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

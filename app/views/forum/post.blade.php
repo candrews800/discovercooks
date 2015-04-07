@@ -18,7 +18,9 @@
     <div id="reply-header" class="clearfix">
         <div class="col-xs-2">
             <p>
-                @if(Auth::guest())
+                @if($post->locked)
+                    <a class="btn btn-info" href="#add-reply" disabled>Locked</a>
+                @elseif(Auth::guest())
                     <a href="#" data-toggle="modal" data-target="#guest-login-modal" class="btn btn-info">Add Reply</a>
                 @else
                     <a class="btn btn-info" href="#add-reply">Add Reply</a>
@@ -63,7 +65,7 @@
                             <p class="text-muted">
                                 {{ $post->shortDate() }}
                             </p>
-                            @if(Auth::id())
+                            @if(Auth::id() && (!$post->locked || Auth::user()->hasRole('Admin')))
                                 <p>
                                     @if($post->author_id == Auth::id() || Auth::user()->hasRole('Admin'))
                                         <a href="{{ Request::url() }}/edit" class="btn btn-sm btn-success">Edit</a>
@@ -80,6 +82,11 @@
                                             <a href="{{ Request::url() }}/removeSticky" class="btn btn-sm btn-warning">Remove Sticky</a>
                                         @else
                                             <a href="{{ Request::url() }}/addSticky" class="btn btn-sm btn-warning">Make Sticky</a>
+                                        @endif
+                                        @if($post->locked)
+                                            <a href="{{ Request::url() }}/removeLocked" class="btn btn-sm btn-warning">Remove Locked</a>
+                                        @else
+                                            <a href="{{ Request::url() }}/addLocked" class="btn btn-sm btn-warning">Make Locked</a>
                                         @endif
                                     @endif
                                 </p>
@@ -120,7 +127,7 @@
                                 <p class="text-muted">
                                     {{ $reply->shortDate() }}
                                 </p>
-                                @if(Auth::id())
+                                @if(Auth::id() && (!$post->locked || Auth::user()->hasRole('Admin')))
                                     <p>
                                         @if($reply->author_id == Auth::id() || Auth::user()->hasRole('Admin'))
                                             <a href="{{ url('forum/reply/'.$reply->id) }}" class="btn btn-sm btn-success">Edit</a>
@@ -146,7 +153,9 @@
     </div>
 
     <div id="add-reply" class="col-xs-12">
-        @if(Auth::guest())
+        @if($post->locked)
+            <a class="btn btn-info" href="#add-reply" disabled>Locked</a>
+        @elseif(Auth::guest())
             <div class="row">
                 <div class="col-xs-12">
                     <a href="#" data-toggle="modal" data-target="#guest-login-modal" class="btn btn-info">Add Reply</a>

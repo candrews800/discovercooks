@@ -95,4 +95,18 @@ class PostController extends \BaseController {
 
         return \Redirect::back();
     }
+
+    public function addLocked(\ForumPost $post){
+        $post->locked = 1;
+        $post->save();
+
+        return \Redirect::back();
+    }
+
+    public function removeLocked(\ForumPost $post){
+        $post->locked = 0;
+        $post->save();
+
+        return \Redirect::back();
+    }
 }

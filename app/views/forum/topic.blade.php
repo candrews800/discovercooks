@@ -52,7 +52,18 @@
                     <a href="{{ url('forum/post/'.$post->id) }}" class="list-group-item">
                         <div class="row">
                             <div class="col-xs-5">
-                                <h4 class="list-group-item-heading"><strong class="text-success">{{ $post->title }}</strong></h4>
+
+                                <h4 class="list-group-item-heading">
+                                    <strong class="text-success">
+                                        {{ $post->title }}
+                                        @if($post->sticky)
+                                            <small><i class="glyphicon glyphicon-flag"></i></small>
+                                        @endif
+                                        @if($post->locked)
+                                            <small><i class="glyphicon glyphicon-lock"></i></small>
+                                        @endif
+                                    </strong>
+                                </h4>
                                 <p class="list-group-item-text text-muted"><small>{{ substr(strip_tags($post->text), 0, 150) }}..</small></p>
                             </div>
                             <div class="col-xs-2">

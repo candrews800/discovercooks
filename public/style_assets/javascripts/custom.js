@@ -267,5 +267,5 @@ $('.add-quote').click(function(event){
     var text = $(this).parent().parent().parent().find('.reply-content').text();
     console.log($(this).parent().parent().parent().find('.reply-content'));
 
-    $('#reply-textarea').append('[bq]' + text + '[/bq]');
+    $('#reply-textarea').val($('#reply-textarea').val() + '[bq]' + text + '[/bq]');
 });

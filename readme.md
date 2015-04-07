@@ -4,7 +4,6 @@
 
     1. When text is in forum box, quote wont work
     2. Trigger Masonry after ads load
-    3. Direction Length going into Action bar in edit recipe
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST

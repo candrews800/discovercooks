@@ -79,6 +79,12 @@
         });
     });
 
+    msnry.imagesLoaded(function(){
+        msnry.masonry({
+            itemSelector: '.masonry-item'
+        });
+    });
+
     function addItems(ajaxResponse){
         var loadedHtml = $.parseHTML(ajaxResponse);
         console.log(loadedHtml);

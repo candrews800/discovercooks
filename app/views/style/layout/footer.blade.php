@@ -35,11 +35,14 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-0 text-left text-center-xs text-center-sm text-center-md">
                     <h5>SIGN UP FOR OUR NEWSLETTER</h5>
-                    <form >
+                    @if($email = Session::pull('newsletter_signup_success'))
+                        <p class="text-success">{{ $email }} was added to the newsletter.</p>
+                    @endif
+                    <form action="{{ url('newsletter_signup') }}" method="post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter your email...">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email..." required >
                             <span class="input-group-btn">
-                                <button class="btn btn-info" type="button">Sign up</button>
+                                <input class="btn btn-info" type="submit" value="Sign Up">
                             </span>
                         </div>
                     </form>

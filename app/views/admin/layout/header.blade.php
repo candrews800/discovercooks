@@ -158,6 +158,9 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="{{ url('admin/newsletter') }}"><i class="fa fa-envelope fa-fw"></i> Newsletter</a>
+                    </li>
+                    <li>
                         <a href="#"><i class="fa fa-gears fa-fw"></i> Admin<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>

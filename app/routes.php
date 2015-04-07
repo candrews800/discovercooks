@@ -35,6 +35,8 @@ Route::get('style', array('uses' => 'HomeController@style'));
 Route::get('contact', array('uses' => 'HomeController@contact', 'after' => 'site_view'));
 Route::post('contact', array('before' => 'csrf', 'uses' => 'HomeController@sendContact'));
 
+Route::post('newsletter_signup', array('uses' => 'NewsletterController@add'));
+
 // Search routes
 Route::group(array('prefix' => 'search'), function(){
     Route::get('{i?}/user', array('uses' => 'SearchController@displayUserSearchResults', 'after' => 'site_view'));
@@ -158,6 +160,8 @@ Route::group(array('prefix' => 'forum'), function() {
 // Admin routes
 Route::group(array('prefix' => 'admin'), function(){
     Route::get('/', array('uses' => 'admin\AdminController@index'));
+
+    Route::get('newsletter', array('uses' => 'admin\NewsletterController@index'));
 
     Route::group(array('prefix' => 'content'), function(){
         Route::get('home', array('uses' => 'admin\ContentController@home'));

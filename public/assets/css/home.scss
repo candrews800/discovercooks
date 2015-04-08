@@ -104,8 +104,37 @@
     margin: 0 0 12px 0px;
     text-transform: uppercase;
     width: 50%;
+
+    a{
+      color: white;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+
+  .btn{
+    text-transform: uppercase;
+  }
+}
+
+.caption-style-3{
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  padding-left: 40px;
+
+  h1{
+    font-size: 50px;
+    margin: 0 0 5px 0px;
+    text-transform: uppercase;
+    width: 50%;
+    font-weight: bold;
     &:first-line{
-      font-weight: bold;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: 5px;
     }
 
     a{

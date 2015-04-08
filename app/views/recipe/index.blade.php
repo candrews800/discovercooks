@@ -45,7 +45,15 @@
                                     <p class="recipe-details">
                                     by <a class="author" href="{{ url('profile/'.$author->username) }}">{{{ $author->username }}}</a>
                                     on <span class="text-muted"><em><small>{{ $recipe->created_at->format('M d, Y') }}</small></em></span>
-                                    in <a class="category" href="{{ url('category/'.$category->name) }}">{{{ $category->name }}}</a>
+                                    in
+                                        @foreach($categorys as $key=>$related_category)
+                                            @if($key<sizeof($categorys) - 1)
+                                                <a class="category" href="{{ url('category/'.$related_category->name) }}">{{{ $related_category->name }}}</a>,
+                                            @else
+                                                <a class="category" href="{{ url('category/'.$related_category->name) }}">{{{ $related_category->name }}}</a>
+                                            @endif
+                                        @endforeach
+
                                     </p>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 hidden-xs">

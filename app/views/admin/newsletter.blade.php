@@ -16,6 +16,4 @@
 </div>
 <!-- /.row -->
 
-
-
 @include('admin.layout.footer')

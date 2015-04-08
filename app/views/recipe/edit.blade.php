@@ -75,18 +75,14 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
-                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('category')) }}">
-                            <label for="recipe-url">
-                                Related Category*
-                                @if($errors->first('category'))
-                                    <small class="text-danger">{{ $errors->first('category') }}</small>
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('servings')) }}">
+                            <label for="recipe-servings">
+                                Servings*
+                                @if($errors->first('servings'))
+                                    <small class="text-danger">{{ $errors->first('servings') }}</small>
                                 @endif
                             </label>
-                            @if($recipe->category)
-                                {{ Form::select('category', $categories, $recipe->category->id, array('id' => 'recipe-category', 'class' => 'form-control')) }}
-                            @else
-                                {{ Form::select('category', $categories, null, array('id' => 'recipe-category', 'class' => 'form-control')) }}
-                            @endif
+                            {{ Form::selectRange('servings', 0, 60, $recipe->servings, array('class' => 'form-control')) }}
                         </div>
                     </div>
 
@@ -152,17 +148,35 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('servings')) }}">
-                            <label for="recipe-servings">
-                                Servings*
-                                @if($errors->first('servings'))
-                                    <small class="text-danger">{{ $errors->first('servings') }}</small>
+                    <div class="col-xs-12">
+                        <div class="form-group {{ ViewHelper::addClass('has-error', $errors->first('category')) }}">
+                            <label for="recipe-url">
+                                Related Category(s)*
+                                @if($errors->first('category'))
+                                    <small class="text-danger">{{ $errors->first('category') }}</small>
                                 @endif
                             </label>
-                            {{ Form::selectRange('servings', 0, 60, $recipe->servings, array('class' => 'form-control')) }}
+                            <div class="row">
+                                @foreach($categories as $category)
+                                    <div class="col-xs-12 col-col-sm-6 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @if(in_array($category->id, explode(',',$recipe->category)))
+                                                <input name="categorys[]" type="checkbox" value="{{ $category->id }}" checked="checked">
+                                                @else
+                                                <input name="categorys[]" type="checkbox" value="{{ $category->id }}">
+                                                @endif
+                                                {{ $category->name }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
                         </div>
                     </div>
+
+
 
                     <div class="col-xs-12">
                         <label class="input-label" for="recipe-privacy">Privacy*</label>

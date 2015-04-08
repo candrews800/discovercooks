@@ -6,7 +6,7 @@ class Recipe extends Eloquent{
         'name' => 'required|max:75',
         'description' => 'required',
         'url' => 'url',
-        'category' => 'required|not_in:0',
+        'categorys' => 'required|array',
         'prep_time' => 'required|numeric|max:999',
         'cook_time' => 'required|numeric|max:999',
         'total_time' => 'required|numeric|max:999',
@@ -28,7 +28,7 @@ class Recipe extends Eloquent{
         $this->author_id = Auth::id();
         $this->private = $input['private'];
         $this->description = $input['description'];
-        $this->category = $input['category'];
+        $this->category = implode(',',$input['categorys']);
         $this->servings = $input['servings'];
         $this->prep_time = $input['prep_time'] . " " . $input['prep_time_type'];
         $this->cook_time = $input['cook_time'] . " " . $input['cook_time_type'];

@@ -99,7 +99,7 @@ class CategoryController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::where('category', '=', $category->id)
+        $recipes = Recipe::whereRaw('find_in_set('.$category->id.',category) <> 0')
             ->where(function($query){
                 $query->where('private', '=', 0)
                     ->orWhere('author_id', '=', Auth::id());
@@ -110,7 +110,8 @@ class CategoryController extends BaseController {
             })
             ->orderBy($orderBy, 'desc')
             ->take(24)->get();
-        $total_recipes = Recipe::where('category', '=', $category->id)->count();
+
+        $total_recipes = Recipe::whereRaw('find_in_set('.$category->id.',category) <> 0')->count();
 
         foreach($recipes as $recipe){
             $recipe->category = $category;
@@ -139,7 +140,7 @@ class CategoryController extends BaseController {
             $orderBy = 'subscriber_count';
         }
 
-        $recipes = Recipe::where('category', '=', $category->id)
+        $recipes = Recipe::whereRaw('find_in_set('.$category->id.',category) <> 0')
             ->where(function($query){
                 $query->where('private', '=', 0)
                     ->orWhere('author_id', '=', Auth::id());

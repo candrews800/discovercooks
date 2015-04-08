@@ -8,25 +8,23 @@
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
-    1. Newsletter Signup
-    2. Add Social Media Links
+    1. Recipe Multiple Categories
+    2. Review Image
+    3. Add Social Media Links
+    4. Image + Reviews Modal
+    5. Compress Images (Imagick?)
+    6. Blog + Comments
 
 ****************************************************************************************
 **  STYLE TO DO LIST
 ****************************************************************************************
 
-    1. Add Discover Cooks Section
-        a. Setup Menu Bar
-        b. New index page
-            i. featured
-            ii. top rated
-            iii. quantity
-    2. Redesign
+    1. Redesign
         a. Home Page
             i. Style of Banner Typography different for each banner
-    4. Welcome Email Style
-    5. Forget / Reset Password Email Style
-    6. Default Email Template Style
+    2. Default Email Template Style
+    3. Welcome Email Style
+    4. Forget / Reset Password Email Style
 
 ****************************************************************************************
 **  CONTENT TO DO LIST
@@ -48,27 +46,22 @@
 **  SHORT TERM TO DO LIST
 ****************************************************************************************
 
-    1. Recipe Tags
-    2. Review Image
-    3. Review Earn Money Rework
-        a. Ticket for Posting Review
-        b. Ticket for Posting Review Image
-        c. Ticket for Helpful Review
-    4. Compress Images (Imagick?)
-    5. Payment Rework
+    1. Payment Rework
         Tickets for All
         80% of revenue into pot
         Actions earn tickets based on how valuable they are
         earn by tickets earned / total tickets
-
         Overall Stats + Weekly Tickets
+    2. Blog Style Recipe Submission
 
 ****************************************************************************************
 **  FUTURE TO DO LIST
 ****************************************************************************************
 
-    1. Permission Based Admin
-    2. Forum Moderators
-    3. Ban Users
-    4. Achievements
-    5. Tiers for Users
+    1. Discover Section
+    2. Permission Based Admin
+    3. Forum Moderators
+    4. Ban Users
+    5. Achievements
+    6. Tiers for Users
+    7. Recipe Submit/Edit Walkthrough

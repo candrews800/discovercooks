@@ -20,7 +20,7 @@ class RecipeController extends BaseController {
         if(!$recipe){
             $recipe = new Recipe();
         }
-        $categories = Category::getSelectList();
+        $categories = Category::all();
         $author = User::find($recipe->author_id);
 
         if($recipe->prep_time){
@@ -39,11 +39,6 @@ class RecipeController extends BaseController {
             $total_time = explode(' ', $recipe->total_time);
             $recipe->total_time = $total_time[0];
             $recipe->total_time_type = $total_time[1];
-        }
-
-        $recipe->category = Category::find($recipe->category);
-        if(!isset($recipe->category->name)){
-            $recipe->category = new Category();
         }
 
         return View::make('recipe.edit')->with(array(
@@ -125,9 +120,8 @@ class RecipeController extends BaseController {
         }
         $author = User::find($recipe->author_id);
         Event::fire('recipe_view', array($recipe, 'user_id' => $author->id));
-        $category = Category::find($recipe->category);
-        if(!isset($category->name)){
-            $category = new Category();
+        foreach(explode(',',$recipe->category) as $category){
+            $categorys[] = Category::find($category);
         }
         $reviews = Review::where('recipe_id', '=', $recipe->id)->take(Review::$defaultReviewCount)->get();
         $total_reviews = Review::where('recipe_id', '=', $recipe->id)->count();
@@ -145,8 +139,8 @@ class RecipeController extends BaseController {
         if($reviews->isEmpty()){
             return View::make('recipe.index')->with(array(
                 'recipe' => $recipe,
+                'categorys' => $categorys,
                 'author' => $author,
-                'category' => $category,
                 'reviews' => $reviews,
                 'user_review' => $user_review,
                 'total_reviews' => $total_reviews,
@@ -205,7 +199,7 @@ class RecipeController extends BaseController {
         return View::make('recipe.index')->with(array(
             'recipe' => $recipe,
             'author' => $author,
-            'category' => $category,
+            'categorys' => $categorys,
             'reviews' => $reviews,
             'total_reviews' => $total_reviews,
             'user_review' => $user_review,

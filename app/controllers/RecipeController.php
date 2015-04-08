@@ -195,6 +195,10 @@ class RecipeController extends BaseController {
         $review_distribution[4] = Review::where('recipe_id', '=', $recipe->id)->where('rating', '=', '4')->count() / $review_distribution['total'] * 100;
         $review_distribution[5] = Review::where('recipe_id', '=', $recipe->id)->where('rating', '=', '5')->count() / $review_distribution['total'] * 100;
 
+        $reviews_with_pictures = Review::where('image', '<>', '')->get();
+        foreach($reviews_with_pictures as $review){
+            $review->user = User::find($review->reviewer_id);
+        }
 
         return View::make('recipe.index')->with(array(
             'recipe' => $recipe,
@@ -206,7 +210,8 @@ class RecipeController extends BaseController {
             'positive_review' => $positive_review,
             'critical_review' => $critical_review,
             'review_distribution' => $review_distribution,
-            'related_recipes' => $related_recipes
+            'related_recipes' => $related_recipes,
+            'reviews_with_pictures' => $reviews_with_pictures
         ));
     }
 }

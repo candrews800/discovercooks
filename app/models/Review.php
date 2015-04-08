@@ -19,6 +19,15 @@ class Review extends Eloquent{
             $review = $review_db;
         }
 
+        if (isset($input['review_image_values'])){
+            $image_data = Image::getFrom64($input['review_image_values']);
+            $review->image = Auth::user()->username . '-' . $review->recipe_id . '.' . $image_data['extension'];
+            Image::store64($image_data['data'], $review->image, 'review_images');
+        }
+        if($review->image && !isset($input['review_image_values']) && !empty($input['review_image'])){
+            $review->image = '';
+        }
+
         $review->rating = $input['rating'];
         $review->text = $input['text'];
 

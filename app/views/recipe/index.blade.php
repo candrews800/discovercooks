@@ -68,7 +68,68 @@
                         <div class="row">
                             <div class="recipe-info">
                                 <div class="col-xs-12 col-md-7 col-lg-8">
-                                    <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
+                                    @if($reviews_with_pictures->isEmpty())
+                                        <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
+                                    @else
+                                        <a id="main-image-show-reviews" data-toggle="modal" data-target="#review-image-view-modal">
+                                            <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
+                                            <span><i class="glyphicon glyphicon-camera"></i> {{ sizeof($reviews_with_pictures) }} Photos</span>
+                                        </a>
+                                        <!-- Review Image Modal -->
+                                        <div class="modal" id="review-image-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header clearfix">
+                                                        <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                                                    </div>
+                                                    <div class="modal-body clearfix">
+                                                        <h5><strong>Photos for {{ $recipe->name }}</strong> <small class="pull-right"><span id="current-recipe-photo">1</span> of {{ sizeof($reviews_with_pictures)+1 }}</small></h5>
+                                                        <div class="row">
+                                                            <div id="recipe-photos">
+                                                                <div class="recipe-review">
+                                                                    <div class="col-xs-12">
+                                                                        <img class="img-responsive recipe-photo-single" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
+                                                                    </div>
+                                                                    <div class="hidden-xs col-sm-3">
+                                                                        <a href="{{ url('profile/'.$author->username) }}">
+                                                                            <img src="{{ url(ViewHelper::getUserImage($author->image)) }}" class="img-responsive" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-9">
+                                                                        <p class="clearfix"><a href="{{ url('profile/'.$author->username) }}" class="pull-left">{{ $author->username }}</a></p>
+                                                                        <p class="text-justify">
+                                                                            {{ $recipe->description }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                @foreach($reviews_with_pictures as $review)
+                                                                    <div class="recipe-review">
+                                                                        <div class="col-xs-12">
+                                                                            <img class="img-responsive recipe-photo-single" data-lazy="{{ url(ViewHelper::getRecipeImage($review->image, 'review_images')) }}" />
+                                                                        </div>
+                                                                        <div class="hidden-xs col-sm-3">
+                                                                            <a href="{{ url('profile/'.$review->user->username) }}">
+                                                                                <img src="{{ url(ViewHelper::getUserImage($review->user->image)) }}" class="img-responsive" />
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="col-xs-12 col-sm-9">
+                                                                            <p class="clearfix">
+                                                                                <a href="{{ url('profile/'.$review->user->username) }}" class="pull-left">{{ $review->user->username }}</a>
+                                                                                <span class="ratings clearfix pull-right">{{ ViewHelper::addRatingImages($review->rating) }}</span>
+                                                                            </p>
+                                                                            <p class="text-justify">
+                                                                                {{ $review->text }}
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="col-xs-12 col-md-5 col-lg-4">
                                     <div class="row">
@@ -185,6 +246,35 @@
 @section('javascript')
 <script src="{{ url('assets/readmore/readmore.min.js') }}"></script>
 <script src="{{ url('assets/js/initReadMore.js') }}"></script>
+
+<script>
+    var review_image_view_modal = false;
+    $( "#review-image-view-modal" ).on('shown.bs.modal', function(){
+        if(!review_image_view_modal){
+            $('#recipe-photos').slick({
+                speed: 0,
+                lazyLoad: 'ondemand'
+            });
+            review_image_view_modal = true
+        }
+    });
+
+    $('#review-image-view-modal').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        $('#current-recipe-photo').text(currentSlide+1);
+    });
+</script>
+
+<style>
+    .slick-prev:before, .slick-next:before{
+        color: #333;
+    }
+    .slick-next{
+        right: 15px;
+    }
+    .slick-prev{
+        left: 15px;
+    }
+</style>
 
 <script>
     $('#add-remove-recipe').click(function(event){

@@ -170,7 +170,7 @@
                                                 <img id="review-avatar" class="img-responsive" src="{{ url(ViewHelper::getUserImage(Auth::user()->image)) }}" />
                                             </div>
                                             <div class="col-xs-12 col-sm-10">
-                                                {{ Form::open(array('url' => 'recipe/'.$recipe->slug.'/addReview')) }}
+                                                {{ Form::open(array('url' => 'recipe/'.$recipe->slug.'/addReview', 'files' => true)) }}
                                                 <div class="row">
                                                     <div class="col-xs-12 col-sm-3">
                                                         <div id="recipe-rating">
@@ -180,6 +180,39 @@
                                                                 <input type="hidden" name="rating" value="0" />
                                                             @endif
                                                             {{ ViewHelper::addRatingImages($user_review->rating) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-9 text-right">
+                                                        @if($user_review->image)
+                                                            <a id="review-image-btn" class="btn btn-sm btn-default" data-toggle="modal" data-target="#review-image-modal">View My Recipe Photo <i class="glyphicon glyphicon-edit"></i> </a>
+                                                        @else
+                                                            <a id="review-image-btn" class="btn btn-sm btn-default" data-toggle="modal" data-target="#review-image-modal">Add Recipe Photo <i class="glyphicon glyphicon-plus"></i> </a>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <!-- Review Image Modal -->
+                                                <div class="modal" id="review-image-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header clearfix">
+                                                                <a class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></a>
+                                                            </div>
+                                                            <div class="modal-body clearfix">
+                                                                @if($user_review->image)
+                                                                <h3>Edit Recipe Review Image</h3>
+                                                                @else
+                                                                <h3>Add Recipe Review Image</h3>
+                                                                @endif
+                                                                <p>Did you cook this recipe? Share with others what you made!</p>
+                                                                @if($user_review->image)
+                                                                <div id="review-image-input" class="dropzone" data-width="640" data-image="{{ url('review_images/'.$user_review->image) }}" data-ajax="false" data-height="360" data-resize="true" style="width: 100%; height: auto">
+                                                                @else
+                                                                <div id="review-image-input" class="dropzone" data-width="640" data-ajax="false" data-height="360" data-resize="true" style="width: 100%; height: auto">
+                                                                @endif
+                                                                    <input type="file" name="review_image" value="{{ $user_review->image }}" />
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -246,6 +279,34 @@
 </div>
 
 @include('style.layout.footer')
+<script src="{{ url('assets/touchpunch/touchpunch.min.js') }}"></script>
+
+<script src="{{ url('assets/html5imageupload/js/html5imageupload.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url('assets/html5imageupload/css/html5imageupload.css') }}" type="text/css" />
+<style>
+    .dropzone:after{
+        content: '';
+
+    }
+    .dropzone{
+        background: #bbb url("{{ url('assets/img/camera.png') }}") no-repeat center;
+        background-size: 75px;
+
+    }
+</style>
+
+<script>
+    var review_image_init = false;
+    $( "#review-image-modal" ).on('shown.bs.modal', function(){
+        if(!review_image_init){
+            $('#review-image-input').html5imageupload({
+                width: '100%',
+                height: 'auto'
+            });
+            review_image_init = true;
+        }
+    });
+</script>
 
 <script>
     $(function(){

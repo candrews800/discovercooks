@@ -38,6 +38,36 @@
     #single-recipe .lower-menu #ingredients ol, #single-recipe .lower-menu #directions ol {
       list-style: outside decimal; }
 
+#main-image-show-reviews {
+  cursor: pointer;
+  position: relative;
+  display: block; }
+  #main-image-show-reviews span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    text-transform: uppercase; }
+
+#review-image-view-modal h5 {
+  margin-left: 60px;
+  margin-right: 60px; }
+  #review-image-view-modal h5 small {
+    font-size: inherit; }
+#review-image-view-modal .modal-body {
+  padding-top: 15px; }
+
+#recipe-photos {
+  padding-left: 60px;
+  padding-right: 60px; }
+  #recipe-photos .recipe-photo-single {
+    margin-bottom: 10px; }
+
+.recipe-review span.ratings {
+  margin-top: 10px; }
+
 #reviews {
   padding-top: 60px;
   padding-bottom: 60px; }
@@ -104,7 +134,10 @@
     #reviews #rate-this-recipe #recipe-rating img {
       margin-right: 3px;
       height: 20px;
-      width: 20px; }
+      width: 20px;
+      cursor: pointer; }
+  #reviews #rate-this-recipe #review-image-btn {
+    margin-bottom: 5px; }
   #reviews #rate-this-recipe #submit-review {
     float: right; }
 

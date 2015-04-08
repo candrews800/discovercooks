@@ -157,9 +157,9 @@ class ViewHelper
         return $output;
     }
 
-    public static function getRecipeImage($food_image){
+    public static function getRecipeImage($food_image, $directory = 'recipe_images'){
         if($food_image){
-            return 'recipe_images/'.$food_image;
+            return $directory.'/'.$food_image;
         }
         else{
             return 'assets/img/recipe-image.png';

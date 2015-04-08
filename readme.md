@@ -8,11 +8,9 @@
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
-    1. Review Image
-    2. Image + Reviews Modal
-    3. Compress Images (Imagick?)
-    4. Add Social Media Links
-    5. Blog + Comments
+    1. Compress Images (Imagick?)
+    2. Add Social Media Links
+    3. Blog + Comments
 
 ****************************************************************************************
 **  STYLE TO DO LIST

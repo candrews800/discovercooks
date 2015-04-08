@@ -27,6 +27,15 @@
                         <p class="text-center"><strong>{{ $featured_recipe->caption_text }}</strong> <a class="btn btn-success btn-sm" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a></p>
                     </div>
                 </div>
+            @elseif($featured_recipe->caption_style==2)
+                <div class="slider-item">
+                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+
+                    <div class="caption-style-2">
+                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong>{{ $featured_recipe->name }}</strong></a></h1>
+                        <a class="btn btn-success" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a>
+                    </div>
+                </div>
             @endif
         @endforeach
     </div>

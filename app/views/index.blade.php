@@ -32,7 +32,7 @@
                     <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
                     <div class="caption-style-2">
-                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong>{{ $featured_recipe->name }}</strong></a></h1>
+                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
                         <a class="btn btn-success" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a>
                     </div>
                 </div>

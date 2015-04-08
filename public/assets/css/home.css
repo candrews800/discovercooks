@@ -73,6 +73,8 @@
     margin: 0 0 12px 0px;
     text-transform: uppercase;
     width: 50%; }
+    .caption-style-2 h1:first-line {
+      font-weight: bold; }
     .caption-style-2 h1 a {
       color: white; }
       .caption-style-2 h1 a:hover {

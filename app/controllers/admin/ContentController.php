@@ -30,6 +30,8 @@ class ContentController extends \BaseController {
         foreach($featured_recipes as $key=>$recipe){
             $key = 'featured_'.($key+1);
             $recipe->recipe_id = $input[$key];
+            $recipe->caption_style = $input[$key.'_caption_style'];
+            $recipe->caption_text = $input[$key.'_caption_text'];
             $recipe->save();
         }
 

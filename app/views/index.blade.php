@@ -6,16 +6,28 @@
 @if(!$featured_recipes->isEmpty())
     <div id="main-slider">
         @foreach($featured_recipes as $key => $featured_recipe)
-            <div class="slider-item">
-                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+            @if($featured_recipe->caption_style==0)
+                <div class="slider-item">
+                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
-                <div class="carousel-caption">
-                    <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
-                    <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
+                    <div class="carousel-caption">
+                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
+                        <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
 
-                    <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                        <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                    </div>
                 </div>
-            </div>
+            @elseif($featured_recipe->caption_style==1)
+                <div class="slider-item">
+                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+
+                    <div class="caption-style-1">
+                        <h1 class="text-center"><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong><em>{{ $featured_recipe->name }}</em></strong></a></h1>
+                        <div class="divider"></div>
+                        <p class="text-center"><strong>{{ $featured_recipe->caption_text }}</strong> <a class="btn btn-success btn-sm" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a></p>
+                    </div>
+                </div>
+            @endif
         @endforeach
     </div>
 @endif

@@ -52,7 +52,7 @@
                     <a href="{{ url('forum/post/'.$post->id) }}" class="list-group-item">
                         <div class="row">
                             <div class="col-xs-5">
-                                <h3 class="list-group-item-heading">
+                                <h4 class="list-group-item-heading">
                                     <span class="text-success">
                                         {{ $post->title }}
                                         @if($post->sticky)
@@ -62,7 +62,7 @@
                                             <small><i class="glyphicon glyphicon-lock"></i></small>
                                         @endif
                                     </span>
-                                </h3>
+                                </h4>
                             </div>
                             <div class="col-xs-2">
                                 <h5 class="list-group-item-heading">{{ $post->author->username }}</h5>

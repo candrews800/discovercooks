@@ -195,7 +195,7 @@ class RecipeController extends BaseController {
         $review_distribution[4] = Review::where('recipe_id', '=', $recipe->id)->where('rating', '=', '4')->count() / $review_distribution['total'] * 100;
         $review_distribution[5] = Review::where('recipe_id', '=', $recipe->id)->where('rating', '=', '5')->count() / $review_distribution['total'] * 100;
 
-        $reviews_with_pictures = Review::where('image', '<>', '')->get();
+        $reviews_with_pictures = Review::where('image', '<>', '')->where('recipe_id', '=', $review->recipe_id)->get();
         foreach($reviews_with_pictures as $review){
             $review->user = User::find($review->reviewer_id);
         }

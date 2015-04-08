@@ -68,13 +68,17 @@
                         <div class="row">
                             <div class="recipe-info">
                                 <div class="col-xs-12 col-md-7 col-lg-8">
-                                    @if($reviews_with_pictures->isEmpty())
+                                    @if(!isset($reviews_with_pictures))
                                         <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
                                     @else
+                                        @if(sizeof($reviews_with_pictures) > 0)
                                         <a id="main-image-show-reviews" data-toggle="modal" data-target="#review-image-view-modal">
                                             <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
                                             <span><i class="glyphicon glyphicon-camera"></i> {{ sizeof($reviews_with_pictures) }} Photos</span>
                                         </a>
+                                        @else
+                                            <img id="main-image" class="img-responsive" src="{{ url(ViewHelper::getRecipeImage($recipe->image)) }}" />
+                                        @endif
                                         <!-- Review Image Modal -->
                                         <div class="modal" id="review-image-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">

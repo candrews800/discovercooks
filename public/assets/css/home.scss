@@ -73,6 +73,7 @@
     font-size: 40px;
     margin: 0 0 12px 0;
     text-transform: uppercase;
+    pointer-events: none;
 
     a{
       color: white;
@@ -100,6 +101,7 @@
   padding-left: 40px;
 
   h1{
+    pointer-events: none;
     font-size: 50px;
     margin: 0 0 12px 0px;
     text-transform: uppercase;
@@ -125,6 +127,7 @@
   padding-left: 40px;
 
   h1{
+    pointer-events: none;
     font-size: 50px;
     margin: 0 0 5px 0px;
     text-transform: uppercase;

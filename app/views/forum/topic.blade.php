@@ -64,7 +64,6 @@
                                         @endif
                                     </strong>
                                 </h4>
-                                <p class="list-group-item-text text-muted"><small>{{ substr(strip_tags($post->text), 0, 150) }}..</small></p>
                             </div>
                             <div class="col-xs-2">
                                 <h5 class="list-group-item-heading">{{ $post->author->username }}</h5>
@@ -77,13 +76,13 @@
                             </div>
                             <div class="col-xs-2">
                                 @if($post->activity)
-                                    <h5 class="list-group-item-heading text-right"><span class="text-info">{{ $post->activity->author->username }}</h5>
+                                    <h5 class="list-group-item-heading text-right"><span class="text-info">{{ $post->activity->author->username }}</span></h5>
                                 @else
-                                    <h5 class="list-group-item-heading text-right">{{ $post->author->username }}</h5>
+                                    <h5 class="list-group-item-heading text-right"><span class="text-info">{{ $post->author->username }}</span></h5>
                                 @endif
                             </div>
                             <div class="col-xs-1">
-                                <h5 class="list-group-item-heading text-left"><span class="text-info">{{ $post->lastActivity() }}</h5>
+                                <h5 class="list-group-item-heading text-left"><span class="text-info">{{ $post->lastActivity() }}</span></h5>
                             </div>
                         </div>
                     </a>

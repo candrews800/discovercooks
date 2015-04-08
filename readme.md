@@ -8,12 +8,11 @@
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
-    1. Recipe Multiple Categories
-    2. Review Image
-    3. Add Social Media Links
-    4. Image + Reviews Modal
-    5. Compress Images (Imagick?)
-    6. Blog + Comments
+    1. Review Image
+    2. Add Social Media Links
+    3. Image + Reviews Modal
+    4. Compress Images (Imagick?)
+    5. Blog + Comments
 
 ****************************************************************************************
 **  STYLE TO DO LIST

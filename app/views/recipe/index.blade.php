@@ -19,7 +19,7 @@
                                     <strong>This recipe is private and can only be seen by you.</strong><br />
                                     Note: You can change it's status to public by <a href="{{ url(Request::url().'/edit') }}">editing</a> the recipe.
                                 </div>
-                            @elseif($recipe->reviewed == 0)
+                            @elseif($recipe->reviewed == 0 && $recipe->approved == 0)
                                 <div class="alert alert-warning alert-dismissible" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>This recipe can only be seen by you as it is currently under review.</strong><br />
@@ -232,7 +232,7 @@
                                         <p>{{{ $recipe->note }}}</p>
                                     @endif
                                 </div>
-                                @if(Auth::id() == $recipe->author_id)
+                                @if(!Auth::guest() && Auth::id() == $recipe->author_id)
                                     <div class="col-xs-12">
                                         <a class="btn btn-info btn-block" href="{{ url('recipe/'.$recipe->slug.'/edit') }}">Edit Recipe</a>
                                     </div>

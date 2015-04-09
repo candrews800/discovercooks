@@ -96,13 +96,13 @@
   padding-bottom: 50px; }
 
 #explore-recipes-header {
-  margin-top: 24px; }
+  margin-top: 25px; }
 
 #explore-recipes {
   position: relative;
   background-color: white;
   overflow: hidden;
-  margin: 0 0 35px 0; }
+  margin-bottom: 35px; }
   #explore-recipes .slick-prev,
   #explore-recipes .slick-next {
     height: 25px;

@@ -15,10 +15,9 @@
 **  STYLE TO DO LIST
 ****************************************************************************************
 
-    1. Recipe Categories
-    2. Default Email Template Style
-    3. Welcome Email Style
-    4. Forget / Reset Password Email Style
+    1. Default Email Template Style
+    2. Welcome Email Style
+    3. Forget / Reset Password Email Style
 
 ****************************************************************************************
 **  CONTENT TO DO LIST

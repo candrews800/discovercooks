@@ -53,7 +53,12 @@
                                                 <a class="category" href="{{ url('category/'.$related_category->name) }}">{{{ $related_category->name }}}</a>
                                             @endif
                                         @endforeach
-
+                                    <div class="fb-share-button" data-href="{{ url(Request::url()) }}" data-layout="button_count" style="vertical-align:top;zoom:1;*display:inline"></div>
+                                    <a href="//www.pinterest.com/pin/create/button/?url={{ url(Request::url()) }}&media={{ url(ViewHelper::getRecipeImage($recipe->image)) }}&description={{ $recipe->description }}" data-pin-do="buttonPin" data-pin-config="beside" data-pin-color="white"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_20.png" /></a>
+                                    <!-- Please call pinit.js only once per page -->
+                                    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+                                    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                                     </p>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 hidden-xs">

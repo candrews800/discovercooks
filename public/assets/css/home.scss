@@ -55,7 +55,6 @@
 	}
 
   .featured-author-img{
-    margin-top: -30px;
   }
 }
 
@@ -158,7 +157,7 @@
   position: relative;
   background-color: white;
   overflow: hidden;
-  padding: 3px 10% 35px 10%;
+  margin: 10px 0 35px 0;
 
   .slick-prev,
   .slick-next {
@@ -194,6 +193,8 @@
     color: transparent;
     text-align: center;
     text-decoration: none !important;
+
+   
 
 	img{
       width: auto;

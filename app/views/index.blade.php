@@ -4,67 +4,88 @@
 
 @include('style.layout.header')
 @if(!$featured_recipes->isEmpty())
+    <div class="container-fluid content-top">
+        <div class="row">
+            <div class="col-xs-12 col-md-9">
+                <div id="main-slider">
+                    @foreach($featured_recipes as $key => $featured_recipe)
+                        @if($featured_recipe->caption_style==0)
+                            <div class="slider-item">
+                                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
-    <div id="main-slider">
-        @foreach($featured_recipes as $key => $featured_recipe)
-            @if($featured_recipe->caption_style==0)
-                <div class="slider-item">
-                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
-
-                    <div class="carousel-caption">
-                        <div class="row">
-                            <div class="hidden-xs hidden-sm col-md-2">
-                                <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img img-responsive" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
+                                <div class="carousel-caption">
+                                    <div class="row">
+                                        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+                                            <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img img-responsive" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
+                                        </div>
+                                        <div class="col-xs-12 col-md-10 col-lg-11">
+                                            <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
+                                            <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-md-10">
-                                <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
-                                <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                        @elseif($featured_recipe->caption_style==1)
+                            <div class="slider-item">
+                                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+
+                                <div class="caption-style-1">
+                                    <h1 class="text-center"><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong><em>{{ $featured_recipe->name }}</em></strong></a></h1>
+                                    <div class="divider"></div>
+                                    <p class="text-center"><strong>{{ $featured_recipe->caption_text }}</strong> <a class="btn btn-success btn-sm" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a></p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            @elseif($featured_recipe->caption_style==1)
-                <div class="slider-item">
-                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+                        @elseif($featured_recipe->caption_style==2)
+                            <div class="slider-item">
+                                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
-                    <div class="caption-style-1">
-                        <h1 class="text-center"><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong><em>{{ $featured_recipe->name }}</em></strong></a></h1>
-                        <div class="divider"></div>
-                        <p class="text-center"><strong>{{ $featured_recipe->caption_text }}</strong> <a class="btn btn-success btn-sm" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a></p>
-                    </div>
-                </div>
-            @elseif($featured_recipe->caption_style==2)
-                <div class="slider-item">
-                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
+                                <div class="caption-style-2">
+                                    <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong>{{ $featured_recipe->name }}</strong></a></h1>
+                                    <a class="btn btn-success" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a>
+                                </div>
+                            </div>
+                        @elseif($featured_recipe->caption_style==3)
+                            <div class="slider-item">
+                                <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
-                    <div class="caption-style-2">
-                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong>{{ $featured_recipe->name }}</strong></a></h1>
-                        <a class="btn btn-success" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a>
-                    </div>
+                                <div class="caption-style-3">
+                                    <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong>{{ $featured_recipe->name }}</strong></a></h1>
+                                    <a class="btn btn-success" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
-            @elseif($featured_recipe->caption_style==3)
-                <div class="slider-item">
-                    <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
-
-                    <div class="caption-style-3">
-                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}"><strong>{{ $featured_recipe->name }}</strong></a></h1>
-                        <a class="btn btn-success" href="{{ url('recipe/'.$featured_recipe->slug) }}">View Recipe</a>
-                    </div>
-                </div>
-            @endif
-        @endforeach
+            </div>
+            <div class="hidden-xs hidden-sm col-md-3">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Responsive -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4150481864914949"
+                     data-ad-slot="4304871710"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
     </div>
 @endif
 
-<div id="explore-recipes">
-    @foreach($categories as $key=>$category)
-        <div class="secondary-slider clearfix">
-            <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
-                <img src="{{ url('category_images/'.$category->image) }}" />
-            </a>
-            <p class="text-center"><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></p>
+<div class="container-fluid">
+    <div class="row">
+        <div id="explore-recipes" class="col-xs-12">
+            @foreach($categories as $key=>$category)
+                <div class="secondary-slider clearfix">
+                    <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
+                        <img src="{{ url('category_images/'.$category->image) }}" />
+                    </a>
+                    <p class="text-center"><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></p>
+                </div>
+            @endforeach
         </div>
-    @endforeach
+    </div>
 </div>
 
 <div class="ribbon green-ribbon ribbon-content col-xs-12">
@@ -160,7 +181,7 @@
     $(document).ready(function(){
         $('#main-slider').slick({
             centerMode: true,
-            centerPadding: '30%',
+            centerPadding: '0%',
             slidesToShow: 1,
             autoplay: true,
             autoplaySpeed: 5000,
@@ -170,7 +191,7 @@
                     breakpoint: 1200,
                     settings: {
                         centerMode: true,
-                        centerPadding: '15%',
+                        centerPadding: '0%',
                         slidesToShow: 1,
                         infinite: true,
                         arrows: false,
@@ -182,7 +203,7 @@
                     breakpoint: 992,
                     settings: {
                         centerMode: true,
-                        centerPadding: '15px',
+                        centerPadding: '0',
                         slidesToShow: 1,
                         arrows: false,
                         autoplay: true,
@@ -224,5 +245,6 @@
                 }
             ]
         });
+
     });
 </script>

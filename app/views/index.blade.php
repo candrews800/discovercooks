@@ -78,16 +78,19 @@
         <div class="col-xs-12">
             <h4 id="explore-recipes-header">Explore Recipes</h4>
         </div>
-        <div id="explore-recipes" class="col-xs-12">
-            @foreach($categories as $key=>$category)
-                <div class="secondary-slider clearfix">
-                    <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
-                        <img src="{{ url('category_images/'.$category->image) }}" />
-                    </a>
-                    <p class="text-center"><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></p>
-                </div>
-            @endforeach
+        <div class="col-xs-12">
+            <div id="explore-recipes">
+                @foreach($categories as $key=>$category)
+                    <div class="secondary-slider clearfix">
+                        <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
+                            <img src="{{ url('category_images/'.$category->image) }}" />
+                        </a>
+                        <p class="text-center"><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></p>
+                    </div>
+                @endforeach
+            </div>
         </div>
+
     </div>
 </div>
 

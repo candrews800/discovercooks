@@ -62,7 +62,7 @@
             <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
                 <img src="{{ url('category_images/'.$category->image) }}" />
             </a>
-            <p class="text-center"><strong><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></strong></p>
+            <p class="text-center"><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></p>
         </div>
     @endforeach
 </div>

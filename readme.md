@@ -2,23 +2,20 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1. Homepage banners, can't click through header
+    1.
 
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
-    1. Compress Images (Imagick?)
-    2. Add Social Media Links
-    3. Blog + Comments
+    1. Add Social Media Links
+    2. Blog + Comments
 
 ****************************************************************************************
 **  STYLE TO DO LIST
 ****************************************************************************************
 
-    1. Redesign
-        a. Home Page
-            i. Style of Banner Typography different for each banner
+    1. Recipe Categories
     2. Default Email Template Style
     3. Welcome Email Style
     4. Forget / Reset Password Email Style
@@ -49,7 +46,10 @@
         Actions earn tickets based on how valuable they are
         earn by tickets earned / total tickets
         Overall Stats + Weekly Tickets
-    2. Blog Style Recipe Submission
+    2. Compress Images (ImageMagick PHP)
+    3. Blog Style Recipe Submission
+    4. Site Map
+    5. Recipe Meta Tags
 
 ****************************************************************************************
 **  FUTURE TO DO LIST

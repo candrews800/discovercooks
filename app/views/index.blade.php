@@ -61,8 +61,8 @@
         <div class="secondary-slider clearfix">
             <a class="recipe-category" href="{{ url('category/'.$category->name) }}">
                 <img src="{{ url('category_images/'.$category->image) }}" />
-                <span>{{ $category->name }}</span>
             </a>
+            <p class="text-center"><strong><a href="{{ url('category/'.$category->name) }}">{{ $category->name }}</a></strong></p>
         </div>
     @endforeach
 </div>

@@ -30,8 +30,6 @@
     line-height: 30px; }
   .carousel-caption h1 a {
     color: white; }
-    .carousel-caption h1 a:hover {
-      text-decoration: none; }
   .carousel-caption .author {
     color: #999; }
     .carousel-caption .author a {
@@ -108,7 +106,7 @@
 
 #explore-recipes {
   position: relative;
-  background-color: black;
+  background-color: white;
   overflow: hidden;
   padding: 3px 10% 35px 10%; }
   #explore-recipes .slick-prev,
@@ -140,14 +138,6 @@
     max-height: 175px;
     position: absolute;
     margin-top: -15px; }
-  .recipe-category span {
-    display: block;
-    margin-top: 25%; }
-  .recipe-category:hover {
-    background-color: black;
-    color: white; }
-    .recipe-category:hover img {
-      display: none; }
 
 @media (max-width: 1200px) {
   #explore-recipes {

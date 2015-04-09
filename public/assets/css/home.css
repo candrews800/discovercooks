@@ -116,13 +116,15 @@
     right: 145px; }
 
 .secondary-slider {
-  width: auto; }
+  width: auto;
+  margin-right: 8px; }
+  .secondary-slider:last-child {
+    margin-right: 0; }
 
 .recipe-category {
   position: relative;
   display: block;
   height: 130px;
-  margin-right: 8px;
   overflow: hidden;
   color: transparent;
   text-align: center;

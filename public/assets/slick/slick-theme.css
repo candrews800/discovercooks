@@ -51,7 +51,7 @@
   -moz-osx-font-smoothing: grayscale; }
 
 .slick-prev {
-  left: 400px; }
+  left: 25px; }
   [dir="rtl"] .slick-prev {
     left: auto;
     right: -25px; }
@@ -61,7 +61,7 @@
       content: "→"; }
 
 .slick-next {
-  right: 420px; }
+  right: 25px; }
   [dir="rtl"] .slick-next {
     left: -25px;
     right: auto; }

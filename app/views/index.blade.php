@@ -75,6 +75,9 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-xs-12">
+            <h4 id="explore-recipes-header">Explore Recipes</h4>
+        </div>
         <div id="explore-recipes" class="col-xs-12">
             @foreach($categories as $key=>$category)
                 <div class="secondary-slider clearfix">

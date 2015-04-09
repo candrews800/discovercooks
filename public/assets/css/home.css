@@ -5,17 +5,10 @@
   background-color: black; }
 
 .slider-item {
-  pointer-events: none;
-  opacity: 0.2;
-  position: relative;
-  background-color: black; }
-  .slider-item.slick-center {
-    pointer-events: auto;
-    opacity: 1.0; }
+  position: relative; }
   .slider-item .featured-recipe-img {
     height: auto;
-    width: 100%;
-    max-height: 500px; }
+    width: 100%; }
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.6);
@@ -102,11 +95,14 @@
   padding-top: 65px;
   padding-bottom: 50px; }
 
+#explore-recipes-header {
+  margin-top: 24px; }
+
 #explore-recipes {
   position: relative;
   background-color: white;
   overflow: hidden;
-  margin: 10px 0 35px 0; }
+  margin: 0 0 35px 0; }
   #explore-recipes .slick-prev,
   #explore-recipes .slick-next {
     height: 25px;
@@ -126,7 +122,7 @@
   position: relative;
   display: block;
   height: 130px;
-  padding: 8px;
+  margin-right: 8px;
   overflow: hidden;
   color: transparent;
   text-align: center;

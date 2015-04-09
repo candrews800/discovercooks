@@ -3,17 +3,6 @@
 // Featured Recipes
 //
 
-.featured-author-img{
-  height: 100px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  position: absolute;
-  top: -90px;
-}
-
 #carousel-home{
   position: relative;
 }
@@ -45,15 +34,20 @@
   	width: 100%;
   	left: 0;
   	bottom: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px;
+    text-align: left;
 
     h1{
       margin: 0;
+      font-size: 28px;
+      line-height: 30px;
     }
 
     h1 a{
       color: white;
+      &:hover{
+        text-decoration: none;
+      }
     }
 
   	.author{
@@ -62,6 +56,10 @@
 		  color: $offset-color;
 		}
 	}
+
+  .featured-author-img{
+    margin-top: -30px;
+  }
 }
 
 .caption-style-1{

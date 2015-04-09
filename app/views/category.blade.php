@@ -113,8 +113,10 @@
 @include('style.layout.footer')
 <script>
     $(function(){
-        var msnry = $('#search-results .row').masonry({
-            itemSelector: '.masonry-item'
+        $('#search-results .row').imagesLoaded(function(){
+            $('#search-results .row').masonry({
+                itemSelector: '.masonry-item'
+            });
         });
     });
 

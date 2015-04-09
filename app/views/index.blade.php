@@ -4,6 +4,7 @@
 
 @include('style.layout.header')
 @if(!$featured_recipes->isEmpty())
+
     <div id="main-slider">
         @foreach($featured_recipes as $key => $featured_recipe)
             @if($featured_recipe->caption_style==0)
@@ -11,10 +12,15 @@
                     <a href="{{ url('recipe/'.$featured_recipe->slug) }}"><img class="featured-recipe-img" src="{{ url(ViewHelper::getRecipeImage($featured_recipe->image)) }}" alt="Picture of {{ $featured_recipe->name }}"></a>
 
                     <div class="carousel-caption">
-                        <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
-                        <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
-
-                        <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                        <div class="row">
+                            <div class="hidden-xs hidden-sm col-md-2">
+                                <a href="{{ url('profile/'.$featured_recipe->author->username) }}"><img class="featured-author-img img-responsive" src="{{ url(ViewHelper::getUserImage($featured_recipe->author->image)) }}" /></a>
+                            </div>
+                            <div class="col-xs-12 col-md-10">
+                                <h1><a href="{{ url('recipe/'.$featured_recipe->slug) }}">{{ $featured_recipe->name }}</a></h1>
+                                <p class="author">by <a href="{{ url('profile/'.$featured_recipe->author->username) }}">{{ $featured_recipe->author->username }}</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @elseif($featured_recipe->caption_style==1)
@@ -94,10 +100,8 @@
             <div class="col-xs-12 text-center">
                 <button id="load-more-recipes" class="btn btn-lg btn-info">Load More Recipes</button>
             </div>
-
         </div>
     </div>
-
 </div>
 @include('style.layout.footer')
 <script type="text/javascript" src="{{ url('assets/touchSwipe/jquery.touchSwipe.min.js') }}"></script>
@@ -108,7 +112,6 @@
             $('#search-results .row').masonry({
                 itemSelector: '.masonry-item'
             });
-            console.log('images loaded')
         });
     });
 

@@ -8,8 +8,9 @@
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
-    1. Add Social Media Links
-    2. Blog + Comments
+    1. Blog + Comments
+    2. Forums UL and LI functionality
+    3. Forums Links for Admins
 
 ****************************************************************************************
 **  STYLE TO DO LIST
@@ -23,14 +24,12 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    1. Forum Guidelines
+    1. Create links to social
 
 ****************************************************************************************
 **  MARKETING TO DO LIST
 ****************************************************************************************
 
-    1. Facebook Creation
-    2. Twitter Creation
     3. Pinterest Creation
     4. Guidelines for Social Media Marketing
     5. Compile list of bloggers
@@ -49,6 +48,7 @@
     3. Blog Style Recipe Submission
     4. Site Map
     5. Recipe Meta Tags
+    6. Forum Search Feature
 
 ****************************************************************************************
 **  FUTURE TO DO LIST

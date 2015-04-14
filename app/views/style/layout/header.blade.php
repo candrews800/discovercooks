@@ -8,6 +8,8 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ url('favicon.ico') }}">
 
+    <meta name="p:domain_verify" content="6579838c77d78910994676d353131416"/>
+
     @if(isset($description))
         <meta name="description" content="{{ $description }}">
     @else

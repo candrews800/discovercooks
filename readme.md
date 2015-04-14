@@ -30,9 +30,7 @@
 **  MARKETING TO DO LIST
 ****************************************************************************************
 
-    3. Pinterest Creation
-    4. Guidelines for Social Media Marketing
-    5. Compile list of bloggers
+    1. Compile list of bloggers
 
 ****************************************************************************************
 **  SHORT TERM TO DO LIST

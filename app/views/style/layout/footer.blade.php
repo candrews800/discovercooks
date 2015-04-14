@@ -19,9 +19,9 @@
                 <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">
                     <h5>CONNECT</h5>
                     <ul>
-                        <li><a href="#"><small>FACEBOOK</small></a></li>
-                        <li><a href="#"><small>TWITTER</small></a></li>
-                        <li><a href="#"><small>PINTEREST</small></a></li>
+                        <li><a href="https://www.facebook.com/discovercooks"><small>FACEBOOK</small></a></li>
+                        <li><a href="https://twitter.com/DiscoverCook"><small>TWITTER</small></a></li>
+                        <li><a href="https://www.pinterest.com/discovercooks/"><small>PINTEREST</small></a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-lg-2 text-center-xs text-center-sm text-center-md">

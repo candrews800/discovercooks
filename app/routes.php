@@ -175,6 +175,16 @@ Route::group(array('prefix' => 'admin'), function(){
         Route::post('contact', array('uses' => 'admin\ContentController@updateContact'));
     });
 
+    Route::group(array('prefix' => 'blog'), function(){
+        Route::get('create', array('uses' => 'admin\BlogController@showCreate'));
+        Route::post('create', array('uses' => 'admin\BlogController@create'));
+
+        Route::get('post/{blog_id}', array('uses' => 'admin\BlogController@showPost'));
+        Route::post('post/{blog_id}', array('uses' => 'admin\BlogController@editPost'));
+
+        Route::get('/', array('uses' => 'admin\BlogController@home'));
+    });
+
     Route::group(array('prefix' => 'recipes'), function(){
         Route::get('/', array('uses' => 'admin\RecipeController@index'));
 

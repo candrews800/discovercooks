@@ -57,17 +57,19 @@
                     @endforeach
                 </div>
             </div>
-            <div class="hidden-xs hidden-sm col-md-3" style="max-height: 403px;">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Responsive -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4150481864914949"
-                     data-ad-slot="4304871710"
-                     data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+            <div class="col-xs-12 col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">FROM THE BLOG</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul id="latest-posts">
+                            @foreach($blog_posts as $post)
+                            <li><a href="{{ url('blog/post/'.$post->id) }}">{{ $post->title }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -105,7 +107,7 @@
             <div id="search-results" class="col-xs-12">
                 <div class="row">
                     @foreach($recipes as $key=>$recipe)
-                        @if($key == 6 || $key== 12)
+                        @if($key == 6 || $key== 12 || $key == 18)
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                 <!-- Responsive -->

@@ -84,6 +84,19 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-book fa-fw"></i> Blog<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ url('admin/blog/create') }}">Create New</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/blog/') }}">Manage</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li>
                         <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

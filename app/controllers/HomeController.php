@@ -46,11 +46,14 @@ class HomeController extends BaseController {
             }
         }
 
+        $blog_posts = BlogPost::orderBy('id', 'desc')->take(5)->get();
+
         return View::make('index')->with(array(
             'featured_recipes' => $featured_recipes,
             'categories' => $categories,
             'recipes' => $recipes,
-            'total_recipes' => $total_recipes
+            'total_recipes' => $total_recipes,
+            'blog_posts' => $blog_posts
         ));
     }
 

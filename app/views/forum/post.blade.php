@@ -35,9 +35,9 @@
         </div>
     </div>
     <div class="col-xs-12">
-        <ul class="list-group">
+        <div class="list-group">
             @if(!Input::get('page') || Input::get('page') < 2)
-                <li class="list-group-item clearfix">
+                <div class="list-group-item clearfix">
                     <div class="row">
                         <div class="col-xs-3">
                             <div class="row">
@@ -94,11 +94,11 @@
                         </div>
                     </div>
 
-                </li>
+                </div>
             @endif
             @if(!$replys->isEmpty())
                 @foreach($replys as $reply)
-                    <li class="list-group-item clearfix">
+                    <div class="list-group-item clearfix">
                         <div class="row">
                             <div class="col-xs-3">
                                 <div class="row">
@@ -143,10 +143,10 @@
                                 @endif
                             </div>
                         </div>
-                    </li>
+                    </div>
                 @endforeach
             @endif
-        </ul>
+        </div>
     </div>
     <div class="col-xs-12 text-right">
         {{ $replys->links() }}

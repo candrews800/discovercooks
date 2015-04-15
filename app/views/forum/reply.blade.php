@@ -33,6 +33,8 @@
                                 <a id="reply-bold" href="#" class="btn btn-primary"><strong>B</strong></a>
                                 <a id="reply-italic" href="#" class="btn btn-primary"><em>I</em></a>
                                 <a id="reply-underline" href="#" class="btn btn-primary"><u>U</u></a>
+                                <a id="reply-list" href="#" class="btn btn-primary">ul</a>
+                                <a id="reply-list-item" href="#" class="btn btn-primary">li</a>
                             </p>
                         </div>
                         <div class="col-xs-3">

@@ -2,15 +2,48 @@
 **  BUG LIST
 ****************************************************************************************
 
-    1.
-
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
 
     1. Blog + Comments
+        a. Create Blog Table
+            i. id
+            ii. title
+            iii. author_id
+            iv. text
+            v. locked
+        b. Create Comments Table
+            i. id
+            ii. author_id
+            iii. blog_id
+            iv. text
+            v. approved
+        c. Create Admin
+            i. Create Sidebar
+                a. Create Post
+                b. Manage Posts
+            ii. Create Post
+                a. Title
+                b. Text
+            iii. Manage Posts
+                a. List Posts
+                b. Edit Posts
+        d. Create Frontend
+            i. Header Link
+            ii. Blog Homepage
+                1. List 5 Recent Posts
+                2. Links to Posts
+                3. Pagination
+            iii. Single Blog Post
+                1. List Post
+                2. List Comments
+                3. Add Comment
+                4. Delete Comment by Admin
+            iv. Latest Posts Sidebar
+            v. Monthly Archive Sidebar
+        e. Latest Posts on Homepage
     2. Forums UL and LI functionality
-    3. Forums Links for Admins
 
 ****************************************************************************************
 **  STYLE TO DO LIST
@@ -23,8 +56,6 @@
 ****************************************************************************************
 **  CONTENT TO DO LIST
 ****************************************************************************************
-
-    1. Create links to social
 
 ****************************************************************************************
 **  MARKETING TO DO LIST

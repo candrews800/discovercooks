@@ -186,6 +186,10 @@ function convertToPreview(){
     replyContent = replyContent.replace(/\[\/i\]/g,'</em>');
     replyContent = replyContent.replace(/\[u\]/g,'<u>');
     replyContent = replyContent.replace(/\[\/u\]/g,'</u>');
+    replyContent = replyContent.replace(/\[ul\]/g,'<ul>');
+    replyContent = replyContent.replace(/\[\/ul\]/g,'</ul>')
+    ;replyContent = replyContent.replace(/\[li\]/g,'<li>');
+    replyContent = replyContent.replace(/\[\/li\]/g,'</li>');
     replyContent = replyContent.replace(/\n/g,'<br />');
     $('#preview-reply').html(replyContent);
 
@@ -219,6 +223,16 @@ $('#reply-italic').click(function(event){
 $('#reply-underline').click(function(event){
     event.preventDefault();
     insertElement('u');
+});
+
+$('#reply-list').click(function(event){
+    event.preventDefault();
+    insertElement('ul');
+});
+
+$('#reply-list-item').click(function(event){
+    event.preventDefault();
+    insertElement('li');
 });
 
 function insertElement(element){

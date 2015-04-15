@@ -9,6 +9,10 @@ class ForumHelper
         $text = str_replace('[/em]', '</em>', $text);
         $text = str_replace('[u]', '<u>', $text);
         $text = str_replace('[/u]', '</u>', $text);
+        $text = str_replace('[ul]', '<ul>', $text);
+        $text = str_replace('[/ul]', '</ul>', $text);
+        $text = str_replace('[li]', '<li>', $text);
+        $text = str_replace('[/li]', '</li>', $text);
 
         $well_count = 0;
         do{

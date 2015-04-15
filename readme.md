@@ -43,7 +43,6 @@
             iv. Latest Posts Sidebar
             v. Monthly Archive Sidebar
         e. Latest Posts on Homepage
-    2. Forums UL and LI functionality
 
 ****************************************************************************************
 **  STYLE TO DO LIST

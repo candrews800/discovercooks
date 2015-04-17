@@ -11,6 +11,10 @@
                 {{ Form::text('title', null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group">
+                <label>Slug</label>
+                {{ Form::text('slug', null, array('class' => 'form-control')) }}
+            </div>
+            <div class="form-group">
                 <label>Text</label>
                 {{ Form::textarea('text', null, array('class' => 'form-control')) }}
             </div>

@@ -18,6 +18,14 @@ Route::bind('recipe', function($value)
     }
     App::abort(404);
 });
+Route::bind('blog_post', function($value)
+{
+    if($post = BlogPost::where('slug', $value)->first()){
+        return $post;
+    }
+
+    App::abort(404);
+});
 
 Route::model('topic', 'ForumTopic');
 Route::model('post', 'ForumPost');
@@ -44,6 +52,15 @@ Route::group(array('prefix' => 'search'), function(){
 
     Route::post('{i?}', array('uses' => 'SearchController@redirectSearchResults'));
     Route::post('{i}/user', array('uses' => 'SearchController@redirectUserSearchResults'));
+});
+
+// Blog routes
+Route::group(array('prefix' => 'blog'), function(){
+    Route::get('deleteComment/{comment_id}', array('before'=> 'auth|admin', 'uses' => 'BlogController@deleteComment'));
+    Route::get('{blog_post}', array('uses' => 'BlogController@single', 'after' => 'site_view'));
+    Route::post('{blog_post}', array('before' => 'csrf|auth', 'uses' => 'BlogController@addComment'));
+    Route::get('/archive/year/{year}/month/{month}', array('uses' => 'BlogController@archive', 'after' => 'site_view'));
+    Route::get('/', array('uses' => 'BlogController@index', 'after' => 'site_view'));
 });
 
 // Recipe routes

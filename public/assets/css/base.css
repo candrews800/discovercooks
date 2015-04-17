@@ -423,29 +423,6 @@
       line-height: 1.25;
       clear: both; }
 
-#breadcrumbs {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  height: 30px; }
-  #breadcrumbs .home, #breadcrumbs .parent, #breadcrumbs .self, #breadcrumbs .breadcrumb-divider {
-    float: left;
-    margin-right: 5px;
-    font-size: 16px;
-    color: #174c4f; }
-    #breadcrumbs .home a, #breadcrumbs .parent a, #breadcrumbs .self a, #breadcrumbs .breadcrumb-divider a {
-      color: #207178;
-      text-decoration: underline; }
-  #breadcrumbs .breadcrumb-divider {
-    font-size: 12px;
-    margin-top: 4px;
-    color: #ff9666; }
-  #breadcrumbs.dark-bg .home, #breadcrumbs.dark-bg .parent, #breadcrumbs.dark-bg .self, #breadcrumbs.dark-bg .breadcrumb-divider {
-    color: white; }
-    #breadcrumbs.dark-bg .home a, #breadcrumbs.dark-bg .parent a, #breadcrumbs.dark-bg .self a, #breadcrumbs.dark-bg .breadcrumb-divider a {
-      color: #ff9666; }
-  #breadcrumbs.dark-bg .breadcrumb-divider {
-    color: #207178; }
-
 .none-found {
   width: 100%;
   text-align: center;
@@ -540,13 +517,7 @@
     padding-right: 15px; }
 
   #new-user {
-    margin-top: 15px; }
-
-  #breadcrumbs {
-    margin-bottom: 30px;
-    margin-top: 15px;
-    height: auto;
-    overflow: auto; } }
+    margin-top: 15px; } }
 .ad-sidebar {
   margin-top: 65px; }
 

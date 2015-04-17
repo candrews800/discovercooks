@@ -28,6 +28,7 @@ class BlogController extends \BaseController {
 
         $input = \Input::all();
 
+        $post->slug = $input['slug'];
         $post->title = $input['title'];
         $post->text = $input['text'];
         $post->save();
@@ -47,6 +48,7 @@ class BlogController extends \BaseController {
         $input = \Input::all();
 
         $blog_post = new \BlogPost();
+        $blog_post->slug = $input['slug'];
         $blog_post->title = $input['title'];
         $blog_post->text = $input['text'];
         $blog_post->author_id = \Auth::id();

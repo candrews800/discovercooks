@@ -65,7 +65,7 @@
                     <div class="panel-body">
                         <ul id="latest-posts">
                             @foreach($blog_posts as $post)
-                            <li><a href="{{ url('blog/post/'.$post->id) }}">{{ $post->title }}</a></li>
+                            <li><a href="{{ url('blog/'.$post->slug) }}">{{ $post->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>

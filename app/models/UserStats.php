@@ -20,26 +20,6 @@ class UserStats extends Eloquent{
         return $stats->increment('page_views');
     }
 
-    public static function addHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->increment('review_helpful');
-    }
-
-    public static function removeHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->decrement('review_helpful');
-    }
-
-    public static function addNonHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->increment('review_nonhelpful');
-    }
-
-    public static function removeNonHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->decrement('review_nonhelpful');
-    }
-
     public static function addRecipe($user_id){
         $stats = self::getStats($user_id);
         return $stats->increment('total_recipes');
@@ -48,5 +28,10 @@ class UserStats extends Eloquent{
     public static function addReview($reviewer_id){
         $stats = self::getStats($reviewer_id);
         return $stats->increment('total_reviews');
+    }
+
+    public static function addReviewImage($reviewer_id){
+        $stats = self::getStats($reviewer_id);
+        return $stats->increment('review_with_image');
     }
 }

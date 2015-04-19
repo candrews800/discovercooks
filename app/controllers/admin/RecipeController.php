@@ -172,6 +172,7 @@ class RecipeController extends \BaseController {
         $recipe = \Recipe::find($recipe_id);
         $recipe->reviewed = 1;
         $recipe->approved = 1;
+        Event::fire('recipe_approved', array('user_id' => $recipe->author_id));
         $recipe->save();
         return \Redirect::back();
     }

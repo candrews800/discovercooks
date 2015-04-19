@@ -17,16 +17,16 @@
                 <h3>{{ $overall->total_recipes }}</h3>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-                <h5>Page Views</h5>
-                <h3>{{ $overall->page_views }}</h3>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 text-center">
                 <h5>Reviews</h5>
                 <h3>{{ $overall->total_reviews }}</h3>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-                <h5>Net-Helpful</h5>
-                <h3><span class="text-info toggle-popover text-dotted" data-toggle="popover" title="Review Helpfulness" data-content="Helpful: {{ $overall->review_helpful }} Non-Helpful: {{$overall->review_nonhelpful }}">{{ $overall->review_helpful - $overall->review_nonhelpful }}</span></h3>
+                <h5>Review Images</h5>
+                <h3>{{ $overall->review_with_image }}</h3>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+                <h5>Page Views</h5>
+                <h3>{{ $overall->page_views }}</h3>
             </div>
         </div>
     </div>
@@ -38,16 +38,16 @@
                 <h3>{{ $weekly->total_recipes }}</h3>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-                <h5>Page Views</h5>
-                <h3>{{ $weekly->page_views }}</h3>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 text-center">
                 <h5>Reviews</h5>
                 <h3>{{ $weekly->total_reviews }}</h3>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 text-center">
-                <h5>Net-Helpful</h5>
-                <h3><span class="text-info toggle-popover text-dotted" data-toggle="popover" title="Review Helpfulness" data-content="Helpful: {{ $weekly->review_helpful }} Non-Helpful: {{$weekly->review_nonhelpful }}">{{ $weekly->review_helpful - $weekly->review_nonhelpful }}</span></h3>
+                <h5>Review Images</h5>
+                <h3>{{ $weekly->review_with_image }}</h3>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+                <h5>Page Views</h5>
+                <h3>{{ $weekly->page_views }}</h3>
             </div>
         </div>
     </div>

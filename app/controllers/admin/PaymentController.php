@@ -24,29 +24,23 @@ class PaymentController extends \BaseController {
     public function doCreditAccounts(){
         $input = \Input::all();
         $revenue = $input['revenue'];
-        $page_views = $input['page_views'];
-        $recipe_percent = $input['recipe_percent'];
-        $review_percent = $input['review_percent'];
-
-        $weekly_nethelpful = \WeeklyStats::sum('review_helpful') - \WeeklyStats::sum('review_nonhelpful');
-        if(!$weekly_nethelpful){
-            $weekly_nethelpful = 1;
-        }
 
         $weekly_stats = \WeeklyStats::all();
+        $total_tickets = \WeeklyStats::sum('tickets');
+        $total_page_views = \WeeklyStats::sum('page_views');
         foreach($weekly_stats as $stat){
-            // Credit for Recipe Views
-            $amt = $revenue * ($recipe_percent/100) * ($stat->page_views / $page_views);
+            // Credit for Tickets
+            $amt = $revenue * 0.4 * ($stat->tickets / $total_tickets);
             if($amt > 0){
-                \Transaction::creditUser($stat->user_id, round($amt, 2), 'Recipe Views Credit');
-                \Transaction::debitSite(round($amt, 2), $stat->user_id, 'Recipe Views Credit');
+                \Transaction::creditUser($stat->user_id, round($amt, 2), 'Content Creation Credit');
+                \Transaction::debitSite(round($amt, 2), $stat->user_id, 'Content Creation Credit');
             }
 
-            // Credit for Reviews
-            $amt = $revenue * ($review_percent*100) * (($stat->helpful - $stat->nonhelpful) / $weekly_nethelpful);
+            // Credit for Page Views
+            $amt = $revenue * 0.4 * ($stat->page_views / $total_page_views);
             if($amt > 0){
-                \Transaction::creditUser($stat->user_id, round($amt, 2), 'Helpful Review Credit');
-                \Transaction::debitSite(round($amt, 2), $stat->user_id, 'Helpful Review Credit');
+                \Transaction::creditUser($stat->user_id, round($amt, 2), 'Recipe Performance Credit');
+                \Transaction::debitSite(round($amt, 2), $stat->user_id, 'Recipe Performance Credit');
             }
 
             $stat->archive();

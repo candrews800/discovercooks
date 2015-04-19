@@ -122,8 +122,6 @@ class ProfileController extends BaseController {
 
     public function show(User $user){
 
-        Event::fire('user_view', array('user_id' => $user->id));
-
         $recent_reviews = Recipe::join('reviews', 'recipes.id', '=', 'reviews.recipe_id')->where('recipes.author_id', '=', $user->id)->take(4)->get();
         foreach($recent_reviews as $review){
             $review->reviewer = User::find($review->reviewer_id);
@@ -178,7 +176,6 @@ class ProfileController extends BaseController {
     }
 
     public function showRecipes(User $user){
-        Event::fire('user_view', array('user_id' => $user->id));
         $orderBy = 'overall_rating';
         if(Input::get('sort') == 'new'){
             $orderBy = 'created_at';
@@ -241,7 +238,6 @@ class ProfileController extends BaseController {
     }
 
     public function showReviews(User $user){
-        Event::fire('user_view', array('user_id' => $user->id));
         $recipe_stats['total'] = Recipe::where('author_id', '=', $user->id)->count();
         $review_stats['total'] = Review::where('reviewer_id', '=', $user->id)->count();
         $review_stats['helpful'] = Review::where('reviewer_id', '=', $user->id)->sum('helpful') - Review::where('reviewer_id', '=', $user->id)->sum('non_helpful');

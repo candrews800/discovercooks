@@ -18,6 +18,18 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
+    1. Blog Posts For:
+        a. Introduction to Site
+            i. Goals
+                1. Place to find new recipes
+                2. Place to talk to fellow food lovers
+                3. Find and promote new bloggers
+            ii. Revenue Sharing
+            iii. Forums
+            iv. Future Plans:
+                1. Awards
+                2. Guest Blogging
+
 ****************************************************************************************
 **  MARKETING TO DO LIST
 ****************************************************************************************

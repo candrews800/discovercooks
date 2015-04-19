@@ -25,5 +25,4 @@
             <hr />
         @endif
     @endforeach
-
 @stop

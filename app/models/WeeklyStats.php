@@ -20,34 +20,22 @@ class WeeklyStats extends Eloquent{
         return $stats->increment('page_views');
     }
 
-    public static function addHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->increment('review_helpful');
-    }
-
-    public static function removeHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->decrement('review_helpful');
-    }
-
-    public static function addNonHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->increment('review_nonhelpful');
-    }
-
-    public static function removeNonHelpful($user_id){
-        $stats = self::getStats($user_id);
-        return $stats->decrement('review_nonhelpful');
-    }
-
     public static function addRecipe($user_id){
         $stats = self::getStats($user_id);
+        $stats->increment('tickets', 15);
         return $stats->increment('total_recipes');
     }
 
     public static function addReview($reviewer_id){
         $stats = self::getStats($reviewer_id);
+        $stats->increment('tickets', 1);
         return $stats->increment('total_reviews');
+    }
+
+    public static function addReviewImage($reviewer_id){
+        $stats = self::getStats($reviewer_id);
+        $stats->increment('tickets', 2);
+        return $stats->increment('review_with_image');
     }
 
     public function archive(){
@@ -59,18 +47,19 @@ class WeeklyStats extends Eloquent{
         $archive = new WeeklyStatsArchive();
         $archive->user_id = $this->user_id;
         $archive->page_views = $this->page_views;
-        $archive->review_helpful = $this->review_helpful;
-        $archive->review_nonhelpful = $this->review_nonhelpful;
         $archive->total_recipes = $this->total_recipes;
         $archive->total_reviews = $this->total_reviews;
+        $archive->tickets = $this->tickets;
+        $archive->review_with_image = $this->review_with_image;
         $archive->start = $start_date;
         $archive->end = date('Y-m-d');
         if($archive->save()){
             $this->page_views = 0;
-            $this->review_helpful = 0;
-            $this->review_nonhelpful = 0;
             $this->total_recipes = 0;
             $this->total_reviews = 0;
+            $archive->tickets = 0;
+            $archive->review_with_image = 0;
+
             $this->save();
         }
         return false;

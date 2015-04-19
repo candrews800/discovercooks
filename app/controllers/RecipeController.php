@@ -95,8 +95,6 @@ class RecipeController extends BaseController {
                 $recipe->addSubscriber();
             }
 
-            Event::fire('recipe_created', array('user_id' => $recipe->author_id));
-
             return Redirect::to('recipe/' . $recipe->slug)->with(array('recipe' => $recipe));
         }
     }

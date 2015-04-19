@@ -21,6 +21,9 @@ class Review extends Eloquent{
 
         if (isset($input['review_image_values'])){
             $image_data = Image::getFrom64($input['review_image_values']);
+            if($review->image == ''){
+                Event::fire('review_image_added', array('reviewer_id' => $review->reviewer_id));
+            }
             $review->image = Auth::user()->username . '-' . $review->recipe_id . '.' . $image_data['extension'];
             Image::store64($image_data['data'], $review->image, 'review_images');
         }

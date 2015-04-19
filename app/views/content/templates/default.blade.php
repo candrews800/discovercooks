@@ -10,3 +10,5 @@
 </div>
 
 @include ('style.layout.footer')
+
+@yield('javascript')

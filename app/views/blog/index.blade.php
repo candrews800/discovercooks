@@ -5,9 +5,9 @@
 
     @foreach($recent_posts as $key=>$post)
         <h1><a href="{{ url('blog/'.$post->id) }}">{{ $post->title }}</a></h1>
-        <p>
-            {{ nl2br($post->text) }}
-        </p>
+
+        {{ nl2br($post->text) }}
+
         <p>
             <a href="{{ url('blog/'.$post->id) }}#comment">See Comments</a>
         </p>

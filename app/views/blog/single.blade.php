@@ -13,9 +13,8 @@
 @section('content')
 
     <h1>{{ $post->title }}</h1>
-    <p>
-        {{ nl2br($post->text) }}
-    </p>
+
+    {{ nl2br($post->text) }}
 
     <h3 id="comment">COMMENTS</h3>
     @if($comments->isEmpty())

@@ -16,7 +16,7 @@
 
     <p class="text-muted"><em>Posted by <a href="{{ url('profile/discovercooks') }}">DiscoverCooks</a> on {{ $post->created_at->format('M d, Y') }}</em></p>
 
-    {{ nl2br($post->text) }}
+    {{ $post->text }}
 
     <h3 id="comment">COMMENTS</h3>
     @if($comments->isEmpty())

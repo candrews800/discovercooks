@@ -5,6 +5,7 @@
 
     @foreach($recent_posts as $key=>$post)
         <h1><a href="{{ url('blog/'.$post->id) }}">{{ $post->title }}</a></h1>
+        <p class="text-muted"><em>Posted by <a href="{{ url('profile/discovercooks') }}">DiscoverCooks</a> on {{ $post->created_at->format('M d, Y') }}</em></p>
 
         {{ nl2br($post->text) }}
 

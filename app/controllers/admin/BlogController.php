@@ -23,6 +23,13 @@ class BlogController extends \BaseController {
         ));
     }
 
+    public function deletePost($blog_id){
+        $post = \BlogPost::find($blog_id);
+        $post->delete();
+
+        return \Redirect::back();
+    }
+
     public function editPost($blog_id){
         $post = \BlogPost::find($blog_id);
 

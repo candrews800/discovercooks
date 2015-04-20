@@ -29,6 +29,15 @@
             iv. Future Plans:
                 1. Awards
                 2. Guest Blogging
+        b. First Monthly Blog Awards
+           i. Design
+           ii. Photography
+           iii. Writing
+           iv. Recipe Creativity
+           v. Overall
+        c. Blog Spotlight
+
+    2. Write Email Template
 
 ****************************************************************************************
 **  MARKETING TO DO LIST
@@ -40,17 +49,11 @@
 **  SHORT TERM TO DO LIST
 ****************************************************************************************
 
-    1. Payment Rework
-        Tickets for All
-        80% of revenue into pot
-        Actions earn tickets based on how valuable they are
-        earn by tickets earned / total tickets
-        Overall Stats + Weekly Tickets
-    2. Compress Images (ImageMagick PHP)
-    3. Blog Style Recipe Submission
-    4. Site Map
-    5. Recipe Meta Tags
-    6. Forum Search Feature
+    1. Compress Images (ImageMagick PHP)
+    2. Blog Style Recipe Submission
+    3. Site Map
+    4. Recipe Meta Tags
+    5. Forum Search Feature
 
 ****************************************************************************************
 **  FUTURE TO DO LIST

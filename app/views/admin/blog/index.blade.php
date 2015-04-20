@@ -7,6 +7,7 @@
         @foreach($posts as $post)
             <p>
                 <a href="{{ url('admin/blog/post/'.$post->id) }}">{{ $post->title }}</a>
+                <a href="{{ url('admin/blog/post/'.$post->id.'/delete') }}" class="btn btn-danger">Delete</a>
             </p>
         @endforeach
     </div>

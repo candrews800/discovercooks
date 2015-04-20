@@ -196,6 +196,7 @@ Route::group(array('prefix' => 'admin'), function(){
         Route::get('create', array('uses' => 'admin\BlogController@showCreate'));
         Route::post('create', array('uses' => 'admin\BlogController@create'));
 
+        Route::get('post/{blog_id}/delete', array('uses' => 'admin\BlogController@deletePost'));
         Route::get('post/{blog_id}', array('uses' => 'admin\BlogController@showPost'));
         Route::post('post/{blog_id}', array('uses' => 'admin\BlogController@editPost'));
 

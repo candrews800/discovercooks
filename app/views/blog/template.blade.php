@@ -6,7 +6,7 @@
         <div id="breadcrumbs" class="content-top col-xs-12 col-lg-8 col-lg-offset-2">
             @yield('breadcrumbs', ViewHelper::getNewBreadcrumbs(null, 'Blog'))
         </div>
-        <div class="col-xs-12 col-md-5 col-md-offset-2">
+        <div class="col-xs-12 col-lg-8 col-lg-offset-2">
             @yield('content')
             <p class="text-center">
                 <a href="#breadcrumbs">
@@ -14,7 +14,7 @@
                 </a>
             </p>
         </div>
-        <div class="col-xs-12 col-md-8 col-lg-3 col-lg-offset-1">
+        <div class="col-xs-12 col-lg-3 col-lg-offset-1">
             <h4>RECENT POSTS</h4>
             <ul class="list-unstyled">
                 @foreach($recent_posts as $post)
@@ -22,7 +22,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="col-xs-12 col-md-4 col-lg-3 col-lg-offset-1">
+        <div class="col-xs-12 col-lg-3 col-lg-offset-1">
             <h4>ARCHIVE</h4>
             <ul class="list-unstyled">
                 @foreach($archive as $period)

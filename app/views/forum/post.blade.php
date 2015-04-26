@@ -65,7 +65,7 @@
                             <p class="text-muted">
                                 {{ $post->shortDate() }}
                             </p>
-                            @if(Auth::id() && (!$post->locked || Auth::user()->hasRole('Admin')))
+                            @if(Auth::id() && !$post->locked)
                                 <p>
                                     @if($post->author_id == Auth::id() || Auth::user()->hasRole('Admin'))
                                         <a href="{{ Request::url() }}/edit" class="btn btn-sm btn-success">Edit</a>

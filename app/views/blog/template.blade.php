@@ -3,7 +3,7 @@
 @include ('style.layout.header')
 <div class="container-fluid">
     <div class="row">
-        <div id="breadcrumbs" class="content-top col-xs-12 col-md-8 col-md-offset-2">
+        <div id="breadcrumbs" class="content-top col-xs-12 col-lg-8 col-lg-offset-2">
             @yield('breadcrumbs', ViewHelper::getNewBreadcrumbs(null, 'Blog'))
         </div>
         <div class="col-xs-12 col-md-5 col-md-offset-2">

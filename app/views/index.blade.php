@@ -6,7 +6,7 @@
 @if(!$featured_recipes->isEmpty())
     <div class="container-fluid content-top">
         <div class="row">
-            <div class="col-xs-12 col-md-9">
+            <div class="col-xs-12 col-md-8 col-lg-9">
                 <div id="main-slider">
                     @foreach($featured_recipes as $key => $featured_recipe)
                         @if($featured_recipe->caption_style==0)
@@ -57,7 +57,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-3 visible-lg visible-md">
+            <div class="col-md-4 col-lg-3 visible-lg visible-md">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">FROM THE BLOG</h3>

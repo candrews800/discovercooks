@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6">
-                            <p class="reply-content">{{ nl2br(ForumHelper::convertToHtml(e($post->text))) }}</p>
+                            <div class="reply-content">{{ nl2br(ForumHelper::convertToHtml(e($post->text))) }}</div>
                             @if($post->created_at != $post->updated_at)
                                 <p class="text-muted">
                                     Last edited {{ $post->updated_at->diffForHumans() }}
@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-6">
-                                <p class="reply-content">{{ nl2br(ForumHelper::convertToHtml(e($reply->text))) }}</p>
+                                <div class="reply-content">{{ nl2br(ForumHelper::convertToHtml(e($reply->text))) }}</div>
                                 @if($reply->created_at != $reply->updated_at)
                                     <p class="text-muted">
                                         Last edited {{ $reply->updated_at->diffForHumans() }}

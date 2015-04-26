@@ -127,7 +127,7 @@
                                 <p class="text-muted">
                                     {{ $reply->shortDate() }}
                                 </p>
-                                @if(Auth::id() && (!$post->locked || Auth::user()->hasRole('Admin')))
+                                @if(Auth::id() && !$post->locked)
                                     <p>
                                         @if($reply->author_id == Auth::id() || Auth::user()->hasRole('Admin'))
                                             <a href="{{ url('forum/reply/'.$reply->id) }}" class="btn btn-sm btn-success">Edit</a>

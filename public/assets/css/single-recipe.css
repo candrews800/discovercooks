@@ -141,6 +141,10 @@
   #reviews #rate-this-recipe #submit-review {
     float: right; }
 
+@media (min-width: 1200px) {
+  #single-recipe {
+    padding-left: 30px;
+    padding-right: 30px; } }
 @media (min-width: 992px) and (max-width: 1200px) {
   #rate-this-recipe #recipe-rating img {
     margin-bottom: 15px; }

@@ -2,9 +2,13 @@
 **  BUG LIST
 ****************************************************************************************
 
+    1. Modals are slower to pop up on iPad
+
 ****************************************************************************************
 **  FUNCTIONALITY TO DO LIST
 ****************************************************************************************
+
+    1. No Confirm email should be sent
 
 ****************************************************************************************
 **  STYLE TO DO LIST
@@ -18,32 +22,22 @@
 **  CONTENT TO DO LIST
 ****************************************************************************************
 
-    1. Blog Posts For:
-        a. Introduction to Site
-            i. Goals
-                1. Place to find new recipes
-                2. Place to talk to fellow food lovers
-                3. Find and promote new bloggers
-            ii. Revenue Sharing
-            iii. Forums
-            iv. Future Plans:
-                1. Awards
-                2. Guest Blogging
-        b. First Monthly Blog Awards
-           i. Design
-           ii. Photography
-           iii. Writing
-           iv. Recipe Creativity
-           v. Overall
-        c. Blog Spotlight
-
-    2. Write Email Template
+    1. Proofread Intro Post
+        a. Content
+        b. Typos
+        c. Format
+    2. Proofread Revenue Sharing
+        a. Content
+        b. Typos
+        c. Format
 
 ****************************************************************************************
 **  MARKETING TO DO LIST
 ****************************************************************************************
 
     1. Compile list of bloggers
+    2. Proofread Email
+    3. Send out 20 Emails/Day
 
 ****************************************************************************************
 **  SHORT TERM TO DO LIST

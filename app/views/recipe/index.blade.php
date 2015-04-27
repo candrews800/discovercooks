@@ -4,8 +4,8 @@
 @extends('recipe.templates.default')
 
 @section('content')
-<div id="header-wrap">
-    <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($related_recipes) }}></div>
+<div id="header-wrap" style="background-color: #999">
+    <!--<div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($related_recipes) }}></div>-->
     <div class="container-fluid">
         <div class="row">
             <div id="single-recipe" class="col-xs-12 col-lg-8 col-lg-offset-2">
@@ -204,7 +204,7 @@
                                 </div>
 
 
-                                <div id="ingredients" class="col-xs-12 col-sm-6 text-center">
+                                <div id="ingredients" class="col-xs-12 col-sm-6 text-left">
                                     <h4>Ingredients</h4>
                                     <div class="menu-wrapper">
                                         <ul>

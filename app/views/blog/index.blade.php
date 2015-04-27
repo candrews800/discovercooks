@@ -4,8 +4,8 @@
 @section('content')
 
     @foreach($recent_posts as $key=>$post)
-        <h1><a href="{{ url('blog/'.$post->slug) }}">{{ $post->title }}</a></h1>
-        <p class="text-muted"><em>Posted by <a href="{{ url('profile/discovercooks') }}">DiscoverCooks</a> on {{ $post->created_at->format('M d, Y') }}</em></p>
+        <h1 class="text-center"><a href="{{ url('blog/'.$post->slug) }}">{{ $post->title }}</a></h1>
+        <p class="text-center article-date"><em>Posted by <a href="{{ url('profile/discovercooks') }}">DiscoverCooks</a> on {{ $post->created_at->format('M d, Y') }}</em></p>
 
         {{ $post->text }}
 

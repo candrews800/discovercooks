@@ -12,9 +12,9 @@
 
 @section('content')
 
-    <h1>{{ $post->title }}</h1>
+    <h1 class="text-center">{{ $post->title }}</h1>
 
-    <p class="text-muted"><em>Posted by <a href="{{ url('profile/discovercooks') }}">DiscoverCooks</a> on {{ $post->created_at->format('M d, Y') }}</em></p>
+    <p class="text-center article-date"><em>by <a href="{{ url('profile/discovercooks') }}">DiscoverCooks</a> on {{ $post->created_at->format('M d, Y') }}</em></p>
 
     {{ $post->text }}
 

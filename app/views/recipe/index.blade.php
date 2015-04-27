@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 hidden-xs">
                                     @if($recipe->url)
-                                    <a class="btn btn-info btn-lg" href="{{{ $recipe->url }}}" target="_blank">View post on {{ $author->username }}'s site <i class="glyphicon glyphicon-share"></i></a>
+                                    <a class="btn btn-info btn-lg" href="{{{ $recipe->url }}}" target="_blank">View original post <i class="glyphicon glyphicon-share"></i></a>
                                     @endif
                                 </div>
                             </div>

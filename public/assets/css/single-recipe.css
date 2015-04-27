@@ -152,7 +152,7 @@
     height: 100px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   #single-recipe {
-    padding: 60px 15px; }
+    padding: 0 15px 60px 15px; }
     #single-recipe .recipe-info {
       text-align: center; }
       #single-recipe .recipe-info .info {

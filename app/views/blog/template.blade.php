@@ -14,7 +14,7 @@
                 </a>
             </p>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-4 col-lg-2">
             <h4>RECENT POSTS</h4>
             <ul class="list-unstyled">
                 @foreach($recent_posts as $post)

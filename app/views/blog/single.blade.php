@@ -39,9 +39,9 @@
     @endif
 
     @if(Auth::guest())
-        <h3>You must be logged in to comment.</h3>
+        <h4>You must be logged in to comment.</h4>
     @else
-        <h3>ADD COMMENT</h3>
+        <h4>ADD COMMENT</h4>
         {{ Form::open(array('url' => Request::url())) }}
             {{ Form::textarea('text', null, array('class' => 'form-control', 'rows' => '7', 'required' => 'required')) }}
             {{ Form::submit('Submit', array('class' => 'btn btn-info')) }}

@@ -4,11 +4,11 @@
 @extends('recipe.templates.default')
 
 @section('content')
-<div id="header-wrap" style="background-color: #999">
-    <!--<div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($related_recipes) }}></div>-->
+<div id="header-wrap">
+    <div id="header-wrap-bg" class="clearfix" {{ ViewHelper::tileRecipes($related_recipes) }}></div>
     <div class="container-fluid">
         <div class="row">
-            <div id="single-recipe" class="col-xs-12 col-lg-8 col-lg-offset-2">
+            <div id="single-recipe" class="col-xs-12 col-lg-10 col-lg-offset-1">
                 {{ ViewHelper::getNewBreadcrumbs(array(array('url' => URL::to('profile/'.$author->username), 'text' => $author->username.'\'s Recipes')), $recipe->name) }}
                 <div class="row">
                     <div class="col-xs-12">

@@ -12,14 +12,15 @@
 
 
     <!-- Reset -->
-    <link href="{{ url('assets/css/reset.css') }}" rel="stylesheet" />
+    <!--<link href="{{ url('assets/css/reset.css') }}" rel="stylesheet" />
 
     <!-- Bootstrap -->
-    <link href="{{ url('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!--<link href="{{ url('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Site Specific CSS -->
-    <link href="{{ url('assets/css/base.css') }}" rel="stylesheet" />
-    <link href="{{ url('assets/css/'.$css.'.css') }}" rel="stylesheet" />
+    <!--<link href="{{ url('assets/css/base.css') }}" rel="stylesheet" />-->
+
+    <link href="{{ url('build/style.css') }}" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

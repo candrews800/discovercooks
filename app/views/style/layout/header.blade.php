@@ -20,15 +20,11 @@
         <title>DiscoverCooks</title>
     @endif
 
-    <script src="//use.typekit.net/myp5wyo.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
-
     <!-- Bootstrap core CSS -->
-    <link href="{{ url('style_assets/style.css') }}" rel="stylesheet">
+    <link href="{{ url('build/production.min.css') }}" rel="stylesheet">
 
     @if(isset($css))
-    <link href="{{ url('assets/css/base.css') }}" rel="stylesheet" />
-    <link href="{{ url('assets/css/'.$css.'.css') }}" rel="stylesheet" />
+        <link href="{{ url('assets/css/'.$css.'.css') }}" rel="stylesheet" />
     @endif
 
     <link rel="stylesheet" type="text/css" href="{{ url('assets/slick/slick.css') }}"/>

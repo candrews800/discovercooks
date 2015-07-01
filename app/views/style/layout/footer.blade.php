@@ -85,8 +85,10 @@
 
 <script src="{{ url('assets/Masonry/masonry.js') }}"></script>
 <script src="{{ url('assets/imagesLoaded/imagesLoaded.min.js') }}"></script>
-<script src="{{ url('assets/js/smoothScroll.js') }}" type="text/javascript"></script>
-<script src="{{ url('assets/js/saveFavorite.js') }}" type="text/javascript"></script>
+<script src="{{ url('build/production.min.js') }}" type="text/javascript"></script>
+
+<script src="//use.typekit.net/myp5wyo.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
 
 </body>
 </html>

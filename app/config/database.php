@@ -56,12 +56,23 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'cookbook',
-			'username'  => 'root',
-			'password'  => '',
+			'username'  => 'homestead',
+			'password'  => 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+
+        'mysql-local' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'cookbook',
+            'username'  => 'homestead',
+            'password'  => 'secret',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

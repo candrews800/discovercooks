@@ -2,7 +2,8 @@
   position: relative; }
 
 #main-slider {
-  background-color: black; }
+  background-color: black;
+  max-height: 618px; }
 
 .slider-item {
   position: relative; }
